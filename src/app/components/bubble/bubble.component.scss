@@ -1,0 +1,13 @@
+:host {
+
+  position: relative;
+  text-align: center;
+  color: white;
+
+  .text {
+    position: absolute;
+    top: 50px;
+    left: 120px;
+    transform: translate(-50%, -50%);
+  }
+}
