@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  flex-direction: column;
+  flex: 1;
+
+  .title {
+    margin-bottom: 100px;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex: 0.8;
+
+    .image {
+      flex: 0.5;
+    }
+
+    .about {
+      flex: 0.4;
+      text-align: left;
+    }
+  }
+}
