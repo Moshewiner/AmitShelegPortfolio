@@ -28,6 +28,10 @@
     flex: 1;
   }
 
+  .logo {
+    cursor: pointer;
+  }
+
   .routing {
     display: flex;
     flex-direction: row;
@@ -36,6 +40,8 @@
     .link {
       white-space: nowrap;
       margin: 25px;
+      cursor: pointer;
+      user-select: none;
     }
   }
 }
