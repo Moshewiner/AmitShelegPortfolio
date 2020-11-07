@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+//
+//::selection {
+//  color: rgba(255,255,255,1);
+//}
+
+
+@font-face {
+  font-family: Butler;
+  src: url("/assets/Fonts/Butler/Butler_Regular.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: Butler;
+  src: url("/assets/Fonts/Butler/Butler_Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+
+
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/Fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/Fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/Fonts/Poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: light;
+}
