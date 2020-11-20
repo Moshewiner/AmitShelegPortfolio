@@ -1,48 +1,56 @@
 :host {
   position: fixed;
-  width: 85%;
+  width: 100%;
+  transition: top 0.3s;
 
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
+
 
   height: 70px;
   z-index: 999999;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 
   overflow: hidden;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.05);
 
-  text-align: center;
-  color: black;
-  font-size: 30px;
-
-  .spacer {
-    display: flex;
-    flex: 1;
-  }
-
-  .logo {
-    cursor: pointer;
-  }
-
-  .routing {
+  .inner {
+    width: 85%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex: 2;
-    .link {
-      white-space: nowrap;
-      margin: 25px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+
+    .spacer {
+      display: flex;
+      flex: 1;
+    }
+
+    .logo {
       cursor: pointer;
-      user-select: none;
+      width: 60px;
+      height: 60px;
+    }
+
+    .routing {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex: 2;
+      .link {
+        font-family: Poppins;
+        font-size: 19px;
+        font-weight: 300;
+        white-space: nowrap;
+        margin: 25px;
+        cursor: pointer;
+        user-select: none;
+      }
     }
   }
 }
-
