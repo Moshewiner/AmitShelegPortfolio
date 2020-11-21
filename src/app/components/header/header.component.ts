@@ -18,9 +18,10 @@ export class HeaderComponent implements OnInit {
     window.onscroll = function () {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-  //      console.log({ nav: document.getElementsByClassName("navbar")[0] });
+        //@ts-ignore        
         document.getElementsByClassName("navbar")[0].style.top = "0";
       } else {
+        //@ts-ignore
         document.getElementsByClassName("navbar")[0].style.top = "-70px";
       }
       prevScrollpos = currentScrollPos;

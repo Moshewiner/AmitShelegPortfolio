@@ -12,4 +12,8 @@ export class BeautyZoneComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scroll(e: HTMLElement) {
+    e.scrollIntoView({behavior:'smooth'});
+  }
+
 }

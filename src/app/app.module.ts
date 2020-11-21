@@ -12,6 +12,7 @@ import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 import { AboutComponent } from './pages/home/about/about.component';
 import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
+import { PhonePlayerComponent } from './components/phone-player/phone-player.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { BubbleComponent } from './components/bubble/bubble.component';
     AboutComponent,
     BeautyZoneComponent,
     BubbleComponent,
+    PhonePlayerComponent
   ],
   imports: [
     BrowserModule,
