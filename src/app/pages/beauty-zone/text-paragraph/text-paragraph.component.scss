@@ -1,4 +1,7 @@
 :host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     h4,
     h2 {
         margin: 0;

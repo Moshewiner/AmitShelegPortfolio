@@ -136,19 +136,20 @@
     }
 
     &.introduction {
+
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       flex: 10;
       width: 100%;
-      .inner {
-        app-text-paragraph {
-          width: 50em;
-        }
+      app-text-paragraph {
+        flex: 5;        
+        margin-left: 7.5%;
       }
 
       .picture {
-        flex: 5;
+        width: 50%;
       }
       img {
         object-fit: fit;
