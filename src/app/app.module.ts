@@ -14,6 +14,7 @@ import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
 import { PhonePlayerComponent } from './components/phone-player/phone-player.component';
 import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-paragraph.component';
+import { BreaklinePipe } from './pipes/breakline.pipe';
 
 
 @NgModule({
@@ -27,10 +28,11 @@ import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-
     BeautyZoneComponent,
     BubbleComponent,
     PhonePlayerComponent,
-    TextParagraphComponent
+    TextParagraphComponent,
+    BreaklinePipe
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     NgxParallaxModule
   ],
