@@ -1,0 +1,58 @@
+$fontRootSize: 23px;
+
+h1 {
+    font-family: Butler;
+    font-size: 350%;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0;
+    white-space: nowrap;
+}
+
+h2 {
+    font-family: Poppins;
+    font-size: 2.52rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+h3 {
+    font-family: Poppins;
+    font-size: 1.57rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+h4 {
+    font-family: Poppins;
+    font-size: 1.43rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0rem;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+p,
+div,
+span {
+    font-family: Poppins;
+    font-size: 1em;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+}

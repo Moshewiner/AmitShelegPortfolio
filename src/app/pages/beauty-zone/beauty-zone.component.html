@@ -1,17 +1,28 @@
-<div #main class="screen heading">
-  <div class="bg">
+<div class="screen main">
+  <div class="picture">
     <img src="/assets/beauty-zone/new.png" />
   </div>
-  <div class="headline">
-    <img src="/assets/beauty-zone/headline.svg" />
-  </div>
-  <div class="bottom">
-    <div class="download">
-      <img class="google" src="/assets/beauty-zone/Download - Google Play.png" />
-      <img class="apple" src="/assets/beauty-zone/Download - App Store.png" />
+  <div class="inner">
+    <div class="headline">
+      <div class="up">
+        <h1>Find The Beauty</h1>
+      </div>
+      <div class="bottom">
+        <h1>Within You</h1>
+      </div>
     </div>
-    <div class="scroll" (click)="scroll(about, 'smooth')">
+    <div class="download">
+      <div class="google">
+        <img class="google" src="/assets/beauty-zone/Download - Google Play.png" />
+      </div>
+      <div class="apple">
+        <img class="apple" src="/assets/beauty-zone/Download - App Store.png" />
+      </div>
+    </div>
+    <div class="scroll">
+      <div class="icon" (click)="scroll(about, 'smooth')">
         <img src="/assets/beauty-zone/Scroll Icon.png" />
+      </div>
     </div>
   </div>
 </div>
@@ -22,12 +33,28 @@
   </div>
 
   <div class="info">
-    <h2>Responsibilities: <span class="bold">UX | UI</span></h2>
-    <h2>Platform: <span class="bold">Mobile Application</span></h2>
+    <div>Responsibilities: <span class="bold">UX | UI</span></div>
+    <div>Platform: <span class="bold">Mobile Application</span></div>
   </div>
 
 </div>
 
+<div class="screen introduction">
+  <div class="inner">
+    <app-text-paragraph [headline]="'The Beauty Zone'" [subHeadline]="'Introduction'" [text]="'How many times have you run into a stunning makeup look and wished to know how to do it on your own? Or maybe find out what mascara did she use to get those outstanding lashes?
+
+  Have you spent too much money and hours trying to get the desired look and finally got exhausted and unsatisfied from the result?
+  
+  Meet BeautyZone.'">
+    </app-text-paragraph>
+  </div>
+  <div class='picture'>
+    <img src="/assets/beauty-zone/girl with makeup background@3x.png" />
+  </div>
+</div>
+
+
+<!--
 <div class="screen summary">
   <div class="info">
     <h2 class="headline">
@@ -49,6 +76,29 @@
   </div>
 
 </div>
+
+<div class="screen user-research">
+  <div class="picture">
+    <img src="/assets/beauty-zone/girl with makeup background@2x.png" />
+  </div>
+  <div class="title">
+    <h3>User Research</h3>
+  </div>
+  <div class="heading">
+    <h2>There Is No Social</h2>
+    <h2>Platform For Beauty Lovers</h2>
+  </div>
+  <div class="text">
+    The first part of the project was to conduct interviews with people from the beauty world, both content creator
+    and content consumer. It allowed me to understand their needs and desires in order to identify the pain points
+    they encounter.
+    I learned from the interviews that in order to learn and discover the best products and techniques
+    independently, they mainly use free platform such as Instagram, Pinterest and YouTube. If they wish to level up
+    their makeup skills to become professionals, they have to sign up for paid courses.
+    Sadly, It takes a long way to practice makeup or even just to master makeup as a hobby.
+  </div>
+</div>
+
 <div class="screen research">
   <div class='example'>
     <img src="/assets/beauty-zone/girl with makeup background@2x.png" />
@@ -113,11 +163,8 @@
       </ul>
     </div>
     <div class="content"></div>
-    <!-- <app-phone-player class="phone"></app-phone-player> -->
-  </div>
-</div>
-
-
+ </div>
+</div> 
 <div class="screen colors">
   <div class="inner-page">
     <div class="container">
@@ -196,5 +243,5 @@
       <img (click)="scroll(main)" src="/assets/beauty-zone/top.png" />
     </div>
   </div>
-  
-</div>
+
+</div>  -->

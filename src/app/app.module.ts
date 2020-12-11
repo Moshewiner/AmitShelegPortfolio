@@ -13,6 +13,7 @@ import { AboutComponent } from './pages/home/about/about.component';
 import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
 import { PhonePlayerComponent } from './components/phone-player/phone-player.component';
+import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-paragraph.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PhonePlayerComponent } from './components/phone-player/phone-player.com
     AboutComponent,
     BeautyZoneComponent,
     BubbleComponent,
-    PhonePlayerComponent
+    PhonePlayerComponent,
+    TextParagraphComponent
   ],
   imports: [
     BrowserModule,

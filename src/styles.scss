@@ -1,17 +1,20 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
+  // font-size: 23px;
+  // font-size: calc(0.75em + 1vmin);
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 //
 //::selection {
 //  color: rgba(255,255,255,1);
 //}
-
 
 @font-face {
   font-family: Butler;
@@ -24,9 +27,6 @@ html, body {
   font-weight: bold;
 }
 
-
-
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -35,8 +35,7 @@ html, body {
   width: 20px;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background-color: #7c7c7c;
   border-radius: 20px;
   border: 6px solid transparent;
@@ -46,13 +45,11 @@ html, body {
   background-color: #a8bbbf;
 }
 
-
 @font-face {
   font-family: Poppins;
   src: url("/assets/Fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
 }
-
 
 @font-face {
   font-family: Poppins;
