@@ -12,6 +12,7 @@ export class TextParagraphComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("TextParagraphComponent init!!");
   }
 
 }

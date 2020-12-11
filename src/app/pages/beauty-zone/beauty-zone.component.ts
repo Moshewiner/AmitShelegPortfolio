@@ -21,6 +21,10 @@ export class BeautyZoneComponent implements OnInit {
       independently, they mainly use free platform such as Instagram, Pinterest and YouTube. If they wish to level up
       their makeup skills to become professionals, they have to sign up for paid courses.
       Sadly, It takes a long way to practice makeup or even just to master makeup as a hobby.`,
+      colors: `The color pink, is thought to be a calming color associated with love, kindness, femininity, thoughtful and
+      caring. Thats why I chose it to be my primary color - to empower woman and boost giving and receiving.
+      Black is associated with power, strength, elegance, sophistication, and that is exactly what I want my app to
+      represent.`,
     };
 
   constructor() { }
