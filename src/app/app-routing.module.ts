@@ -4,7 +4,8 @@ import {HomeComponent} from './pages/home/home.component';
 import {BeautyZoneComponent} from './pages/beauty-zone/beauty-zone.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: BeautyZoneComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'beautyzone', component: BeautyZoneComponent},
   { path: 'wisehome', component: BeautyZoneComponent}
 ];

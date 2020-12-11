@@ -25,11 +25,28 @@ export class BeautyZoneComponent implements OnInit {
       caring. Thats why I chose it to be my primary color - to empower woman and boost giving and receiving.
       Black is associated with power, strength, elegance, sophistication, and that is exactly what I want my app to
       represent.`,
+      wireframes: `Once I was satisfied with the architecuture, I started to \n work on the user interface itself. 
+      I started with a low \n fidelty sketch to understand what works and what \n doesn’t work, 
+      and then jumped and created more \n detailed and accurate prototype that can be tested.`,
+      marketResearch: `After understanding the users needs, I made a competitor and market research to see how other products tackled this problem or similar ones. 
+      I have explored many types of apps, from makeup apps to social medias such as instagram and pinterest, explored beauty e-commerce websites and apps with camera search.`,
     };
+
+    public painPoints: {headline: string, text: string}[] = [
+      {
+        headline: 'Get To The Point',
+        text: `Boring and exhausting onboarding process, some irrelevant questions and \n prmission requests before understanding the app value`
+      },
+      {
+        headline: 'Non-social apps',
+        text: 'Beauty apps are not built on socialization. They are focused on personal \n usage and not on creating connections that will benefit all.'
+      }
+
+    ];
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
 

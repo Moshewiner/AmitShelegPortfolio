@@ -15,6 +15,7 @@ import { BubbleComponent } from './components/bubble/bubble.component';
 import { PhonePlayerComponent } from './components/phone-player/phone-player.component';
 import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-paragraph.component';
 import { BreaklinePipe } from './pipes/breakline.pipe';
+import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.component';
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import { BreaklinePipe } from './pipes/breakline.pipe';
     FooterComponent,
     ProductComponent,
     AboutComponent,
+    TextParagraphComponent,
     BeautyZoneComponent,
     BubbleComponent,
     PhonePlayerComponent,
-    TextParagraphComponent,
-    BreaklinePipe
+    BreaklinePipe,
+    PainPointComponent
   ],
   imports: [
     BrowserModule, 
