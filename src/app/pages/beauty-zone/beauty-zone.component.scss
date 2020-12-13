@@ -15,6 +15,7 @@
     padding: 0;
     height: 100vh;
     min-height: 100vh;
+    border: 1px solid red;
 
     .inner {
       width: 85%;
@@ -91,6 +92,7 @@
         .apple {
           display: flex;
           justify-content: center;
+          cursor: pointer;
           img {
             object-fit: contain;
           }
@@ -164,12 +166,15 @@
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 50%;
+        width: 41.5%;
         margin-right: 7.5%;
       }
 
       .picture {
         width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
       }
       img {
         object-fit: fit;
@@ -243,6 +248,27 @@
         //   object-fit: fit;
         //   width: 100%;
         // }
+      }
+    }
+
+    &.visualize-wireframes {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex: 10;
+      width: 100%;
+      app-text-paragraph {
+        width: 50%;
+        margin-left: 7.5%;
+      }
+
+      .picture {
+        width: 50%;
+      }
+      img {
+        object-fit: fit;
+        width: 100%;
       }
     }
 

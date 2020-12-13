@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-phone-player',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./phone-player.component.scss'],
 })
 export class PhonePlayerComponent implements OnInit {
+  @Input() videoSrc: string = "https://www.youtube.com/embed/A7ry4cx6HfY";
   
-  constructor() { 
-
-  }
   ngOnInit(): void {
   }
 }

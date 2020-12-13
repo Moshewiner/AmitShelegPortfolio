@@ -12,10 +12,11 @@ import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 import { AboutComponent } from './pages/home/about/about.component';
 import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
-import { PhonePlayerComponent } from './components/phone-player/phone-player.component';
+import { PhonePlayerComponent } from './pages/beauty-zone/phone-player/phone-player.component';
 import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-paragraph.component';
 import { BreaklinePipe } from './pipes/breakline.pipe';
 import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.co
     BubbleComponent,
     PhonePlayerComponent,
     BreaklinePipe,
-    PainPointComponent
+    PainPointComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule, 
