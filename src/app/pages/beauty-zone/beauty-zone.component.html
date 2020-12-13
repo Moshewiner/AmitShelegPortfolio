@@ -51,11 +51,12 @@
   <div class="picture">
     <img src="/assets/beauty-zone/user-research/girl with makeup background@2x.png" />
   </div>
-  <app-text-paragraph [headline]="'There Is No Social \n Platform For Beauty Lovers'" [subHeadline]="'User Research'" [text]="texts.userResearch"> 
+  <app-text-paragraph [headline]="'There Is No Social \n Platform For Beauty Lovers'" [subHeadline]="'User Research'"
+    [text]="texts.userResearch">
   </app-text-paragraph>
 </div>
 <div class="screen colors">
-  <app-text-paragraph [headline]="'Feminine&Elegant'" [subHeadline]="'Colors'" [text]="texts.colors">
+  <app-text-paragraph [headline]="'Feminine & Elegant'" [subHeadline]="'Colors'" [text]="texts.colors">
   </app-text-paragraph>
 
   <div class="picture">
@@ -70,20 +71,47 @@
   </app-text-paragraph>
 </div>
 <div class="screen market-research">
-  <div class="inner">
-    <app-text-paragraph [headline]="'No Solution For Beauty Lovers'" [subHeadline]="'Market Research'" [text]="texts.marketResearch">
+  <div class="container">
+    <app-text-paragraph [headline]="'No Solution For Beauty Lovers'" [subHeadline]="'Market Research'"
+      [text]="texts.marketResearch">
     </app-text-paragraph>
     <div class="pain-points">
-      <app-pain-point *ngFor="let painPoint of painPoints; index as i;" [subHeadline]="'PAIN POINT #'+ i" [headline]="painPoint.headline" [text]="painPoint.text">
+      <app-pain-point class="pain-point" [subHeadline]="'PAIN POINT #'+ increase(i)" [headline]="painPoint.headline"
+        [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
       </app-pain-point>
     </div>
   </div>
 </div>
+
+<div class="screen first-persona">
+  <div class="headline">
+    <h4>Persona 01 | Chloe Marks</h4>
+  </div>
+  <div class="inner">
+    <p class="text">
+      {{texts.firstPersona}}
+    </p>
+  </div>
+</div>
+
+<div class="screen information-architecture">
+  <div class="inner">
+    <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
+      [text]="texts.informationArchitecture">
+    </app-text-paragraph>
+    <div class="picture">
+      <img src="/assets/beauty-zone/information-architecture/flow.svg" />
+    </div>
+  </div>
+</div>
+
+
 <div class="screen visualize-wireframes">
-  <app-phone-player></app-phone-player>
+  <!-- <app-phone-player></app-phone-player> -->
   <!-- <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts.wireframes">
   </app-text-paragraph> -->
 </div>
+
 
 
 
@@ -131,17 +159,7 @@
   </div>
 </div>
 
-<div class="screen first-persona">
-  <div class="headline">
-    <h1>Persona 01 | Chloe Marks</h1>
-  </div>
-  <div class="inner-page">
-    <img class="persona" src="../../../assets/beauty-zone/firstpersona.png" />
-    <div class="bubbles">
-      <app-bubble text="lorem fuehhefhfefew"></app-bubble>
-    </div>
-  </div>
-</div>
+
 <div class="screen second-persona"></div>
 
 <div class="screen information-architecture">

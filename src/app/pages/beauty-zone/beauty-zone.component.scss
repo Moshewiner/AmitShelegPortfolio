@@ -1,5 +1,9 @@
 @import "./typography.scss";
 
+$gridWidth: 85%;
+$marginSize: (100% - $gridWidth) / 2;
+$cell: $gridWidth / 12;
+
 :host {
   // * {
   //   border: 3px solid #000;
@@ -10,15 +14,14 @@
   padding: 0;
 
   .screen {
-    width: 85%;
+    width: $gridWidth;
     margin: 0 auto;
     padding: 0;
     height: 100vh;
     min-height: 100vh;
-    border: 1px solid red;
 
     .inner {
-      width: 85%;
+      width: $gridWidth;
       height: 100%;
       margin: 0 auto;
     }
@@ -162,12 +165,13 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 41.5%;
+        width: 50% - $marginSize;
         margin-right: 7.5%;
+        padding: 5rem 0;
       }
 
       .picture {
@@ -190,7 +194,7 @@
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 50%;
+        width: 40%;
         margin-left: 7.5%;
       }
 
@@ -211,8 +215,8 @@
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 50%;
-        margin-left: 7.5%;
+        width: 5 * $cell;
+        margin: 0 $marginSize;
       }
 
       .picture {
@@ -224,22 +228,32 @@
       }
     }
     &.market-research {
-      height: auto;
-      .inner {
+      background: url("/assets/beauty-zone/market-research/background.png");
+      background-size: cover;
+      height: 200vh;
+      width: 100%;
+      .container {
+        margin-top: 5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         flex: 10;
-        width: 100%;
-        app-text-paragraph {
-          // width: 50%;
-          margin-left: 7.5%;
-        }
+        width: 50%;
+        margin-left: $marginSize;
+        // app-text-paragraph {
+        //   // width: 50%;
+
+        // }
 
         .pain-points {
           display: flex;
           flex-direction: column;
+          padding-top: 1rem;
+
+          .pain-point {
+            margin: 1.875rem 0;
+          }
         }
         // .picture {
         //   width: 50%;
@@ -269,6 +283,75 @@
       img {
         object-fit: fit;
         width: 100%;
+      }
+    }
+
+    &.first-persona {
+      background-image: url("/assets/beauty-zone/first-persona/background.svg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      width: 100%;
+      .inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          ". ."
+          ". text";
+
+        .text {
+          grid-area: text;
+          color: white;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .headline {
+        text-align: left;
+        position: absolute;
+        h4 {
+          color: white;
+          font-size: 33px;
+          text-align: center;
+          display: grid;
+          grid-template-columns: 200px max-content 200px;
+          grid-template-rows: 23px 0;
+          grid-gap: 10px;
+        }
+
+        h4:before {
+          content: " ";
+          display: block;
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+
+    &.information-architecture {
+      border: 1px solid red;
+      width: 100%;
+      background-image: url("/assets/beauty-zone/information-architecture/background.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      .inner {
+        height: 100vh;
+
+        app-text-paragraph {
+          padding-top: 3.5rem;
+
+          width: 50%;
+          color: white;
+          &::ng-deep {
+            .sub-headline {
+              color: rgba(255, 255, 255, 0.7);
+            }
+          }
+        }
+        .picture {
+          margin-top: 3rem;
+        }
       }
     }
 

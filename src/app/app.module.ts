@@ -17,6 +17,7 @@ import { TextParagraphComponent } from './pages/beauty-zone/text-paragraph/text-
 import { BreaklinePipe } from './pipes/breakline.pipe';
 import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
   ],
   imports: [
     BrowserModule, 
+    CommonModule,
     AppRoutingModule,
     NgxParallaxModule
   ],
@@ -44,3 +46,4 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

@@ -31,5 +31,5 @@ $min_font: 16px;
 $max_font: 48px;
 
 html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  //@include fluid-type($min_width, $max_width, $min_font, $max_font); 
 }
