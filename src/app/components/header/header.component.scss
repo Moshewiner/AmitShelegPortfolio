@@ -7,8 +7,6 @@
   left: 0;
   right: 0;
 
-
-  height: 70px;
   z-index: 999999;
 
   overflow: hidden;
@@ -24,7 +22,6 @@
     align-items: center;
     text-align: center;
     color: black;
-    font-size: 30px;
 
     .spacer {
       display: flex;
@@ -44,7 +41,6 @@
       flex: 2;
       .link {
         font-family: Poppins;
-        font-size: 19px;
         font-weight: 300;
         white-space: nowrap;
         margin: 25px;
