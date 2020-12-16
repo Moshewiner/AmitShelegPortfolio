@@ -148,12 +148,12 @@ $cell: $gridWidth / 12;
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 50%;
-        margin-left: 7.5%;
+        width: 40% - $marginSize;
+        margin-left: $marginSize;
       }
 
       .picture {
-        width: 50%;
+        width: 60%;
       }
       img {
         object-fit: fit;
