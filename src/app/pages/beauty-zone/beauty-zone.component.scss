@@ -98,6 +98,7 @@ $cell: $gridWidth / 12;
           cursor: pointer;
           img {
             object-fit: contain;
+            width: 130px;
           }
         }
         .scroll {
@@ -110,6 +111,9 @@ $cell: $gridWidth / 12;
             "icon";
           grid-area: scroll;
           text-align: center;
+          img {
+            width: 50%;
+          }
         }
         .icon {
           cursor: pointer;
