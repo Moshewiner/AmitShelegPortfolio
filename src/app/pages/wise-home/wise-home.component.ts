@@ -12,4 +12,10 @@ export class WiseHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  increase(x: number) { return x + 1 };
+
+  scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
+    e.scrollIntoView({ behavior });
+  }
+
 }
