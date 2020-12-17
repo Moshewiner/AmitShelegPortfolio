@@ -18,6 +18,7 @@ import { BreaklinePipe } from './pipes/breakline.pipe';
 import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { CommonModule } from '@angular/common';
+import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CommonModule } from '@angular/common';
     PhonePlayerComponent,
     BreaklinePipe,
     PainPointComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    WiseHomeComponent
   ],
   imports: [
     BrowserModule, 
