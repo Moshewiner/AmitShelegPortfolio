@@ -88,6 +88,18 @@
     </div>
 </div>
 
+<div class="screen colors">
+    <app-text-paragraph [headline]="'Calming & Smart Colors'" [subHeadline]="'Colors'"
+        [text]="texts.informationArchitecture">
+    </app-text-paragraph>
+    <div class="picture">
+        <img src="/assets/wise-home/14 - Colors/Lights-colors.svg" />
+    </div>
+    <div class='colors-container'>
+        <app-color *ngFor="let color of colors" [color]="color.value" [isDark]="color.isDark"></app-color>
+    </div>
+</div>
+
 
 <div class="screen thanks">
     <img src="/assets/beauty-zone/Thanks.svg" />

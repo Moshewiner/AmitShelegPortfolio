@@ -19,6 +19,7 @@ import { PainPointComponent } from './pages/beauty-zone/pain-point/pain-point.co
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { CommonModule } from '@angular/common';
 import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
+import { ColorComponent } from './pages/wise-home/color/color.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
     BreaklinePipe,
     PainPointComponent,
     SafeUrlPipe,
-    WiseHomeComponent
+    WiseHomeComponent,
+    ColorComponent
   ],
   imports: [
     BrowserModule, 
@@ -44,7 +46,7 @@ import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
     AppRoutingModule,
     NgxParallaxModule
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
