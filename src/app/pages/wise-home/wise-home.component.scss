@@ -226,7 +226,29 @@ $cell: $gridWidth / 12;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      // align-items: flex-end;
+      flex: 10;
+      width: 100%;
+      app-text-paragraph {
+        width: 50% - $marginSize;
+        margin-left: 7.5%;
+        padding: 5rem 0;
+      }
+
+      .picture {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      img {
+        object-fit: fit;
+        width: 100%;
+      }
+    }
+    &.design {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       flex: 10;
       width: 100%;
       app-text-paragraph {
@@ -247,29 +269,22 @@ $cell: $gridWidth / 12;
         height: 80%;
       }
     }
-    &.design {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex: 10;
-      width: 100%;
-      app-text-paragraph {
-        width: 50% - $marginSize;
-        margin-left: 7.5%;
-        padding: 5rem 0;
-      }
+ 
 
+    &.design-tablet {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('/assets/wise-home/13 - Design Tablet/background for Tablet.svg');
       .picture {
         width: 50%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-      img {
-        object-fit: fit;
-        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
+
   }
 }
