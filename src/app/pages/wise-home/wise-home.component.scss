@@ -263,20 +263,19 @@ $cell: $gridWidth / 12;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url('/assets/wise-home/12 - Design phone/background for Phone.svg');
+        background: url("/assets/wise-home/12 - Design phone/background for Phone.svg");
       }
       img {
         height: 80%;
       }
     }
- 
 
     &.design-tablet {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url('/assets/wise-home/13 - Design Tablet/background for Tablet.svg');
+      background: url("/assets/wise-home/13 - Design Tablet/background for Tablet.svg");
       .picture {
         width: 50%;
         img {
@@ -286,5 +285,77 @@ $cell: $gridWidth / 12;
       }
     }
 
+    &.thanks {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      .content {
+        font-family: Butler;
+        font-size: 80px;
+        font-weight: bold;
+      }
+    }
+    &.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      flex: 18;
+      .navigation {
+        display: flex;
+        flex: 10;
+        .prev,
+        .next {
+          flex: 5;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          padding-top: 45px;
+          padding-bottom: 45px;
+          outline: 0;
+          user-select: none;
+          transition: 0.5s;
+          img {
+            object-fit: contain;
+          }
+          &:hover {
+            filter: brightness(50%);
+            cursor: pointer;
+          }
+        }
+
+        .prev {
+          background: #fff;
+        }
+
+        .next {
+          background: #c8e3e4;
+        }
+      }
+
+      .info {
+        flex: 8;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .container {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          .mail,
+          .phone {
+            margin: 10px;
+          }
+        }
+        .goto-top {
+          cursor: pointer;
+          width: 100%;
+          text-align: right;
+        }
+      }
+    }
   }
 }
