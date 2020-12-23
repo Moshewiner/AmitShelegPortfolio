@@ -47,8 +47,8 @@ $cell: $gridWidth / 12;
         gap: 0px 0px;
         grid-template-areas:
           ". . . . . . . . . . ."
-          "headline headline headline headline headline headline . . . . ."
-          "download download download . . scroll . . . . .";
+          ". . . . headline headline headline headline . . ."
+          ". . . . . scroll . . download download download";
 
         .headline {
           display: grid;
@@ -60,7 +60,7 @@ $cell: $gridWidth / 12;
             ". . bottom bottom bottom bottom";
           grid-area: headline;
           color: #438689;
-          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+          // text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
         }
         .up {
           grid-area: up;
