@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
         document.getElementsByClassName("navbar")[0].style.top = "0";
       } else {
         //@ts-ignore
-        document.getElementsByClassName("navbar")[0].style.top = "-70px";
+        document.getElementsByClassName("navbar")[0].style.top = "-120px";
       }
       prevScrollpos = currentScrollPos;
     }

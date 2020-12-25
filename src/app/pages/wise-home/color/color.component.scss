@@ -5,7 +5,8 @@
         border-radius: 10rem;
         &.light {
             color: black;
-            box-shadow: 1px 0px 10px black;
+            // box-shadow: 1px 0px 10px black;
+            box-shadow: 0 0 0.50rem 0 rgba(0, 0, 0, 0.1);
         }
         &.dark {
             color: white;
