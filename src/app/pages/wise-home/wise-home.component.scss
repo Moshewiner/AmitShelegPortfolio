@@ -190,6 +190,113 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
     }
+
+    &.first-persona {
+      background: url("/assets/wise-home/5 - Persona 01/Background 1@2x.png");
+      background-size: cover;
+      width: 100%;
+      display: flex;
+
+      .headline {
+        text-align: left;
+        position: absolute;
+        h4 {
+          color: black;
+          font-size: 33px;
+          text-align: center;
+          display: grid;
+          grid-template-columns: 200px max-content 200px;
+          grid-template-rows: 23px 0;
+          grid-gap: 10px;
+        }
+
+        h4:before {
+          content: " ";
+          display: block;
+          border-bottom: 1px solid black;
+        }
+      }
+
+      .picture {
+        flex: 5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        img {
+          width: 70%;
+          object-fit: contain;
+        } 
+      }
+      .spacer {
+        flex: 1;
+      }
+      .container {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-right: $marginSize;
+        .upper-text {
+        }
+
+        .bottom-text {
+        }
+      }
+    }
+    &.second-persona {
+      background: url("/assets/wise-home/6 - Persona 02/Background 2@2x.png");
+      background-size: cover;
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+
+      .headline {
+        text-align: left;
+        position: absolute;
+        h4 {
+          color: black;
+          font-size: 33px;
+          text-align: center;
+          display: grid;
+          grid-template-columns: 200px max-content 200px;
+          grid-template-rows: 23px 0;
+          grid-gap: 10px;
+        }
+
+        h4:before {
+          content: " ";
+          display: block;
+          border-bottom: 1px solid black;
+        }
+      }
+
+      .picture {
+        flex: 1.5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        img {
+          width: 100%;
+          object-fit: contain;
+        } 
+      }
+      .spacer {
+        flex: 1;
+      }
+      .container {
+        margin-left: $marginSize;
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .upper-text {
+        }
+
+        .bottom-text {
+        }
+      }
+    }
+
     &.information-architecture {
       width: 100%;
       background-image: url("/assets/wise-home/8 - Information architecture/Backgroung image Flow@x2.png");
