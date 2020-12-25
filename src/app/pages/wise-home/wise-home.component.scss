@@ -425,11 +425,21 @@ $cell: $gridWidth / 12;
 
     &.typography {
       .inner {
-        padding-top: 5rem;
-        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .typography-container {
+          padding-top: 1rem;
+          width: 50%; 
+        }
+
+        .icons-container {
+          width: 50%;
+        }
       }
       background: url('/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png');
-      background-size: contain;
+      background-size: cover;
       width: 100%;
     }
 

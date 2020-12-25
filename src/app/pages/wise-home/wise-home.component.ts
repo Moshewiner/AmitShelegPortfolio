@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-wise-home',
   templateUrl: './wise-home.component.html',
-  styleUrls: ['./wise-home.component.scss']
+  styleUrls: ['./wise-home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WiseHomeComponent {
 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +6,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   host: {
     class: 'navbar'
-  }
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
   
