@@ -401,7 +401,7 @@ $cell: $gridWidth / 12;
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
-        padding: 5rem 0;
+        padding-top: 5rem;
       }
 
       .picture {
@@ -417,8 +417,30 @@ $cell: $gridWidth / 12;
         margin: 0 auto;
         display: flex;
         align-items: center;
+        position: relative;
         justify-content: space-between;
+        bottom: 1rem;
       }
+    }
+
+    &.typography {
+      .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .typography-container {
+          padding-top: 1rem;
+          width: 50%; 
+        }
+
+        .icons-container {
+          width: 50%;
+        }
+      }
+      background: url('/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png');
+      background-size: cover;
+      width: 100%;
     }
 
     &.thanks {
