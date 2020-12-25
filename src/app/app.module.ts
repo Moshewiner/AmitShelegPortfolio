@@ -8,7 +8,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductComponent } from './pages/home/product/product.component';
 
-import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 import { AboutComponent } from './pages/home/about/about.component';
 import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
@@ -44,7 +43,6 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
     BrowserModule, 
     CommonModule,
     AppRoutingModule,
-    NgxParallaxModule
   ],
   providers: [], 
   bootstrap: [AppComponent]
