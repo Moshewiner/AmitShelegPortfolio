@@ -14,7 +14,6 @@ export class AppComponent {
   constructor(@Inject(DOCUMENT) private _document: HTMLDocument) {}
 
   ngOnInit() {
-    setTimeout(() => {}, 400);
     window.addEventListener('wheel', (e) => {
       if (!this.isScrolling) {
         this.isScrolling = true;
@@ -24,11 +23,14 @@ export class AppComponent {
         const delta = e.deltaY; // just to know if it is scroll wheel up or down
         //find out what is our offset from the top so we can now how far do we have to scroll to  the next / previous element
         var currentSlide = Math.floor(howFarFromTop / currentWindowHeight); //approximate which slide is on screen at the moment
+        console.log(`current screen:${currentSlide}`);
 
         if (delta > 0) {
-          //
+          //scroll down
+          console.log('scroll down');
         } else {
-          //
+          //scroll up
+          console.log('scroll up');
         }
         setTimeout(() => {
           this.isScrolling = false;
