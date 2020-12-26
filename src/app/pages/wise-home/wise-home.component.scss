@@ -225,7 +225,7 @@ $cell: $gridWidth / 12;
         img {
           width: 70%;
           object-fit: contain;
-        } 
+        }
       }
       .spacer {
         flex: 1;
@@ -278,7 +278,7 @@ $cell: $gridWidth / 12;
         img {
           width: 100%;
           object-fit: contain;
-        } 
+        }
       }
       .spacer {
         flex: 1;
@@ -431,16 +431,25 @@ $cell: $gridWidth / 12;
 
         .typography-container {
           padding-top: 1rem;
-          width: 50%; 
+          width: 50%;
         }
 
         .icons-container {
           width: 50%;
         }
       }
-      background: url('/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png');
+      background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
       background-size: cover;
       width: 100%;
+    }
+
+    &.show-off {
+      padding-top: 2rem;
+      height: auto;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     &.thanks {
@@ -459,6 +468,7 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
+      width: 100%;
       flex: 18;
       .navigation {
         display: flex;
@@ -498,6 +508,10 @@ $cell: $gridWidth / 12;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
+        .headline {
+          color: black;
+        }
 
         .container {
           display: flex;
