@@ -337,6 +337,33 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
     }
+
+    &.tablet-wireframes {
+      width: 100%;
+      height: auto;
+
+      .bg {
+        background: rgb(67, 134, 137);
+        width: 100%;
+        height: 110%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .picture {
+        
+        // width: 50%;
+        // height: 100%;
+        // display: flex;
+        // align-items: flex-end;
+      }
+      img {
+        object-fit: fit;
+        width: 100%;
+        padding: 10rem 0;
+      }
+    }
+
     &.design {
       display: flex;
       flex-direction: row;
@@ -416,16 +443,25 @@ $cell: $gridWidth / 12;
 
         .typography-container {
           padding-top: 1rem;
-          width: 50%; 
+          width: 50%;
         }
 
         .icons-container {
           width: 50%;
         }
       }
-      background: url('/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png');
+      background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
       background-size: cover;
       width: 100%;
+    }
+
+    &.show-off {
+      padding-top: 2rem;
+      height: auto;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     &.thanks {
@@ -444,6 +480,7 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
+      width: 100%;
       flex: 18;
       .navigation {
         display: flex;
@@ -483,6 +520,10 @@ $cell: $gridWidth / 12;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
+        .headline {
+          color: black;
+        }
 
         .container {
           display: flex;
