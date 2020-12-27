@@ -75,24 +75,21 @@ $cell: $gridWidth / 12;
           .up {
             h1 {
               margin-bottom: 6%;
+              margin-left: -3rem;
             }
           }
           .bottom {
             h1 {
-              margin: 0;
-              margin-left: 15%;
-              margin-top: 2%;
+              margin: 2% 0 0 15%;
             }
           }
         }
         .scroll {
           align-self: flex-end;
-          width: 100px;
-          height: 105px;
           align-items: center;
           display: flex;
           img {
-            width: 80%;
+            width: 100%;
           }
         }
         .icon {
@@ -111,18 +108,23 @@ $cell: $gridWidth / 12;
       justify-content: space-around;
 
       .logo {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         text-align: center;
         img {
           object-fit: contain;
           width: 70%;
+        }
+        .headline {
+          color: black;
+          margin-top: 0;
         }
       }
 
       .info {
         text-align: center;
         .bold {
-          font-weight: bold;
+          font-weight: 400;
         }
       }
     }
@@ -134,6 +136,7 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: $marginSize;
@@ -143,7 +146,6 @@ $cell: $gridWidth / 12;
         width: 50%;
       }
       img {
-        object-fit: fit;
         width: 100%;
       }
     }
@@ -168,7 +170,6 @@ $cell: $gridWidth / 12;
         align-items: flex-end;
       }
       img {
-        object-fit: fit;
         width: 100%;
       }
     }
@@ -345,6 +346,7 @@ $cell: $gridWidth / 12;
         margin: 0 auto;
       }
       .picture {
+        margin-top:1rem;
         background: url("/assets/wise-home/10 - Tablet wireframes/Teal Background.svg");
         background-size: 100% 100%;
         background-position-y: center;
@@ -358,9 +360,8 @@ $cell: $gridWidth / 12;
     &.phone-wireframes {
       width: 100%;
       height: auto;
-
+      margin: 5rem 0;
       .picture {
-        margin-top: 5rem;
         background: url("/assets/wise-home/11 - Phone wireframes/3rectangles background.svg");
         background-size: 120% 100%;
         background-position-y: center;
@@ -415,7 +416,6 @@ $cell: $gridWidth / 12;
     &.colors {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       flex: 10;
       width: 100%;
       app-text-paragraph {
