@@ -152,15 +152,14 @@ $cell: $gridWidth / 12;
       flex: 10;
       width: 100%;
       app-text-paragraph {
-        width: 40% - $marginSize;
+        width: 45%;
         margin-left: $marginSize;
       }
 
       .picture {
-        width: 60%;
+        width: 55%;
       }
       img {
-        object-fit: fit;
         width: 100%;
       }
     }
@@ -291,8 +290,8 @@ $cell: $gridWidth / 12;
     }
 
     &.first-persona {
-      background-image: url("/assets/beauty-zone/first-persona/background.svg");
-      background-size: 100% 100%;
+      background-image: url("/assets/beauty-zone/first-persona/first persona bg.svg");
+      background-size: cover;
       background-repeat: no-repeat;
       width: 100%;
       .inner {
@@ -313,23 +312,8 @@ $cell: $gridWidth / 12;
       }
 
       .headline {
-        text-align: left;
         position: absolute;
-        h4 {
-          color: white;
-          font-size: 33px;
-          text-align: center;
-          display: grid;
-          grid-template-columns: 200px max-content 200px;
-          grid-template-rows: 23px 0;
-          grid-gap: 10px;
-        }
-
-        h4:before {
-          content: " ";
-          display: block;
-          border-bottom: 1px solid white;
-        }
+        margin-top: 3rem;
       }
     }
 
@@ -344,21 +328,21 @@ $cell: $gridWidth / 12;
         flex-direction: column;
         flex: 10;
 
-
         app-text-paragraph {
           padding-top: 3.5rem;
+          width: 50%;
           flex: 5;
-          color: black;
+          color: white;
           &::ng-deep {
             .sub-headline {
-              color: rgba(0, 0, 0, 0.5);
+              color: rgba(255, 255, 255, 0.7);
             }
           }
         }
         .picture {
           flex: 5;
-          width: 82.5%;
-          padding: 3rem 0;
+          width: 100%;
+          padding-bottom: 3rem;
           img {
             width: 100%;
             height: 100%;

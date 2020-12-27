@@ -1,6 +1,6 @@
 <div class="screen main" #main>
   <div class="picture">
-    <img src="/assets/beauty-zone/main/new.png" />
+    <img src="/assets/beauty-zone/main/new.png"/>
   </div>
   <div class="inner">
     <div class="headline">
@@ -13,22 +13,22 @@
     </div>
     <div class="download">
       <div class="google">
-        <img class="google" src="/assets/beauty-zone/main/Download - Google Play.png" />
+        <img class="google" src="/assets/beauty-zone/main/Download - Google Play.png"/>
       </div>
       <div class="apple">
-        <img class="apple" src="/assets/beauty-zone/main/Download - App Store.png" />
+        <img class="apple" src="/assets/beauty-zone/main/Download - App Store.png"/>
       </div>
     </div>
     <div class="scroll">
       <div class="icon" (click)="scroll(about, 'smooth')">
-        <img src="/assets/beauty-zone/main/Scroll Icon.png" />
+        <img src="/assets/beauty-zone/main/Scroll Icon.png"/>
       </div>
     </div>
   </div>
 </div>
 
 <div #about class="screen about">
-  <div class="logo">z
+  <div class="logo">
     <img src="../../../assets/beauty-zone/about/heading.svg">
   </div>
 
@@ -43,37 +43,47 @@
   <app-text-paragraph [headline]="'The Beauty Zone'" [subHeadline]="'Introduction'" [text]="texts.introduction">
   </app-text-paragraph>
   <div class='picture'>
-    <img src="/assets/beauty-zone/introduction/Mockup eyeshadow@2x.png" />
+    <img src="/assets/beauty-zone/introduction/Mockup eyeshadow@2x.png"/>
   </div>
 </div>
 
 <div class="screen user-research">
   <div class="picture">
-    <img src="/assets/beauty-zone/user-research/girl with makeup background@2x.png" />
+    <img src="/assets/beauty-zone/user-research/girl with makeup background@2x.png"/>
   </div>
   <app-text-paragraph [headline]="'There Is No Social \n Platform For Beauty Lovers'" [subHeadline]="'User Research'"
-    [text]="texts.userResearch">
+                      [text]="texts.userResearch">
   </app-text-paragraph>
 </div>
 
-<!-- <div class="screen first-persona">
+<div class="screen first-persona">
   <div class="headline">
-    <h4>Persona 01 | Chloe Marks</h4>
+    <img src="/assets/wise-home/5%20-%20Persona%2001/headline%201.svg" />
   </div>
   <div class="inner">
     <p class="text">
       {{texts.firstPersona}}
     </p>
   </div>
-</div> -->
+</div>
+<!--<div class="screen second-persona">-->
+<!--  <div class="headline">-->
+<!--    <img src="/assets/wise-home/5%20-%20Persona%2001/headline%201.svg" />-->
+<!--  </div>-->
+<!--  <div class="inner">-->
+<!--    <p class="text">-->
+<!--      {{texts.firstPersona}}-->
+<!--    </p>-->
+<!--  </div>-->
+<!--</div>-->
 <div class="screen market-research ">
   <div class="container">
     <app-text-paragraph [headline]="'No Solution For Beauty Lovers'" [subHeadline]="'Market Research'"
-      [text]="texts.marketResearch">
+                        [text]="texts.marketResearch">
     </app-text-paragraph>
     <div class="pain-points">
       <app-pain-point class="pain-point" [subHeadline]="'PAIN POINT #'+ increase(i)" [headline]="painPoint.headline"
-        [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
+                      [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
       </app-pain-point>
     </div>
   </div>
@@ -82,16 +92,16 @@
 <div class="screen information-architecture">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
-      [text]="texts.informationArchitecture">
+                        [text]="texts.informationArchitecture">
     </app-text-paragraph>
     <div class="picture">
-      <img src="/assets/beauty-zone/information-architecture/flow.svg" />
+      <img src="/assets/beauty-zone/information-architecture/flow.svg"/>
     </div>
   </div>
 </div>
 <div class="screen wireframes">
   <div class="picture">
-    <img src="/assets/beauty-zone/wireframes/wireframes.png" />
+    <img src="/assets/beauty-zone/wireframes/wireframes.png"/>
   </div>
   <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts.wireframes">
   </app-text-paragraph>
@@ -106,7 +116,7 @@
   </app-text-paragraph>
 
   <div class="picture">
-    <img src="/assets/beauty-zone/Colors - Makeup Swatches@2x.png" />
+    <img src="/assets/beauty-zone/Colors - Makeup Swatches@2x.png"/>
   </div>
 </div>
 
@@ -244,25 +254,25 @@
   <div class="container">
     <div class="parallelogram">
     </div>
-    <img src="/assets/beauty-zone/preview/onboarding.svg" />
+    <img src="/assets/beauty-zone/preview/onboarding.svg"/>
   </div>
 </div>
 <div class="screen preview">
-  <img src="/assets/beauty-zone/Design-PhonesMockups@2x.png" />
+  <img src="/assets/beauty-zone/Design-PhonesMockups@2x.png"/>
 </div>
 
 <div class="screen thanks">
-  <img src="/assets/beauty-zone/Thanks.svg" />
+  <img src="/assets/beauty-zone/Thanks.svg"/>
   <h1 class='content'>Thanks For Viewing!</h1>
 </div>
 
 <div class="screen contact">
   <div class="navigation">
     <div class="prev" routerLink="/beautyzone">
-      <img src="/assets/beauty-zone/Thanks.svg" />
+      <img src="/assets/beauty-zone/Thanks.svg"/>
     </div>
     <div class="next" routerLink="/wisehome">
-      <img src="/assets/beauty-zone/wiseHome.png" />
+      <img src="/assets/beauty-zone/wiseHome.png"/>
     </div>
   </div>
   <div class="info">
@@ -272,7 +282,7 @@
       <div class="phone">053-3350577</div>
     </div>
     <div class="goto-top">
-      <img (click)="scroll(main)" src="/assets/beauty-zone/top.png" />
+      <img (click)="scroll(main)" src="/assets/beauty-zone/top.png"/>
     </div>
   </div>
 
