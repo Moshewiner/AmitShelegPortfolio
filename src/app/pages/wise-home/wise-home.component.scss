@@ -29,9 +29,6 @@ $cell: $gridWidth / 12;
     &.main {
       width: 100%;
       height: 100%;
-      background-image: url("/assets/wise-home/1 - Big photo/Cover Image@2x.png");
-      background-size: cover;
-
       .picture {
         img {
           position: absolute;
@@ -41,83 +38,67 @@ $cell: $gridWidth / 12;
         }
       }
       .inner {
-        display: grid;
-        grid-template-columns: repeat(11, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 0px 0px;
-        grid-template-areas:
-          ". . . . . . . . . . ."
-          ". . . . headline headline headline headline . . ."
-          ". . . . . scroll . . download download download";
-
-        .headline {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-template-rows: repeat(2, 1fr);
-          gap: 0px 0px;
-          grid-template-areas:
-            "up up up up up ."
-            ". . bottom bottom bottom bottom";
-          grid-area: headline;
-          color: #438689;
-          // text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-        }
-        .up {
-          grid-area: up;
-          h1 {
-            margin-bottom: 40px;
-          }
-        }
-        .bottom {
-          grid-area: bottom;
-          h1 {
-            margin: 0;
-            margin-left: 90px;
-            margin-top: 15px;
-          }
-        }
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-image: url("/assets/wise-home/1 - Big photo/Cover Image@2x.png");
         .download {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-          gap: 0px 0px;
-          grid-template-areas:
-            ". . . ."
-            "google apple . .";
-          grid-area: download;
-        }
-        .google {
-          grid-area: google;
-        }
-        .apple {
-          grid-area: apple;
-          margin: 0 10px;
-        }
-        .google,
-        .apple {
+          height: auto;
+          width: auto;
+          bottom: 11%;
+          right: 4%;
           display: flex;
-          justify-content: center;
-          cursor: pointer;
-          img {
-            object-fit: contain;
-            width: 130px;
+          position: absolute;
+          .google {
+            cursor: pointer;
+            img {
+              object-fit: contain;
+              max-width: 110px;
+            }
+          }
+          .apple {
+            cursor: pointer;
+            margin: 0 10px;
+            img {
+              object-fit: contain;
+              max-width: 110px;
+            }
+          }
+        }
+        .headline {
+          position: absolute;
+          top: 21vmin;
+          left: 45%;
+          color: #438689;
+          .up {
+            h1 {
+              margin-bottom: 6%;
+            }
+          }
+          .bottom {
+            h1 {
+              margin: 0;
+              margin-left: 15%;
+              margin-top: 2%;
+            }
           }
         }
         .scroll {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: repeat(2, 1fr);
-          gap: 0px 0px;
-          grid-template-areas:
-            "."
-            "icon";
-          grid-area: scroll;
-          text-align: center;
+          align-self: flex-end;
+          width: 100px;
+          height: 105px;
+          align-items: center;
+          display: flex;
           img {
             width: 80%;
           }
         }
         .icon {
+          align-items: center;
+          display: flex;
+          justify-content: center;
           cursor: pointer;
           grid-area: icon;
         }
@@ -166,6 +147,7 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
     }
+
     &.user-research {
       display: flex;
       flex-direction: row;
@@ -312,6 +294,7 @@ $cell: $gridWidth / 12;
           padding-top: 3.5rem;
           flex: 5;
           color: black;
+          width: 60%;
           &::ng-deep {
             .sub-headline {
               color: rgba(0, 0, 0, 0.5);
@@ -357,25 +340,35 @@ $cell: $gridWidth / 12;
       width: 100%;
       height: auto;
 
-      .bg {
-        background: rgb(67, 134, 137);
-        width: 100%;
-        height: 110%;
-        position: absolute;
-        top: 0;
-        left: 0;
+      app-text-paragraph {
+        width: 85%;
+        margin: 0 auto;
       }
       .picture {
-        
-        // width: 50%;
-        // height: 100%;
-        // display: flex;
-        // align-items: flex-end;
+        background: url("/assets/wise-home/10 - Tablet wireframes/Teal Background.svg");
+        background-size: 100% 100%;
+        background-position-y: center;
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
       }
-      img {
-        object-fit: fit;
-        width: 100%;
-        padding: 10rem 0;
+    }
+
+    &.phone-wireframes {
+      width: 100%;
+      height: auto;
+
+      .picture {
+        margin-top: 5rem;
+        background: url("/assets/wise-home/11 - Phone wireframes/3rectangles background.svg");
+        background-size: 120% 100%;
+        background-position-y: center;
+        text-align: center;
+        img {
+          object-fit: cover;
+          width: 85%;
+        }
       }
     }
 
@@ -490,6 +483,7 @@ $cell: $gridWidth / 12;
         font-weight: bold;
       }
     }
+
     &.contact {
       display: flex;
       flex-direction: column;
