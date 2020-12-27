@@ -29,6 +29,7 @@ $cell: $gridWidth / 12;
     &.main {
       width: 100%;
       height: 100%;
+
       .picture {
         img {
           position: absolute;
@@ -37,6 +38,7 @@ $cell: $gridWidth / 12;
           width: 100vw;
         }
       }
+
       .inner {
         display: flex;
         justify-content: center;
@@ -44,6 +46,7 @@ $cell: $gridWidth / 12;
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-image: url("/assets/wise-home/1 - Big photo/Cover Image@2x.png");
+
         .download {
           height: auto;
           width: auto;
@@ -51,47 +54,57 @@ $cell: $gridWidth / 12;
           right: 4%;
           display: flex;
           position: absolute;
+
           .google {
             cursor: pointer;
+
             img {
               object-fit: contain;
               max-width: 110px;
             }
           }
+
           .apple {
             cursor: pointer;
             margin: 0 10px;
+
             img {
               object-fit: contain;
               max-width: 110px;
             }
           }
         }
+
         .headline {
           position: absolute;
           top: 21vmin;
           left: 45%;
           color: #438689;
+
           .up {
             h1 {
               margin-bottom: 6%;
               margin-left: -3rem;
             }
           }
+
           .bottom {
             h1 {
               margin: 2% 0 0 15%;
             }
           }
         }
+
         .scroll {
           align-self: flex-end;
           align-items: center;
           display: flex;
+
           img {
             width: 100%;
           }
         }
+
         .icon {
           align-items: center;
           display: flex;
@@ -111,10 +124,12 @@ $cell: $gridWidth / 12;
         width: 90%;
         margin: 0 auto;
         text-align: center;
+
         img {
           object-fit: contain;
           width: 70%;
         }
+
         .headline {
           color: black;
           margin-top: 0;
@@ -123,6 +138,7 @@ $cell: $gridWidth / 12;
 
       .info {
         text-align: center;
+
         .bold {
           font-weight: 400;
         }
@@ -145,6 +161,7 @@ $cell: $gridWidth / 12;
       .picture {
         width: 50%;
       }
+
       img {
         width: 100%;
       }
@@ -157,6 +174,7 @@ $cell: $gridWidth / 12;
       align-items: flex-end;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
@@ -169,35 +187,21 @@ $cell: $gridWidth / 12;
         display: flex;
         align-items: flex-end;
       }
+
       img {
         width: 100%;
       }
     }
 
     &.first-persona {
-      background: url("/assets/wise-home/5 - Persona 01/Background 1@2x.png");
+      background: url("/assets/wise-home/5 - Persona 01/Background 1.svg");
       background-size: cover;
       width: 100%;
       display: flex;
 
       .headline {
-        text-align: left;
         position: absolute;
-        h4 {
-          color: black;
-          font-size: 33px;
-          text-align: center;
-          display: grid;
-          grid-template-columns: 200px max-content 200px;
-          grid-template-rows: 23px 0;
-          grid-gap: 10px;
-        }
-
-        h4:before {
-          content: " ";
-          display: block;
-          border-bottom: 1px solid black;
-        }
+        margin-top: 5rem;
       }
 
       .picture {
@@ -205,20 +209,24 @@ $cell: $gridWidth / 12;
         display: flex;
         justify-content: center;
         align-items: flex-end;
+
         img {
           width: 70%;
           object-fit: contain;
         }
       }
+
       .spacer {
         flex: 1;
       }
+
       .container {
         flex: 4;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         margin-right: $marginSize;
+
         .upper-text {
         }
 
@@ -226,56 +234,135 @@ $cell: $gridWidth / 12;
         }
       }
     }
+
     &.second-persona {
-      background: url("/assets/wise-home/6 - Persona 02/Background 2@2x.png");
+      background: url("/assets/wise-home/6 - Persona 02/Backgroundonly 2.svg") no-repeat;
       background-size: cover;
       width: 100%;
       display: flex;
       flex-direction: row-reverse;
 
       .headline {
-        text-align: left;
         position: absolute;
-        h4 {
-          color: black;
-          font-size: 33px;
-          text-align: center;
-          display: grid;
-          grid-template-columns: 200px max-content 200px;
-          grid-template-rows: 23px 0;
-          grid-gap: 10px;
-        }
-
-        h4:before {
-          content: " ";
-          display: block;
-          border-bottom: 1px solid black;
-        }
+        margin-top: 5rem;
       }
+
 
       .picture {
         flex: 1.5;
         display: flex;
         justify-content: center;
         align-items: flex-end;
+
         img {
           width: 100%;
           object-fit: contain;
         }
       }
+
       .spacer {
         flex: 1;
       }
+
       .container {
         margin-left: $marginSize;
         flex: 3;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
         .upper-text {
         }
 
         .bottom-text {
+        }
+      }
+    }
+
+    &.user-research-details {
+      display: flex;
+      flex-direction: row;
+      //justify-content: space-between;
+      align-items: center;
+      flex: 10;
+      width: 100%;
+
+
+      .picture {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .side {
+        display: flex;
+        flex-direction: column;
+        //justify-content: space-between;
+        height: 85%;
+        width: 50% - $marginSize;
+        margin-right: $marginSize;
+
+        app-text-paragraph {
+        }
+
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 2rem;
+          grid-row-gap: 2rem;
+          margin-left: -1.5rem;
+          margin-top: 1rem;
+
+
+          img {
+            object-fit: contain;
+            width: 100%;
+          }
+
+          .first {
+            grid-area: 1 / 1 / 2 / 2;
+            background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text1.svg") no-repeat;
+
+          }
+
+          .second {
+            grid-area: 1 / 2 / 2 / 3;
+            background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text2.svg") no-repeat;
+
+          }
+
+          .third {
+            grid-area: 2 / 1 / 3 / 2;
+            background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text3.svg") no-repeat;
+
+          }
+
+          .fourth {
+            grid-area: 2 / 2 / 3 / 3;
+            background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text4.svg") no-repeat;
+
+          }
+
+          .first, .second, .third, .fourth {
+            padding-top: 2rem;
+            padding-left: 2rem;
+
+            .headline {
+              margin: 0;
+            }
+
+            .text {
+              margin: 0;
+            }
+          }
+
         }
       }
     }
@@ -285,6 +372,7 @@ $cell: $gridWidth / 12;
       background-image: url("/assets/wise-home/8 - Information architecture/Backgroung image Flow@x2.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
+
       .inner {
         height: 100%;
         display: flex;
@@ -296,16 +384,19 @@ $cell: $gridWidth / 12;
           flex: 5;
           color: black;
           width: 60%;
+
           &::ng-deep {
             .sub-headline {
               color: rgba(0, 0, 0, 0.5);
             }
           }
         }
+
         .picture {
           flex: 5;
           width: 82.5%;
           padding: 3rem 0;
+
           img {
             width: 100%;
             height: 100%;
@@ -313,12 +404,14 @@ $cell: $gridWidth / 12;
         }
       }
     }
+
     &.wireframes {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
@@ -331,6 +424,7 @@ $cell: $gridWidth / 12;
         display: flex;
         align-items: flex-end;
       }
+
       img {
         object-fit: fit;
         width: 100%;
@@ -345,11 +439,13 @@ $cell: $gridWidth / 12;
         width: 85%;
         margin: 0 auto;
       }
+
       .picture {
-        margin-top:1rem;
+        margin-top: 1rem;
         background: url("/assets/wise-home/10 - Tablet wireframes/Teal Background.svg");
         background-size: 100% 100%;
         background-position-y: center;
+
         img {
           object-fit: cover;
           width: 100%;
@@ -361,11 +457,13 @@ $cell: $gridWidth / 12;
       width: 100%;
       height: auto;
       margin: 5rem 0;
+
       .picture {
         background: url("/assets/wise-home/11 - Phone wireframes/3rectangles background.svg");
         background-size: 120% 100%;
         background-position-y: center;
         text-align: center;
+
         img {
           object-fit: cover;
           width: 85%;
@@ -379,6 +477,7 @@ $cell: $gridWidth / 12;
       justify-content: space-between;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
@@ -393,6 +492,7 @@ $cell: $gridWidth / 12;
         align-items: center;
         background: url("/assets/wise-home/12 - Design phone/background for Phone.svg");
       }
+
       img {
         height: 80%;
       }
@@ -404,8 +504,10 @@ $cell: $gridWidth / 12;
       align-items: center;
       justify-content: center;
       background: url("/assets/wise-home/13 - Design Tablet/background for Tablet.svg");
+
       .picture {
         width: 50%;
+
         img {
           width: 100%;
           height: 100%;
@@ -418,6 +520,7 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
@@ -432,6 +535,7 @@ $cell: $gridWidth / 12;
           width: 100%;
         }
       }
+
       .colors-container {
         width: $gridWidth;
         margin: 0 auto;
@@ -458,6 +562,7 @@ $cell: $gridWidth / 12;
           width: 50%;
         }
       }
+
       background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
       background-size: cover;
       width: 100%;
@@ -466,6 +571,7 @@ $cell: $gridWidth / 12;
     &.show-off {
       padding-top: 2rem;
       height: auto;
+
       img {
         width: 100%;
         object-fit: cover;
@@ -477,6 +583,7 @@ $cell: $gridWidth / 12;
       justify-content: center;
       flex-direction: column;
       text-align: center;
+
       .content {
         font-family: Butler;
         font-size: 80px;
@@ -491,9 +598,11 @@ $cell: $gridWidth / 12;
       text-align: center;
       width: 100%;
       flex: 18;
+
       .navigation {
         display: flex;
         flex: 10;
+
         .prev,
         .next {
           flex: 5;
@@ -505,9 +614,11 @@ $cell: $gridWidth / 12;
           outline: 0;
           user-select: none;
           transition: 0.5s;
+
           img {
             object-fit: contain;
           }
+
           &:hover {
             filter: brightness(50%);
             cursor: pointer;
@@ -538,11 +649,13 @@ $cell: $gridWidth / 12;
           display: flex;
           flex-direction: row;
           justify-content: center;
+
           .mail,
           .phone {
             margin: 10px;
           }
         }
+
         .goto-top {
           cursor: pointer;
           width: 100%;
