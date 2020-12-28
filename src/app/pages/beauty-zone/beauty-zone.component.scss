@@ -38,6 +38,7 @@ $cell: $gridWidth / 12;
           height: 100vh;
         }
       }
+
       .inner {
         display: grid;
         grid-template-columns: repeat(11, 1fr);
@@ -60,20 +61,25 @@ $cell: $gridWidth / 12;
           color: white;
           text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
         }
+
         .up {
           grid-area: up;
+
           h1 {
             margin-bottom: 40px;
           }
         }
+
         .bottom {
           grid-area: bottom;
+
           h1 {
             margin: 0;
             margin-left: 90px;
             margin-top: 15px;
           }
         }
+
         .download {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -84,23 +90,28 @@ $cell: $gridWidth / 12;
             "google apple . .";
           grid-area: download;
         }
+
         .google {
           grid-area: google;
         }
+
         .apple {
           grid-area: apple;
           margin: 0 10px;
         }
+
         .google,
         .apple {
           display: flex;
           justify-content: center;
           cursor: pointer;
+
           img {
             object-fit: contain;
             width: 130px;
           }
         }
+
         .scroll {
           display: grid;
           grid-template-columns: 1fr;
@@ -111,10 +122,12 @@ $cell: $gridWidth / 12;
             "icon";
           grid-area: scroll;
           text-align: center;
+
           img {
             width: 80%;
           }
         }
+
         .icon {
           cursor: pointer;
           grid-area: icon;
@@ -130,6 +143,7 @@ $cell: $gridWidth / 12;
       .logo {
         width: 100%;
         text-align: center;
+
         img {
           object-fit: contain;
           width: 70%;
@@ -138,6 +152,7 @@ $cell: $gridWidth / 12;
 
       .info {
         text-align: center;
+
         .bold {
           font-weight: 400;
         }
@@ -151,6 +166,7 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 45%;
         margin-left: $marginSize;
@@ -159,6 +175,7 @@ $cell: $gridWidth / 12;
       .picture {
         width: 55%;
       }
+
       img {
         width: 100%;
       }
@@ -171,6 +188,7 @@ $cell: $gridWidth / 12;
       align-items: flex-end;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-right: 7.5%;
@@ -183,6 +201,7 @@ $cell: $gridWidth / 12;
         display: flex;
         align-items: flex-end;
       }
+
       img {
         object-fit: fit;
         width: 100%;
@@ -196,6 +215,7 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 40%;
         margin-left: 7.5%;
@@ -204,6 +224,7 @@ $cell: $gridWidth / 12;
       .picture {
         width: 50%;
       }
+
       img {
         object-fit: fit;
         width: 100%;
@@ -217,6 +238,7 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 5 * $cell;
         margin: 0 $marginSize;
@@ -225,16 +247,19 @@ $cell: $gridWidth / 12;
       .picture {
         width: 50%;
       }
+
       img {
         object-fit: fit;
         width: 100%;
       }
     }
+
     &.market-research {
-      background: url("/assets/beauty-zone/market-research/background.png");
+      background: url("/assets/beauty-zone/7+8 - Market research/brush background.png");
       background-size: cover;
       height: 200vh;
       width: 100%;
+
       .container {
         padding-top: 5rem;
         display: flex;
@@ -258,6 +283,7 @@ $cell: $gridWidth / 12;
             margin: 1.875rem 0;
           }
         }
+
         // .picture {
         //   width: 50%;
         // }
@@ -275,6 +301,7 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
+
       app-text-paragraph {
         width: 50%;
         margin-left: 7.5%;
@@ -283,6 +310,7 @@ $cell: $gridWidth / 12;
       .picture {
         width: 50%;
       }
+
       img {
         object-fit: fit;
         width: 100%;
@@ -290,10 +318,11 @@ $cell: $gridWidth / 12;
     }
 
     &.first-persona {
-      background-image: url("/assets/beauty-zone/first-persona/first persona bg.svg");
+      background-image: url("/assets/beauty-zone/5 - Persona 01/first persona bg.png");
       background-size: cover;
       background-repeat: no-repeat;
       width: 100%;
+
       .inner {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -319,9 +348,10 @@ $cell: $gridWidth / 12;
 
     &.information-architecture {
       width: 100%;
-      background-image: url("/assets/beauty-zone/information-architecture/background.png");
+      background-image: url("/assets/beauty-zone/9 - Information architecture/Girls Background.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
+
       .inner {
         height: 100%;
         display: flex;
@@ -333,16 +363,19 @@ $cell: $gridWidth / 12;
           width: 50%;
           flex: 5;
           color: white;
+
           &::ng-deep {
             .sub-headline {
               color: rgba(255, 255, 255, 0.7);
             }
           }
         }
+
         .picture {
           flex: 5;
           width: 100%;
           padding-bottom: 3rem;
+
           img {
             width: 100%;
             height: 100%;
@@ -600,7 +633,7 @@ $cell: $gridWidth / 12;
         height: 100%;
 
         .parallelogram {
-          background: rgba(255, 105, 162, 0.8);
+          background: rgba(245, 15, 102, 0.7);
           transform: skewY(-10deg);
           width: 100%;
           display: block;
@@ -608,6 +641,7 @@ $cell: $gridWidth / 12;
           position: absolute;
           margin-top: 20%;
         }
+
         img {
           position: relative;
           z-index: 99;
@@ -622,6 +656,7 @@ $cell: $gridWidth / 12;
       width: 100%;
       background: rgba(255, 105, 162, 0.8);
       height: auto;
+
       img {
         width: 100%;
         object-fit: cover;
@@ -633,6 +668,7 @@ $cell: $gridWidth / 12;
           transform: skewY(-10deg);
           width: 100%;
         }
+
         img {
           position: relative;
           z-index: 99;
@@ -645,21 +681,26 @@ $cell: $gridWidth / 12;
       justify-content: center;
       flex-direction: column;
       text-align: center;
+
       .content {
         font-family: Butler;
         font-size: 80px;
         font-weight: bold;
       }
     }
+
     &.contact {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
       flex: 18;
+      width: 100%;
+
       .navigation {
         display: flex;
         flex: 10;
+
         .prev,
         .next {
           flex: 5;
@@ -671,9 +712,11 @@ $cell: $gridWidth / 12;
           outline: 0;
           user-select: none;
           transition: 0.5s;
+
           img {
             object-fit: contain;
           }
+
           &:hover {
             filter: brightness(50%);
             cursor: pointer;
@@ -700,11 +743,13 @@ $cell: $gridWidth / 12;
           display: flex;
           flex-direction: row;
           justify-content: center;
+
           .mail,
           .phone {
             margin: 10px;
           }
         }
+
         .goto-top {
           cursor: pointer;
           width: 100%;
