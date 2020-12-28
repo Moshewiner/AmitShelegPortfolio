@@ -129,12 +129,8 @@ $cell: $gridWidth / 12;
           object-fit: contain;
           width: 70%;
         }
-
-        .headline {
-          color: black;
-          margin-top: 0;
-        }
       }
+
 
       .info {
         text-align: center;
@@ -194,7 +190,7 @@ $cell: $gridWidth / 12;
     }
 
     &.first-persona {
-      background: url("/assets/wise-home/5 - Persona 01/Background 1.svg");
+      background: url("/assets/wise-home/5 - Persona 01/Background 1men.png") no-repeat;
       background-size: cover;
       width: 100%;
       display: flex;
@@ -236,7 +232,7 @@ $cell: $gridWidth / 12;
     }
 
     &.second-persona {
-      background: url("/assets/wise-home/6 - Persona 02/Backgroundonly 2.svg") no-repeat;
+      background: url("/assets/wise-home/6 - Persona 02/Background 2 with men@x2.png") no-repeat;
       background-size: cover;
       width: 100%;
       display: flex;
@@ -351,8 +347,9 @@ $cell: $gridWidth / 12;
           }
 
           .first, .second, .third, .fourth {
-            padding-top: 2rem;
-            padding-left: 2rem;
+            padding-top: 1rem;
+            padding-left: 1.4rem;
+            background-size: contain;
 
             .headline {
               margin: 0;
@@ -377,13 +374,12 @@ $cell: $gridWidth / 12;
         height: 100%;
         display: flex;
         flex-direction: column;
-        flex: 10;
+        justify-content: center;
 
         app-text-paragraph {
-          padding-top: 3.5rem;
-          flex: 5;
+          margin-bottom: 2rem;
           color: black;
-          width: 60%;
+          width: 50%;
 
           &::ng-deep {
             .sub-headline {
@@ -393,13 +389,12 @@ $cell: $gridWidth / 12;
         }
 
         .picture {
-          flex: 5;
           width: 82.5%;
-          padding: 3rem 0;
 
           img {
             width: 100%;
             height: 100%;
+            margin-left: -10px;
           }
         }
       }
@@ -414,7 +409,7 @@ $cell: $gridWidth / 12;
 
       app-text-paragraph {
         width: 50% - $marginSize;
-        margin-left: 7.5%;
+        margin: 0 $marginSize;
         padding: 5rem 0;
       }
 
@@ -422,7 +417,7 @@ $cell: $gridWidth / 12;
         width: 50%;
         height: 100%;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
       }
 
       img {
@@ -437,11 +432,10 @@ $cell: $gridWidth / 12;
 
       app-text-paragraph {
         width: 85%;
-        margin: 0 auto;
+        margin: 3rem auto 0;
       }
 
       .picture {
-        margin-top: 1rem;
         background: url("/assets/wise-home/10 - Tablet wireframes/Teal Background.svg");
         background-size: 100% 100%;
         background-position-y: center;
@@ -473,29 +467,53 @@ $cell: $gridWidth / 12;
 
     &.design {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex: 10;
+      flex-direction: column;
       width: 100%;
+      height: 200vh;
+      background: url("/assets/wise-home/12 - Design phone/background.svg") no-repeat;
+      margin-top: 3rem;
 
-      app-text-paragraph {
-        width: 50% - $marginSize;
-        margin-left: 7.5%;
-        padding: 5rem 0;
-      }
 
-      .picture {
-        width: 50%;
-        height: 100%;
+      .phone {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background: url("/assets/wise-home/12 - Design phone/background for Phone.svg");
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 8.4rem;
+
+        app-text-paragraph {
+          width: 50% - $marginSize;
+          margin-left: 7.5%;
+          padding: 5rem 0;
+        }
+
+        .picture {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          //background: url("/assets/wise-home/12 - Design phone/background for Phone.svg");
+          img {
+            width: 39%;
+          }
+        }
       }
 
-      img {
-        height: 80%;
+      .tablet {
+
+        .picture {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 51%;
+          }
+        }
+
       }
+
     }
 
     &.design-tablet {
@@ -524,7 +542,7 @@ $cell: $gridWidth / 12;
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
-        padding-top: 5rem;
+        padding-top: 3.5rem;
       }
 
       .picture {
@@ -664,4 +682,5 @@ $cell: $gridWidth / 12;
       }
     }
   }
+
 }
