@@ -342,9 +342,49 @@ $cell: $gridWidth / 12;
 
       .headline {
         position: absolute;
-        margin-top: 3rem;
+        margin-top: 5rem;
+        left: 0;
+        img {
+          width: 30vw;
+        }
       }
     }
+
+    &.second-persona {
+      background-image: url("/assets/beauty-zone/6 - Persona 02/second persona bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      direction: rtl;
+
+      .inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          ". ."
+          ". text";
+
+        .text {
+          text-align: left;
+          grid-area: text;
+          color: white;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .headline {
+        left: 0;
+        position: absolute;
+        margin-top: 5rem;
+        img {
+          width: 30vw;
+        }
+      }
+    }
+
 
     &.information-architecture {
       width: 100%;
