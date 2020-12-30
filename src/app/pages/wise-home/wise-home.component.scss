@@ -151,7 +151,7 @@ $cell: $gridWidth / 12;
 
       app-text-paragraph {
         width: 50% - $marginSize;
-        margin-left: $marginSize;
+        margin: 0 $marginSize;
       }
 
       .picture {
