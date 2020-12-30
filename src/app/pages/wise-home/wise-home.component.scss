@@ -198,6 +198,7 @@ $cell: $gridWidth / 12;
       .headline {
         position: absolute;
         margin-top: 5rem;
+
         img {
           width: 30vw;
         }
@@ -244,6 +245,7 @@ $cell: $gridWidth / 12;
       .headline {
         position: absolute;
         margin-top: 5rem;
+
         img {
           width: 30vw;
         }
@@ -543,13 +545,13 @@ $cell: $gridWidth / 12;
     &.colors {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       flex: 10;
       width: 100%;
 
       app-text-paragraph {
         width: 50% - $marginSize;
         margin-left: 7.5%;
-        padding-top: 3.5rem;
       }
 
       .picture {
@@ -573,6 +575,10 @@ $cell: $gridWidth / 12;
     }
 
     &.typography {
+      background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
+      background-size: cover;
+      width: 100%;
+
       .inner {
         display: flex;
         flex-direction: column;
@@ -581,16 +587,19 @@ $cell: $gridWidth / 12;
         .typography-container {
           padding-top: 1rem;
           width: 50%;
+
+          .picture {
+            width: 100%;
+            img {
+              width: 70%;
+            }
+          }
         }
 
         .icons-container {
           width: 50%;
         }
       }
-
-      background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
-      background-size: cover;
-      width: 100%;
     }
 
     &.show-off {
@@ -609,11 +618,21 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       text-align: center;
 
+      .picture {
+        text-align: center;
+
+        img {
+          object-fit: contain;
+          width: 25vw;
+        }
+      }
+
       .content {
         font-family: Butler;
-        font-size: 80px;
+        font-size: 4rem;
         font-weight: bold;
       }
+
     }
 
     &.contact {

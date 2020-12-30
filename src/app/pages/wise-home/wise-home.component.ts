@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-wise-home',
@@ -19,23 +19,25 @@ export class WiseHomeComponent {
     informationArchitecture: `Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.`
   };
 
-  public colors: { value: string, isDark: boolean }[] = [
-    { value: '#000000', isDark: true },
-    { value: '#366B6D', isDark: true },
-    { value: '#438689', isDark: true },
-    { value: '#51A1A4', isDark: false },
-    { value: '#76B9BC', isDark: false },
-    { value: '#9FCED0', isDark: false },
-    { value: '#C8E3E4', isDark: false },
-    { value: '#EDF2F2', isDark: false },
-    { value: '#FFFFFF', isDark: false }
+  public colors: { value: string, isDark: boolean, isShadow: boolean }[] = [
+    {value: '#000000', isDark: true, isShadow: false},
+    {value: '#366B6D', isDark: true, isShadow: false},
+    {value: '#438689', isDark: true, isShadow: false},
+    {value: '#51A1A4', isDark: false, isShadow: false},
+    {value: '#76B9BC', isDark: false, isShadow: false},
+    {value: '#9FCED0', isDark: false, isShadow: false},
+    {value: '#C8E3E4', isDark: false, isShadow: false},
+    {value: '#EDF2F2', isDark: false, isShadow: false},
+    {value: '#FFFFFF', isDark: false, isShadow: true}
   ];
 
 
-  increase(x: number) { return x + 1; }
+  increase(x: number) {
+    return x + 1;
+  }
 
   scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
-    e.scrollIntoView({ behavior });
+    e.scrollIntoView({behavior});
   }
 
 }

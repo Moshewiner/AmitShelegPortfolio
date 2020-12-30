@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 
 @Component({
   selector: 'app-color',
@@ -7,11 +7,15 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColorComponent implements OnInit {
-  @Input() isDark: boolean = false;
+  @Input() isDark = false;
   @Input() color: string;
-  constructor() { }
+  @Input() isShadow: boolean;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+    console.log({isShadow: this.isShadow});
   }
 
 }
