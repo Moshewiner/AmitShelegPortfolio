@@ -198,6 +198,9 @@ $cell: $gridWidth / 12;
       .headline {
         position: absolute;
         margin-top: 5rem;
+        img {
+          width: 30vw;
+        }
       }
 
       .picture {
@@ -241,6 +244,9 @@ $cell: $gridWidth / 12;
       .headline {
         position: absolute;
         margin-top: 5rem;
+        img {
+          width: 30vw;
+        }
       }
 
 
@@ -449,18 +455,18 @@ $cell: $gridWidth / 12;
 
     &.phone-wireframes {
       width: 100%;
-      height: auto;
+      height: 200vh;
       margin: 5rem 0;
 
       .picture {
         background: url("/assets/wise-home/11 - Phone wireframes/3rectangles background.svg");
-        background-size: 120% 100%;
+        background-size: 107% 100%;
         background-position-y: center;
         text-align: center;
 
         img {
           object-fit: cover;
-          width: 85%;
+          width: 75%;
         }
       }
     }

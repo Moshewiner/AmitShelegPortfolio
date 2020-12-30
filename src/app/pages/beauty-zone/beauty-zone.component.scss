@@ -538,10 +538,19 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       text-align: center;
 
+      .picture {
+        text-align: center;
+        img {
+          object-fit: contain;
+          width: 25vw;
+        }
+      }
+
       .content {
         font-family: Butler;
-        font-size: 80px;
+        font-size: 4.52rem;
         font-weight: bold;
+        margin-top: 0;
       }
     }
 
