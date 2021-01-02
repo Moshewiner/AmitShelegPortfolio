@@ -1,19 +1,277 @@
+@import "./typography.scss";
+
+$gridWidth: 85%;
+$marginSize: (100% - $gridWidth) / 2;
+$cell: $gridWidth / 12;
+
 :host {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
+  // * {
+  //   border: 3px solid #000;
+  //   box-sizing: border-box;
+  // }
+  width: calc(100vw - (100vw - 100%));
+  height: 100vh;
+  padding: 0;
 
-  app-about {
-    z-index: 1;
-  }
-  .products {
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .screen {
+    width: $gridWidth;
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    min-height: 100vh;
 
-    //background: url("/beauty-zone/logo.jpg") no-repeat;
+    .inner {
+      width: $gridWidth;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .button {
+      border-radius: 50px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+      width: fit-content;
+      padding: 1.1rem 1.75rem;
+      vertical-align: middle;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        outline: 0;
+        font-weight: 500;
+        font-size: 1.1rem;
+        letter-spacing: 1.25px;
+        color: #303030;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &.main {
+      width: 100%;
+      height: 100%;
+
+      .picture {
+        //img {
+        //  position: absolute;
+        //  right: 0;
+        //  height: 100vh;
+        //  width: 100vw;
+        //}
+      }
+
+      .scroll {
+        align-self: flex-end;
+        align-items: center;
+        display: flex;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .icon {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        grid-area: icon;
+      }
+    }
+
+    &.about {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+        text-align: left;
+
+        .container {
+          .headline {
+
+          }
+
+          .content {
+
+          }
+        }
+
+        .social {
+
+        }
+
+        .download {
+          background-color: #ffc3c3;
+
+        }
+
+      }
+
+      .picture {
+        width: 40%;
+        margin: 0 auto;
+        border: 1px solid black;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+
+    &.beauty-zone {
+      width: 100%;
+
+      background: url('/assets/home-page/3 - Beautyzone/BeautyZone Background@2x.png');
+      background-size: cover;
+
+      .inner {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        $pictureSize: 35%;
+
+        .picture {
+          width: $pictureSize;
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .content {
+          width: 100% - $pictureSize;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+
+          .headline {
+            margin: 0;
+          }
+
+          .description {
+
+          }
+
+          .view {
+            margin-top: 3rem;
+            background: #f50f66;
+
+            a {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    &.wise-home {
+      width: 100%;
+      background: url('/assets/home-page/4 - Wisehome/WiseHome Background@2x.jpg');
+      background-size: cover;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      $pictureSize: 40%;
+
+      .picture {
+        width: $pictureSize;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .content {
+        width: 100% - $pictureSize;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .headline {
+          margin: 0;
+          color: white;
+        }
+
+        .description {
+          color: white;
+        }
+
+        .view {
+          margin-top: 3rem;
+          background: #76b9bc;
+
+          a {
+            color: black;
+          }
+        }
+
+      }
+    }
+
+    &.neige {
+      width: 100%;
+      background: url('/assets/home-page/5 - ecommerce/Neige Background@2x.jpg');
+      background-size: cover;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      $pictureSize: 40%;
+
+
+      .picture {
+        width: $pictureSize;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .content {
+        width: 100% - $pictureSize;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .headline {
+          margin: 0;
+        }
+
+        .description {
+        }
+
+        .view {
+          margin-top: 3rem;
+          background: #e7c8b1;
+
+          a {
+            color: black;
+          }
+        }
+      }
+    }
   }
 }
+
+

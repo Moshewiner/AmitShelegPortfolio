@@ -5,7 +5,7 @@ import {BeautyZoneComponent} from './pages/beauty-zone/beauty-zone.component';
 import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 
 const routes: Routes = [
-  { path: '', component: BeautyZoneComponent },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'beautyzone', component: BeautyZoneComponent},
   { path: 'wisehome', component: WiseHomeComponent}

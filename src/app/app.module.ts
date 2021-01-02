@@ -6,9 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProductComponent } from './pages/home/product/product.component';
-
-import { AboutComponent } from './pages/home/about/about.component';
 import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
 import { PhonePlayerComponent } from './pages/beauty-zone/phone-player/phone-player.component';
@@ -27,8 +24,6 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ProductComponent,
-    AboutComponent,
     TextParagraphComponent,
     BeautyZoneComponent,
     BubbleComponent,
@@ -40,12 +35,11 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
     ColorComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     CommonModule,
     AppRoutingModule,
   ],
-  providers: [], 
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 

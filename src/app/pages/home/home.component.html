@@ -1,20 +1,67 @@
+<div class="screen main" #main>
+  <div class="picture">
 
-<app-about></app-about>
-<H2>Products</H2>
-<div class="products">
-  <app-product></app-product>
-  <app-product></app-product>
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
-  <!--  <app-product></app-product>-->
+  </div>
+  <div class="scroll">
+    <div class="icon" (click)="scroll(about, 'smooth')">
+      <img src="/assets/wise-home/1%20-%20Big%20photo/Scroll.svg"/>
+    </div>
+  </div>
 </div>
 
+<div #about class="screen about">
+  <div class="info">
+    <div class="container">
+      <h2 class="headline">About Me</h2>
+      <div class="content">{{texts.about}}</div>
+    </div>
+    <div class="social">
+      <img src="/assets/home-page/2%20-%20About%20me/socials.svg">
+    </div>
+    <div class="download button">
+      <a href="">DOWNLOAD MY CV</a>
+    </div>
+  </div>
+  <div class="picture">
+
+  </div>
+</div>
+
+<div class="screen beauty-zone">
+  <div class="inner">
+    <div class="picture">
+      <img src="/assets/home-page/3%20-%20Beautyzone/Phones@2x.png"/>
+    </div>
+    <div class="content">
+      <h2 class="headline">Beauty Zone</h2>
+      <div class="description">UX | UI Design Mobile App</div>
+      <div class="view button">
+        <a href="">VIEW PROJECT</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="screen wise-home">
+  <div class="content">
+    <h2 class="headline">Wise Home</h2>
+    <div class="description">UX | UI Design Mobile & Tablet App</div>
+    <div class="view button">
+      <a href="">VIEW PROJECT</a>
+    </div>
+  </div>
+  <div class="picture">
+    <img src="/assets/home-page/4%20-%20Wisehome/mockups@2x.png"/>
+  </div>
+</div>
+<div class="screen neige">
+  <div class="picture">
+    <img src="/assets/home-page/5%20-%20ecommerce/mockups@2x.png"/>
+  </div>
+  <div class="content">
+    <h2 class="headline">Neigè</h2>
+    <div class="description">UX | UI Design Desktop E-commerce</div>
+    <div class="view button">
+      <a href="">VIEW PROJECT</a>
+    </div>
+  </div>
+</div>
