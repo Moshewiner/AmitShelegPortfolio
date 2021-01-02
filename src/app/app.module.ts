@@ -19,6 +19,8 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { CommonModule } from '@angular/common';
 import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 import { ColorComponent } from './pages/wise-home/color/color.component';
+import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+
 
 
 @NgModule({
@@ -40,12 +42,12 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
     ColorComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     CommonModule,
     AppRoutingModule,
+    AngularFullpageModule
   ],
-  providers: [], 
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 

@@ -1,3 +1,4 @@
+@import url(~fullpage.js/dist/fullpage.min.css);
 @import "./assets/Fonts/Poppins/poppins.scss";
 @import "./scrollbar.scss";
 
@@ -11,6 +12,10 @@ body {
 
 * {
   font-family: $poppinsFontFamily;
+}
+
+.fp-tableCell {
+  display: flex;
 }
 
 @font-face {
