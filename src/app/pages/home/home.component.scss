@@ -4,6 +4,8 @@ $gridWidth: 85%;
 $marginSize: (100% - $gridWidth) / 2;
 $cell: $gridWidth / 12;
 
+
+
 :host {
   // * {
   //   border: 3px solid #000;
@@ -57,6 +59,7 @@ $cell: $gridWidth / 12;
           width: 100%;
           height: 100%;
         }
+
         //img {
         //  position: absolute;
         //  right: 0;
@@ -156,27 +159,30 @@ $cell: $gridWidth / 12;
           }
         }
 
-        .content {
-          width: 100% - $pictureSize;
+        .container {
+          width: 50%;
           display: flex;
           justify-content: center;
           flex-direction: column;
           align-items: center;
 
-          .headline {
-            margin: 0;
-          }
+          .content {
 
-          .description {
+            .headline {
+              margin: 0;
+            }
 
-          }
+            .description {
 
-          .view {
-            margin-top: 3rem;
-            background: #f50f66;
+            }
 
-            a {
-              color: white;
+            .view {
+              margin-top: 3rem;
+              background: #f50f66;
+
+              a {
+                color: white;
+              }
             }
           }
         }
@@ -204,31 +210,33 @@ $cell: $gridWidth / 12;
         }
       }
 
-      .content {
-        width: 100% - $pictureSize;
+
+      .container {
+        width: 50%;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
 
-        .headline {
-          margin: 0;
-          color: white;
-        }
+        .content {
+          .headline {
+            margin: 0;
+            color: white;
+          }
 
-        .description {
-          color: white;
-        }
+          .description {
+            color: white;
+          }
 
-        .view {
-          margin-top: 3rem;
-          background: #76b9bc;
+          .view {
+            margin-top: 3rem;
+            background: #76b9bc;
 
-          a {
-            color: black;
+            a {
+              color: black;
+            }
           }
         }
-
       }
     }
 
@@ -241,7 +249,7 @@ $cell: $gridWidth / 12;
       flex-direction: row;
       justify-content: space-between;
 
-      $pictureSize: 40%;
+      $pictureSize: 43%;
 
 
       .picture {
@@ -254,26 +262,28 @@ $cell: $gridWidth / 12;
         }
       }
 
-      .content {
+      .container {
         width: 100% - $pictureSize;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
 
-        .headline {
-          margin: 0;
-        }
+        .content {
+          .headline {
+            margin: 0;
+          }
 
-        .description {
-        }
+          .description {
+          }
 
-        .view {
-          margin-top: 3rem;
-          background: #e7c8b1;
+          .view {
+            margin-top: 3rem;
+            background: #e7c8b1;
 
-          a {
-            color: black;
+            a {
+              color: black;
+            }
           }
         }
       }
