@@ -1,8 +1,17 @@
 :host {
+  height: 7%;
   display: flex;
-  padding: 60px;
-  text-align: center;
-  background: #384242;
-  color: white;
-  font-size: 30px;
+  align-items: center;
+
+  border-top: 1px solid rgba(#000, 0.2);
+
+
+  padding: 1rem;
+  box-sizing: border-box;
+
+  .rights {
+    width: 85%;
+    margin: 0 auto;
+    color: #272727;
+  }
 }
