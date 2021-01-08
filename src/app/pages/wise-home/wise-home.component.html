@@ -103,23 +103,25 @@
                         subHeadline="User Research"></app-text-paragraph>
     <div class="container">
       <div class="first">
-        <h3 class="headline">Headline</h3>
-        <p class="text">text text texttext text texttext text text</p>
+        <h3 class="headline">{{userResearchDetails.first.headline}}</h3>
+        <p class="text">{{userResearchDetails.first.text}}</p>
       </div>
       <div class="second">
-        <h3 class="headline">Headline</h3>
-        <p class="text">text text texttext text texttext text text</p></div>
+        <h3 class="headline">{{userResearchDetails.second.headline}}</h3>
+        <p class="text">{{userResearchDetails.second.text}}</p>
+      </div>
       <div class="third">
-        <h3 class="headline">Headline</h3>
-        <p class="text">text text texttext text texttext text text</p>
+        <h3 class="headline">{{userResearchDetails.third.headline}}</h3>
+        <p class="text">{{userResearchDetails.first.text}}</p>
       </div>
       <div class="fourth">
-        <h3 class="headline">Headline</h3>
-        <p class="text">text text texttext text texttext text text</p>
+        <h3 class="headline">{{userResearchDetails.first.headline}}</h3>
+        <p class="text">{{userResearchDetails.first.text}}</p>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="screen information-architecture">
   <div class="inner">
@@ -185,7 +187,8 @@
     <img src="/assets/wise-home/14 - Colors/Lights-colors.svg"/>
   </div>
   <div class='colors-container'>
-    <app-color *ngFor="let color of colors" [color]="color.value" [isDark]="color.isDark" [isShadow]="color.isShadow"></app-color>
+    <app-color *ngFor="let color of colors" [color]="color.value" [isDark]="color.isDark"
+               [isShadow]="color.isShadow"></app-color>
   </div>
 </div>
 

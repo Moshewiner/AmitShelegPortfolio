@@ -18,6 +18,25 @@ export class WiseHomeComponent {
     informationArchitecture: `Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.`
   };
 
+  public userResearchDetails = {
+    first: {
+      headline: 'Be the one',
+      text: "Users can't manage too many applications - a single app can handle it all."
+    },
+    second: {
+      headline: 'Keep it simple',
+      text: 'Each common functions should be easy to access, whether for kids or adults.'
+    },
+    third: {
+      headline: 'Sharing is caring',
+      text: 'Home appliances need to be shared across the family members.'
+    },
+    fourth: {
+      headline: 'Manual out, auto in',
+      text: 'Most of the common usages are actually can be triggered automatically.'
+    },
+  };
+
   public colors: { value: string, isDark: boolean, isShadow: boolean }[] = [
     {value: '#000000', isDark: true, isShadow: false},
     {value: '#366B6D', isDark: true, isShadow: false},
