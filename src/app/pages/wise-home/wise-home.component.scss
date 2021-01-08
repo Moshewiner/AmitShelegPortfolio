@@ -51,27 +51,21 @@ $cell: $gridWidth / 12;
           height: auto;
           width: auto;
           bottom: 11%;
-          right: 4%;
+          right: 7.5%;
           display: flex;
           position: absolute;
 
-          .google {
+          .google, .apple {
             cursor: pointer;
 
             img {
               object-fit: contain;
-              max-width: 110px;
+              width: 7vw;
             }
           }
 
           .apple {
-            cursor: pointer;
-            margin: 0 10px;
-
-            img {
-              object-fit: contain;
-              max-width: 110px;
-            }
+            margin: 0 0.5vw;
           }
         }
 
