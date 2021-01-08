@@ -504,7 +504,7 @@ $cell: $gridWidth / 12;
           justify-content: center;
           align-items: center;
           //background: url("/assets/wise-home/12 - Design phone/background for Phone.svg");
-          img {
+          * {
             width: 39%;
           }
         }
@@ -518,7 +518,7 @@ $cell: $gridWidth / 12;
           justify-content: center;
           align-items: center;
 
-          img {
+          * {
             width: 51%;
           }
         }

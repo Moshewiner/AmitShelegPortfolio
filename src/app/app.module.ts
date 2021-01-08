@@ -16,6 +16,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { CommonModule } from '@angular/common';
 import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 import { ColorComponent } from './pages/wise-home/color/color.component';
+import { TabletPlayerComponent } from './components/tablet-player/tablet-player.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
     PainPointComponent,
     SafeUrlPipe,
     WiseHomeComponent,
-    ColorComponent
+    ColorComponent,
+    TabletPlayerComponent
   ],
   imports: [
     BrowserModule,
