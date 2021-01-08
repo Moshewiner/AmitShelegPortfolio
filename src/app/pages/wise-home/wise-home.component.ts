@@ -4,7 +4,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   selector: 'app-wise-home',
   templateUrl: './wise-home.component.html',
   styleUrls: ['./wise-home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WiseHomeComponent {
 

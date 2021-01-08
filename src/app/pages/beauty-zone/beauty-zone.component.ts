@@ -4,7 +4,6 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   selector: 'app-beauty-zone',
   templateUrl: './beauty-zone.component.html',
   styleUrls: ['./beauty-zone.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeautyZoneComponent implements OnInit {
 
