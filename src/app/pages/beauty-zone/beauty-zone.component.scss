@@ -321,12 +321,61 @@ $cell: $gridWidth / 12;
       display: flex;
       flex-direction: row;
       align-items: center;
-      .menu {
-        width: 50%;
+      width: 100%;
+      background: url('/assets/beauty-zone/10 - Phone mockup w&d/Pink Vectors 1.png') no-repeat;
+      background-size: contain;
+      background-position-x: 100%;
+
+
+      .side {
+        margin-left: $marginSize;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+
+        .menu {
+          width: 50%;
+          height: 60%;
+          display: flex;
+
+          ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            li {
+              list-style: none;
+              cursor: pointer;
+              border-bottom: 5px solid transparent;
+              transition: 1s;
+
+              &.selected {
+                border-radius: 10px;
+
+                border-image-source: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
+                border-image-slice: 5;
+              }
+            }
+          }
+        }
       }
-      .display {
+
+      .phone-container {
+        height: 100%;
         width: 50%;
-        height: 80%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .display {
+          width: 50%;
+          height: 80%;
+        }
       }
     }
 
@@ -429,6 +478,7 @@ $cell: $gridWidth / 12;
           app-text-paragraph {
             margin-bottom: 2rem;
           }
+
           img {
             width: 85%;
           }
@@ -553,6 +603,7 @@ $cell: $gridWidth / 12;
 
       .picture {
         text-align: center;
+
         img {
           object-fit: contain;
           width: 25vw;

@@ -49,10 +49,24 @@ Still, she feels frustrated when she has to use more than one platform to post a
 
   ];
 
+  public wireframesDesignMenu: {
+    selectedItem: "Onboarding"| "Explore Inspiration"| "Post Page"| "Shop Page" | "Products Identifier" | "Notification Page" | "My Profile",
+    headline: '',
+    text: ''
+  } = {
+    selectedItem: 'Onboarding',
+    headline: '',
+    text: ''
+  };
+
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  public setMenuItem(item:"Onboarding"| "Explore Inspiration"| "Post Page"| "Shop Page" | "Products Identifier" | "Notification Page" | "My Profile") {
+    this.wireframesDesignMenu.selectedItem = item;
   }
 
 

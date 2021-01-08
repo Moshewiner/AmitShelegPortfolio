@@ -112,18 +112,37 @@
   </app-text-paragraph>
 </div>
 <div class="screen wireframes-design">
-  <div class="menu">
-    <ul>
-      <li class="item">Onboarding</li>
-      <li class="item">Explore Inspiration</li>
-      <li class="item">Post Page</li>
-      <li class="item">Shop Page</li>
-      <li class="item">Products Identifier</li>
-      <li class="item">Notification Page</li>
-      <li class="item">My Profile</li>
-    </ul>
+  <div class="side">
+    <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="'Wireframes'"></app-text-paragraph>
+    <div class="menu">
+      <ul>
+        <li class="item" (click)="setMenuItem('Onboarding')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
+        </li>
+        <li class="item" (click)="setMenuItem('Explore Inspiration')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Explore Inspiration'}">Explore Inspiration
+        </li>
+        <li class="item" (click)="setMenuItem('Post Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Post Page'}">Post Page
+        </li>
+        <li class="item" (click)="setMenuItem('Shop Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
+        </li>
+        <li class="item" (click)="setMenuItem('Products Identifier')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
+        </li>
+        <li class="item" (click)="setMenuItem('Notification Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Notification Page'}">Notification Page
+        </li>
+        <li class="item" (click)="setMenuItem('My Profile')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
+        </li>
+      </ul>
+    </div>
   </div>
-  <app-phone-player class="display"></app-phone-player>
+  <div class="phone-container">
+    <app-phone-player class="display"></app-phone-player>
+  </div>
 </div>
 
 <div class="screen colors">
