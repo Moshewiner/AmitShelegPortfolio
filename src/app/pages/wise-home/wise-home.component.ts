@@ -37,6 +37,22 @@ export class WiseHomeComponent {
     },
   };
 
+  public persona = {
+    first: {
+      headline: '“Smart devices for my home will make my life easier and comfortable.”',
+      text: 'Michael is a student that works as a salesman in a local electric store.\n' +
+        'At the store, he first found out about the smart lights and got himself one.\n' +
+        'Since then, he was intrigued by smart devices, so he bought smart lights, speakers, and a thermostat.\n' +
+        'He was upset when he found out that every device requires its own app, and every app is looking so different from others.'
+    },
+    second: {
+      headline: '“I wish the smart devices in my home would integrate with a single app and be easier to use.”',
+      text: 'James, a 30 years old electrical engineer, that tech is a big part of his life. His goal is to make his home super autonomous, so he bought almost every device in his house - smart.\n' +
+        'He started to modify all the apps and made routines, but the integration between all the devices was nearly impossible. \n' +
+        'His devices were unfortunately useless, and although they are smart - the usage of them is not.'
+    }
+  }
+
   public colors: { value: string, isDark: boolean, isShadow: boolean }[] = [
     {value: '#000000', isDark: true, isShadow: false},
     {value: '#366B6D', isDark: true, isShadow: false},

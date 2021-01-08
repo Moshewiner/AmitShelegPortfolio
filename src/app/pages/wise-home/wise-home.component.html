@@ -63,14 +63,8 @@
   </div>
   <div class="spacer"></div>
   <div class="container">
-    <div class="upper-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type pecimen book.
-    </div>
-    <div class="bottom-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type pecimen book.
-    </div>
+    <div class="upper-text">{{persona.first.text}}</div>
+    <div class="bottom-text">{{persona.first.headline}}</div>
   </div>
 </div>
 
@@ -83,14 +77,8 @@
   </div>
   <div class="spacer"></div>
   <div class="container">
-    <div class="upper-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type pecimen book.
-    </div>
-    <div class="bottom-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type pecimen book.
-    </div>
+    <div class="upper-text">{{persona.second.headline}}</div>
+    <div class="bottom-text">{{persona.second.text}}</div>
   </div>
 </div>
 
@@ -179,19 +167,6 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div class="screen colors">
-  <app-text-paragraph [headline]="'Calming & Smart Colors'" [subHeadline]="'Colors'"
-                      [text]="texts.informationArchitecture">
-  </app-text-paragraph>
-  <div class="picture">
-    <img src="/assets/wise-home/14 - Colors/Lights-colors.svg"/>
-  </div>
-  <div class='colors-container'>
-    <app-color *ngFor="let color of colors" [color]="color.value" [isDark]="color.isDark"
-               [isShadow]="color.isShadow"></app-color>
-  </div>
-</div>
-
 <div class="screen typography">
   <div class="inner">
     <div class="typography-container">
@@ -211,8 +186,38 @@
   </div>
 </div>
 
-<div class="screen show-off">
-  <img src="/assets/wise-home/17-Design Showoff/screen-18-20-design-showoff@2x.jpg"/>
+<div class="screen colors">
+  <app-text-paragraph [headline]="'Calming & Smart Colors'" [subHeadline]="'Colors'"
+                      [text]="texts.informationArchitecture">
+  </app-text-paragraph>
+  <div class="picture">
+    <img src="/assets/wise-home/14 - Colors/Lights-colors.svg"/>
+  </div>
+  <div class='colors-container'>
+    <app-color *ngFor="let color of colors" [color]="color.value" [isDark]="color.isDark"
+               [isShadow]="color.isShadow"></app-color>
+  </div>
+</div>
+
+
+<div class="screen show-off-tablets">
+  <div class="single">
+    <img src="/assets/wise-home/18%20-%20Design%20Tablet/mockup%20tablet%201.svg"/>
+  </div>
+  <div class="display">
+    <img src="/assets/wise-home/18%20-%20Design%20Tablet/mockups%20tablet%204.png"/>
+  </div>
+
+  <div class="lines-container">
+    <div class="line first"></div>
+    <div class="line spacer"></div>
+    <div class="line second"></div>
+    <div class="line big-spacer"></div>
+    <div class="line third"></div>
+  </div>
+</div>
+<div class="screen show-off-phones">
+  <img src="/assets/wise-home/19+20%20-%20Design%20phones/mockups%20phone%20WH%20new.svg"/>
 </div>
 
 <div class="screen thanks">
