@@ -317,6 +317,19 @@ $cell: $gridWidth / 12;
       }
     }
 
+    &.wireframes-design {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .menu {
+        width: 50%;
+      }
+      .display {
+        width: 50%;
+        height: 80%;
+      }
+    }
+
     &.first-persona {
       background-image: url("/assets/beauty-zone/5 - Persona 01/first persona bg.png");
       background-size: cover;
