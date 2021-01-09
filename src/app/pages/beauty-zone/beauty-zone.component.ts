@@ -15,25 +15,23 @@ export class BeautyZoneComponent implements OnInit {
       Have you spent too much money and hours trying to get the desired look and finally got exhausted and unsatisfied from the result?
 
       Meet BeautyZone.`,
-    userResearch: `The first part of the project was to conduct interviews with people from the beauty world, both content creator and content consumer. It allowed me to understand their needs and desires in order to identify the pain points they encounter.
-      I learned from the interviews that in order to learn and discover the best products and techniques independently, they mainly use free platform such as Instagram, Pinterest and YouTube. If they wish to level up their makeup skills to become professionals, they have to sign up for paid courses.
-      Sadly, It takes a long way to practice makeup or even just to master makeup as a hobby.`,
-    colors: `The color pink, is thought to be a calming color associated with love, kindness, femininity, thoughtful and caring. Thats why I chose it to be my primary color - to empower woman and boost giving and receiving. Black is associated with power, strength, elegance, sophistication, and that is exactly what I want my app to represent.`,
+    userResearch: `The first part of the project was to conduct interviews with people from the beauty world, both content creators and content consumers. It allowed me to understand their needs and desires to identify the pain points they encounter.
+
+I learned from the interviews that to learn and discover the best products and techniques independently, they mainly use a free platform such as Instagram, Pinterest and YouTube. If they wish to level up their makeup skills to become professionals, they have to sign up for paid courses.
+
+Sadly, It takes a long way to practice makeup or even just to master makeup as a hobby.`,
+    colors: `The color pink, is thought to be a calming color associated with love, kindness, femininity, thoughtful and caring.\nThat's why I chose it to be my primary color - to empower woman and boost giving and receiving. Black is associated with power, strength, elegance, sophistication, and that is exactly what I want my app to represent.`,
     wireframes: `Once I was satisfied with the architecuture, I started to  work on the user interface itself. I started with a low  fidelty sketch to understand what works and what  doesn’t work, and then jumped and created more  detailed and accurate prototype that can be tested.`,
-    marketResearch: `After understanding the users needs, I made a competitor and market research to see how other products tackled this problem or similar ones.
-      I have explored many types of apps, from makeup apps to social medias such as instagram and pinterest, explored beauty e-commerce websites and apps with camera search.`,
-    firstPersona: `Chloe is a freelance bridal & evening makeup artist.
-She’s super passionate about it and loves to share her knowledge.
-Chloe runs a YouTube channel of makeup tutorials and an Instagram account for posts & short videos.
-Still, she feels frustrated when she has to use more than one platform to post all of her content. Also, she gets tons of questions and messages that she doesn’t have the time for.
-`,
+    marketResearch: "After understanding the user's needs, I conducted competitor research and market research to see how other products tackled those problems or similar ones. \nI have explored many types of apps, from makeup apps to social media apps, explored beauty e-commerce websites and apps with camera search. ",
+    firstPersona: "Chloe is a freelance bridal & evening makeup artist.\nShe’s super passionate about it and loves to share her knowledge. Chloe runs a YouTube channel of makeup tutorials and an Instagram account for posts & short videos.\nStill, she feels frustrated when she has to use more than one platform to post all of her content. Also, she gets tons of questions and messages that she doesn’t have the time for.",
+    secondPersona: "Lisa is a third-year law student with a great passion for makeup.\nEvery day she checks her social media accounts to get inspired and learn new techniques.\nLast year, she looked for a beginners makeup course and sadly, it’s only in central cities and also she couldn’t afford it.\nSince then, she couldn’t find a way to work up her hobby and had to give up on it.",
     informationArchitecture: `Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.`,
   };
 
   public painPoints: { headline: string, text: string }[] = [
     {
       headline: 'Get to the point',
-      text: `Boring and exhausting onboarding process, some irrelevant questions and prmission requests before understanding the app value`
+      text: `Boring and exhausting onboarding process, some irrelevant questions and permission requests before understanding the app value.`
     },
     {
       headline: 'Non-social apps',
@@ -45,7 +43,7 @@ Still, she feels frustrated when she has to use more than one platform to post a
     },
     {
       headline: 'Not based on interests',
-      text: 'All social media are general, not focusing on a particular field. The beauty field and some other more seek to get their own platform.'
+      text: 'All social media are general, not focusing on a particular field.\nThe beauty field and some other more seek to get their own platform.'
     }
 
   ];

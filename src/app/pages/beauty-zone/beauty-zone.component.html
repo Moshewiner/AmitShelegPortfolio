@@ -63,8 +63,7 @@
     </picture>
   </div>
   <div class="inner">
-    <p class="text">
-      {{texts.firstPersona}}
+    <p class="text" [innerHTML]="texts.firstPersona | breakline">
     </p>
   </div>
 </div>
@@ -74,8 +73,7 @@
     <img src="/assets/beauty-zone/6%20-%20Persona%2002/name%202.svg"/>
   </div>
   <div class="inner">
-    <p class="text">
-      {{texts.firstPersona}}
+    <p class="text" [innerHTML]="texts.secondPersona | breakline">
     </p>
   </div>
 </div>
