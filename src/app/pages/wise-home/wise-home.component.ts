@@ -12,7 +12,8 @@ export class WiseHomeComponent {
     userResearch: "The first step was to go out and speak to users to recognize their pain points. After interviewing a few users, I also read user reviews of known smart home apps.\n\nThe main issue the users pointed at is that there's a specific app for each device's company, which leads to having too many apps to manage all smart devices in their homes.\nThere were also significant complaints regarding the user interface and interaction elements - most dashboard designs were complex and overwhelming for the users.",
     informationArchitecture: "Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.",
     phoneDesign: "The final step was to design user interfaces for mobile and tablet apps. I aimed for a clean design that will focus the user on the main highlights, so I used white-on-white cards and accents them with teal color.\n\n Routines are running automatically, and updates will be trigger push notifications to help the user live with a little fewer concerns about his home.",
-    colors: 'colors text'
+    colors: 'Teal combines the calming properties of blue with the renewal qualities of green. It is a revitalizing and rejuvenating color that symbolizes idealism, calmness, communication, clarity of thought, balance, and harmony.',
+    wireframes: "At the point I was satisfied with the architecture, I started to work on the user interface. I started with a low fidelity sketch to understand what works and what doesn’t work, and then jumped and created more detailed and accurate wireframes."
   };
 
   public userResearchDetails = {
@@ -22,7 +23,7 @@ export class WiseHomeComponent {
     },
     second: {
       headline: 'Keep it simple',
-      text: 'Each common functions should be easy to access, whether for kids or adults.'
+      text: 'Each common function should be easy to access, whether for kids or adults.'
     },
     third: {
       headline: 'Sharing is caring',
