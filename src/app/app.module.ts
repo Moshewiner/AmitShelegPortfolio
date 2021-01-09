@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 import { ColorComponent } from './pages/wise-home/color/color.component';
 import { TabletPlayerComponent } from './components/tablet-player/tablet-player.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TabletPlayerComponent } from './components/tablet-player/tablet-player.
     SafeUrlPipe,
     WiseHomeComponent,
     ColorComponent,
-    TabletPlayerComponent
+    TabletPlayerComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,

@@ -50,8 +50,8 @@ Still, she feels frustrated when she has to use more than one platform to post a
 
   ];
 
-
-  private imageTextUrls: Record<MenuItems, string> = {
+  private isUI: boolean = false;
+  private uiImageTextUrls: Record<MenuItems, string> = {
     'Onboarding': '/assets/beauty-zone/11 - Phone mockup w&d/texts/onboarding.svg',
     'Explore Inspiration': '',
     'Shop Page': '',
@@ -59,14 +59,39 @@ Still, she feels frustrated when she has to use more than one platform to post a
     'My Profile': ''
   };
 
+  private uxImageTextUrls: Record<MenuItems, string> = {
+    'Onboarding': '/assets/beauty-zone/11 - Phone mockup w&d/texts/onboarding.svg',
+    'Explore Inspiration': '',
+    'Shop Page': '',
+    'Products Identifier': '',
+    'My Profile': ''
+  };
+
+  private uiImageVideoUrls: Record<MenuItems, string> = {
+    'Onboarding': 'https://media.giphy.com/media/mxCgLAxYwyRY7zUBZr/giphy.gif',
+    'Explore Inspiration': '',
+    'Shop Page': '',
+    'Products Identifier': '',
+    'My Profile': ''
+  };
+
+  private uxImageVideoUrls: Record<MenuItems, string> = {
+    'Onboarding': 'https://media.giphy.com/media/ZbHrMSTwp0LN9DNLc1/giphy.gif',
+    'Explore Inspiration': '',
+    'Shop Page': '',
+    'Products Identifier': '',
+    'My Profile': ''
+  };
+
+
   public wireframesDesignMenu: {
     selectedItem: MenuItems,
-    headline: string,
+    videoSrc: string,
     imageTextUrl: string
   } = {
     selectedItem: 'Onboarding',
-    headline: '',
-    imageTextUrl: this.imageTextUrls['Onboarding']
+    videoSrc: this.isUI ? this.uiImageVideoUrls['Onboarding'] : this.uxImageVideoUrls['Onboarding'],
+    imageTextUrl: this.isUI ? this.uiImageTextUrls['Onboarding'] : this.uxImageTextUrls['Onboarding']
   };
 
   constructor() {
@@ -75,9 +100,16 @@ Still, she feels frustrated when she has to use more than one platform to post a
   ngOnInit(): void {
   }
 
+  public changeUIUX(newState: boolean) {
+    this.isUI = newState;
+    this.wireframesDesignMenu.imageTextUrl = this.isUI ? this.uiImageTextUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageTextUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.videoSrc =this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
+  }
+
   public setMenuItem(item: MenuItems) {
     this.wireframesDesignMenu.selectedItem = item;
-    this.wireframesDesignMenu.imageTextUrl = this.imageTextUrls[item];
+    this.wireframesDesignMenu.imageTextUrl = this.isUI ? this.uiImageTextUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageTextUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.videoSrc =this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
   }
 
 

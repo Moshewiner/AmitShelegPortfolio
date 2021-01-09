@@ -138,7 +138,8 @@
     <div class="content-container">
       <img [src]="wireframesDesignMenu.imageTextUrl" />
     </div>
-    <app-phone-player class="display"></app-phone-player>
+    <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
+    <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
   </div>
 </div>
 
