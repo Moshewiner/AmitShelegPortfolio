@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {MenuItems} from './interfaces';
 
 @Component({
   selector: 'app-beauty-zone',
@@ -49,14 +50,23 @@ Still, she feels frustrated when she has to use more than one platform to post a
 
   ];
 
+
+  private imageTextUrls: Record<MenuItems, string> = {
+    'Onboarding': '/assets/beauty-zone/11 - Phone mockup w&d/texts/onboarding.svg',
+    'Explore Inspiration': '',
+    'Shop Page': '',
+    'Products Identifier': '',
+    'My Profile': ''
+  };
+
   public wireframesDesignMenu: {
-    selectedItem: "Onboarding"| "Explore Inspiration"| "Post Page"| "Shop Page" | "Products Identifier" | "Notification Page" | "My Profile",
-    headline: '',
-    text: ''
+    selectedItem: MenuItems,
+    headline: string,
+    imageTextUrl: string
   } = {
     selectedItem: 'Onboarding',
     headline: '',
-    text: ''
+    imageTextUrl: this.imageTextUrls['Onboarding']
   };
 
   constructor() {
@@ -65,8 +75,9 @@ Still, she feels frustrated when she has to use more than one platform to post a
   ngOnInit(): void {
   }
 
-  public setMenuItem(item:"Onboarding"| "Explore Inspiration"| "Post Page"| "Shop Page" | "Products Identifier" | "Notification Page" | "My Profile") {
+  public setMenuItem(item: MenuItems) {
     this.wireframesDesignMenu.selectedItem = item;
+    this.wireframesDesignMenu.imageTextUrl = this.imageTextUrls[item];
   }
 
 

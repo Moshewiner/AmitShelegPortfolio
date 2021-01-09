@@ -122,17 +122,11 @@
         <li class="item" (click)="setMenuItem('Explore Inspiration')"
             [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Explore Inspiration'}">Explore Inspiration
         </li>
-        <li class="item" (click)="setMenuItem('Post Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Post Page'}">Post Page
-        </li>
         <li class="item" (click)="setMenuItem('Shop Page')"
             [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
         </li>
         <li class="item" (click)="setMenuItem('Products Identifier')"
             [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
-        </li>
-        <li class="item" (click)="setMenuItem('Notification Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Notification Page'}">Notification Page
         </li>
         <li class="item" (click)="setMenuItem('My Profile')"
             [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
@@ -141,6 +135,9 @@
     </div>
   </div>
   <div class="phone-container">
+    <div class="content-container">
+      <img [src]="wireframesDesignMenu.imageTextUrl" />
+    </div>
     <app-phone-player class="display"></app-phone-player>
   </div>
 </div>

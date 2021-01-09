@@ -331,9 +331,13 @@ $cell: $gridWidth / 12;
         height: 100%;
         justify-content: center;
 
+        app-text-paragraph {
+          margin-top: -20%;
+        }
+
         .menu {
           width: 50%;
-          height: 60%;
+          height: 50%;
           display: flex;
 
           ul {
@@ -347,13 +351,32 @@ $cell: $gridWidth / 12;
               list-style: none;
               cursor: pointer;
               border-bottom: 5px solid transparent;
-              transition: 1s;
+              width: fit-content;
+              transition: all 0.45s;
 
-              &.selected {
+              &:hover:after {
+                width: 100%;
                 border-radius: 10px;
+              }
 
-                border-image-source: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
-                border-image-slice: 5;
+              &:after {
+                transition: all 0.45s;
+                content: "";
+                display: block;
+                width: 0;
+                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
+                height: 5px;
+                border-radius: 10px;
+              }
+
+              &.selected:after {
+                content: "";
+                display: block;
+                width: 100%;
+                margin: auto;
+                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
+                height: 5px;
+                border-radius: 10px;
               }
             }
           }
@@ -361,21 +384,34 @@ $cell: $gridWidth / 12;
       }
 
       .phone-container {
+        //background: url("src/assets/beauty-zone/HomePage Phone screen.svg");
+        position: relative;
+        .content-container {
+          position: absolute;
+          left: 0;
+          margin-left: -50%;
+          margin-top: 6%;
+          z-index: 0;
+          img {
+            width: 50vw;
+          }
+        }
+
         height: 100%;
         width: 50%;
 
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url("/assets/beauty-zone/10 - Phone mockup w&d/2 pinks 1.png") no-repeat;
+        background: url("/assets/beauty-zone/11 - Phone mockup w&d/2 pinks 1.png") no-repeat;
         background-size: 85% 93%;
         background-position-x: 100%;
         background-position-y: 60%;
 
-
         .display {
           width: 50%;
           height: 80%;
+          z-index: 1;
         }
       }
     }
