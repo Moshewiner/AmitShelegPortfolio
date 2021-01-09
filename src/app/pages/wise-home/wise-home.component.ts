@@ -15,7 +15,7 @@ export class WiseHomeComponent {
       Meet BeautyZone.`,
     userResearch: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type pecimen book.
       It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets.`,
-    informationArchitecture: `Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.`
+    informationArchitecture: "The final step was to design user interfaces for mobile and tablet apps. I aimed for a clean design that will focus the user on the main highlights, so I used white-on-white cards and accents them with teal color.\n\n Routines are running automatically, and updates will be trigger push notifications to help the user live with a little fewer concerns about his home.",
   };
 
   public userResearchDetails = {
