@@ -223,7 +223,7 @@ $cell: $gridWidth / 12;
         flex: 4;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         margin-right: $marginSize;
 
         .upper-text {
@@ -272,7 +272,7 @@ $cell: $gridWidth / 12;
         flex: 3;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
 
         .upper-text {
         }
@@ -332,31 +332,30 @@ $cell: $gridWidth / 12;
           .first {
             grid-area: 1 / 1 / 2 / 2;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text1.svg") no-repeat;
-
+            background-size: 13% 60%;
           }
 
           .second {
             grid-area: 1 / 2 / 2 / 3;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text2.svg") no-repeat;
-
+            background-size: 17% 60%;
           }
 
           .third {
             grid-area: 2 / 1 / 3 / 2;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text3.svg") no-repeat;
-
+            background-size: 17% 60%;
           }
 
           .fourth {
             grid-area: 2 / 2 / 3 / 3;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text4.svg") no-repeat;
-
+            background-size: 17% 60%;
           }
 
           .first, .second, .third, .fourth {
             padding-top: 1rem;
             padding-left: 1.4rem;
-            background-size: 15% 75%;
 
             .headline {
               margin: 0;
