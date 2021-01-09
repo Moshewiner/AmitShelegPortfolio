@@ -223,13 +223,25 @@ $cell: $gridWidth / 12;
         flex: 4;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         margin-right: $marginSize;
 
-        .upper-text {
+        .upper {
+          flex: 2;
+          display: flex;
+          align-items: center;
+          .text {
+
+          }
         }
 
-        .bottom-text {
+        .bottom {
+          flex:2;
+          display: flex;
+          align-items: center;
+          .text {
+
+          }
         }
       }
     }
@@ -272,12 +284,24 @@ $cell: $gridWidth / 12;
         flex: 3;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
 
-        .upper-text {
+        .upper {
+          flex: 2;
+          display: flex;
+          align-items: center;
+          .text {
+
+          }
         }
 
-        .bottom-text {
+        .bottom {
+          flex:2;
+          display: flex;
+          align-items: center;
+          .text {
+
+          }
         }
       }
     }
