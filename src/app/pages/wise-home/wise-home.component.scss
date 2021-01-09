@@ -43,20 +43,19 @@ $cell: $gridWidth / 12;
         display: flex;
         justify-content: center;
         width: 100%;
-        background-size: 100% 100%;
+        background-size: cover;
         background-repeat: no-repeat;
         background-image: url("/assets/wise-home/1 - Big photo/Cover Image@2x.png");
 
         .download {
           height: auto;
           width: auto;
-          bottom: 11%;
+          bottom: 10%;
           right: 7.5%;
           display: flex;
           position: absolute;
 
           .google, .apple {
-            cursor: pointer;
 
             img {
               object-fit: contain;
@@ -84,7 +83,7 @@ $cell: $gridWidth / 12;
 
           .bottom {
             h1 {
-              margin: 2% 0 0 15%;
+              margin: 2% 0 0 14%;
             }
           }
         }
