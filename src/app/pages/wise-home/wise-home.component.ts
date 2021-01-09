@@ -8,14 +8,11 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 export class WiseHomeComponent {
 
   public texts: { [key: string]: string } = {
-    introduction: `How many times have you run into a stunning makeup look and wished to know how to do it on your own? Or maybe find out what mascara did she use to get those outstanding lashes?
-
-      Have you spent too much money and hours trying to get the desired look and finally got exhausted and unsatisfied from the result?
-
-      Meet BeautyZone.`,
-    userResearch: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type pecimen book.
-      It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets.`,
-    informationArchitecture: "The final step was to design user interfaces for mobile and tablet apps. I aimed for a clean design that will focus the user on the main highlights, so I used white-on-white cards and accents them with teal color.\n\n Routines are running automatically, and updates will be trigger push notifications to help the user live with a little fewer concerns about his home.",
+    introduction: "In today's technological and advanced era, we enjoy a multitude of smart devices. Those devices improve the quality of our lives and make them easier, safer, and more comfortable.\n\nOur goal is to enable smart and efficient management for our devices which will provide us controlling tools, and real-time monitoring for everyone, everywhere.",
+    userResearch: "The first step was to go out and speak to users to recognize their pain points. After interviewing a few users, I also read user reviews of known smart home apps.\n\nThe main issue the users pointed at is that there's a specific app for each device's company, which leads to having too many apps to manage all smart devices in their homes.\nThere were also significant complaints regarding the user interface and interaction elements - most dashboard designs were complex and overwhelming for the users.",
+    informationArchitecture: "Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.",
+    phoneDesign: "The final step was to design user interfaces for mobile and tablet apps. I aimed for a clean design that will focus the user on the main highlights, so I used white-on-white cards and accents them with teal color.\n\n Routines are running automatically, and updates will be trigger push notifications to help the user live with a little fewer concerns about his home.",
+    colors: 'colors text'
   };
 
   public userResearchDetails = {

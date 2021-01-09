@@ -143,12 +143,12 @@ $cell: $gridWidth / 12;
       width: 100%;
 
       app-text-paragraph {
-        width: 50% - $marginSize;
+        width: 45% - $marginSize;
         margin: 0 $marginSize;
       }
 
       .picture {
-        width: 50%;
+        width: 55%;
       }
 
       img {
@@ -165,7 +165,7 @@ $cell: $gridWidth / 12;
       width: 100%;
 
       app-text-paragraph {
-        width: 50% - $marginSize;
+        width: 40%;
         margin-left: 7.5%;
         margin-bottom: 3rem;
         padding: 5rem 0;
@@ -219,13 +219,14 @@ $cell: $gridWidth / 12;
       }
 
       .container {
-        flex: 4;
+        flex: 5;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         margin-right: $marginSize;
 
         .upper {
+          width: 90%;
           flex: 2;
           display: flex;
           align-items: center;
@@ -239,7 +240,9 @@ $cell: $gridWidth / 12;
           display: flex;
           align-items: center;
           .text {
-
+            color: #000000;
+            white-space: normal;
+            margin-left: 20%;
           }
         }
       }
@@ -290,6 +293,8 @@ $cell: $gridWidth / 12;
           display: flex;
           align-items: center;
           .text {
+            color: #000000;
+            white-space: normal;
 
           }
         }
