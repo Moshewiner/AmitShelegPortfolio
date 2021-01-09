@@ -368,13 +368,13 @@ $cell: $gridWidth / 12;
           .third {
             grid-area: 2 / 1 / 3 / 2;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text3.svg") no-repeat;
-            background-size: 17% 60%;
+            background-size: 19% 60%;
           }
 
           .fourth {
             grid-area: 2 / 2 / 3 / 3;
             background: url("/assets/wise-home/7%20-%20User%20research%20part%20two/Text4.svg") no-repeat;
-            background-size: 17% 60%;
+            background-size: 19% 60%;
           }
 
           .first, .second, .third, .fourth {
@@ -503,7 +503,8 @@ $cell: $gridWidth / 12;
       width: 100%;
       height: 200vh;
       background: url("/assets/wise-home/12 - Design phone/background.svg") no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-position-y: 70%;
       margin-top: 3rem;
       justify-content: center;
 
