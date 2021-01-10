@@ -6,6 +6,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   styleUrls: ['./wise-home.component.scss'],
 })
 export class WiseHomeComponent {
+  public route = '/wisehome';
 
   public texts: { [key: string]: string } = {
     introduction: "In today's technological and advanced era, we enjoy a multitude of smart devices. Those devices improve the quality of our lives and make them easier, safer, and more comfortable.\n\nOur goal is to enable smart and efficient management for our devices which will provide us controlling tools, and real-time monitoring for everyone, everywhere.",

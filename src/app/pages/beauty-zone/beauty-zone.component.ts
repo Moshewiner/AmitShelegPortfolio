@@ -8,6 +8,7 @@ import {MenuItems} from './interfaces';
 })
 export class BeautyZoneComponent implements OnInit {
 
+  public route = '/beautyzone';
 
   public texts: { [key: string]: string } = {
     introduction: `How many times have you run into a stunning makeup look and wished to know how to do it on your own? Or maybe find out what mascara did she use to get those outstanding lashes?
@@ -22,9 +23,9 @@ I learned from the interviews that to learn and discover the best products and t
 Sadly, It takes a long way to practice makeup or even just to master makeup as a hobby.`,
     colors: `The color pink, is thought to be a calming color associated with love, kindness, femininity, thoughtful and caring.\nThat's why I chose it to be my primary color - to empower woman and boost giving and receiving. Black is associated with power, strength, elegance, sophistication, and that is exactly what I want my app to represent.`,
     wireframes: `Once I was satisfied with the architecuture, I started to  work on the user interface itself. I started with a low  fidelty sketch to understand what works and what  doesn’t work, and then jumped and created more  detailed and accurate prototype that can be tested.`,
-    marketResearch: "After understanding the user's needs, I conducted competitor research and market research to see how other products tackled those problems or similar ones. \nI have explored many types of apps, from makeup apps to social media apps, explored beauty e-commerce websites and apps with camera search. ",
-    firstPersona: "Chloe is a freelance bridal & evening makeup artist.\nShe’s super passionate about it and loves to share her knowledge. Chloe runs a YouTube channel of makeup tutorials and an Instagram account for posts & short videos.\nStill, she feels frustrated when she has to use more than one platform to post all of her content. Also, she gets tons of questions and messages that she doesn’t have the time for.",
-    secondPersona: "Lisa is a third-year law student with a great passion for makeup.\nEvery day she checks her social media accounts to get inspired and learn new techniques.\nLast year, she looked for a beginners makeup course and sadly, it’s only in central cities and also she couldn’t afford it.\nSince then, she couldn’t find a way to work up her hobby and had to give up on it.",
+    marketResearch: 'After understanding the user\'s needs, I conducted competitor research and market research to see how other products tackled those problems or similar ones. \nI have explored many types of apps, from makeup apps to social media apps, explored beauty e-commerce websites and apps with camera search. ',
+    firstPersona: 'Chloe is a freelance bridal & evening makeup artist.\nShe’s super passionate about it and loves to share her knowledge. Chloe runs a YouTube channel of makeup tutorials and an Instagram account for posts & short videos.\nStill, she feels frustrated when she has to use more than one platform to post all of her content. Also, she gets tons of questions and messages that she doesn’t have the time for.',
+    secondPersona: 'Lisa is a third-year law student with a great passion for makeup.\nEvery day she checks her social media accounts to get inspired and learn new techniques.\nLast year, she looked for a beginners makeup course and sadly, it’s only in central cities and also she couldn’t afford it.\nSince then, she couldn’t find a way to work up her hobby and had to give up on it.',
     informationArchitecture: `Based on the insights gained from the research, I defined the architecture of the app. This step helps me to validate my solution before jumping to visual wireframes.`,
   };
 
@@ -48,25 +49,18 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
 
   ];
 
-  private isUI: boolean = false;
-  private uiImageTextUrls: Record<MenuItems, string> = {
-    'Onboarding': '/assets/beauty-zone/11 - Phone mockup w&d/texts/onboarding.svg',
+  private isUI = false;
+  private imageTextUrls: Record<MenuItems, string> = {
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/onboarding.svg',
     'Explore Inspiration': '',
     'Shop Page': '',
     'Products Identifier': '',
     'My Profile': ''
   };
 
-  private uxImageTextUrls: Record<MenuItems, string> = {
-    'Onboarding': '/assets/beauty-zone/11 - Phone mockup w&d/texts/onboarding.svg',
-    'Explore Inspiration': '',
-    'Shop Page': '',
-    'Products Identifier': '',
-    'My Profile': ''
-  };
 
   private uiImageVideoUrls: Record<MenuItems, string> = {
-    'Onboarding': 'https://media.giphy.com/media/mxCgLAxYwyRY7zUBZr/giphy.gif',
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/try gif 2.gif',
     'Explore Inspiration': '',
     'Shop Page': '',
     'Products Identifier': '',
@@ -74,7 +68,7 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
   };
 
   private uxImageVideoUrls: Record<MenuItems, string> = {
-    'Onboarding': 'https://media.giphy.com/media/ZbHrMSTwp0LN9DNLc1/giphy.gif',
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/try gif.gif',
     'Explore Inspiration': '',
     'Shop Page': '',
     'Products Identifier': '',
@@ -88,8 +82,8 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
     imageTextUrl: string
   } = {
     selectedItem: 'Onboarding',
-    videoSrc: this.isUI ? this.uiImageVideoUrls['Onboarding'] : this.uxImageVideoUrls['Onboarding'],
-    imageTextUrl: this.isUI ? this.uiImageTextUrls['Onboarding'] : this.uxImageTextUrls['Onboarding']
+    videoSrc: this.isUI ? this.uiImageVideoUrls.Onboarding : this.uxImageVideoUrls.Onboarding,
+    imageTextUrl: this.imageTextUrls.Onboarding
   };
 
   constructor() {
@@ -100,22 +94,22 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
 
   public changeUIUX(newState: boolean) {
     this.isUI = newState;
-    this.wireframesDesignMenu.imageTextUrl = this.isUI ? this.uiImageTextUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageTextUrls[this.wireframesDesignMenu.selectedItem];
-    this.wireframesDesignMenu.videoSrc =this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.imageTextUrl = this.imageTextUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.videoSrc = this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
   }
 
   public setMenuItem(item: MenuItems) {
     this.wireframesDesignMenu.selectedItem = item;
-    this.wireframesDesignMenu.imageTextUrl = this.isUI ? this.uiImageTextUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageTextUrls[this.wireframesDesignMenu.selectedItem];
-    this.wireframesDesignMenu.videoSrc =this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.imageTextUrl = this.imageTextUrls[this.wireframesDesignMenu.selectedItem];
+    this.wireframesDesignMenu.videoSrc = this.isUI ? this.uiImageVideoUrls[this.wireframesDesignMenu.selectedItem] : this.uxImageVideoUrls[this.wireframesDesignMenu.selectedItem];
   }
 
 
-  increase(x: number) {
+  public increase(x: number) {
     return x + 1;
-  };
+  }
 
-  scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
+  public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
   }
 }
