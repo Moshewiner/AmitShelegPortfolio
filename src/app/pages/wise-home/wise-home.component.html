@@ -63,10 +63,10 @@
   </div>
   <div class="container">
     <div class="upper">
-      <div class="text">{{persona.first.text}}</div>
+      <div class="text" [innerHTML]="persona.first.text"></div>
     </div>
     <div class="bottom">
-      <h4 class="text">{{persona.first.headline}}</h4>
+      <h4 class="text" [innerHTML]="persona.first.headline"></h4>
     </div>
   </div>
 </div>
@@ -81,10 +81,10 @@
   <div class="spacer"></div>
   <div class="container">
     <div class="upper">
-      <h4 class="text">{{persona.second.headline}}</h4>
+      <h4 class="text" [innerHTML]="persona.second.headline | breakline"></h4>
     </div>
     <div class="bottom">
-      <div class="text">{{persona.second.text}}</div>
+      <div class="text" [innerHTML]="persona.second.text | breakline"></div>
     </div>
   </div>
 </div>
