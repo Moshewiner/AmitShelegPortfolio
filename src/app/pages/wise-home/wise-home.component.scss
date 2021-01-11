@@ -46,7 +46,8 @@ $cell: $gridWidth / 12;
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url("/assets/wise-home/1 - Big photo/Cover Image@2x.png");
+        background-image: url("/assets/wise-home/1 - Big photo/Cover Image.png");
+        background-position-x: -20px;
 
         .download {
           height: auto;
@@ -60,7 +61,7 @@ $cell: $gridWidth / 12;
 
             img {
               object-fit: contain;
-              width: 7vw;
+              width: 15vh;
             }
           }
 
@@ -189,7 +190,7 @@ $cell: $gridWidth / 12;
     }
 
     &.first-persona {
-      background: url("/assets/wise-home/5 - Persona 01/Background 1men.png") no-repeat;
+      background: url("/assets/wise-home/5 - Persona 01/Background 1.png") no-repeat;
       background-size: cover;
       width: 100%;
       display: flex;
@@ -250,7 +251,7 @@ $cell: $gridWidth / 12;
     }
 
     &.second-persona {
-      background: url("/assets/wise-home/6 - Persona 02/Background 2 with men@x2.png") no-repeat;
+      background: url("/assets/wise-home/6 - Persona 02/Background 2.png") no-repeat;
       background-size: cover;
       width: 100%;
       display: flex;
@@ -305,7 +306,7 @@ $cell: $gridWidth / 12;
           display: flex;
           align-items: center;
           .text {
-
+            width: 95%;
           }
         }
       }
@@ -401,7 +402,7 @@ $cell: $gridWidth / 12;
 
     &.information-architecture {
       width: 100%;
-      background-image: url("/assets/wise-home/8 - Information architecture/Backgroung image Flow@x2.png");
+      background-image: url("/assets/wise-home/8 - Information architecture/Backgroung image Flow.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
 
@@ -471,7 +472,7 @@ $cell: $gridWidth / 12;
       }
 
       .picture {
-        background: url("/assets/wise-home/10 - Tablet wireframes/Teal Background.svg");
+        background: url("/assets/wise-home/10+11 - Tablet wireframes/pattern teal bg.svg");
         background-size: 100% 100%;
         background-position-y: center;
 
@@ -490,7 +491,7 @@ $cell: $gridWidth / 12;
       align-items: center;
 
       .picture {
-        background: url("/assets/wise-home/11 - Phone wireframes/3rectangles background.svg");
+        background: url("/assets/wise-home/12+13 - Phone wireframes/3rectangles background.svg");
         background-size: 95% 100%;
         background-position-y: center;
         text-align: center;
@@ -507,7 +508,7 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       width: 100%;
       height: 200vh;
-      background: url("/assets/wise-home/12 - Design phone/background.svg") no-repeat;
+      background: url("/assets/wise-home/14 - Design phone/background.svg") no-repeat;
       background-size: contain;
       background-position-y: 70%;
       margin-top: 3rem;
@@ -561,7 +562,6 @@ $cell: $gridWidth / 12;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url("/assets/wise-home/13 - Design Tablet/background for Tablet.svg");
 
       .picture {
         width: 50%;
@@ -606,7 +606,7 @@ $cell: $gridWidth / 12;
     }
 
     &.typography {
-      background: url("/assets/wise-home/15 - Typhography&icons/Livingroom\ background@x3.png");
+      background: url("/assets/wise-home/16 - Typhography&icons/Livingroom background.png");
       background-size: cover;
       width: 100%;
 
@@ -658,7 +658,7 @@ $cell: $gridWidth / 12;
         top: 15%;
       }
       .display {
-        width: 65%;
+        width: 56%;
         position: absolute;
         z-index: 1;
         bottom: 0;
@@ -708,7 +708,7 @@ $cell: $gridWidth / 12;
       display: flex;
       align-items: center;
 
-      background: url("/assets/wise-home/19+20 - Design phones/rectangle teal.svg") no-repeat;
+      background: url("/assets/wise-home/19+20 - Mockups Design Phones/rectangle teal.svg") no-repeat;
       background-size: 100% 50%;
       background-position-y: center;
 

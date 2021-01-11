@@ -1,1 +1,1 @@
-export type MenuItems = 'Onboarding' | 'Explore Inspiration' | 'Shop Page' | 'Products Identifier' | 'My Profile';
+export type MenuItems = 'Onboarding' | 'Home Page' | 'Shop Page' | 'Products Identifier' | 'My Profile';

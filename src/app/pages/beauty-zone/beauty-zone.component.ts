@@ -49,27 +49,27 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
 
   ];
 
-  private isUI = false;
+  public isUI = false;
   private imageTextUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/onboarding.svg',
-    'Explore Inspiration': '',
-    'Shop Page': '',
-    'Products Identifier': '',
-    'My Profile': ''
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/texts/Onboarding text.svg',
+    'Home Page': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Home page text.svg',
+    'Shop Page': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Shop page text.svg',
+    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Product identifier text.svg',
+    'My Profile': '/assets/beauty-zone/11 - Phone mockup w&d/texts/My Profile text.svg'
   };
 
 
   private uiImageVideoUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/try gif 2.gif',
-    'Explore Inspiration': '',
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/try gif 2.gif',
+    'Home Page': '',
     'Shop Page': '',
     'Products Identifier': '',
     'My Profile': ''
   };
 
   private uxImageVideoUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/menu-items/Onboarding/try gif.gif',
-    'Explore Inspiration': '',
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/try gif.gif',
+    'Home Page': '',
     'Shop Page': '',
     'Products Identifier': '',
     'My Profile': ''

@@ -46,7 +46,7 @@ export class WiseHomeComponent {
     },
     second: {
       headline: '“I wish the smart devices in my home would integrate with a single app and be easier to use.”',
-      text: 'James, a 30 years old electrical engineer, that tech is a big part of his life.\nHis goal is to make his home super autonomous, so he bought almost every device in his house - smart. He started to modify all the apps and made routines, but the integration between all the devices was nearly impossible. His devices were unfortunately useless, and although they are smart - the usage of them is not.'
+      text: 'James, a 30 years old electrical engineer, that tech is a big part of his life.\nHis goal is to make his home super autonomous, so he bought almost every device in his house - smart. He started to modify all the apps and made routines, but the integration between all the devices was nearly impossible.\nHis devices were unfortunately useless, and although they are smart - the usage of them is not.'
     }
   };
 

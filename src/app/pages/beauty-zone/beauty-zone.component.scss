@@ -104,11 +104,10 @@ $cell: $gridWidth / 12;
         .apple {
           display: flex;
           justify-content: center;
-          cursor: pointer;
 
           img {
             object-fit: contain;
-            width: 130px;
+            width: 15vh;
           }
         }
 
@@ -255,7 +254,7 @@ $cell: $gridWidth / 12;
     }
 
     &.market-research {
-      background: url("/assets/beauty-zone/7+8 - Market research/Brush background@x2.png");
+      background: url("/assets/beauty-zone/7+8 - Market research/Brush background.png");
       background-size: cover;
       height: 200vh;
       width: 100%;
@@ -331,6 +330,8 @@ $cell: $gridWidth / 12;
         flex-direction: column;
         height: 100%;
         justify-content: center;
+        position: relative;
+        z-index: 3;
 
         app-text-paragraph {
           margin-top: -20%;
@@ -404,7 +405,7 @@ $cell: $gridWidth / 12;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url("/assets/beauty-zone/11 - Phone mockup w&d/2 pinks 1.png") no-repeat;
+        background: url("/assets/beauty-zone/11 - Phone mockup w&d/2 pink vectors.png") no-repeat;
         background-size: 85% 93%;
         background-position-x: 100%;
         background-position-y: 60%;

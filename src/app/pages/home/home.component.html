@@ -4,7 +4,7 @@
   </div>
   <div class="scroll">
     <div class="icon" (click)="scroll(about, 'smooth')">
-      <img src="/assets/wise-home/1%20-%20Big%20photo/Scroll.svg"/>
+      <img src="/assets/home-page/1 - Welcome screen/scroll.svg"/>
     </div>
   </div>
 </div>
@@ -13,24 +13,26 @@
   <div class="info">
     <div class="container">
       <h2 class="headline">About Me</h2>
-      <div class="content">{{texts.about}}</div>
+      <div class="content" [innerHTML]="texts.about | breakline"></div>
     </div>
     <div class="social">
-      <img src="/assets/home-page/2%20-%20About%20me/socials.svg">
+      <img src="/assets/home-page/2%20-%20About%20me/facebook%20icon.svg">
+      <img src="/assets/home-page/2%20-%20About%20me/linkedin%20icon.svg">
+      <img src="/assets/home-page/2%20-%20About%20me/dribble%20icon.svg">
     </div>
     <div class="download button">
       <a href="">DOWNLOAD MY CV</a>
     </div>
   </div>
   <div class="picture">
-
+    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png" />
   </div>
 </div>
 
 <div id="home-my-works" class="screen beauty-zone">
   <div class="inner">
     <div class="picture">
-      <img src="/assets/home-page/3%20-%20Beautyzone/Phones@2x.png"/>
+      <img src="/assets/home-page/3%20-%20Beautyzone/Phones.png"/>
     </div>
     <div class="container">
       <div class="content">
@@ -54,12 +56,12 @@
     </div>
   </div>
   <div class="picture">
-    <img src="/assets/home-page/4%20-%20Wisehome/mockups@2x.png"/>
+    <img src="/assets/home-page/4%20-%20Wisehome/mockups WH.png"/>
   </div>
 </div>
 <div class="screen neige">
   <div class="picture">
-    <img src="/assets/home-page/5%20-%20ecommerce/mockups@2x.png"/>
+    <img src="/assets/home-page/5%20-%20ecommerce/mockups N.png"/>
   </div>
   <div class="container">
     <div class="content">
