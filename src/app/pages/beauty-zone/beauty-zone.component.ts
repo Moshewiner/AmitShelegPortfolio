@@ -51,28 +51,28 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
 
   public isUI = false;
   private imageTextUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/texts/Onboarding text.svg',
-    'Home Page': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Home page text.svg',
-    'Shop Page': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Shop page text.svg',
-    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup w&d/texts/Product identifier text.svg',
-    'My Profile': '/assets/beauty-zone/11 - Phone mockup w&d/texts/My Profile text.svg'
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup wd/texts/Onboarding text.svg',
+    'Home Page': '/assets/beauty-zone/11 - Phone mockup wd/texts/Home page text.svg',
+    'Shop Page': '/assets/beauty-zone/11 - Phone mockup wd/texts/Shop page text.svg',
+    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup wd/texts/Product identifier text.svg',
+    'My Profile': '/assets/beauty-zone/11 - Phone mockup wd/texts/My Profile text.svg'
   };
 
 
   private uiImageVideoUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/Gif UI/Onboarding gif ui.gif',
-    'Home Page': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UI/Homepage gif ui.gif',
-    'Shop Page': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UI/Shop page gif ui.gif',
-    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UI/Product identifier gif ui.gif',
-    'My Profile': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UI/My profile gif ui.gif'
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif',
+    'Home Page': '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif',
+    'Shop Page': '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif',
+    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif',
+    'My Profile': '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif'
   };
 
   private uxImageVideoUrls: Record<MenuItems, string> = {
-    Onboarding: '/assets/beauty-zone/11 - Phone mockup w&d/Gif UX/Onboarding gif ux.gif',
-    'Home Page': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UX/Home page gif ux.gif',
-    'Shop Page': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UX/Shope page gif ux.gif',
-    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UX/Product identifier gif ux.gif',
-    'My Profile': '/assets/beauty-zone/11 - Phone mockup w&d/Gif UX/My profile gif ux.gif'
+    Onboarding: '/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif',
+    'Home Page': '/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif',
+    'Shop Page': '/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif',
+    'Products Identifier': '/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif',
+    'My Profile': '/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif'
   };
 
 
