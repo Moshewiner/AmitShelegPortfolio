@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +6,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 
   public texts: { [key: string]: string } = {
     about: 'Since I can remember myself, I saw the beauty and art in all.\nFrom collecting crafts for my DIY projects as a child, to decorating cakes to details. That passion stayed with me still until today.After I served as a paralegal at the Military Advocate, I realized how much I need and want to create. That’s when I decided to sign up for UX | UI diploma at “Shenkar” to discover about my passion.Recently I graduated my UX | UI diploma, and now I know that I have found a career I am genuinely passionate about and can’t wait to face the next challenge. I\'m looking forward to meeting you',

@@ -303,6 +303,40 @@ $cell: $gridWidth / 12;
         }
       }
     }
+    &.contact {
+      display: flex;
+      align-items: center;
+      height: 100vh - $headerSize;
+      min-height: 100vh - $headerSize;
+      .container {
+        margin-top: -$headerSize;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        h1 {
+          font-size: 4rem;
+        }
+        .social {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-auto-columns: 1fr;
+          grid-auto-flow: column;
+          grid-gap: 6%;
+
+          .link {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            img {
+              width: 5.5vw;
+            }
+            .label {
+            }
+          }
+        }
+      }
+    }
   }
 }
 
