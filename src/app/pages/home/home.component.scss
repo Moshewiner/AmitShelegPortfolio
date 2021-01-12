@@ -113,7 +113,7 @@ $cell: $gridWidth / 12;
 
         .container {
           .headline {
-
+            margin-bottom: 2%;
           }
 
           .content {
@@ -121,19 +121,16 @@ $cell: $gridWidth / 12;
           }
         }
 
-        .social {
-          width: 16%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          img {
-            cursor: pointer;
-            outline: 0;
-          }
-        }
-
         .download {
+          cursor: pointer;
           background-color: #ffc3c3;
+
+            &:hover {
+              background: #272727;
+              a {
+              color: #ffc3c3;
+            }
+          }
         }
 
       }
