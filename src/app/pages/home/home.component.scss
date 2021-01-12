@@ -61,14 +61,15 @@ $cell: $gridWidth / 12;
           width: 100%;
           height: 100%;
 
+          @keyframes jump {
+            0%   {transform: translate3d(0,0,0)}
+            40%  {transform: translate3d(0,1%,0)}
+            100% {transform: translate3d(0,2%,0)}
+          }
           .snowflake {
             transition: 1s;
-            &:hover {
-              transform: translateY(10px);
-            }
-          }
-
-          .snowflake-shadow {
+            transform-origin: 50% 50%;
+            animation: jump 3s ease-in-out alternate infinite;
 
           }
         }
