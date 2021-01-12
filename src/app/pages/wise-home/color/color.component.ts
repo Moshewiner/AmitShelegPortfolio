@@ -15,7 +15,6 @@ export class ColorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log({isShadow: this.isShadow});
   }
 
 }
