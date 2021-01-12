@@ -687,10 +687,17 @@ $cell: $gridWidth / 12;
       width: 100%;
       height: 100vh - $headerSize;
       min-height: 100vh - $headerSize;
-
       .navigation {
         display: flex;
         flex: 10;
+
+        .prev {
+          background: #F9F6F2;
+        }
+        .next {
+          background: #EDF2F2;
+          width: 90%;
+        }
 
         .prev,
         .next {
@@ -702,24 +709,19 @@ $cell: $gridWidth / 12;
           padding-bottom: 45px;
           outline: 0;
           user-select: none;
-          transition: 0.5s;
+
 
           img {
             object-fit: contain;
+            transition: 0.5s;
           }
 
           &:hover {
-            filter: brightness(50%);
+            img {
+              transform: scale(1.1);
+            }
             cursor: pointer;
           }
-        }
-
-        .prev {
-          background: #fff;
-        }
-
-        .next {
-          background: #c8e3e4;
         }
       }
 

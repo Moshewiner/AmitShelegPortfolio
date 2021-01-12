@@ -757,6 +757,13 @@ $cell: $gridWidth / 12;
         display: flex;
         flex: 10;
 
+        .prev {
+          background: #FFF8FB;
+        }
+        .next {
+          background: #F9F6F2;
+        }
+
         .prev,
         .next {
           flex: 5;
@@ -767,24 +774,19 @@ $cell: $gridWidth / 12;
           padding-bottom: 45px;
           outline: 0;
           user-select: none;
-          transition: 0.5s;
+
 
           img {
             object-fit: contain;
+            transition: 0.5s;
           }
 
           &:hover {
-            filter: brightness(50%);
+            img {
+              transform: scale(1.1);
+            }
             cursor: pointer;
           }
-        }
-
-        .prev {
-          background: #fff;
-        }
-
-        .next {
-          background: #c8e3e4;
         }
       }
 
