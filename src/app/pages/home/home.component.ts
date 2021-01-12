@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +6,48 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angula
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  private screens: HTMLCollectionOf<Element>;
+  // tslint:disable-next-line:variable-name
+  private _screenIndex = 0;
+  private get screenIndex(): number {
+    return this._screenIndex;
+  }
+  private set screenIndex(value: number) {
+    this._screenIndex = value;
+
+    if(this.screens[value].id) {
+      const a = this.el.nativeElement.querySelector(`#` + this.screens[value].id);
+      window.scrollTo({ top: a.offsetTop, behavior: 'smooth'});
+    }
+  }
+
+  constructor(private el: ElementRef) {
+  }
+
+  ngAfterViewInit(): void {
+    this.screens = document.getElementsByClassName('screen');
+
+    window.addEventListener('wheel', (event) => {
+      if (checkScrollDirectionIsUp(event)) {
+        this.screenIndex = this.screenIndex > 0 ? this.screenIndex - 1 : this.screenIndex;
+      } else {
+        this.screenIndex = this.screenIndex < this.screens.length - 1 ? this.screenIndex + 1 : this.screenIndex;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    });
+
+    function checkScrollDirectionIsUp(event): boolean {
+      if (event.wheelDelta) {
+        return event.wheelDelta > 0;
+      }
+      return event.deltaY < 0;
+    }
+
+
+  }
 
   ngOnInit(): void {
   }
