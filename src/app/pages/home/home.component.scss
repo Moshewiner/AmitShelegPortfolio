@@ -112,6 +112,7 @@ $cell: $gridWidth / 12;
         text-align: left;
 
         .container {
+          margin-top: -10vh;
           .headline {
             margin-bottom: 2%;
           }
@@ -124,6 +125,7 @@ $cell: $gridWidth / 12;
         .download {
           cursor: pointer;
           background-color: #ffc3c3;
+          margin-top: -10vh;
 
             &:hover {
               background: #272727;

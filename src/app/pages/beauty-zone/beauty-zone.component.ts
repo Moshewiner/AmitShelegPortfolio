@@ -16,7 +16,7 @@ export class BeautyZoneComponent implements OnInit {
       Have you spent too much money and hours trying to get the desired look and finally got exhausted and unsatisfied from the result?
 
       Meet BeautyZone.`,
-    userResearch: `The first part of the project was to conduct interviews with people from the beauty world, both content creators and content consumers. It allowed me to understand their needs and desires to identify the pain points they encounter.
+    userResearch: `The first part of the project was to conduct interviews with people from the beauty world, both content creators and content consumers.\nIt allowed me to understand their needs and desires to identify the pain points they encounter.
 
 I learned from the interviews that to learn and discover the best products and techniques independently, they mainly use a free platform such as Instagram, Pinterest and YouTube. If they wish to level up their makeup skills to become professionals, they have to sign up for paid courses.
 

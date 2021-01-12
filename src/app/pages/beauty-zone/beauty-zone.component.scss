@@ -1,9 +1,18 @@
 @import "./typography.scss";
+
 $gridWidth: 85%;
 $marginSize: (100% - $gridWidth) / 2;
 $cell: $gridWidth / 12;
 
 :host {
+  &:after {
+    visibility: hidden;
+    position: absolute;
+    left: -999em;
+    content: url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif');
+  }
+
+
   // * {
   //   border: 3px solid #000;
   //   box-sizing: border-box;
@@ -388,12 +397,14 @@ $cell: $gridWidth / 12;
       .phone-container {
         //background: url("src/assets/beauty-zone/HomePage Phone screen.svg");
         position: relative;
+
         .content-container {
           position: absolute;
           left: 0;
           margin-left: -50%;
           margin-top: 6%;
           z-index: 0;
+
           img {
             width: 50vw;
           }
@@ -415,6 +426,7 @@ $cell: $gridWidth / 12;
           height: 80%;
           z-index: 1;
         }
+
         .toggle-button {
           align-self: flex-end;
           margin-bottom: 7.9%;
