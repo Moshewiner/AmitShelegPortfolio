@@ -152,8 +152,8 @@
 </div>
 
 
-<div class="screen design" id="design" [routerLink]="route" [fragment]="'design'">
-  <div class="phone">
+<div class="screen design" id="design">
+  <div class="phone" id="wise-home-phone" [routerLink]="route" [fragment]="'wise-home-phone'">
     <app-text-paragraph [headline]="'Clean And Informative\n User Interface'" [subHeadline]="'Design'"
                         [text]="texts.phoneDesign">
     </app-text-paragraph>
@@ -161,7 +161,7 @@
       <app-phone-player videoSrc="/assets/wise-home/14 - Design phone/Mobile design WH.gif"></app-phone-player>
     </div>
   </div>
-  <div class="tablet">
+  <div id="wise-home-tablet" class="tablet" [routerLink]="route" [fragment]="'wise-home-tablet'">
     <div class="picture">
       <app-tablet-player videoSrc="/assets/wise-home/15 - Design Tablet/Tablet design WH.gif"></app-tablet-player>
     </div>

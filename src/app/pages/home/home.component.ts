@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private el: ElementRef) {
   }
 
-  // ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
   //   this.screens = document.getElementsByClassName('screen');
   //
   //   window.addEventListener('wheel', (event) => {
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   //   }
   //
   //
-  // }
+  }
 
   ngOnInit(): void {
   }
