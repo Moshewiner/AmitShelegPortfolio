@@ -16,6 +16,7 @@ $cell: $gridWidth / 12;
   padding: 0;
 
   .screen {
+    outline: 0;
     width: $gridWidth;
     margin: 0 auto;
     padding: 0;
@@ -30,7 +31,7 @@ $cell: $gridWidth / 12;
 
     .button {
       border-radius: 50px;
-      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
       width: fit-content;
       padding: 0.6rem 1.75rem;
       vertical-align: middle;
@@ -38,7 +39,7 @@ $cell: $gridWidth / 12;
       display: flex;
       justify-content: center;
 
-      a {
+      a, div {
         text-decoration: none;
         outline: 0;
         font-weight: 500;
@@ -124,14 +125,15 @@ $cell: $gridWidth / 12;
 
         .download {
           cursor: pointer;
-          background-color: #ffc3c3;
+          //background-color: #ffc3c3;
+          background-color: #fcdddd;
           margin-top: -10vh;
 
-            &:hover {
-              background: #272727;
-              a {
-              color: #ffc3c3;
-            }
+          &:hover {
+            //  background: #272727;
+            //  a {
+            //  color: #ffc3c3;
+            //}
           }
         }
 

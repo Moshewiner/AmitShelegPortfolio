@@ -7,6 +7,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit} f
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  public route: string = '/';
 
   private screens: HTMLCollectionOf<Element>;
   // tslint:disable-next-line:variable-name

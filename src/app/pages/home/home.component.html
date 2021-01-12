@@ -292,14 +292,14 @@
   </div>
 </div>
 
-<div id="home-about" #about class="screen about">
+<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
   <div class="info">
     <div class="container">
       <h2 class="headline">About Me</h2>
       <div class="content" [innerHTML]="texts.about | breakline"></div>
     </div>
     <div class="download button">
-      <a href="">DOWNLOAD MY CV</a>
+      <div href="">DOWNLOAD MY CV</div>
     </div>
   </div>
   <div class="picture">
@@ -307,7 +307,7 @@
   </div>
 </div>
 
-<div id="home-my-works" class="screen beauty-zone">
+<div id="home-my-works" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-my-works'">
   <div class="inner">
     <div class="picture">
       <img src="/assets/home-page/3%20-%20Beautyzone/Phones.png"/>
@@ -323,7 +323,7 @@
     </div>
   </div>
 </div>
-<div id="home-wise-home" class="screen wise-home">
+<div id="home-wise-home" class="screen wise-home"  [routerLink]="route" [fragment]="'home-wise-home'">
   <div class="container">
     <div class="content">
       <h2 class="headline">Wise Home</h2>
@@ -337,7 +337,7 @@
     <img src="/assets/home-page/4%20-%20Wisehome/mockups WH.png"/>
   </div>
 </div>
-<div id="home-neige" class="screen neige">
+<div id="home-neige" class="screen neige"  [routerLink]="route" [fragment]="'home-neige'">
   <div class="picture">
     <img src="/assets/home-page/5%20-%20ecommerce/mockups N.png"/>
   </div>
@@ -351,7 +351,7 @@
     </div>
   </div>
 </div>
-<div id="home-contact" class="screen contact">
+<div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">
   <div class="container">
     <h1>Let's Create Something Together</h1>
     <div class="social">
