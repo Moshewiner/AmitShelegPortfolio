@@ -307,10 +307,13 @@ $cell: $gridWidth / 12;
     }
     &.contact {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       height: 100vh - $headerSize;
       min-height: 100vh - $headerSize;
+      position: relative;
       .container {
+        width: 60%;
         margin-top: -$headerSize;
         display: flex;
         flex-direction: column;
@@ -336,6 +339,14 @@ $cell: $gridWidth / 12;
             .label {
             }
           }
+        }
+      }
+      .picture {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+        img {
+          width: 65%;
         }
       }
     }
