@@ -5,6 +5,7 @@ $gridWidth: 85%;
 $mobileGridWidth: 92%;
 
 $marginSize: (100% - $gridWidth) / 2;
+$mobileMarginSize: (100% - $mobileGridWidth) / 2;
 $cell: $gridWidth / 12;
 
 :host {
@@ -21,7 +22,6 @@ $cell: $gridWidth / 12;
   //   box-sizing: border-box;
   // }
   width: calc(100vw - (100vw - 100%));
-  height: 100vh;
   padding: 0;
 
   .screen {
@@ -36,6 +36,15 @@ $cell: $gridWidth / 12;
       width: $gridWidth;
       height: 100%;
       margin: 0 auto;
+    }
+
+    @media only screen and (max-width: $responsiveBreakPoint) {
+      height: unset;
+      min-height: unset;
+      width: $mobileGridWidth;
+      .inner {
+        width: $mobileGridWidth;
+      }
     }
 
     &.main {
@@ -168,6 +177,21 @@ $cell: $gridWidth / 12;
           font-weight: 400;
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        height: 60vh;
+        .logo {
+          img {
+            width: 80%;
+          }
+        }
+        app-text-paragraph, .picture {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
     }
 
     &.introduction {
@@ -196,6 +220,9 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         align-items: flex-start;
+        app-text-paragraph {
+          margin-top: 2%;
+        }
         app-text-paragraph, .picture {
           width: 100%;
           margin-left: 0;
@@ -210,14 +237,6 @@ $cell: $gridWidth / 12;
       align-items: flex-end;
       flex: 10;
       width: 100%;
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column;
-        app-text-paragraph, .picture {
-          width: 100%;
-          margin: 0;
-        }
-      }
 
       app-text-paragraph {
         width: 50% - $marginSize;
@@ -235,6 +254,24 @@ $cell: $gridWidth / 12;
       img {
         object-fit: fit;
         width: 100%;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: $mobileGridWidth;
+
+        app-text-paragraph {
+          width: 100%;
+          margin-right: 0;
+          padding: 0;
+        }
+        .picture {
+          width: auto;
+          display: flex;
+          align-items: flex-end;
+          margin-top: 7%;
+        }
       }
     }
 
@@ -289,6 +326,21 @@ $cell: $gridWidth / 12;
         object-fit: fit;
         width: 100%;
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 $mobileMarginSize;
+        }
+
+        .picture {
+          width: 90%;
+          margin: 2% 0;
+        }
+      }
     }
 
     &.market-research {
@@ -306,10 +358,6 @@ $cell: $gridWidth / 12;
         flex: 10;
         width: 50%;
         margin-left: $marginSize;
-        // app-text-paragraph {
-        //   // width: 50%;
-
-        // }
 
         .pain-points {
           display: flex;
@@ -320,14 +368,32 @@ $cell: $gridWidth / 12;
             margin: 1.875rem 0;
           }
         }
+      }
 
-        // .picture {
-        //   width: 50%;
-        // }
-        // img {
-        //   object-fit: fit;
-        //   width: 100%;
-        // }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url("/assets/beauty-zone/7-8 - Market research/Brush mobile.png") no-repeat;
+        background-position-y: 100%;
+        background-size: contain;
+
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        height: unset;
+
+        .container {
+          margin: 0 auto;
+          width: $mobileGridWidth;
+          align-items: flex-start;
+
+
+          .pain-points {
+            width: 92%;
+
+            .pain-point {
+              background: rgba(#fff, 0.9);
+              margin: 1rem 0;
+            }
+          }
+        }
       }
     }
 
@@ -621,6 +687,21 @@ $cell: $gridWidth / 12;
           img {
             width: 100%;
             height: 100%;
+          }
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column;
+        align-items: flex-start;
+        .inner {
+          app-text-paragraph {
+            margin-top: 2%;
+            width: 75%;
+          }
+
+          .picture {
+            width: 100%;
           }
         }
       }

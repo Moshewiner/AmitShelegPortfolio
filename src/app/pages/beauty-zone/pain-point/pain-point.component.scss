@@ -1,26 +1,42 @@
 @import '../typography.scss';
+
 :host {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
 
-    margin: 10px;
-    padding: 1.56rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 0 0.63rem 0 rgba(0, 0, 0, 0.08);
-    padding: 25px;
+  margin: 10px;
+  padding: 1.56rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0 0.63rem 0 rgba(0, 0, 0, 0.08);
 
-    h3 {
-        font-size: 2.25rem;
+  .headline {
+    font-size: 2.25rem;
+  }
+
+  .subHeadline {
+    font-size: 1.25rem;
+  }
+
+  .text,
+  .subHeadline,
+  .headline {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    margin: 1rem 0;
+
+    .subHeadline {
+      font-size: 1.1rem;
     }
-    h4 {
-        font-size: 1.25rem;
+    .headline {
+      font-size: 2rem;
     }
-    p,
-    h4,
-    h3 {
-        margin: 0;
-        padding: 0;
+    .text {
+
     }
+  }
 }
