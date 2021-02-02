@@ -391,6 +391,7 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         flex-direction: column-reverse;
         align-items: flex-start;
+        margin-top: 10%;
 
         app-text-paragraph {
           width: $mobileGridWidth;

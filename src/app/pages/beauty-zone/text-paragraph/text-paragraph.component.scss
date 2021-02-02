@@ -4,15 +4,19 @@
   flex-direction: column;
   justify-content: center;
 
-  h4,
-  h2 {
+  .sub-headline,
+  .headline {
     margin: 0;
     transition: 1s;
   }
 
   @media only screen and (max-width: $responsiveBreakPoint) {
-    p {
+    .text {
       margin: 0.5em 0 0;
+    }
+
+    .headline {
+      white-space: normal;
     }
   }
 }

@@ -39,7 +39,8 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
       text: 'Beauty apps are not built on socialization. They are focused on personal usage and not on creating connections that will benefit all.'
     },
     {
-      headline: 'Trying to solve too many problems',
+      // headline: 'Trying to solve too many problems',
+      headline: 'Trying xxx',
       text: 'Apps that try to make a solution for too many problems often miss the most important parts. Also, they are more complex to use.'
     },
     {
