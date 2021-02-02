@@ -283,13 +283,6 @@ $cell: $gridWidth / 12;
       flex: 10;
       width: 100%;
 
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column;
-        app-text-paragraph, .picture {
-          width: 100%;
-        }
-      }
-
       app-text-paragraph {
         width: 37%;
         margin-left: 7.5%;
@@ -300,8 +293,25 @@ $cell: $gridWidth / 12;
       }
 
       img {
-        object-fit: fit;
         width: 100%;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .picture {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
       }
     }
 
@@ -643,13 +653,29 @@ $cell: $gridWidth / 12;
       .picture {
         height: 100%;
         width: 40%;
-
       }
 
       img {
         width: 100%;
       }
 
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column;
+        align-items: center;
+        width: $mobileGridWidth;
+        .container {
+          margin-left: 0;
+          width: 100%;
+          .typography {
+            img {
+              width: 75%;
+            }
+          }
+        }
+        .picture {
+          display: none;
+        }
+      }
 
     }
 
