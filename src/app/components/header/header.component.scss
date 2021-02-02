@@ -29,8 +29,11 @@
       display: flex;
       flex: 1;
     }
+    .mobile-menu {
+      display: none;
+    }
 
-    .logo {
+      .logo {
       cursor: pointer;
       width: 60px;
       height: 60px;
@@ -58,7 +61,7 @@
     background-color: rgb(255, 255, 255);
     align-items: center;
     display: flex;
-    height: 6%;
+    height: 8%;
 
     .inner {
       width: 95%;
