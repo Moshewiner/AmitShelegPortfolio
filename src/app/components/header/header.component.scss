@@ -1,3 +1,5 @@
+@import '/src/responsive';
+
 :host {
   position: fixed;
   width: 100%;
@@ -39,6 +41,7 @@
       flex-direction: row;
       justify-content: space-evenly;
       flex: 2;
+
       .link {
         font-family: Poppins;
         font-weight: 300;
@@ -47,6 +50,39 @@
         cursor: pointer;
         user-select: none;
         outline: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    height: 6%;
+
+    .inner {
+      width: 95%;
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: auto;
+      }
+      .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 4%;
+        width: 5%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .routing {
+        display: none;
       }
     }
   }
