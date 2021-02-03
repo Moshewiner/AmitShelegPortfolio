@@ -1,19 +1,22 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   host: {
-    class: 'navbar'
+    class: 'navbar',
+    '[class.expanded]': 'isExpanded'
   },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
+  public isExpanded: boolean = true;
 
-  constructor() {
-
+  public toggleMenu(): void {
+    this.isExpanded = !this.isExpanded;
   }
+
   ngOnInit(): void {
     // var prevScrollpos = window.pageYOffset;
     // window.onscroll = function () {

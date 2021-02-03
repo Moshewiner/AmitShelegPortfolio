@@ -19,7 +19,6 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
 import { TabletPlayerComponent } from './components/tablet-player/tablet-player.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +35,7 @@ import { ToggleComponent } from './components/toggle/toggle.component';
     WiseHomeComponent,
     ColorComponent,
     TabletPlayerComponent,
-    ToggleComponent
+    ToggleComponent,
   ],
   imports: [
     BrowserModule,
