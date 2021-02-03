@@ -19,6 +19,9 @@ export class HeaderComponent implements OnInit {
   public closeMenu(): void {
     this.isExpanded = false;
   }
+  public toggleMenu(): void {
+    this.isExpanded = !this.isExpanded;
+  }
 
   ngOnInit(): void {
     // var prevScrollpos = window.pageYOffset;
