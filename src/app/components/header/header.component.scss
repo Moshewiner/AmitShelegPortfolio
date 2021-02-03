@@ -132,6 +132,9 @@
             user-select: none;
             &:focus {
               color: white;
+              text-decoration: none;
+              outline: none;
+              user-select: none;
             }
           }
         }

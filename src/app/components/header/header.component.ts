@@ -11,10 +11,13 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, OnInit,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-  public isExpanded: boolean = true;
+  public isExpanded: boolean = false;
 
-  public toggleMenu(): void {
-    this.isExpanded = !this.isExpanded;
+  public openMenu(): void {
+    this.isExpanded = true;
+  }
+  public closeMenu(): void {
+    this.isExpanded = false;
   }
 
   ngOnInit(): void {
