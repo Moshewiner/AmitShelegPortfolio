@@ -56,27 +56,29 @@
   </app-text-paragraph>
 </div>
 
-<!--<div class="screen first-persona" id="first-persona" [routerLink]="route" [fragment]="'first-persona'">-->
-<!--  <div class="headline">-->
-<!--    <picture>-->
-<!--      <img src="/assets/beauty-zone/5%20-%20Persona%2001/name%201.svg"/>-->
-<!--    </picture>-->
-<!--  </div>-->
-<!--  <div class="inner">-->
-<!--    <p class="text" [innerHTML]="texts.firstPersona | breakline">-->
-<!--    </p>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="screen first-persona" id="first-persona" [routerLink]="route" [fragment]="'first-persona'">
+  <div class="headline">
+    <picture>
+      <img src="/assets/beauty-zone/5%20-%20Persona%2001/name%201.svg"/>
+      <img class="mobile" src="/assets/mobile/mobile%20name%201.svg"/>
+    </picture>
+  </div>
+  <div class="inner">
+    <p class="text" [innerHTML]="texts.firstPersona | breakline">
+    </p>
+  </div>
+</div>
 
-<!--<div class="screen second-persona" id="second-persona" [routerLink]="route" [fragment]="'second-persona'">-->
-<!--  <div class="headline">-->
-<!--    <img src="/assets/beauty-zone/6%20-%20Persona%2002/name%202.svg"/>-->
-<!--  </div>-->
-<!--  <div class="inner">-->
-<!--    <p class="text" [innerHTML]="texts.secondPersona | breakline">-->
-<!--    </p>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="screen second-persona" id="second-persona" [routerLink]="route" [fragment]="'second-persona'">
+  <div class="headline">
+    <img src="/assets/beauty-zone/6%20-%20Persona%2002/name%202.svg"/>
+    <img class="mobile" src="/assets/mobile/mobile%20name%201-1.svg"/>
+  </div>
+  <div class="inner">
+    <p class="text" [innerHTML]="texts.secondPersona | breakline">
+    </p>
+  </div>
+</div>
 
 <div class="screen market-research" id="market-research" [routerLink]="route" [fragment]="'market-research'">
   <div class="container">
@@ -91,16 +93,16 @@
   </div>
 </div>
 
-<!--<div class="screen information-architecture" id="information-architecture" [routerLink]="route" [fragment]="'information-architecture'">-->
-<!--  <div class="inner">-->
-<!--    <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"-->
-<!--                        [text]="texts.informationArchitecture">-->
-<!--    </app-text-paragraph>-->
-<!--    <div class="picture">-->
-<!--      <img src="/assets/beauty-zone/9%20-%20Information%20architecture/Flow%20BZ.svg"/>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="screen information-architecture" id="information-architecture" [routerLink]="route" [fragment]="'information-architecture'">
+  <div class="inner">
+    <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
+                        [text]="texts.informationArchitecture">
+    </app-text-paragraph>
+    <div class="picture">
+      <img src="/assets/beauty-zone/9%20-%20Information%20architecture/Flow%20BZ.svg"/>
+    </div>
+  </div>
+</div>
 
 <div class="screen wireframes" id="wireframes" [routerLink]="route" [fragment]="'wireframes'">
   <div class="picture">

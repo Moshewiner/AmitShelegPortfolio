@@ -166,12 +166,14 @@ $cell: $gridWidth / 12;
           "headline headline headline headline headline headline . . . . ."
           ". . . . . . . . . . ."
           "scroll download download download . . . . . . .";
+
           .headline {
             grid-template-areas:
             "up up up up up ."
             "bottom bottom bottom bottom . . ";
             margin-top: 40%;
           }
+
           .up {
             grid-area: up;
 
@@ -189,22 +191,25 @@ $cell: $gridWidth / 12;
               font-size: 3.5rem;
             }
           }
+
           .download {
             display: none;
           }
 
           .scroll {
             position: absolute;
+
             img {
               width: 65%;
             }
+
             left: 0;
             bottom: 0;
           }
         }
       }
 
-      }
+    }
 
     &.about {
       display: flex;
@@ -626,6 +631,35 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+        .mobile {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background-position: bottom;
+        background-image: url("/assets/mobile/mobile first persona.png");
+        min-height: calc(120vh - 8%);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        .headline {
+          position: relative;
+          margin-top: 3rem;
+          margin-left: -2%;
+          img {
+            display: none;
+          }
+          .mobile {
+            display: block;
+            width: 76%;
+          }
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
 
@@ -662,6 +696,32 @@ $cell: $gridWidth / 12;
 
         img {
           width: 30vw;
+        }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background-position: bottom;
+        direction: ltr;
+        background-image: url("/assets/mobile/mobile first persona-1.png");
+        min-height: calc(120vh - 8%);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        .headline {
+          position: relative;
+          margin-top: 3rem;
+          margin-left: -2%;
+          img {
+            display: none;
+          }
+          .mobile {
+            display: block;
+            width: 76%;
+          }
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
         }
       }
     }
@@ -772,15 +832,26 @@ $cell: $gridWidth / 12;
 
       @media only screen and (max-width: $responsiveBreakPoint) {
         flex-direction: column;
+        background-image: url("/assets/mobile/Mobile Girls Background.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+
+
         align-items: flex-start;
         .inner {
           app-text-paragraph {
-            margin-top: 2%;
+            margin-top: 3rem;
             width: 75%;
+            flex: unset;
+            padding: 0;
           }
 
           .picture {
+            padding: 0;
             width: 100%;
+            flex: unset;
+            margin-top: 10%;
           }
         }
       }
