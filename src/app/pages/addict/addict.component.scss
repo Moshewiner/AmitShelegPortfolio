@@ -16,10 +16,6 @@ $cell: $gridWidth / 12;
     // content: url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif');
   }
 
-  // * {
-  //   border: 3px solid #000;
-  //   box-sizing: border-box;
-  // }
   width: calc(100vw - (100vw - 100%));
   padding: 0;
 
@@ -78,10 +74,10 @@ $cell: $gridWidth / 12;
           gap: 0px 0px;
           grid-template-areas:
             "up up up up up ."
-            ". . bottom bottom bottom bottom";
+            ". bottom bottom bottom bottom .";
           grid-area: headline;
           color: white;
-          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
         }
 
         .up {
@@ -97,39 +93,8 @@ $cell: $gridWidth / 12;
 
           h1 {
             margin: 0;
-            margin-left: 90px;
+            //margin-left: 90px;
             margin-top: 15px;
-          }
-        }
-
-        .download {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-          gap: 0px 0px;
-          grid-template-areas:
-            ". . . ."
-            "google apple . .";
-          grid-area: download;
-        }
-
-        .google {
-          grid-area: google;
-        }
-
-        .apple {
-          grid-area: apple;
-          margin: 0 10px;
-        }
-
-        .google,
-        .apple {
-          display: flex;
-          justify-content: center;
-
-          img {
-            object-fit: contain;
-            width: 15vh;
           }
         }
 
@@ -191,10 +156,6 @@ $cell: $gridWidth / 12;
               margin: 0;
               font-size: 3.5rem;
             }
-          }
-
-          .download {
-            display: none;
           }
 
           .scroll {
@@ -287,60 +248,17 @@ $cell: $gridWidth / 12;
       }
     }
 
-    &.the-problem {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex: 10;
-      width: 100%;
-
-      app-text-paragraph {
-        width: 50% - $marginSize;
-        margin-right: 7.5%;
-        padding: 5rem 0;
-      }
-
-      .picture {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-
-      img {
-        object-fit: fit;
-        width: 100%;
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        width: $mobileGridWidth;
-
-        app-text-paragraph {
-          width: 100%;
-          margin-right: 0;
-          padding: 0;
-        }
-        .picture {
-          width: auto;
-          display: flex;
-          align-items: flex-end;
-          margin-top: 7%;
-        }
-      }
-    }
-
     &.inspirations {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       width: 100%;
+
       app-text-paragraph {
         width: 37%;
         margin-left: 7.5%;
       }
+
       .picture {
         img {
           width: 100%;
@@ -350,19 +268,26 @@ $cell: $gridWidth / 12;
 
     &.colors {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex: 10;
       width: 100%;
+      background: url("/assets/addict/9 - Colors/texture-background.png");
 
       app-text-paragraph {
-        width: 37%;
+        //width: 37%;
         margin-left: 7.5%;
+        margin-top: 2%;
+        flex: 2;
       }
+      .inner {
+        height: unset;
+        flex: 5;
 
-      .picture {
-        width: 50%;
+        .picture {
+          //width: 50%;
+        }
       }
 
       img {
@@ -388,420 +313,19 @@ $cell: $gridWidth / 12;
       }
     }
 
-    &.wireframes {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      flex: 10;
+    &.logo-show {
       width: 100%;
-
-      app-text-paragraph {
-        width: 5 * $cell;
-        margin: 0 $marginSize;
-      }
-
-      .picture {
-        width: 50%;
-      }
-
-      img {
-        object-fit: fit;
-        width: 100%;
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        margin-top: 10%;
-
-        app-text-paragraph {
-          width: $mobileGridWidth;
-          margin: 0 $mobileMarginSize;
-        }
-
-        .picture {
-          width: 90%;
-          margin: 2% 0;
-        }
-      }
-    }
-
-    &.market-research {
-      background: url("/assets/beauty-zone/7-8 - Market research/brush background.png");
+      background: url("/assets/addict/logo show/logo show.png") no-repeat;
       background-size: cover;
-      height: 200vh;
-      width: 100%;
-
-      .container {
-        padding-top: 5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        flex: 10;
-        width: 50%;
-        margin-left: $marginSize;
-
-        .pain-points {
-          display: flex;
-          flex-direction: column;
-          padding-top: 1rem;
-
-          .pain-point {
-            margin: 1.875rem 0;
-          }
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background: url("/assets/beauty-zone/7-8 - Market research/Brush mobile.png") no-repeat;
-        background-position-y: 100%;
-        background-size: contain;
-
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        height: unset;
-
-        .container {
-          margin: 0 auto;
-          width: $mobileGridWidth;
-          align-items: flex-start;
-
-          .pain-points {
-            width: 92%;
-
-            .pain-point {
-              background: rgba(#fff, 0.9);
-              margin: 1rem 0;
-            }
-          }
-        }
-      }
     }
 
-    &.visualize-wireframes {
+    &.product-research {
+      height: auto;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      flex: 10;
-      width: 100%;
-
-      app-text-paragraph {
-        width: 50%;
-        margin-left: 7.5%;
-      }
-
+      justify-content: center;
       .picture {
-        width: 50%;
-      }
-
-      img {
-        object-fit: fit;
-        width: 100%;
-      }
-    }
-
-    &.wireframes-design {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      justify-content: space-between;
-
-      .side {
-        margin-left: $marginSize;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: center;
-        position: relative;
-        z-index: 3;
-
-        app-text-paragraph {
-          margin-top: -20%;
-        }
-
-        .menu {
-          width: 50%;
-          height: 50%;
-          display: flex;
-
-          ul {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-
-            li {
-              list-style: none;
-              cursor: pointer;
-              border-bottom: 5px solid transparent;
-              width: fit-content;
-              transition: all 0.45s;
-
-              &:hover:after {
-                width: 100%;
-                border-radius: 10px;
-              }
-
-              &:after {
-                transition: all 0.45s;
-                content: "";
-                display: block;
-                width: 0;
-                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
-                height: 5px;
-                border-radius: 10px;
-              }
-
-              &.selected:after {
-                content: "";
-                display: block;
-                width: 100%;
-                margin: auto;
-                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
-                height: 5px;
-                border-radius: 10px;
-              }
-            }
-          }
-        }
-      }
-
-      .phone-container {
-        //background: url("src/assets/beauty-zone/HomePage Phone screen.svg");
-        position: relative;
-
-        .content-container {
-          position: absolute;
-          left: 0;
-          margin-left: -50%;
-          margin-top: 6%;
-          z-index: 0;
-
-          img {
-            width: 50vw;
-          }
-        }
-
-        height: 100%;
-        width: 50%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: url("/assets/beauty-zone/11 - Phone mockup wd/2 pink vectors.png") no-repeat;
-        background-size: 85% 93%;
-        background-position-x: 100%;
-        background-position-y: 60%;
-
-        .display {
-          width: 50%;
-          height: 80%;
-          z-index: 1;
-        }
-
-        .toggle-button {
-          align-self: flex-end;
-          margin-bottom: 7.9%;
-          transform: scale(0.5);
-          position: absolute;
-          right: 0;
-          margin-right: 3.5%;
-        }
-      }
-    }
-
-    &.first-persona {
-      background-image: url("/assets/beauty-zone/5 - Persona 01/first persona bg.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 100%;
-
-      .inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 0px 0px;
-        grid-template-areas:
-          ". ."
-          ". text";
-
-        .text {
-          grid-area: text;
-          color: white;
-          display: flex;
-          align-items: center;
-        }
-      }
-
-      .headline {
-        position: absolute;
-        margin-top: 5rem;
-        left: 0;
-
         img {
-          width: 30vw;
-        }
-        .mobile {
-          display: none;
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background-position: bottom;
-        background-image: url("/assets/mobile/mobile first persona.png");
-        min-height: calc(120vh - 8%);
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
-        .headline {
-          position: relative;
-          margin-top: 3rem;
-          margin-left: -2%;
-          img {
-            display: none;
-          }
-          .mobile {
-            display: block;
-            width: 76%;
-          }
-        }
-
-        .inner {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    }
-
-    &.second-persona {
-      background-image: url("/assets/beauty-zone/6 - Persona 02/second persona bg.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 100%;
-      direction: rtl;
-
-      .inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 0px 0px;
-        grid-template-areas:
-          ". ."
-          ". text";
-
-        .text {
-          text-align: left;
-          grid-area: text;
-          color: white;
-          display: flex;
-          align-items: center;
-          direction: ltr;
-        }
-      }
-
-      .headline {
-        left: 0;
-        position: absolute;
-        margin-top: 5rem;
-
-        img {
-          width: 30vw;
-        }
-      }
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background-position: bottom;
-        direction: ltr;
-        background-image: url("/assets/mobile/mobile first persona-1.png");
-        min-height: calc(120vh - 8%);
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
-        .headline {
-          position: relative;
-          margin-top: 3rem;
-          margin-left: -2%;
-          img {
-            display: none;
-          }
-          .mobile {
-            display: block;
-            width: 76%;
-          }
-        }
-
-        .inner {
-          display: flex;
-          flex-direction: column;
-        }
-      }
-    }
-
-    &.typography-icons {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      flex: 10;
-      width: 100%;
-
-      .container {
-        padding: 1rem 0;
-        box-sizing: border-box;
-        height: 100%;
-        margin-left: $marginSize;
-        width: 60% - $marginSize;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        .typography {
-          img {
-            margin-top: 1.5rem;
-            width: 65%;
-          }
-        }
-
-        .icons {
-          app-text-paragraph {
-            margin-bottom: 2rem;
-          }
-
-          img {
-            width: 85%;
-          }
-        }
-      }
-
-      .picture {
-        height: 100%;
-        width: 40%;
-      }
-
-      img {
-        width: 100%;
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column;
-        align-items: center;
-        width: $mobileGridWidth;
-        .container {
-          margin-left: 0;
           width: 100%;
-
-          .typography {
-            img {
-              width: 75%;
-            }
-          }
-        }
-        .picture {
-          display: none;
         }
       }
     }
@@ -821,11 +345,13 @@ $cell: $gridWidth / 12;
 
       .picture {
         width: 55%;
+
+        img {
+          width: 100%;
+        }
       }
 
-      img {
-        width: 100%;
-      }
+
 
       @media only screen and (max-width: $responsiveBreakPoint) {
         width: $mobileGridWidth;
@@ -846,8 +372,9 @@ $cell: $gridWidth / 12;
       display: flex;
       flex-direction: column;
       height: auto;
-      app-text-paragraph { 
-        
+
+      app-text-paragraph {
+
         align-self: center;
         align-items: center;
       }
@@ -855,127 +382,25 @@ $cell: $gridWidth / 12;
       .picture {
         img {
           width: 100%;
-        }
-      }
-    } 
-
-    &.information-architecture {
-      width: 100%;
-      background-image: url("/assets/beauty-zone/9 - Information architecture/Girls Background.png");
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-
-      .inner {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        flex: 10;
-
-        app-text-paragraph {
-          padding-top: 3.5rem;
-          width: 50%;
-          flex: 5;
-          color: white;
-
-          &::ng-deep {
-            .sub-headline {
-              color: rgba(255, 255, 255, 0.7);
-            }
-          }
-        }
-
-        .picture {
-          flex: 5;
-          width: 100%;
-          padding-bottom: 3rem;
-
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        flex-direction: column;
-        background-image: url("/assets/mobile/Mobile Girls Background.png");
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-
-        align-items: flex-start;
-        .inner {
-          app-text-paragraph {
-            margin-top: 3rem;
-            width: 75%;
-            flex: unset;
-            padding: 0;
-          }
-
-          .picture {
-            padding: 0;
-            width: 100%;
-            flex: unset;
-            margin-top: 10%;
-          }
+          margin: 1.7% 0;
         }
       }
     }
 
-    &.onboarding-preview {
-      width: 100%;
-      height: 200vh;
-
-      .container {
-        text-align: center;
-        height: 100%;
-
-        .parallelogram {
-          background: rgba(245, 15, 102, 0.7);
-          transform: skewY(-10deg);
-          width: 100%;
-          display: block;
-          height: 50vw;
-          position: absolute;
-          margin-top: 20%;
-        }
-
-        img {
-          position: relative;
-          z-index: 99;
-          margin: 0 auto;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-    }
-
-    &.preview {
-      width: 100%;
-      height: 200vh;
+    &.design-showoff {
       display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .container {
-        text-align: center;
-
-        .parallelogram {
-          background: rgba(255, 105, 162, 0.8);
-          transform: skewY(10deg);
-          width: 100%;
-          display: block;
-          height: 56vw;
-          position: absolute;
-          margin-top: 18%;
-        }
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+      .picture {
+        width: 48%;
 
         img {
-          position: relative;
-          z-index: 99;
-          margin: 0 auto;
           width: 100%;
-          object-fit: cover;
+        }
+
+        &.bottom {
+          margin-top: 23%;
         }
       }
     }
@@ -1015,84 +440,5 @@ $cell: $gridWidth / 12;
       }
     }
 
-    &.contact {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-      flex: 18;
-      width: 100%;
-      height: 100vh - $headerSize;
-      min-height: 100vh - $headerSize;
-
-      .navigation {
-        display: flex;
-        flex: 10;
-
-        .prev {
-          background: #f9f6f2;
-        }
-
-        .next {
-          background: #edf2f2;
-          width: 90%;
-        }
-
-        .prev,
-        .next {
-          flex: 5;
-          text-align: center;
-          display: flex;
-          justify-content: center;
-          padding-top: 45px;
-          padding-bottom: 45px;
-          outline: 0;
-          user-select: none;
-
-          img {
-            object-fit: contain;
-            transition: 0.5s;
-          }
-
-          &:hover {
-            img {
-              transform: scale(1.1);
-            }
-
-            cursor: pointer;
-          }
-        }
-      }
-
-      .info {
-        flex: 8;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .headline {
-          font-size: 4.5rem;
-          margin-bottom: 1rem;
-        }
-
-        .container {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-
-          .mail,
-          .phone {
-            margin: 10px;
-          }
-        }
-
-        .goto-top {
-          cursor: pointer;
-          width: 98%;
-          text-align: right;
-        }
-      }
-    }
   }
 }
