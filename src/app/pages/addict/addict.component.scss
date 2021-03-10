@@ -248,6 +248,35 @@ $cell: $gridWidth / 12;
       }
     }
 
+    &.solution {
+      display: inline-block;
+      height: auto;
+      width: 100%;
+
+      app-text-paragraph {
+        width: 40%;
+        position: relative;
+        top: 0;
+        left: $marginSize;
+        float: left;
+      }
+
+      .picture {
+        margin-top: -25%;
+        width: $gridWidth;
+        position: relative;
+        top: 0;
+        float: right;
+        right: 0;
+        margin-right: $marginSize;
+        text-align: right;
+        img {
+          width: 100%;
+        }
+
+      }
+    }
+
     &.inspirations {
       display: flex;
       flex-direction: column;
@@ -321,6 +350,7 @@ $cell: $gridWidth / 12;
 
     &.product-research {
       height: auto;
+      margin-top:3%;
       display: flex;
       justify-content: center;
       .picture {
