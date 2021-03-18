@@ -435,6 +435,8 @@ $cell: $gridWidth / 12;
       }
 
       .picture {
+        position: relative;
+        z-index: 2;
         img {
           width: 100%;
           margin: 1.7% 0;
@@ -449,6 +451,25 @@ $cell: $gridWidth / 12;
       height: auto;
       margin-top: 3%;
       .picture {
+        img {
+          width: 100%;
+        }
+      }
+      .logo-top {
+        position: absolute;
+        width: 30%;
+        margin-top: -10%;
+        right: 1%;
+        z-index: 1;
+        img {
+          width: 100%;
+        }
+      }
+      .logo-bottom {
+        position: absolute;
+        margin-top: 90%;
+        width: 40%;
+        margin-left: -3%;
         img {
           width: 100%;
         }
