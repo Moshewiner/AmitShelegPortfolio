@@ -21,7 +21,10 @@ The shopping experience on the website doesn’t attract the users to take out t
 There is no call to action, the details and information on the site are poor and inefficient, the forms are long and unclear, and overall the whole experience was not attractive.`,
     solution: `The site was upgraded visually and user-friendly to suit the users' needs. The change enables a comfortable and pleasant orientation on the site and creates a good shopping experience that will eventually be translated into increasing the store's revenues.`,
     inspirations: `I was inspired by soft natural colors and vintage style when I designed e-commerce.
-I thought of how order can give a calm and elegant feel to the user.`
+I thought of how order can give a calm and elegant feel to the user.`,
+    fonts: `I used Illusias, a handwriting style, for logo design to create stylish yet subtle branding.
+    Goku, an elegant fashion-based typeface is functioning as the main headings.
+    I used Poppins, Geometric sans serif typeface for body text.`,
   };
 
 

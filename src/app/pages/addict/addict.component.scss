@@ -45,7 +45,7 @@ $cell: $gridWidth / 12;
     &.main {
       width: 100%;
       height: 100%;
-      background: url('/assets/addict/1 - Big photo/background.png') no-repeat;
+      background: url("/assets/addict/1 - Big photo/background.png") no-repeat;
       background-size: cover;
       // background-image: linear-gradient(to top, rgba(255, 0, 96, 0.9), rgba(255, 105, 162, 0.8));
 
@@ -79,7 +79,7 @@ $cell: $gridWidth / 12;
             ". bottom bottom bottom bottom .";
           grid-area: headline;
           color: white;
-          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.10);
+          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .up {
@@ -256,7 +256,7 @@ $cell: $gridWidth / 12;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      background: #A29B8E;
+      background: #a29b8e;
 
       app-text-paragraph {
         width: 40%;
@@ -268,7 +268,6 @@ $cell: $gridWidth / 12;
         img {
           width: 100%;
         }
-
       }
     }
 
@@ -298,7 +297,6 @@ $cell: $gridWidth / 12;
         img {
           width: 100%;
         }
-
       }
     }
 
@@ -321,10 +319,6 @@ $cell: $gridWidth / 12;
       .inner {
         height: unset;
         flex: 5;
-
-        .picture {
-          //width: 50%;
-        }
       }
 
       img {
@@ -356,21 +350,36 @@ $cell: $gridWidth / 12;
       background-size: 100% 100%;
     }
 
+    &.fonts {
+      width: 100%;
+      background: url("/assets/addict/23 - Fonts/Woman backround.png") no-repeat;
+      background-size: 100% 100%;
+      .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .picture {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
     &.branding-box {
       width: 100%;
-      background: url('/assets/addict/25- Box/Box Branding.png') no-repeat;
+      background: url("/assets/addict/25- Box/Box Branding.png") no-repeat;
       background-size: 100% 100%;
     }
     &.branding-bag {
       width: 100%;
-      background: url('/assets/addict/26 - Bags/Bags Branding.png') no-repeat;
+      background: url("/assets/addict/26 - Bags/Bags Branding.png") no-repeat;
       background-size: 100% 100%;
     }
 
-
     &.product-research {
       width: 100%;
-      background: url('/assets/addict/7 - Solution2/leather background.png') no-repeat;
+      background: url("/assets/addict/7 - Solution2/leather background.png") no-repeat;
       background-size: cover;
       height: auto;
       display: flex;
@@ -405,8 +414,6 @@ $cell: $gridWidth / 12;
         }
       }
 
-
-
       @media only screen and (max-width: $responsiveBreakPoint) {
         width: $mobileGridWidth;
         flex-direction: column;
@@ -429,7 +436,6 @@ $cell: $gridWidth / 12;
       margin-top: 5%;
 
       app-text-paragraph {
-
         align-self: center;
         align-items: center;
       }
@@ -488,12 +494,11 @@ $cell: $gridWidth / 12;
       margin-top: 20%;
 
       app-text-paragraph {
-
         align-self: center;
         align-items: center;
       }
       .picture {
-        background: url('/assets/addict/16-20 - Phone Design/backround girl.png') no-repeat;
+        background: url("/assets/addict/16-20 - Phone Design/backround girl.png") no-repeat;
         background-size: 100% 100%;
         padding-top: 5%;
         padding-bottom: 5%;
@@ -562,6 +567,5 @@ $cell: $gridWidth / 12;
         }
       }
     }
-
   }
 }
