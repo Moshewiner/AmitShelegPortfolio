@@ -114,7 +114,8 @@
 
 <div class="screen fonts" id="fonts" [routerLink]="route" [fragment]="'fonts'">
   <div class="inner">
-    <app-text-paragraph [headline]="'Stylish & Elegant Fonts'" [subHeadline]="'Typography'" [text]="texts.fonts"></app-text-paragraph>
+    <app-text-paragraph [headline]="'Stylish & Elegant Fonts'" [subHeadline]="'Typography'" [text]="texts.fonts">
+    </app-text-paragraph>
     <div class='picture'>
       <img src="/assets/addict/23 - Fonts/fonts.svg" />
     </div>
@@ -134,4 +135,26 @@
     <img src="/assets/addict/28 - Thanks/pink fabric logo light.png" />
   </div>
   <h1 class='content'>Thanks For Viewing!</h1>
+</div>
+
+<div class="screen contact" id="contact">
+  <div class="navigation">
+    <div class="prev" routerLink="/beautyzone">
+      <img src="/assets/wise-home/22%20-%20Next%20-%20contact/logo%20BZ.svg" />
+    </div>
+    <div class="next" routerLink="/wisehome">
+      <img src="/assets/beauty-zone/19%20-%20Next%20-contact/logo%20WH.svg" />
+    </div>
+  </div>
+  <div class="info" id="info">
+    <h1 class="headline">Start a project with me</h1>
+    <div class=container>
+      <div class="mail">Amitsheleg13@gmail.com</div>
+      <div class="phone">053-3350577</div>
+    </div>
+    <div class="goto-top">
+      <img (click)="scroll(main)" src="/assets/beauty-zone/19%20-%20Next%20-contact/up.svg" />
+    </div>
+  </div>
+
 </div>
