@@ -9,7 +9,7 @@ body {
   padding: 0;
   height: 100%;
   font-size: calc((1vh + 1vw ) * 0.62);
-  scroll-behavior: smooth;
+  //scroll-behavior: smooth;
 
   @media only screen and (max-width: $responsiveBreakPoint) {
     font-size: 11.5px;
