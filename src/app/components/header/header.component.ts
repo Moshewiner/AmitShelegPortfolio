@@ -1,9 +1,10 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  // tslint:disable-next-line:no-host-metadata-property
   host: {
     class: 'navbar',
     '[class.expanded]': 'isExpanded'
@@ -11,7 +12,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, OnInit,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-  public isExpanded: boolean = false;
+  public isExpanded = false;
 
   public openMenu(): void {
     this.isExpanded = true;
@@ -24,17 +25,19 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      var currentScrollPos = window.pageYOffset;
+    // TODO: mobile support (disable this logic on mobile)
+    let prevScrollpos = window.pageYOffset;
+    // tslint:disable-next-line:only-arrow-functions
+    window.onscroll = () => {
+      const currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-        //@ts-ignore
-        document.getElementsByClassName("navbar")[0].style.top = "0";
+        // @ts-ignore
+        document.getElementsByClassName('navbar')[0].style.top = '0';
       } else {
-        //@ts-ignore
-        document.getElementsByClassName("navbar")[0].style.top = "-120px";
+        // @ts-ignore
+        document.getElementsByClassName('navbar')[0].style.top = '-120px';
       }
       prevScrollpos = currentScrollPos;
-    }
+    };
   }
 }
