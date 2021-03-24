@@ -25,6 +25,7 @@ I thought of how order can give a calm and elegant feel to the user.`,
     fonts: `I used Illusias, a handwriting style, for logo design to create stylish yet subtle branding.
     Goku, an elegant fashion-based typeface is functioning as the main headings.
     I used Poppins, Geometric sans serif typeface for body text.`,
+    colors: `My primary colors are from the browns family, which brings to mind feelings of warmth, comfort, strength, and reliability. The color pink is associated with love, kindness, femininity, thoughtful, and caring. I used it as my accent color to create a feminine experience.`,
   };
 
 

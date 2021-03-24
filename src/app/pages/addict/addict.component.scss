@@ -313,7 +313,7 @@ $cell: $gridWidth / 12;
       background-size: cover;
 
       app-text-paragraph {
-        //width: 37%;
+        width: 55%;
         margin-left: 7.5%;
         margin-top: 2%;
         flex: 2;
@@ -321,6 +321,9 @@ $cell: $gridWidth / 12;
       .inner {
         height: unset;
         flex: 5;
+        .picture {
+          width: 95%;
+        }
       }
 
       img {
