@@ -1,0 +1,657 @@
+@import "./typography.scss";
+@import "/src/responsive";
+
+$gridWidth: 85%;
+$mobileGridWidth: 92%;
+
+$marginSize: (100% - $gridWidth) / 2;
+$mobileMarginSize: (100% - $mobileGridWidth) / 2;
+$cell: $gridWidth / 12;
+
+:host {
+  &:after {
+    visibility: hidden;
+    position: absolute;
+    left: -999em;
+    // content: url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif');
+  }
+
+  width: calc(100vw - (100vw - 100%));
+  padding: 0;
+
+  .screen {
+    outline: 0;
+    width: $gridWidth;
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    min-height: 100vh;
+
+    .inner {
+      width: $gridWidth;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    @media only screen and (max-width: $responsiveBreakPoint) {
+      height: unset;
+      min-height: unset;
+      width: $mobileGridWidth;
+      .inner {
+        width: $mobileGridWidth;
+      }
+    }
+
+    &.main {
+      width: 100%;
+      height: 100%;
+      background: url("/assets/addict/1 - Big photo/background.png") no-repeat;
+      background-size: cover;
+      // background-image: linear-gradient(to top, rgba(255, 0, 96, 0.9), rgba(255, 105, 162, 0.8));
+
+      .picture {
+        img {
+          position: absolute;
+          right: $marginSize;
+          height: 100vh;
+        }
+      }
+
+      .inner {
+        z-index: 99999;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0px 0px;
+        grid-template-areas:
+          ". . . . . . . . . . ."
+          "headline headline headline headline headline headline . . . . ."
+          "download download download . . scroll . . . . .";
+
+        .headline {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          gap: 0px 0px;
+          grid-template-areas:
+            "up up up up up ."
+            ". bottom bottom bottom bottom .";
+          grid-area: headline;
+          color: white;
+          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .up {
+          grid-area: up;
+
+          h1 {
+            margin-bottom: 40px;
+          }
+        }
+
+        .bottom {
+          grid-area: bottom;
+
+          h1 {
+            margin: 0;
+            //margin-left: 90px;
+            margin-top: 15px;
+          }
+        }
+
+        .scroll {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          gap: 0px 0px;
+          grid-template-areas:
+            "."
+            "icon";
+          grid-area: scroll;
+          text-align: center;
+
+          img {
+            width: 80%;
+          }
+        }
+
+        .icon {
+          cursor: pointer;
+          grid-area: icon;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .picture {
+          img {
+            height: 70vh;
+            bottom: 0;
+          }
+        }
+        .inner {
+          grid-template-areas:
+            "headline headline headline headline headline headline . . . . ."
+            ". . . . . . . . . . ."
+            "scroll download download download . . . . . . .";
+
+          .headline {
+            grid-template-areas:
+              "up up up up up ."
+              "bottom bottom bottom bottom . . ";
+            margin-top: 40%;
+          }
+
+          .up {
+            grid-area: up;
+
+            h1 {
+              margin-bottom: 10%;
+              font-size: 3.5rem;
+            }
+          }
+
+          .bottom {
+            grid-area: bottom;
+
+            h1 {
+              margin: 0;
+              font-size: 3.5rem;
+            }
+          }
+
+          .scroll {
+            position: absolute;
+
+            img {
+              width: 65%;
+            }
+
+            left: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+
+    &.about {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .logo {
+        width: 100%;
+        text-align: center;
+
+        img {
+          object-fit: contain;
+          width: 40%;
+        }
+      }
+
+      .info {
+        text-align: center;
+
+        .bold {
+          font-weight: 400;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        height: 60vh;
+        .logo {
+          img {
+            width: 80%;
+          }
+        }
+        app-text-paragraph,
+        .picture {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &.introduction {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex: 10;
+      width: 100%;
+
+      app-text-paragraph {
+        width: 45%;
+        margin-left: $marginSize;
+      }
+
+      .picture {
+        width: 55%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          margin-top: 2%;
+        }
+        app-text-paragraph,
+        .picture {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &.problem {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background: #a29b8e;
+
+      app-text-paragraph {
+        width: 40%;
+        margin-right: $marginSize;
+      }
+
+      .picture {
+        width: 60%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.solution {
+      display: inline-block;
+      height: auto;
+      width: 100%;
+
+      app-text-paragraph {
+        width: 35%;
+        position: relative;
+        top: 0;
+        margin-top: 7%;
+        left: $marginSize;
+        float: left;
+      }
+
+      .picture {
+        margin-top: -30%;
+        width: $gridWidth;
+        position: relative;
+        top: 0;
+        float: right;
+        right: 0;
+        margin-right: $marginSize;
+        text-align: right;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.colors {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex: 10;
+      width: 100%;
+      background: url("/assets/addict/24 - Colors/texture-background.png") no-repeat;
+      background-size: cover;
+
+      app-text-paragraph {
+        //width: 37%;
+        margin-left: 7.5%;
+        margin-top: 2%;
+        flex: 2;
+      }
+      .inner {
+        height: unset;
+        flex: 5;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .picture {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &.logo-show {
+      width: 100%;
+      background: url("/assets/addict/22 - Logo Show/logo show.png") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    &.fonts {
+      width: 100%;
+      background: url("/assets/addict/23 - Fonts/Woman backround.png") no-repeat;
+      background-size: 100% 100%;
+      .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .picture {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &.branding-box {
+      width: 100%;
+      background: url("/assets/addict/25- Box/Box Branding.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    &.branding-bag {
+      width: 100%;
+      background: url("/assets/addict/26 - Bags/Bags Branding.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    &.clothes {
+      width: 100%;
+      background: url("/assets/addict/27 - Clothes/clothes.png") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    &.product-research {
+      width: 100%;
+      background: url("/assets/addict/7 - Solution2/leather background.png") no-repeat;
+      background-size: cover;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .picture {
+        width: $gridWidth;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.design {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex: 10;
+      width: 100%;
+
+      app-text-paragraph {
+        width: 45%;
+        margin-left: $marginSize;
+      }
+
+      .picture {
+        width: 55%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          margin-top: 2%;
+        }
+        app-text-paragraph,
+        .picture {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &.design-modern-website {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      margin-top: 5%;
+
+      app-text-paragraph {
+        align-self: center;
+        align-items: center;
+      }
+
+      .picture {
+        position: relative;
+        z-index: 2;
+        img {
+          width: 100%;
+          margin: 1.7% 0;
+        }
+      }
+    }
+
+    &.design-showoff {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: auto;
+      margin-top: 3%;
+      .picture {
+        position: relative;
+        z-index: 2;
+        img {
+          width: 100%;
+        }
+      }
+      .logo-top {
+        position: absolute;
+        width: 30%;
+        margin-top: -13%;
+        right: 1%;
+        z-index: 1;
+        img {
+          width: 100%;
+        }
+      }
+      .logo-bottom {
+        position: absolute;
+        margin-top: 90%;
+        width: 50%;
+        margin-left: -3%;
+        z-index: 1;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.mobile-design {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      margin-top: 20%;
+
+      app-text-paragraph {
+        align-self: center;
+        align-items: center;
+      }
+      .picture {
+        background: url("/assets/addict/16-20 - Phone Design/backround girl.png") no-repeat;
+        background-size: 100% 100%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        margin-top: 7%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        img {
+          width: $gridWidth;
+        }
+      }
+    }
+
+    &.inspirations {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 100%;
+
+      app-text-paragraph {
+        width: 60%;
+        margin-left: 7.5%;
+        margin-top: 1%;
+      }
+
+      .picture {
+        margin-top: -1%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &.thanks {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+
+      .picture {
+        text-align: center;
+
+        img {
+          opacity: 0.8;
+          object-fit: contain;
+          width: 25vw;
+        }
+      }
+
+      .content {
+        margin-top: 2%;
+        font-family: Butler;
+        font-size: 4rem;
+        font-weight: bold;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .content {
+          font-size: 2.5rem;
+        }
+
+        .picture {
+          img {
+            width: 70%;
+          }
+        }
+      }
+    }
+
+    &.contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      flex: 18;
+      width: 100%;
+      height: 100vh - $headerSize;
+      min-height: 100vh - $headerSize;
+
+      .navigation {
+        display: flex;
+        flex: 10;
+
+        .prev {
+          background: #fff8fb;
+        }
+
+        .next {
+          background: #edf2f2;
+          width: 90%;
+        }
+
+        .prev,
+        .next {
+          flex: 5;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          padding-top: 45px;
+          padding-bottom: 45px;
+          outline: 0;
+          user-select: none;
+
+          img {
+            object-fit: contain;
+            transition: 0.5s;
+          }
+
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+
+            cursor: pointer;
+          }
+        }
+      }
+
+      .info {
+        flex: 8;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .headline {
+          font-size: 4.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          .mail,
+          .phone {
+            margin: 10px;
+          }
+        }
+
+        .goto-top {
+          cursor: pointer;
+          width: 98%;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

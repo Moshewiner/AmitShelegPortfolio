@@ -112,37 +112,38 @@
   </app-text-paragraph>
 </div>
 
-<!--<div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">-->
-<!--  <div class="side">-->
-<!--    <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>-->
-<!--    <div class="menu">-->
-<!--      <ul>-->
-<!--        <li class="item" (click)="setMenuItem('Onboarding')"-->
-<!--            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding-->
-<!--        </li>-->
-<!--        <li class="item" (click)="setMenuItem('Home Page')"-->
-<!--            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page-->
-<!--        </li>-->
-<!--        <li class="item" (click)="setMenuItem('Shop Page')"-->
-<!--            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page-->
-<!--        </li>-->
-<!--        <li class="item" (click)="setMenuItem('Products Identifier')"-->
-<!--            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier-->
-<!--        </li>-->
-<!--        <li class="item" (click)="setMenuItem('My Profile')"-->
-<!--            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="phone-container">-->
-<!--    <div class="content-container">-->
-<!--      <img [src]="wireframesDesignMenu.imageTextUrl" />-->
-<!--    </div>-->
-<!--    <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>-->
-<!--    <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- TODO: Mobile! -->
+<div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
+  <div class="side">
+    <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
+    <div class="menu">
+      <ul>
+        <li class="item" (click)="setMenuItem('Onboarding')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
+        </li>
+        <li class="item" (click)="setMenuItem('Home Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page
+        </li>
+        <li class="item" (click)="setMenuItem('Shop Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
+        </li>
+        <li class="item" (click)="setMenuItem('Products Identifier')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
+        </li>
+        <li class="item" (click)="setMenuItem('My Profile')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="phone-container">
+    <div class="content-container">
+      <img [src]="wireframesDesignMenu.imageTextUrl" />
+    </div>
+    <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
+    <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
+  </div>
+</div>
 
 <div class="screen colors" id="colors" [routerLink]="route" [fragment]="'colors'">
   <app-text-paragraph [headline]="'Feminine & Elegant'" [subHeadline]="'Colors'" [text]="texts.colors">
@@ -168,21 +169,21 @@
     <img src="/assets/beauty-zone/13%20-%20Typhography-icons/crushed eyeshadows brush.png"/>
   </div>
 </div>
-
-<!--<div class="screen onboarding-preview" id="onboarding-preview" [routerLink]="route" [fragment]="'onboarding-preview'">-->
-<!--  <div class="container">-->
-<!--    <div class="parallelogram">-->
-<!--    </div>-->
-<!--    <img src="/assets/beauty-zone/14-15%20-%20Onboarding/Design%20onboarding%20mockups.png"/>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<div class="screen preview" id="preview" [routerLink]="route" [fragment]="'preview'">-->
-<!--  <div class="container">-->
-<!--    <div class="parallelogram">-->
-<!--    </div>-->
-<!--    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png"/>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- TODO: Mobile! -->
+<div class="screen onboarding-preview" id="onboarding-preview" [routerLink]="route" [fragment]="'onboarding-preview'">
+  <div class="container">
+    <div class="parallelogram">
+    </div>
+    <img src="/assets/beauty-zone/14-15%20-%20Onboarding/Design%20onboarding%20mockups.png"/>
+  </div>
+</div>
+<div class="screen preview" id="preview" [routerLink]="route" [fragment]="'preview'">
+  <div class="container">
+    <div class="parallelogram">
+    </div>
+    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png"/>
+  </div>
+</div>
 
 <div class="screen thanks" id="thanks" [routerLink]="route" [fragment]="'thanks'">
   <div class="picture">
@@ -190,25 +191,25 @@
   </div>
   <h1 class='content'>Thanks For Viewing!</h1>
 </div>
+<!-- TODO: Mobile! -->
+<div class="screen contact" id="contact">
+  <div class="navigation">
+    <div class="prev">
+      <img src="/assets/beauty-zone/19%20-%20Next%20-contact/logo%20N.svg"/>
+    </div>
+    <div class="next" routerLink="/wisehome">
+      <img src="/assets/beauty-zone/19%20-%20Next%20-contact/logo%20WH.svg"/>
+    </div>
+  </div>
+  <div class="info" id="info">
+    <h1 class="headline">Start a project with me</h1>
+    <div class=container>
+      <div class="mail">Amitsheleg13@gmail.com</div>
+      <div class="phone">053-3350577</div>
+    </div>
+    <div class="goto-top">
+      <img (click)="scroll(main)" src="/assets/beauty-zone/19%20-%20Next%20-contact/up.svg"/>
+    </div>
+  </div>
 
-<!--<div class="screen contact" id="contact">-->
-<!--  <div class="navigation">-->
-<!--    <div class="prev">-->
-<!--      <img src="/assets/beauty-zone/19%20-%20Next%20-contact/logo%20N.svg"/>-->
-<!--    </div>-->
-<!--    <div class="next" routerLink="/wisehome">-->
-<!--      <img src="/assets/beauty-zone/19%20-%20Next%20-contact/logo%20WH.svg"/>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="info" id="info">-->
-<!--    <h1 class="headline">Start a project with me</h1>-->
-<!--    <div class=container>-->
-<!--      <div class="mail">Amitsheleg13@gmail.com</div>-->
-<!--      <div class="phone">053-3350577</div>-->
-<!--    </div>-->
-<!--    <div class="goto-top">-->
-<!--      <img (click)="scroll(main)" src="/assets/beauty-zone/19%20-%20Next%20-contact/up.svg"/>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--</div>-->
+</div>
