@@ -1,7 +1,11 @@
 @import "./typography.scss";
+@import '/src/responsive';
 
 $gridWidth: 85%;
+$mobileGridWidth: 92%;
+
 $marginSize: (100% - $gridWidth) / 2;
+$mobileMarginSize: (100% - $mobileGridWidth) / 2;
 $cell: $gridWidth / 12;
 
 :host {
@@ -18,7 +22,6 @@ $cell: $gridWidth / 12;
   //   box-sizing: border-box;
   // }
   width: calc(100vw - (100vw - 100%));
-  height: 100vh;
   padding: 0;
 
   .screen {
@@ -33,6 +36,15 @@ $cell: $gridWidth / 12;
       width: $gridWidth;
       height: 100%;
       margin: 0 auto;
+    }
+
+    @media only screen and (max-width: $responsiveBreakPoint) {
+      height: unset;
+      min-height: unset;
+      width: $mobileGridWidth;
+      .inner {
+        width: $mobileGridWidth;
+      }
     }
 
     &.main {
@@ -141,6 +153,62 @@ $cell: $gridWidth / 12;
           grid-area: icon;
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .picture {
+          img {
+            height: 70vh;
+            bottom: 0;
+          }
+        }
+        .inner {
+          grid-template-areas:
+          "headline headline headline headline headline headline . . . . ."
+          ". . . . . . . . . . ."
+          "scroll download download download . . . . . . .";
+
+          .headline {
+            grid-template-areas:
+            "up up up up up ."
+            "bottom bottom bottom bottom . . ";
+            margin-top: 40%;
+          }
+
+          .up {
+            grid-area: up;
+
+            h1 {
+              margin-bottom: 10%;
+              font-size: 3.5rem;
+            }
+          }
+
+          .bottom {
+            grid-area: bottom;
+
+            h1 {
+              margin: 0;
+              font-size: 3.5rem;
+            }
+          }
+
+          .download {
+            display: none;
+          }
+
+          .scroll {
+            position: absolute;
+
+            img {
+              width: 65%;
+            }
+
+            left: 0;
+            bottom: 0;
+          }
+        }
+      }
+
     }
 
     &.about {
@@ -165,6 +233,21 @@ $cell: $gridWidth / 12;
           font-weight: 400;
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        height: 60vh;
+        .logo {
+          img {
+            width: 80%;
+          }
+        }
+        app-text-paragraph, .picture {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
     }
 
     &.introduction {
@@ -186,6 +269,20 @@ $cell: $gridWidth / 12;
 
       img {
         width: 100%;
+      }
+
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          margin-top: 2%;
+        }
+        app-text-paragraph, .picture {
+          width: 100%;
+          margin-left: 0;
+        }
       }
     }
 
@@ -214,6 +311,24 @@ $cell: $gridWidth / 12;
         object-fit: fit;
         width: 100%;
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: $mobileGridWidth;
+
+        app-text-paragraph {
+          width: 100%;
+          margin-right: 0;
+          padding: 0;
+        }
+        .picture {
+          width: auto;
+          display: flex;
+          align-items: flex-end;
+          margin-top: 7%;
+        }
+      }
     }
 
     &.colors {
@@ -234,8 +349,25 @@ $cell: $gridWidth / 12;
       }
 
       img {
-        object-fit: fit;
         width: 100%;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .picture {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
       }
     }
 
@@ -260,6 +392,22 @@ $cell: $gridWidth / 12;
         object-fit: fit;
         width: 100%;
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        margin-top: 10%;
+
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 $mobileMarginSize;
+        }
+
+        .picture {
+          width: 90%;
+          margin: 2% 0;
+        }
+      }
     }
 
     &.market-research {
@@ -277,10 +425,6 @@ $cell: $gridWidth / 12;
         flex: 10;
         width: 50%;
         margin-left: $marginSize;
-        // app-text-paragraph {
-        //   // width: 50%;
-
-        // }
 
         .pain-points {
           display: flex;
@@ -291,14 +435,32 @@ $cell: $gridWidth / 12;
             margin: 1.875rem 0;
           }
         }
+      }
 
-        // .picture {
-        //   width: 50%;
-        // }
-        // img {
-        //   object-fit: fit;
-        //   width: 100%;
-        // }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url("/assets/beauty-zone/7-8 - Market research/Brush mobile.png") no-repeat;
+        background-position-y: 100%;
+        background-size: contain;
+
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        height: unset;
+
+        .container {
+          margin: 0 auto;
+          width: $mobileGridWidth;
+          align-items: flex-start;
+
+
+          .pain-points {
+            width: 92%;
+
+            .pain-point {
+              background: rgba(#fff, 0.9);
+              margin: 1rem 0;
+            }
+          }
+        }
       }
     }
 
@@ -469,6 +631,35 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+        .mobile {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background-position: bottom;
+        background-image: url("/assets/mobile/mobile first persona.png");
+        min-height: calc(120vh - 8%);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        .headline {
+          position: relative;
+          margin-top: 3rem;
+          margin-left: -2%;
+          img {
+            display: none;
+          }
+          .mobile {
+            display: block;
+            width: 76%;
+          }
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
 
@@ -505,6 +696,32 @@ $cell: $gridWidth / 12;
 
         img {
           width: 30vw;
+        }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background-position: bottom;
+        direction: ltr;
+        background-image: url("/assets/mobile/mobile first persona-1.png");
+        min-height: calc(120vh - 8%);
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        .headline {
+          position: relative;
+          margin-top: 3rem;
+          margin-left: -2%;
+          img {
+            display: none;
+          }
+          .mobile {
+            display: block;
+            width: 76%;
+          }
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
         }
       }
     }
@@ -548,13 +765,30 @@ $cell: $gridWidth / 12;
       .picture {
         height: 100%;
         width: 40%;
-
       }
 
       img {
         width: 100%;
       }
 
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column;
+        align-items: center;
+        width: $mobileGridWidth;
+        .container {
+          margin-left: 0;
+          width: 100%;
+
+          .typography {
+            img {
+              width: 75%;
+            }
+          }
+        }
+        .picture {
+          display: none;
+        }
+      }
 
     }
 
@@ -592,6 +826,32 @@ $cell: $gridWidth / 12;
           img {
             width: 100%;
             height: 100%;
+          }
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column;
+        background-image: url("/assets/mobile/Mobile Girls Background.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+
+
+        align-items: flex-start;
+        .inner {
+          app-text-paragraph {
+            margin-top: 3rem;
+            width: 75%;
+            flex: unset;
+            padding: 0;
+          }
+
+          .picture {
+            padding: 0;
+            width: 100%;
+            flex: unset;
+            margin-top: 10%;
           }
         }
       }
@@ -676,6 +936,19 @@ $cell: $gridWidth / 12;
         font-weight: bold;
         margin-top: 0;
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .content {
+          font-size: 2.5rem;
+        }
+
+        .picture {
+          img {
+            width: 70%;
+          }
+        }
+
+      }
     }
 
     &.contact {
@@ -687,13 +960,15 @@ $cell: $gridWidth / 12;
       width: 100%;
       height: 100vh - $headerSize;
       min-height: 100vh - $headerSize;
+
       .navigation {
         display: flex;
         flex: 10;
 
         .prev {
-          background: #F9F6F2;
+          background: #E4DED5;
         }
+
         .next {
           background: #EDF2F2;
           width: 90%;
@@ -720,6 +995,7 @@ $cell: $gridWidth / 12;
             img {
               transform: scale(1.1);
             }
+
             cursor: pointer;
           }
         }

@@ -1,5 +1,8 @@
 <div class='inner'>
-  <a [href]="'/'"><img class="logo" src="assets/logo.svg" /></a>
+  <div class="menu-items">
+    <div class="mobile-menu" (click)="toggleMenu()"><img src="assets/humburger.png"/></div>
+    <a [href]="'/'"><img class="logo" src="assets/logo.svg"/></a>
+  </div>
   <div class="spacer"></div>
   <div class="spacer"></div>
   <div class="spacer"></div>
@@ -8,8 +11,8 @@
   <div class="spacer"></div>
 
   <div class="routing">
-    <div class="link about" [routerLink]="'/'" [fragment]="'home-about'">About Me</div>
-    <div class="link work" [routerLink]="'/'" [fragment]="'home-my-works'">My Work</div>
-    <div class="link contact" [routerLink]="'/'" [fragment]="'home-contact'">Contact Me</div>
+    <div class="link about" (click)="closeMenu()" [routerLink]="'/'" [fragment]="'home-about'">About Me</div>
+    <div class="link work" (click)="closeMenu()" [routerLink]="'/'" [fragment]="'home-my-works'">My Work</div>
+    <div class="link contact" (click)="closeMenu()" [routerLink]="'/'" [fragment]="'home-contact'">Contact Me</div>
   </div>
 </div>

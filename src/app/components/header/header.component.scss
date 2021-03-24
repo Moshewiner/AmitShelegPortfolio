@@ -1,3 +1,5 @@
+@import '/src/responsive';
+
 :host {
   position: fixed;
   width: 100%;
@@ -7,7 +9,7 @@
   left: 0;
   right: 0;
 
-  z-index: 999999;
+  z-index: 10;
 
   overflow: hidden;
   backdrop-filter: blur(5px);
@@ -23,12 +25,19 @@
     text-align: center;
     color: black;
 
+    .menu-items {
+      display: flex;
+      flex-direction: row;
+    }
     .spacer {
       display: flex;
       flex: 1;
     }
+    .mobile-menu {
+      display: none;
+    }
 
-    .logo {
+      .logo {
       cursor: pointer;
       width: 60px;
       height: 60px;
@@ -39,6 +48,7 @@
       flex-direction: row;
       justify-content: space-evenly;
       flex: 2;
+
       .link {
         font-family: Poppins;
         font-weight: 300;
@@ -47,6 +57,87 @@
         cursor: pointer;
         user-select: none;
         outline: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    transition: 0.5s;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    height: $headerMobileHeight;
+
+    .inner {
+      margin-top: 4%;
+      width: 95%;
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: auto;
+      }
+      .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 4%;
+        width: 5%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .routing {
+        display: none;
+      }
+    }
+
+
+    &.expanded {
+      overflow: hidden;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      position: fixed;
+      background: #fcdddd;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      .inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .spacer {
+          display: none;
+        }
+        .routing {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-evenly;
+          .link {
+            font-family: Butler;
+            font-size: 3.5rem;
+            font-weight: bold;
+            user-select: none;
+            &:focus {
+              color: white;
+              text-decoration: none;
+              outline: none;
+              user-select: none;
+            }
+          }
+        }
       }
     }
   }
