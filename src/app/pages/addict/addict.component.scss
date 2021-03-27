@@ -13,7 +13,9 @@ $cell: $gridWidth / 12;
     visibility: hidden;
     position: absolute;
     left: -999em;
-    content: url('/assets/addict/16-20%20-%20Phone%20Design/6phones.png') url('/assets/addict/8-12-%20Design1/Home Page - Neige 2.png') url('/assets/addict/13-15%20-%20Design%202/Designs.png');
+    content: url("/assets/addict/16-20%20-%20Phone%20Design/6phones.png")
+      url("/assets/addict/8-12-%20Design1/Home Page - Neige 2.png")
+      url("/assets/addict/13-15%20-%20Design%202/Designs.png");
   }
 
   width: calc(100vw - (100vw - 100%));
@@ -229,6 +231,10 @@ $cell: $gridWidth / 12;
 
       .picture {
         width: 55%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
       }
 
       img {
