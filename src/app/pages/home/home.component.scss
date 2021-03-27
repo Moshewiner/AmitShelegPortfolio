@@ -333,6 +333,11 @@ $cell: $gridWidth / 12;
             display: flex;
             width: fit-content;
             align-items: center;
+            text-decoration: none;
+            outline: none;
+            &:hover {
+              cursor: pointer;
+            }
             img {
               width: 5.5vw;
             }
