@@ -93,7 +93,8 @@
   </div>
 </div>
 
-<div class="screen information-architecture" id="information-architecture" [routerLink]="route" [fragment]="'information-architecture'">
+<div class="screen information-architecture" id="information-architecture" [routerLink]="route"
+     [fragment]="'information-architecture'">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
                         [text]="texts.informationArchitecture">
@@ -115,7 +116,8 @@
 <!-- TODO: Mobile! -->
 <div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
   <div class="side">
-    <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
+    <app-text-paragraph [headline]="'Visualize The Solution'"
+                        [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
     <div class="menu">
       <ul>
         <li class="item" (click)="setMenuItem('Onboarding')"
@@ -138,7 +140,7 @@
   </div>
   <div class="phone-container">
     <div class="content-container">
-      <img [src]="wireframesDesignMenu.imageTextUrl" />
+      <img [src]="wireframesDesignMenu.imageTextUrl"/>
     </div>
     <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
     <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
@@ -178,11 +180,17 @@
   </div>
 </div>
 <div class="screen preview" id="preview" [routerLink]="route" [fragment]="'preview'">
-  <div class="container">
-    <div class="parallelogram">
-    </div>
-    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png"/>
-  </div>
+
+  <app-carousel
+    [backwardArrowImage]="'/assets/beauty-zone/16-17%20-%20Design%20Mockups/arrow L.svg'"
+    [forwardArrowImage]="'/assets/beauty-zone/16-17%20-%20Design%20Mockups/arrow R.svg'"
+    [images]="['/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 1.png', '/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 2.png', '/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 3.png', '/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 4.png', '/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 5.png', '/assets/beauty-zone/16-17%20-%20Design%20Mockups/mockup white 6.png']"></app-carousel>
+
+<!--  <div class="container">-->
+<!--    <div class="parallelogram">-->
+<!--    </div>-->
+<!--    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png"/>-->
+<!--  </div>-->
 </div>
 
 <div class="screen thanks" id="thanks" [routerLink]="route" [fragment]="'thanks'">

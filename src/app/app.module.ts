@@ -19,6 +19,11 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
 import { TabletPlayerComponent } from './components/tablet-player/tablet-player.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { AddictComponent } from './pages/addict/addict.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
+
+import { NgxGlideModule } from 'ngx-glide';
+
 
 @NgModule({
   declarations: [
@@ -37,12 +42,14 @@ import { AddictComponent } from './pages/addict/addict.component';
     ColorComponent,
     TabletPlayerComponent,
     ToggleComponent,
-    AddictComponent
+    AddictComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
+    NgxGlideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+<ngx-glide
+  class="glider"
+  [showArrows]="true"
+  [showBullets]="false"
+  [arrowLeftTemplate]='backwardRef'
+  [arrowRightTemplate]="forwardRef"
+
+  [rewind]="true"
+  [gap]="50"
+>
+  <div class="container" *ngFor="let image of images"><img class="picture" [src]="image" /> </div>
+</ngx-glide>
+<img #backwardRef [src]="backwardArrowImage" class="backward" (click)="backward()" />
+<img #forwardRef [src]="forwardArrowImage" class="forward" (click)="forward()" />
