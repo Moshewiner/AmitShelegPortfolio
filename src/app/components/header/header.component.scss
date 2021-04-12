@@ -69,24 +69,31 @@
     height: $headerMobileHeight;
 
     .inner {
-      margin-top: 4%;
+      //margin-top: 4%;
       width: 95%;
+      height: 100%;
+      .menu-items {
+        height: 100%;
+        align-items: center;
+        width: 100%;
+      }
       .logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        align-self: center;
+        width: 70%;
         height: auto;
+        margin-bottom: -1%;
       }
       .mobile-menu {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 4%;
-        width: 5%;
-
+        margin-right: 5%;
         img {
           width: 100%;
+          height: 100%;
         }
       }
 
