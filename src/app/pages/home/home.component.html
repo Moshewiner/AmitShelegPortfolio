@@ -1,7 +1,9 @@
 <div id="home-main" class="screen main" #main>
   <div class="picture">
 
-    <svg width="1920" height="784" viewBox="0 0 1920 784" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <img class="mobile" src="/assets/home-page/Mobile/homepage.svg" />
+
+    <svg class="desktop" width="1920" height="784" viewBox="0 0 1920 784" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0)">
         <g clip-path="url(#clip1)">
           <path
@@ -384,7 +386,8 @@
 <div id="home-my-works" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-my-works'">
   <div class="inner">
     <div class="picture">
-      <img src="/assets/home-page/3%20-%20Beautyzone/Phones.png"/>
+      <img class="desktop" src="/assets/home-page/3%20-%20Beautyzone/Phones.png"/>
+      <img class="mobile" src="/assets/home-page/Mobile/mockups BZ.png"/>
     </div>
     <div class="container">
       <div class="content">
@@ -408,12 +411,14 @@
     </div>
   </div>
   <div class="picture">
-    <img src="/assets/home-page/4%20-%20Wisehome/mockups WH.png"/>
+    <img class="desktop" src="/assets/home-page/4%20-%20Wisehome/mockups WH.png"/>
+    <img class="mobile" src="/assets/home-page/Mobile/mockups WH.png"/>
   </div>
 </div>
 <div id="home-addict" class="screen addict" [routerLink]="route" [fragment]="'home-addict'">
   <div class="picture">
-    <img src="/assets/home-page/5%20-%20ecommerce/mockups N.png"/>
+    <img class="desktop" src="/assets/home-page/5%20-%20ecommerce/mockups N.png"/>
+    <img class="mobile" src="/assets/home-page/Mobile/mockups AD.png"/>
   </div>
   <div class="container">
     <div class="content">
@@ -427,7 +432,7 @@
 </div>
 <div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">
   <div class="container">
-    <h1>Contact Me</h1>
+    <h2>Contact Me</h2>
     <div class="social">
       <a class="link" href="mailto:Amitsheleg13@gmail.com" target="_blank">
         <img src="/assets/home-page/6%20-%20Contact/mail.svg"/>
