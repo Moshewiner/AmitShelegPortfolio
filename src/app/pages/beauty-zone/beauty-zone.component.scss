@@ -1,5 +1,5 @@
 @import "./typography.scss";
-@import '/src/responsive';
+@import "/src/responsive";
 
 $gridWidth: 85%;
 $mobileGridWidth: 92%;
@@ -13,14 +13,18 @@ $cell: $gridWidth / 12;
     visibility: hidden;
     position: absolute;
     left: -999em;
-    content: url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif') url('/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif');
+    content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
   }
 
-
-  // * {
-  //   border: 3px solid #000;
-  //   box-sizing: border-box;
-  // }
   width: calc(100vw - (100vw - 100%));
   padding: 0;
 
@@ -163,14 +167,14 @@ $cell: $gridWidth / 12;
         }
         .inner {
           grid-template-areas:
-          "headline headline headline headline headline headline . . . . ."
-          ". . . . . . . . . . ."
-          "scroll download download download . . . . . . .";
+            "headline headline headline headline headline headline . . . . ."
+            ". . . . . . . . . . ."
+            "scroll download download download . . . . . . .";
 
           .headline {
             grid-template-areas:
-            "up up up up up ."
-            "bottom bottom bottom bottom . . ";
+              "up up up up up ."
+              "bottom bottom bottom bottom . . ";
             margin-top: 40%;
           }
 
@@ -208,7 +212,6 @@ $cell: $gridWidth / 12;
           }
         }
       }
-
     }
 
     &.about {
@@ -243,7 +246,8 @@ $cell: $gridWidth / 12;
             width: 80%;
           }
         }
-        app-text-paragraph, .picture {
+        app-text-paragraph,
+        .picture {
           width: 100%;
           margin-left: 0;
         }
@@ -271,7 +275,6 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
 
-
       @media only screen and (max-width: $responsiveBreakPoint) {
         width: $mobileGridWidth;
         flex-direction: column;
@@ -279,7 +282,8 @@ $cell: $gridWidth / 12;
         app-text-paragraph {
           margin-top: 2%;
         }
-        app-text-paragraph, .picture {
+        app-text-paragraph,
+        .picture {
           width: 100%;
           margin-left: 0;
         }
@@ -447,10 +451,10 @@ $cell: $gridWidth / 12;
         height: unset;
 
         .container {
+          padding: 3rem 0;
           margin: 0 auto;
           width: $mobileGridWidth;
           align-items: flex-start;
-
 
           .pain-points {
             width: 92%;
@@ -488,7 +492,6 @@ $cell: $gridWidth / 12;
     }
 
     &.wireframes-design {
-
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -792,9 +795,7 @@ $cell: $gridWidth / 12;
           display: none;
         }
       }
-
     }
-
 
     &.information-architecture {
       width: 100%;
@@ -839,7 +840,6 @@ $cell: $gridWidth / 12;
         background-size: cover;
         background-position: center;
         height: 100vh;
-
 
         align-items: flex-start;
         .inner {
@@ -886,6 +886,18 @@ $cell: $gridWidth / 12;
           object-fit: cover;
         }
       }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        height: 60%;
+        display: flex;
+        align-items: center;
+        .container {
+          height: auto;
+
+          img {
+            transform: scale(1.35);
+          }
+        }
+      }
     }
 
     &.preview {
@@ -915,6 +927,9 @@ $cell: $gridWidth / 12;
           width: 100%;
           object-fit: cover;
         }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        height: 60%;
       }
     }
 
@@ -950,7 +965,6 @@ $cell: $gridWidth / 12;
             width: 70%;
           }
         }
-
       }
     }
 
@@ -969,12 +983,20 @@ $cell: $gridWidth / 12;
         flex: 10;
 
         .prev {
-          background: #E9E5DD;
+          background: url("/assets/previous next/bg addict.png"); 
+          background-size: cover;
+          img {
+            width: 65%;
+          }
         }
 
         .next {
-          background: #EDF2F2;
+          background: url("/assets/previous next/bg wisehome.png");
+          background-size: cover;
           width: 90%;
+          img {
+            width: 75%;
+          }
         }
 
         .prev,
@@ -988,11 +1010,9 @@ $cell: $gridWidth / 12;
           outline: 0;
           user-select: none;
 
-
           img {
             object-fit: contain;
             transition: 0.5s;
-            width: 30%;
           }
 
           &:hover {
@@ -1032,6 +1052,13 @@ $cell: $gridWidth / 12;
           cursor: pointer;
           width: 98%;
           text-align: right;
+        }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .info {
+          .headline {
+            font-size: 2.5rem;
+          }
         }
       }
     }

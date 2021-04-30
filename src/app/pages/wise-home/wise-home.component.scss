@@ -340,7 +340,7 @@ $cell: $gridWidth / 12;
 
       .container {
         margin-left: $marginSize;
-        flex: 3;
+        flex: 2.6;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -955,11 +955,20 @@ $cell: $gridWidth / 12;
         flex: 10;
 
         .prev {
-          background: #FFF8FB;
+          background: url("/assets/previous next/bg beautyzone.png"); 
+          background-size: cover;
+          img {
+            width: 60%;
+          }
         }
 
         .next {
-          background: #E9E5DD;
+          background: url("/assets/previous next/bg addict.png"); 
+          background-size: cover;
+          width: 90%;
+          img {
+            width: 65%;
+          }
         }
 
         .prev,
@@ -977,7 +986,6 @@ $cell: $gridWidth / 12;
           img {
             object-fit: contain;
             transition: 0.5s;
-            width: 30%;
           }
 
           &:hover {
@@ -988,6 +996,7 @@ $cell: $gridWidth / 12;
             cursor: pointer;
           }
         }
+        
       }
 
       .info {
@@ -1017,6 +1026,13 @@ $cell: $gridWidth / 12;
           cursor: pointer;
           width: 98%;
           text-align: right;
+        }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .info {
+          .headline {
+            font-size: 2.5rem;
+          }
         }
       }
     }
