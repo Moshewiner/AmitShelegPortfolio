@@ -356,7 +356,23 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
 
-     
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: $mobileGridWidth;
+        flex-direction: column;
+        align-items: flex-start;
+        app-text-paragraph {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .picture {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
 
     &.wireframes {
@@ -1039,9 +1055,37 @@ $cell: $gridWidth / 12;
         }
       }
       @media only screen and (max-width: $responsiveBreakPoint) {
+        height: 50%;
+        min-height: unset;
+
         .info {
           .headline {
             font-size: 2.5rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+          }
+          .container {
+            flex-direction: column;
+            .phone {
+              margin: 0;
+            }
+          }
+
+          .goto-top {
+            display: none;
+          }
+        }
+
+        .navigation {
+          .prev {
+            img {
+              width: 75%;
+            }
+          }
+          .next {
+            img {
+              width: 80%;
+            }
           }
         }
       }

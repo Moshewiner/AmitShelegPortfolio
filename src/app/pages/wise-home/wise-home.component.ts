@@ -81,7 +81,7 @@ export class WiseHomeComponent {
 
   ngOnInit() {
     if(this.isNotDesktopDevice) {
-      this.router.navigateByUrl('/mobile-unsupported');
+      //this.router.navigateByUrl('/mobile-unsupported');
     }
   }
 
