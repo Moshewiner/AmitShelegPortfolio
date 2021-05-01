@@ -16,7 +16,7 @@ $cell: $gridWidth / 12;
   .screen {
     outline: 0;
     width: $gridWidth;
-    margin: 10% auto;
+    margin: 0 auto;
     padding: 0;
     height: 100vh;
     min-height: 100vh;
@@ -29,6 +29,7 @@ $cell: $gridWidth / 12;
     @media only screen and (max-width: $responsiveBreakPoint) {
       height: unset;
       min-height: unset;
+      margin: 10% auto;
       width: $mobileGridWidth;
       .inner {
         width: $mobileGridWidth;
