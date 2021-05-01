@@ -43,7 +43,7 @@ I thought of how order can give a calm and elegant feel to the user.`,
 
   ngOnInit() {
     if(this.isNotDesktopDevice) {
-      // this.router.navigateByUrl('/mobile-unsupported');
+      this.router.navigateByUrl('/mobile-unsupported');
     }
   }
 }

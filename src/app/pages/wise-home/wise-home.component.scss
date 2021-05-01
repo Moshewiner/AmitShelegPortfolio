@@ -1,5 +1,5 @@
 @import "./typography.scss";
-@import '/src/responsive';
+@import "/src/responsive";
 
 $gridWidth: 85%;
 $mobileGridWidth: 92%;
@@ -16,7 +16,7 @@ $cell: $gridWidth / 12;
   .screen {
     outline: 0;
     width: $gridWidth;
-    margin: 0 auto;
+    margin: 10% auto;
     padding: 0;
     height: 100vh;
     min-height: 100vh;
@@ -64,8 +64,8 @@ $cell: $gridWidth / 12;
           display: flex;
           position: absolute;
 
-          .google, .apple {
-
+          .google,
+          .apple {
             img {
               object-fit: contain;
               width: 15vh;
@@ -136,7 +136,6 @@ $cell: $gridWidth / 12;
         }
       }
 
-
       .info {
         text-align: center;
 
@@ -154,7 +153,8 @@ $cell: $gridWidth / 12;
             width: 80%;
           }
         }
-        app-text-paragraph, .picture {
+        app-text-paragraph,
+        .picture {
           width: 100%;
           margin-left: 0;
         }
@@ -181,7 +181,7 @@ $cell: $gridWidth / 12;
       img {
         width: 100%;
       }
-      
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         flex-direction: column-reverse;
         align-items: flex-start;
@@ -193,6 +193,7 @@ $cell: $gridWidth / 12;
         }
         .picture {
           margin: auto;
+          margin-top: 10%;
           width: 90%;
         }
       }
@@ -239,13 +240,15 @@ $cell: $gridWidth / 12;
           margin-left: 0;
           margin-bottom: 0;
           padding: 0;
+          ::ng-deep .headline {
+            width: 85%;
+          }
         }
         .picture {
           width: 100%;
           margin: 0 auto;
         }
       }
-
     }
 
     &.first-persona {
@@ -293,7 +296,6 @@ $cell: $gridWidth / 12;
           align-items: center;
 
           .text {
-
           }
         }
 
@@ -331,7 +333,6 @@ $cell: $gridWidth / 12;
         }
       }
 
-
       .picture {
         flex: 1.5;
         display: flex;
@@ -363,7 +364,6 @@ $cell: $gridWidth / 12;
           .text {
             color: #000000;
             white-space: normal;
-
           }
         }
 
@@ -378,7 +378,7 @@ $cell: $gridWidth / 12;
         }
       }
       @media only screen and (max-width: $responsiveBreakPoint) {
-       display: none;
+        display: none;
       }
     }
 
@@ -389,7 +389,6 @@ $cell: $gridWidth / 12;
       align-items: center;
       flex: 10;
       width: 100%;
-
 
       .picture {
         width: 50%;
@@ -423,7 +422,6 @@ $cell: $gridWidth / 12;
           margin-left: -1.5rem;
           margin-top: 1rem;
 
-
           img {
             object-fit: contain;
             width: 100%;
@@ -453,7 +451,10 @@ $cell: $gridWidth / 12;
             background-size: 19% 60%;
           }
 
-          .first, .second, .third, .fourth {
+          .first,
+          .second,
+          .third,
+          .fourth {
             padding-top: 1rem;
             padding-left: 1.4rem;
 
@@ -465,7 +466,6 @@ $cell: $gridWidth / 12;
               margin: 0;
             }
           }
-
         }
       }
 
@@ -475,7 +475,6 @@ $cell: $gridWidth / 12;
         flex: 10;
         height: auto;
         width: $mobileGridWidth;
-
 
         .picture {
           display: none;
@@ -495,7 +494,10 @@ $cell: $gridWidth / 12;
             margin: 0;
             margin-top: 10%;
 
-            .first, .second, .third, .fourth {
+            .first,
+            .second,
+            .third,
+            .fourth {
               padding-top: 1rem;
               padding-left: 1.4rem;
 
@@ -507,7 +509,6 @@ $cell: $gridWidth / 12;
                 margin: 0;
               }
             }
-
           }
         }
       }
@@ -547,6 +548,31 @@ $cell: $gridWidth / 12;
           }
         }
       }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url("/assets/wise-home/Mobile/Mobile Backgroung image Flow.png");
+        background-size: cover;
+        background-position-y: 100%;
+        background-repeat: no-repeat;
+        height: 88%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        .inner {
+          padding-top: 10%;
+          justify-content: flex-start;
+          width: $mobileGridWidth;
+          app-text-paragraph {
+            width: 100%;
+          }
+          .picture {
+            width: 100%;
+            img {
+              margin: 0;
+            }
+          }
+        }
+      }
     }
 
     &.wireframes {
@@ -567,6 +593,9 @@ $cell: $gridWidth / 12;
         height: 100%;
         display: flex;
         align-items: center;
+        .mobile {
+          display: none;
+        }
       }
 
       img {
@@ -580,10 +609,17 @@ $cell: $gridWidth / 12;
         app-text-paragraph {
           width: 100%;
           margin-left: 0;
+          padding: 3rem 0;
         }
 
         .picture {
           width: 100%;
+          .mobile {
+            display: block;
+          }
+          .desktop {
+            display: none;
+          }
 
           img {
             width: 100%;
@@ -652,7 +688,6 @@ $cell: $gridWidth / 12;
       margin-top: 3rem;
       justify-content: center;
 
-
       .phone {
         outline: 0;
         display: flex;
@@ -692,7 +727,6 @@ $cell: $gridWidth / 12;
             width: 51%;
           }
         }
-
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
@@ -711,7 +745,7 @@ $cell: $gridWidth / 12;
             width: 100%;
 
             app-phone-player {
-              width: 75%;
+              width: 85%;
             }
           }
         }
@@ -724,11 +758,8 @@ $cell: $gridWidth / 12;
               width: 100%;
             }
           }
-
         }
-
       }
-
     }
 
     &.design-tablet {
@@ -853,7 +884,6 @@ $cell: $gridWidth / 12;
           }
         }
       }
-
     }
 
     &.show-off-tablets {
@@ -940,7 +970,6 @@ $cell: $gridWidth / 12;
       background-size: 100% 50%;
       background-position-y: center;
 
-
       img {
         width: 100%;
       }
@@ -982,7 +1011,6 @@ $cell: $gridWidth / 12;
             width: 70%;
           }
         }
-
       }
     }
 
@@ -996,13 +1024,12 @@ $cell: $gridWidth / 12;
       height: 100vh - $headerSize;
       min-height: 100vh - $headerSize;
 
-
       .navigation {
         display: flex;
         flex: 10;
 
         .prev {
-          background: url("/assets/previous next/bg beautyzone.png"); 
+          background: url("/assets/previous next/bg beautyzone.png");
           background-size: cover;
           img {
             width: 60%;
@@ -1010,7 +1037,7 @@ $cell: $gridWidth / 12;
         }
 
         .next {
-          background: url("/assets/previous next/bg addict.png"); 
+          background: url("/assets/previous next/bg addict.png");
           background-size: cover;
           width: 90%;
           img {
@@ -1029,7 +1056,6 @@ $cell: $gridWidth / 12;
           outline: 0;
           user-select: none;
 
-
           img {
             object-fit: contain;
             transition: 0.5s;
@@ -1043,7 +1069,6 @@ $cell: $gridWidth / 12;
             cursor: pointer;
           }
         }
-        
       }
 
       .info {
@@ -1112,5 +1137,4 @@ $cell: $gridWidth / 12;
       }
     }
   }
-
 }
