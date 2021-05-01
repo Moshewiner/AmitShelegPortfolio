@@ -356,23 +356,7 @@ $cell: $gridWidth / 12;
         width: 100%;
       }
 
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        width: $mobileGridWidth;
-        flex-direction: column;
-        align-items: flex-start;
-        app-text-paragraph {
-          width: 100%;
-          margin-left: 0;
-        }
-
-        .picture {
-          width: 100%;
-
-          img {
-            width: 100%;
-          }
-        }
-      }
+     
     }
 
     &.wireframes {
