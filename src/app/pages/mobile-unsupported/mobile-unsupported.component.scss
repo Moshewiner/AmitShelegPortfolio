@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 85%;
+    margin: 0 auto;
+    height: 93%; //minus footer
+}

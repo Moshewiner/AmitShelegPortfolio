@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-wise-home',
@@ -69,6 +71,18 @@ export class WiseHomeComponent {
 
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto'): void {
     e.scrollIntoView({behavior});
+  }
+
+
+  private isNotDesktopDevice = false;
+  constructor(private deviceService: DeviceDetectorService, private router: Router) {
+    this.isNotDesktopDevice = !this.deviceService.isDesktop();
+  }
+
+  ngOnInit() {
+    if(this.isNotDesktopDevice) {
+      this.router.navigateByUrl('/mobile-unsupported');
+    }
   }
 
 }
