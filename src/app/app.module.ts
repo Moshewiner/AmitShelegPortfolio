@@ -19,6 +19,8 @@ import { ColorComponent } from './pages/wise-home/color/color.component';
 import { TabletPlayerComponent } from './components/tablet-player/tablet-player.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { AddictComponent } from './pages/addict/addict.component';
+import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,14 @@ import { AddictComponent } from './pages/addict/addict.component';
     ColorComponent,
     TabletPlayerComponent,
     ToggleComponent,
-    AddictComponent
+    AddictComponent,
+    MobileUnsupportedComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
-  ],
+    AppRoutingModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

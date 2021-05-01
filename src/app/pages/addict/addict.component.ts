@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import {MenuItems} from './interfaces';
 
 @Component({
@@ -29,11 +31,19 @@ I thought of how order can give a calm and elegant feel to the user.`,
   };
 
 
-  ngOnInit(): void {
-  }
-
 
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
+  }
+
+  private isNotDesktopDevice = false;
+  constructor(private deviceService: DeviceDetectorService, private router: Router) {
+    this.isNotDesktopDevice = !this.deviceService.isDesktop();
+  }
+
+  ngOnInit() {
+    if(this.isNotDesktopDevice) {
+      this.router.navigateByUrl('/mobile-unsupported');
+    }
   }
 }

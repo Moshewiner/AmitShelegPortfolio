@@ -1,0 +1,54 @@
+@import './../home/typography.scss';
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    height: 93%; //minus footer
+
+
+    .illustration {
+        width: 90%;
+    }
+    .text  {
+        width: 100%;
+        .tiny {
+            font-size: 0.8rem;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .button {
+        margin-top: 12%;
+        border-radius: 50px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+        width: fit-content;
+        padding: 0.6rem 1.75rem;
+        vertical-align: middle;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        background: #fcdddd;
+  
+        a, div {
+          text-decoration: none;
+          outline: 0;
+        //   font-weight: 500;
+        //   font-size: 1.1rem;
+        //   letter-spacing: 1.25px;
+          color: #303030;
+          margin: 0;
+          padding: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+      }
+}
