@@ -93,7 +93,8 @@
   </div>
 </div>
 
-<div class="screen information-architecture" id="information-architecture" [routerLink]="route" [fragment]="'information-architecture'">
+<div class="screen information-architecture" id="information-architecture" [routerLink]="route"
+     [fragment]="'information-architecture'">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
                         [text]="texts.informationArchitecture">
@@ -115,7 +116,8 @@
 <!-- TODO: Mobile! -->
 <div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
   <div class="side">
-    <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
+    <app-text-paragraph [headline]="'Visualize The Solution'"
+                        [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
     <div class="menu">
       <ul>
         <li class="item" (click)="setMenuItem('Onboarding')"
@@ -138,7 +140,7 @@
   </div>
   <div class="phone-container">
     <div class="content-container">
-      <img [src]="wireframesDesignMenu.imageTextUrl" />
+      <img [src]="wireframesDesignMenu.imageTextUrl"/>
     </div>
     <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
     <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
@@ -193,12 +195,20 @@
 </div>
 <!-- TODO: Mobile! -->
 <div class="screen contact" id="contact">
-  <div class="navigation" routerLink="/addict">
+  <div class="navigation" routerLink="/wisehome">
     <div class="prev">
-      <img src="/assets/previous next/logo addict.png"/>
+      <div class="content">
+        <h2 class="headline">Wise Home</h2>
+        <div class="description">UX | UI Design Mobile & Tablet App</div>
+      </div>
+      <img class="img" src="/assets/home-page/4%20-%20Wisehome/mockups%20WH%20full.png"/>
     </div>
-    <div class="next" routerLink="/wisehome">
-      <img src="/assets/previous next/wisehome logo.png"/>
+    <div class="next" routerLink="/addict">
+      <div class="content">
+        <h2 class="headline">Addict</h2>
+        <div class="description">Re-Design, Branding & UX | UI Design</div>
+      </div>
+      <img class="img" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png"/>
     </div>
   </div>
   <div class="info" id="info">

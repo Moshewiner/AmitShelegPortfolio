@@ -587,8 +587,8 @@ $cell: $gridWidth / 12;
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
-      flex: 18;
       width: 100%;
+      flex: 18;
       height: 100vh - $headerSize;
       min-height: 100vh - $headerSize;
 
@@ -597,32 +597,38 @@ $cell: $gridWidth / 12;
         flex: 10;
 
         .prev {
-          background: url("/assets/previous next/bg beautyzone.png"); 
+          background: linear-gradient(90deg, #FF69A2  0%, #FF0060 100%);
           background-size: cover;
+          flex-direction: row-reverse;
+
+
           img {
-            width: 60%;
+            width: 30%;
+          }
+        }
+        .next {
+          background: linear-gradient(90deg, #366B6D 0%,  rgba(81, 161, 164, 0.33)  100%);
+          background-size: cover;
+          width: 90%;
+
+          img {
+            width: 40%;
           }
         }
 
-        .next {
-          background: url("/assets/previous next/bg wisehome.png");
-          background-size: cover;
-          width: 90%;
-          img {
-            width: 75%;
-          }
-        }
 
         .prev,
         .next {
           flex: 5;
-          text-align: center;
+          align-items: center;
           display: flex;
-          justify-content: center;
           padding-top: 45px;
           padding-bottom: 45px;
           outline: 0;
           user-select: none;
+          justify-content: space-around;
+          //padding-left: 4%;
+          text-align: left;
 
           img {
             object-fit: contain;
@@ -631,10 +637,21 @@ $cell: $gridWidth / 12;
 
           &:hover {
             img {
-              transform: scale(1.2);
+              transform: scale(1.05);
             }
 
             cursor: pointer;
+          }
+          .content {
+            .headline {
+              margin: 0;
+              color: white;
+              font-family: Butler;
+            }
+
+            .description {
+              color: white;
+            }
           }
         }
       }
@@ -668,6 +685,7 @@ $cell: $gridWidth / 12;
           text-align: right;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 50%;
         min-height: unset;
@@ -678,8 +696,10 @@ $cell: $gridWidth / 12;
             margin-bottom: 1rem;
             margin-top: 0;
           }
+
           .container {
             flex-direction: column;
+
             .phone {
               margin: 0;
             }
@@ -696,9 +716,10 @@ $cell: $gridWidth / 12;
               width: 75%;
             }
           }
+
           .next {
             img {
-              width: 80%;
+              width: 75%;
             }
           }
         }
