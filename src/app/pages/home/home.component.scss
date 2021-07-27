@@ -241,13 +241,13 @@ $cell: $gridWidth / 12;
     &.beauty-zone {
       width: 100%;
 
-      background: url('/assets/home-page/3 - Beautyzone/BeautyZone Background.png');
+      background: url('/assets/home-page/3 - Beautyzone/BeautyZone Background2.png');
       background-size: cover;
 
       .inner {
 
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: space-between;
 
         $pictureSize: 35%;
@@ -275,10 +275,11 @@ $cell: $gridWidth / 12;
 
             .headline {
               margin: 0;
+              color: white;
             }
 
             .description {
-
+              color: white;
             }
 
             .view {
@@ -342,11 +343,11 @@ $cell: $gridWidth / 12;
 
     &.wise-home {
       width: 100%;
-      background: url('/assets/home-page/4 - Wisehome/WiseHome Background.png');
+      background: url('/assets/home-page/4 - Wisehome/WiseHome Background2.png');
       background-size: cover;
 
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: space-between;
 
       $pictureSize: 40%;
@@ -365,7 +366,6 @@ $cell: $gridWidth / 12;
         }
       }
 
-
       .container {
         width: 50%;
         display: flex;
@@ -376,11 +376,6 @@ $cell: $gridWidth / 12;
         .content {
           .headline {
             margin: 0;
-            color: white;
-          }
-
-          .description {
-            color: white;
           }
 
           .view {
