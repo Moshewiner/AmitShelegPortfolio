@@ -367,22 +367,6 @@
   </div>
 </div>
 
-<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
-  <div class="info">
-    <div class="container">
-      <h2 class="headline">About Me</h2>
-      <div class="content" [innerHTML]="texts.about | breakline"></div>
-    </div>
-    <div class="download button">
-      <a target="_blank" href="https://drive.google.com/file/d/1oETfQdqObt860sgHJ_1X-ufbi3kmL4bf/view?usp=sharing">DOWNLOAD
-        MY CV</a>
-    </div>
-  </div>
-  <div class="picture">
-    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png"/>
-  </div>
-</div>
-
 <div id="home-my-works" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-my-works'">
   <div class="inner">
     <div class="picture">
@@ -430,6 +414,23 @@
     </div>
   </div>
 </div>
+<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
+  <div class="info">
+    <div class="container">
+      <h2 class="headline">About Me</h2>
+      <div class="content" [innerHTML]="texts.about | breakline"></div>
+    </div>
+    <div class="download button">
+      <a target="_blank" href="https://drive.google.com/file/d/1oETfQdqObt860sgHJ_1X-ufbi3kmL4bf/view?usp=sharing">DOWNLOAD
+        MY CV</a>
+    </div>
+  </div>
+  <div class="picture">
+    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png"/>
+  </div>
+</div>
+
+
 <div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">
   <div class="container">
     <h2>Contact Me</h2>

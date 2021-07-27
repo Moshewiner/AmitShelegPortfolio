@@ -49,7 +49,7 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
 
   ];
 
-  public isUI = false;
+  public isUI = true;
   private imageTextUrls: Record<MenuItems, string> = {
     Onboarding: '/assets/beauty-zone/11 - Phone mockup wd/texts/Onboarding text.svg',
     'Home Page': '/assets/beauty-zone/11 - Phone mockup wd/texts/Home page text.svg',
