@@ -1,6 +1,6 @@
 <div class="screen main" #main>
   <div class="picture">
-    <img src="/assets/beauty-zone/1%20-%20Cover/BeautyZone-cover%20photo.png"/>
+    <img src="/assets/beauty-zone/1%20-%20Cover/BeautyZone-cover%20photo.png" />
   </div>
   <div class="inner">
     <div class="headline">
@@ -13,15 +13,15 @@
     </div>
     <div class="download">
       <div class="google">
-        <img class="google" src="/assets/beauty-zone/1%20-%20Cover/Download%20-%20Google%20Play.png"/>
+        <img class="google" src="/assets/beauty-zone/1%20-%20Cover/Download%20-%20Google%20Play.png" />
       </div>
       <div class="apple">
-        <img class="apple" src="/assets/beauty-zone/1%20-%20Cover/Download%20-%20App%20Store.png"/>
+        <img class="apple" src="/assets/beauty-zone/1%20-%20Cover/Download%20-%20App%20Store.png" />
       </div>
     </div>
     <div class="scroll">
       <div class="icon" (click)="scroll(about, 'smooth')">
-        <img src="/assets/beauty-zone/1%20-%20Cover/Scroll%20Icon.svg"/>
+        <img src="/assets/beauty-zone/1%20-%20Cover/Scroll%20Icon.svg" />
       </div>
     </div>
   </div>
@@ -43,24 +43,24 @@
   <app-text-paragraph [headline]="'The Beauty Zone'" [subHeadline]="'Introduction'" [text]="texts.introduction">
   </app-text-paragraph>
   <div class='picture'>
-    <img src="/assets/beauty-zone/3%20-%20Introduction/Mockup%20eyeshadow.png"/>
+    <img src="/assets/beauty-zone/3%20-%20Introduction/Mockup%20eyeshadow.png" />
   </div>
 </div>
 
 <div class="screen user-research" id="user-research" [routerLink]="route" [fragment]="'user-research'">
   <div class="picture">
-    <img src="/assets/beauty-zone/4%20-%20User%20research/girl%20with%20makeup%20background.png"/>
+    <img src="/assets/beauty-zone/4%20-%20User%20research/girl%20with%20makeup%20background.png" />
   </div>
   <app-text-paragraph [headline]="'There Is No Social \n Platform For Beauty Lovers'" [subHeadline]="'User Research'"
-                      [text]="texts.userResearch">
+    [text]="texts.userResearch">
   </app-text-paragraph>
 </div>
 
 <div class="screen first-persona" id="first-persona" [routerLink]="route" [fragment]="'first-persona'">
   <div class="headline">
     <picture>
-      <img src="/assets/beauty-zone/5%20-%20Persona%2001/name%201.svg"/>
-      <img class="mobile" src="/assets/mobile/mobile%20name%201.svg"/>
+      <img src="/assets/beauty-zone/5%20-%20Persona%2001/name%201.svg" />
+      <img class="mobile" src="/assets/mobile/mobile%20name%201.svg" />
     </picture>
   </div>
   <div class="inner">
@@ -71,8 +71,8 @@
 
 <div class="screen second-persona" id="second-persona" [routerLink]="route" [fragment]="'second-persona'">
   <div class="headline">
-    <img src="/assets/beauty-zone/6%20-%20Persona%2002/name%202.svg"/>
-    <img class="mobile" src="/assets/mobile/mobile%20name%201-1.svg"/>
+    <img src="/assets/beauty-zone/6%20-%20Persona%2002/name%202.svg" />
+    <img class="mobile" src="/assets/mobile/mobile%20name%201-1.svg" />
   </div>
   <div class="inner">
     <p class="text" [innerHTML]="texts.secondPersona | breakline">
@@ -83,69 +83,77 @@
 <div class="screen market-research" id="market-research" [routerLink]="route" [fragment]="'market-research'">
   <div class="container">
     <app-text-paragraph [headline]="'No Solution For Beauty Lovers'" [subHeadline]="'Market Research'"
-                        [text]="texts.marketResearch">
+      [text]="texts.marketResearch">
     </app-text-paragraph>
     <div class="pain-points">
       <app-pain-point class="pain-point" [subHeadline]="'PAIN POINT #'+ increase(i)" [headline]="painPoint.headline"
-                      [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
+        [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
       </app-pain-point>
     </div>
   </div>
 </div>
 
 <div class="screen information-architecture" id="information-architecture" [routerLink]="route"
-     [fragment]="'information-architecture'">
+  [fragment]="'information-architecture'">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
-                        [text]="texts.informationArchitecture">
+      [text]="texts.informationArchitecture">
     </app-text-paragraph>
     <div class="picture">
-      <img src="/assets/beauty-zone/9%20-%20Information%20architecture/Flow%20BZ.svg"/>
+      <img src="/assets/beauty-zone/9%20-%20Information%20architecture/Flow%20BZ.svg" />
     </div>
   </div>
 </div>
 
 <div class="screen wireframes" id="wireframes" [routerLink]="route" [fragment]="'wireframes'">
   <div class="picture">
-    <img src="/assets/beauty-zone/10 - Scanned wireframes/Wireframes scans hand.png"/>
+    <img src="/assets/beauty-zone/10 - Scanned wireframes/Wireframes scans hand.png" />
   </div>
   <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts.wireframes">
   </app-text-paragraph>
 </div>
 
-<!-- TODO: Mobile! -->
 <div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
-  <div class="side">
-    <!-- <app-text-paragraph [headline]="'Visualize The Solution'"
-                        [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
-    <div class="menu">
-      <ul>
-        <li class="item" (click)="setMenuItem('Onboarding')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
-        </li>
-        <li class="item" (click)="setMenuItem('Home Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page
-        </li>
-        <li class="item" (click)="setMenuItem('Shop Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
-        </li>
-        <li class="item" (click)="setMenuItem('Products Identifier')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
-        </li>
-        <li class="item" (click)="setMenuItem('My Profile')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
-        </li>
-      </ul>
-    </div> -->
-    <app-mobile-image-slider [images]="mobileImageSliderImages"></app-mobile-image-slider>
+  <div class="mobile">
+    <app-text-paragraph class="headline" [headline]="'Visualize The Solution'"
+      [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
+    <div class="selected-menu-item">{{menuHeader}}</div>
+    <div class="spacer"></div>
+    <app-mobile-image-slider (OnSelectedImageIndexChange)="setMenuHeaderByIndex($event)"
+      [images]="mobileImageSliderImages"></app-mobile-image-slider>
   </div>
-  <!-- <div class="phone-container">
-    <div class="content-container">
-      <img [src]="wireframesDesignMenu.imageTextUrl"/>
+  <div class="desktop">
+    <div class="side">
+      <app-text-paragraph [headline]="'Visualize The Solution'" [subHeadline]="isUI ? 'Design': 'Wireframes'">
+      </app-text-paragraph>
+      <div class="menu">
+        <ul>
+          <li class="item" (click)="setMenuItem('Onboarding')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
+          </li>
+          <li class="item" (click)="setMenuItem('Home Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page
+          </li>
+          <li class="item" (click)="setMenuItem('Shop Page')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
+          </li>
+          <li class="item" (click)="setMenuItem('Products Identifier')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
+          </li>
+          <li class="item" (click)="setMenuItem('My Profile')"
+            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
+          </li>
+        </ul>
+      </div>
     </div>
-    <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
-    <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
-  </div> -->
+    <div class="phone-container">
+      <div class="content-container">
+        <img [src]="wireframesDesignMenu.imageTextUrl" />
+      </div>
+      <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
+      <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
+    </div>
+  </div>
 </div>
 
 <div class="screen colors" id="colors" [routerLink]="route" [fragment]="'colors'">
@@ -153,7 +161,7 @@
   </app-text-paragraph>
 
   <div class="picture">
-    <img src="/assets/beauty-zone/12%20-%20Colors/Colors%20-%20Makeup%20Swatches.png"/>
+    <img src="/assets/beauty-zone/12%20-%20Colors/Colors%20-%20Makeup%20Swatches.png" />
   </div>
 </div>
 
@@ -161,15 +169,15 @@
   <div class="container">
     <div class="typography">
       <app-text-paragraph subHeadline="Typography" headline="San Serif & Modern Font"></app-text-paragraph>
-      <img src="/assets/beauty-zone/13%20-%20Typhography-icons/typography.svg"/>
+      <img src="/assets/beauty-zone/13%20-%20Typhography-icons/typography.svg" />
     </div>
     <div class="icons">
       <app-text-paragraph subHeadline="Icons" headline="Thin & Rounded Icons"></app-text-paragraph>
-      <img src="/assets/beauty-zone/13%20-%20Typhography-icons/icons bz.svg"/>
+      <img src="/assets/beauty-zone/13%20-%20Typhography-icons/icons bz.svg" />
     </div>
   </div>
   <div class="picture">
-    <img src="/assets/beauty-zone/13%20-%20Typhography-icons/crushed eyeshadows brush.png"/>
+    <img src="/assets/beauty-zone/13%20-%20Typhography-icons/crushed eyeshadows brush.png" />
   </div>
 </div>
 <!-- TODO: Mobile! -->
@@ -177,20 +185,20 @@
   <div class="container">
     <div class="parallelogram">
     </div>
-    <img src="/assets/beauty-zone/14-15%20-%20Onboarding/Design%20onboarding%20mockups.png"/>
+    <img src="/assets/beauty-zone/14-15%20-%20Onboarding/Design%20onboarding%20mockups.png" />
   </div>
 </div>
 <div class="screen preview" id="preview" [routerLink]="route" [fragment]="'preview'">
   <div class="container">
     <div class="parallelogram">
     </div>
-    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png"/>
+    <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png" />
   </div>
 </div>
 
 <div class="screen thanks" id="thanks" [routerLink]="route" [fragment]="'thanks'">
   <div class="picture">
-    <img src="/assets/beauty-zone/18%20-%20Thanks/Logo.svg"/>
+    <img src="/assets/beauty-zone/18%20-%20Thanks/Logo.svg" />
   </div>
   <h1 class='content'>Thanks For Viewing!</h1>
 </div>
@@ -202,14 +210,14 @@
         <h2 class="headline">Wise Home</h2>
         <div class="description">UX | UI Design Mobile & Tablet App</div>
       </div>
-      <img class="img" src="/assets/home-page/4%20-%20Wisehome/mockups%20WH%20full.png"/>
+      <img class="img" src="/assets/home-page/4%20-%20Wisehome/mockups%20WH%20full.png" />
     </div>
     <div class="next" routerLink="/addict">
       <div class="content">
         <h2 class="headline">Addict</h2>
         <div class="description">Re-Design, Branding & UX | UI Design</div>
       </div>
-      <img class="img" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png"/>
+      <img class="img" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png" />
     </div>
   </div>
   <div class="info" id="info">
@@ -219,7 +227,7 @@
       <div class="phone">053-3350577</div>
     </div>
     <div class="goto-top">
-      <img (click)="scroll(main)" src="/assets/beauty-zone/19%20-%20Next%20-contact/up.svg"/>
+      <img (click)="scroll(main)" src="/assets/beauty-zone/19%20-%20Next%20-contact/up.svg" />
     </div>
   </div>
 

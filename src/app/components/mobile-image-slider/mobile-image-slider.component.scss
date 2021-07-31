@@ -1,9 +1,10 @@
 :host {
-    width: 100%;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    align-self: center;
     .slider-container {
         display: flex;
         justify-content: center;
@@ -21,12 +22,17 @@
     .bullets {
         display: flex;
         flex-direction: row;
-        width: 80%;
+        width: 30%;
         justify-content: center;
+        flex: 10;
         .bullet {
             cursor: pointer;
-            width: 10%;
+            flex: 1;
             margin: 3%;
+            svg {
+                width: 2vw;
+                height: inherit;
+            }
         }
     }
 }

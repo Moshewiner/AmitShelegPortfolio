@@ -120,4 +120,9 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
   }
+
+  public menuHeader: string = Object.keys(this.uiImageVideoUrls)[0];
+  public setMenuHeaderByIndex(index: number ){ 
+    this.menuHeader = Object.keys(this.uiImageVideoUrls)[index];
+  }
 }
