@@ -492,15 +492,9 @@ $cell: $gridWidth / 12;
     }
 
     &.wireframes-design {
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        .mobile {
-          display: flex;
-        }
-        .desktop {
-          display: none;
-        }
-      }
-  
+      display: flex;
+      flex-direction: row;
+      width: 100%;
       .desktop {
         display: flex;
         flex-direction: row;
@@ -629,6 +623,14 @@ $cell: $gridWidth / 12;
         }
         .spacer {
           margin-top: 1%;
+        }
+      }
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .mobile {
+          display: flex;
+        }
+        .desktop {
+          display: none;
         }
       }
     }
@@ -925,6 +927,7 @@ $cell: $gridWidth / 12;
 
           img {
             transform: scale(1.35);
+            width: $mobileGridWidth;
           }
         }
       }
@@ -960,6 +963,11 @@ $cell: $gridWidth / 12;
       }
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 60%;
+        .container {
+          img {
+            width: $mobileGridWidth;
+          }
+        }
       }
     }
 
