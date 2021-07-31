@@ -116,7 +116,7 @@
 <!-- TODO: Mobile! -->
 <div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
   <div class="side">
-    <app-text-paragraph [headline]="'Visualize The Solution'"
+    <!-- <app-text-paragraph [headline]="'Visualize The Solution'"
                         [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
     <div class="menu">
       <ul>
@@ -136,15 +136,16 @@
             [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
         </li>
       </ul>
-    </div>
+    </div> -->
+    <app-mobile-image-slider [images]="mobileImageSliderImages"></app-mobile-image-slider>
   </div>
-  <div class="phone-container">
+  <!-- <div class="phone-container">
     <div class="content-container">
       <img [src]="wireframesDesignMenu.imageTextUrl"/>
     </div>
     <app-phone-player class="display" [videoSrc]="wireframesDesignMenu.videoSrc"></app-phone-player>
     <app-toggle class="toggle-button" (onToggle)="changeUIUX($event)"></app-toggle>
-  </div>
+  </div> -->
 </div>
 
 <div class="screen colors" id="colors" [routerLink]="route" [fragment]="'colors'">

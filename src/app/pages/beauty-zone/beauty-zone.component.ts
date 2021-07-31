@@ -86,6 +86,14 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
     imageTextUrl: this.imageTextUrls.Onboarding
   };
 
+  public mobileImageSliderImages = [
+    '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif',
+    '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif',
+    '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif',
+    '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif',
+    '/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif',
+  ];
+
   constructor() {
   }
 

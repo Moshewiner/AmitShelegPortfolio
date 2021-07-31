@@ -1,0 +1,12 @@
+<div class="slider-container">
+    <div class="control back" (click)="previous()">&#8249;</div>
+    <app-phone-player [videoSrc]="selectedImage"></app-phone-player>
+    <div class="control next" (click)="next()">&#8250;</div>
+</div>
+<div class="bullets">
+    <div class="bullet" (click)="slideTo(i)"
+        *ngFor="let item of images; let i = index">
+        <svg *ngIf="isSelected(i)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 25 2 C 12.308594 2 2 12.308594 2 25 C 2 37.691406 12.308594 48 25 48 C 37.691406 48 48 37.691406 48 25 C 48 12.308594 37.691406 2 25 2 Z M 25 4 C 36.609375 4 46 13.390625 46 25 C 46 36.609375 36.609375 46 25 46 C 13.390625 46 4 36.609375 4 25 C 4 13.390625 13.390625 4 25 4 Z M 25 21 C 22.789063 21 21 22.789063 21 25 C 21 27.210938 22.789063 29 25 29 C 27.210938 29 29 27.210938 29 25 C 29 22.789063 27.210938 21 25 21 Z"></path></svg>
+        <svg *ngIf="!isSelected(i)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z"></path></svg>
+    </div>
+</div>
