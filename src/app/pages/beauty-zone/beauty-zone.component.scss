@@ -607,10 +607,14 @@ $cell: $gridWidth / 12;
       }
       .mobile {
         width: $mobileGridWidth;
+        height: 100vh;
         margin: 0 auto;
         display: none;
         flex-direction: column;
         justify-content: center;
+        .headline {
+          margin-bottom: 3%;
+        }
         .headline,
         .selected-menu-item {
           text-align: center;
@@ -620,6 +624,7 @@ $cell: $gridWidth / 12;
           border-bottom: 2px solid #ff0363;
           width: fit-content;
           margin: 0 auto;
+          margin-bottom: 2%;
         }
         .spacer {
           margin-top: 1%;

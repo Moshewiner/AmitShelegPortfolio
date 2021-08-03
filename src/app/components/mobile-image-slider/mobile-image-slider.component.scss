@@ -10,12 +10,16 @@
         justify-content: center;
         align-items: center;
         .control {
+            font-size: 10vw;
             display: inline-block;
-            padding: 8px 16px;
             height: 50px;
             line-height: 50px;
+            -webkit-tap-highlight-color: transparent;
             &:hover {
                 cursor: pointer;
+            }
+            &.back img {
+                transform: rotate(180deg);
             }
         }
     }
@@ -25,12 +29,13 @@
         width: 30%;
         justify-content: center;
         flex: 10;
+        margin-top: 1%;
         .bullet {
             cursor: pointer;
             flex: 1;
             margin: 3%;
-            svg {
-                width: 2vw;
+            img {
+                width: 7vw;
                 height: inherit;
             }
         }

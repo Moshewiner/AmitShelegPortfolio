@@ -118,7 +118,6 @@
     <app-text-paragraph class="headline" [headline]="'Visualize The Solution'"
       [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
     <div class="selected-menu-item">{{menuHeader}}</div>
-    <div class="spacer"></div>
     <app-mobile-image-slider (OnSelectedImageIndexChange)="setMenuHeaderByIndex($event)"
       [images]="mobileImageSliderImages"></app-mobile-image-slider>
   </div>

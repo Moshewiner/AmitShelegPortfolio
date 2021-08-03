@@ -1161,16 +1161,11 @@ $cell: $gridWidth / 12;
         }
 
         .navigation {
-          .prev {
-            img {
-              width: 75%;
-            }
-          }
-
-          .next {
-            img {
-              width: 75%;
-            }
+          flex-direction: column;
+          width: 100%;
+          .prev, .next {
+            width: 100%;
+            
           }
         }
       }
