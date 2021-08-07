@@ -21,6 +21,7 @@ import { ToggleComponent } from './components/toggle/toggle.component';
 import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { MobileImageSliderComponent } from './components/mobile-image-slider/mobile-image-slider.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     TabletPlayerComponent,
     ToggleComponent,
     AddictComponent,
-    MobileUnsupportedComponent
+    MobileUnsupportedComponent,
+    MobileImageSliderComponent
   ],
   imports: [
     BrowserModule,
