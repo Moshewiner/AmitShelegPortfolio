@@ -107,7 +107,8 @@
 
 <div class="screen wireframes" id="wireframes" [routerLink]="route" [fragment]="'wireframes'">
   <div class="picture">
-    <img src="/assets/beauty-zone/10 - Scanned wireframes/Wireframes scans hand.png" />
+    <img class="desktop" src="/assets/beauty-zone/10 - Scanned wireframes/Wireframes scans hand.png"/>
+    <img class="mobile" src="/assets/beauty-zone/Mobile/Mobile%20Wireframes%20scans.png"/>
   </div>
   <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts.wireframes">
   </app-text-paragraph>
@@ -116,10 +117,10 @@
 <div class="screen wireframes-design" id="wireframes-design" [routerLink]="route" [fragment]="'wireframes-design'">
   <div class="mobile">
     <app-text-paragraph class="headline" [headline]="'Visualize The Solution'"
-      [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
+                        [subHeadline]="isUI ? 'Design': 'Wireframes'"></app-text-paragraph>
     <div class="selected-menu-item">{{menuHeader}}</div>
     <app-mobile-image-slider (OnSelectedImageIndexChange)="setMenuHeaderByIndex($event)"
-      [images]="mobileImageSliderImages"></app-mobile-image-slider>
+                             [images]="mobileImageSliderDesignGifsImages"></app-mobile-image-slider>
   </div>
   <div class="desktop">
     <div class="side">
@@ -128,19 +129,19 @@
       <div class="menu">
         <ul>
           <li class="item" (click)="setMenuItem('Onboarding')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
+              [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Onboarding'}">Onboarding
           </li>
           <li class="item" (click)="setMenuItem('Home Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page
+              [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Home Page'}">Home Page
           </li>
           <li class="item" (click)="setMenuItem('Shop Page')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
+              [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Shop Page'}">Shop Page
           </li>
           <li class="item" (click)="setMenuItem('Products Identifier')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
+              [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'Products Identifier'}">Products Identifier
           </li>
           <li class="item" (click)="setMenuItem('My Profile')"
-            [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
+              [ngClass]="{selected: wireframesDesignMenu.selectedItem === 'My Profile'}">My Profile
           </li>
         </ul>
       </div>
@@ -193,6 +194,7 @@
     </div>
     <img src="/assets/beauty-zone/16-17%20-%20Design%20Mockups/phone%20mockups%20-%20design.png" />
   </div>
+  <app-mobile-image-slider class="mobile" [images]="mobileImageSliderDesignMockups"></app-mobile-image-slider>
 </div>
 
 <div class="screen thanks" id="thanks" [routerLink]="route" [fragment]="'thanks'">

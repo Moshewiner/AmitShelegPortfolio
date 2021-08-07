@@ -390,6 +390,14 @@ $cell: $gridWidth / 12;
 
       .picture {
         width: 50%;
+
+        .desktop {
+          display: block;
+        }
+
+        .mobile {
+          display: none;
+        }
       }
 
       img {
@@ -408,8 +416,17 @@ $cell: $gridWidth / 12;
         }
 
         .picture {
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+
+          }
+
           width: 90%;
-          margin: 2% 0;
+          margin: 8% 0 8% $mobileMarginSize;
         }
       }
     }
@@ -495,12 +512,14 @@ $cell: $gridWidth / 12;
       display: flex;
       flex-direction: row;
       width: 100%;
+
       .desktop {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 100%;
         justify-content: space-between;
+
         .side {
           margin-left: $marginSize;
           display: flex;
@@ -605,6 +624,7 @@ $cell: $gridWidth / 12;
           }
         }
       }
+
       .mobile {
         width: $mobileGridWidth;
         height: 100vh;
@@ -612,13 +632,16 @@ $cell: $gridWidth / 12;
         display: none;
         flex-direction: column;
         justify-content: center;
+
         .headline {
           margin-bottom: 3%;
         }
+
         .headline,
         .selected-menu-item {
           text-align: center;
         }
+
         .selected-menu-item {
           display: inline;
           border-bottom: 2px solid #ff0363;
@@ -626,10 +649,12 @@ $cell: $gridWidth / 12;
           margin: 0 auto;
           margin-bottom: 2%;
         }
+
         .spacer {
           margin-top: 1%;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         .mobile {
           display: flex;
@@ -671,6 +696,7 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+
         .mobile {
           display: none;
         }
@@ -687,9 +713,11 @@ $cell: $gridWidth / 12;
           position: relative;
           margin-top: 3rem;
           margin-left: -2%;
+
           img {
             display: none;
           }
+
           .mobile {
             display: block;
             width: 76%;
@@ -737,10 +765,12 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+
         .mobile {
           display: none;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         background-position: bottom;
         direction: ltr;
@@ -753,9 +783,11 @@ $cell: $gridWidth / 12;
           position: relative;
           margin-top: 3rem;
           margin-left: -2%;
+
           img {
             display: none;
           }
+
           .mobile {
             display: block;
             width: 76%;
@@ -923,16 +955,21 @@ $cell: $gridWidth / 12;
           object-fit: cover;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 60%;
         display: flex;
         align-items: center;
+        margin-top: 5%;
         .container {
-          height: auto;
+          height: 100%;
+          overflow: hidden;
+          align-items: center;
+          display: flex;
+
 
           img {
             transform: scale(1.35);
-            width: $mobileGridWidth;
           }
         }
       }
@@ -966,12 +1003,20 @@ $cell: $gridWidth / 12;
           object-fit: cover;
         }
       }
+
+      .mobile {
+        display: none;
+      }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 60%;
+        width: $mobileGridWidth;
+        height: 100%;
         .container {
-          img {
-            width: $mobileGridWidth;
-          }
+          display: none;
+        }
+        .mobile {
+          display: block;
+          z-index: 10;
         }
       }
     }
@@ -1026,7 +1071,7 @@ $cell: $gridWidth / 12;
         flex: 10;
 
         .prev {
-          background: linear-gradient(90deg, rgba(81, 161, 164, 0.33) 0%, #366b6d 100%);
+          background: linear-gradient(90deg, rgba(81, 161, 164, 0.33) 0%, #366B6D 100%);
           background-size: cover;
           flex-direction: row-reverse;
 
@@ -1043,6 +1088,7 @@ $cell: $gridWidth / 12;
             width: 40%;
           }
         }
+
 
         .prev,
         .next {
@@ -1114,10 +1160,15 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 50%;
+        height: 30%;
         min-height: unset;
+        justify-content: flex-end;
 
         .info {
+          background-color: #fcdddd;
+          padding: 5% 0;
+          flex: unset;
+
           .headline {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -1138,6 +1189,8 @@ $cell: $gridWidth / 12;
         }
 
         .navigation {
+          display: none;
+
           .prev {
             img {
               width: 75%;

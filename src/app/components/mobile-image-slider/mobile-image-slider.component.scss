@@ -1,43 +1,43 @@
 :host {
-    width: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+  .slider-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    align-self: center;
-    .slider-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .control {
-            font-size: 10vw;
-            display: inline-block;
-            height: 50px;
-            line-height: 50px;
-            -webkit-tap-highlight-color: transparent;
-            &:hover {
-                cursor: pointer;
-            }
-            &.back img {
-                transform: rotate(180deg);
-            }
-        }
+    .control {
+      font-size: 10vw;
+      display: inline-block;
+      height: 50px;
+      line-height: 50px;
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        cursor: pointer;
+      }
+      &.back img {
+        transform: rotate(180deg);
+      }
     }
-    .bullets {
-        display: flex;
-        flex-direction: row;
-        width: 30%;
-        justify-content: center;
-        flex: 10;
-        margin-top: 1%;
-        .bullet {
-            cursor: pointer;
-            flex: 1;
-            margin: 3%;
-            img {
-                width: 7vw;
-                height: inherit;
-            }
-        }
+  }
+  .bullets {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: center;
+    flex: 10;
+    margin: 0 auto;
+    .bullet {
+      cursor: pointer;
+      flex: 1;
+      margin: 3%;
+      img {
+        width: 7vw;
+        height: inherit;
+      }
     }
+  }
 }

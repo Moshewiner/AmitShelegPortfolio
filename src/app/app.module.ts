@@ -22,7 +22,6 @@ import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { MobileImageSliderComponent } from './components/mobile-image-slider/mobile-image-slider.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,8 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
