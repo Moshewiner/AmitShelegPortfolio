@@ -13,16 +13,7 @@ $cell: $gridWidth / 12;
     visibility: hidden;
     position: absolute;
     left: -999em;
-    content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif")
-      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
+    content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
   }
 
   width: calc(100vw - (100vw - 100%));
@@ -390,6 +381,14 @@ $cell: $gridWidth / 12;
 
       .picture {
         width: 50%;
+
+        .desktop {
+          display: block;
+        }
+
+        .mobile {
+          display: none;
+        }
       }
 
       img {
@@ -408,8 +407,17 @@ $cell: $gridWidth / 12;
         }
 
         .picture {
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+
+          }
+
           width: 90%;
-          margin: 2% 0;
+          margin: 8% 0 8% $mobileMarginSize;
         }
       }
     }
@@ -494,111 +502,156 @@ $cell: $gridWidth / 12;
     &.wireframes-design {
       display: flex;
       flex-direction: row;
-      align-items: center;
       width: 100%;
-      justify-content: space-between;
 
-      .side {
-        margin-left: $marginSize;
+      .desktop {
         display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: center;
-        position: relative;
-        z-index: 3;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
 
-        app-text-paragraph {
-          margin-top: -20%;
-        }
-
-        .menu {
-          width: 50%;
-          height: 50%;
+        .side {
+          margin-left: $marginSize;
           display: flex;
+          flex-direction: column;
+          height: 100%;
+          justify-content: center;
+          position: relative;
+          z-index: 3;
 
-          ul {
-            margin: 0;
-            padding: 0;
+          app-text-paragraph {
+            margin-top: -20%;
+          }
+
+          .menu {
+            width: 50%;
+            height: 50%;
             display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
 
-            li {
-              list-style: none;
-              cursor: pointer;
-              border-bottom: 5px solid transparent;
-              width: fit-content;
-              transition: all 0.45s;
+            ul {
+              margin: 0;
+              padding: 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
 
-              &:hover:after {
-                width: 100%;
-                border-radius: 10px;
-              }
-
-              &:after {
+              li {
+                list-style: none;
+                cursor: pointer;
+                border-bottom: 5px solid transparent;
+                width: fit-content;
                 transition: all 0.45s;
-                content: "";
-                display: block;
-                width: 0;
-                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
-                height: 5px;
-                border-radius: 10px;
-              }
 
-              &.selected:after {
-                content: "";
-                display: block;
-                width: 100%;
-                margin: auto;
-                background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
-                height: 5px;
-                border-radius: 10px;
+                &:hover:after {
+                  width: 100%;
+                  border-radius: 10px;
+                }
+
+                &:after {
+                  transition: all 0.45s;
+                  content: "";
+                  display: block;
+                  width: 0;
+                  background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
+                  height: 5px;
+                  border-radius: 10px;
+                }
+
+                &.selected:after {
+                  content: "";
+                  display: block;
+                  width: 100%;
+                  margin: auto;
+                  background: linear-gradient(to right, #ff0363 0%, #ff65a0 100%);
+                  height: 5px;
+                  border-radius: 10px;
+                }
               }
             }
           }
         }
-      }
 
-      .phone-container {
-        //background: url("src/assets/beauty-zone/HomePage Phone screen.svg");
-        position: relative;
+        .phone-container {
+          //background: url("src/assets/beauty-zone/HomePage Phone screen.svg");
+          position: relative;
 
-        .content-container {
-          position: absolute;
-          left: 0;
-          margin-left: -50%;
-          margin-top: 6%;
-          z-index: 0;
+          .content-container {
+            position: absolute;
+            left: 0;
+            margin-left: -50%;
+            margin-top: 6%;
+            z-index: 0;
 
-          img {
-            width: 50vw;
+            img {
+              width: 50vw;
+            }
+          }
+
+          height: 100%;
+          width: 50%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: url("/assets/beauty-zone/11 - Phone mockup wd/2 pink vectors.png") no-repeat;
+          background-size: 85% 93%;
+          background-position-x: 100%;
+          background-position-y: 60%;
+
+          .display {
+            width: 50%;
+            height: 80%;
+            z-index: 1;
+          }
+
+          .toggle-button {
+            align-self: flex-end;
+            margin-bottom: 7.9%;
+            transform: scale(0.5);
+            position: absolute;
+            right: 0;
+            margin-right: 3.5%;
           }
         }
+      }
 
-        height: 100%;
-        width: 50%;
-
-        display: flex;
+      .mobile {
+        width: $mobileGridWidth;
+        height: 100vh;
+        margin: 0 auto;
+        display: none;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        background: url("/assets/beauty-zone/11 - Phone mockup wd/2 pink vectors.png") no-repeat;
-        background-size: 85% 93%;
-        background-position-x: 100%;
-        background-position-y: 60%;
 
-        .display {
-          width: 50%;
-          height: 80%;
-          z-index: 1;
+        .headline {
+          margin-bottom: 3%;
         }
 
-        .toggle-button {
-          align-self: flex-end;
-          margin-bottom: 7.9%;
-          transform: scale(0.5);
-          position: absolute;
-          right: 0;
-          margin-right: 3.5%;
+        .headline,
+        .selected-menu-item {
+          text-align: center;
+        }
+
+        .selected-menu-item {
+          display: inline;
+          border-bottom: 2px solid #ff0363;
+          width: fit-content;
+          margin: 0 auto;
+          margin-bottom: 2%;
+        }
+
+        .spacer {
+          margin-top: 1%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .mobile {
+          display: flex;
+        }
+        .desktop {
+          display: none;
         }
       }
     }
@@ -634,6 +687,7 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+
         .mobile {
           display: none;
         }
@@ -650,9 +704,11 @@ $cell: $gridWidth / 12;
           position: relative;
           margin-top: 3rem;
           margin-left: -2%;
+
           img {
             display: none;
           }
+
           .mobile {
             display: block;
             width: 76%;
@@ -700,10 +756,12 @@ $cell: $gridWidth / 12;
         img {
           width: 30vw;
         }
+
         .mobile {
           display: none;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         background-position: bottom;
         direction: ltr;
@@ -716,9 +774,11 @@ $cell: $gridWidth / 12;
           position: relative;
           margin-top: 3rem;
           margin-left: -2%;
+
           img {
             display: none;
           }
+
           .mobile {
             display: block;
             width: 76%;
@@ -886,12 +946,18 @@ $cell: $gridWidth / 12;
           object-fit: cover;
         }
       }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 60%;
         display: flex;
         align-items: center;
+        margin-top: 5%;
         .container {
-          height: auto;
+          height: 100%;
+          overflow: hidden;
+          align-items: center;
+          display: flex;
+
 
           img {
             transform: scale(1.35);
@@ -928,8 +994,21 @@ $cell: $gridWidth / 12;
           object-fit: cover;
         }
       }
+
+      .mobile {
+        display: none;
+      }
+
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 60%;
+        width: $mobileGridWidth;
+        height: 100%;
+        .container {
+          display: none;
+        }
+        .mobile {
+          display: block;
+          z-index: 10;
+        }
       }
     }
 
@@ -991,8 +1070,9 @@ $cell: $gridWidth / 12;
             width: 40%;
           }
         }
+
         .next {
-          background: linear-gradient(90deg, #9C6C44 0%,  rgba(236, 201, 183, 0.63)  100%);
+          background: linear-gradient(90deg, #9C6C44 0%, rgba(236, 201, 183, 0.63) 100%);
           background-size: cover;
           width: 90%;
 
@@ -1027,6 +1107,7 @@ $cell: $gridWidth / 12;
 
             cursor: pointer;
           }
+
           .content {
             .headline {
               margin: 0;
@@ -1072,10 +1153,15 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 50%;
+        height: 30%;
         min-height: unset;
+        justify-content: flex-end;
 
         .info {
+          background-color: #fcdddd;
+          padding: 5% 0;
+          flex: unset;
+
           .headline {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -1097,6 +1183,7 @@ $cell: $gridWidth / 12;
 
         .navigation {
           display: none;
+
           .prev {
             img {
               width: 75%;
