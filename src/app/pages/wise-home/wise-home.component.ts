@@ -83,7 +83,7 @@ export class WiseHomeComponent {
   ];
 
 
-  private readonly isNotDesktopDevice = false;
+  private isNotDesktopDevice: boolean = false;
 
   public increase(x: number): number {
     return x + 1;
