@@ -224,11 +224,12 @@
     </div>
   </div>
   <div class="mobile">
-      <app-mobile-image-slider [images]="showOffTabletsImages"></app-mobile-image-slider>
+      <app-tablet-image-slider [images]="showOffTabletsImages"></app-tablet-image-slider>
   </div>
 </div>
 <div class="screen show-off-phones" id="show-off-phones" [routerLink]="route" [fragment]="'show-off-phones'">
-  <img src="/assets/wise-home/19-20 - Mockups Design Phones/mockups%20phone%20WH%20new.png"/>
+  <img class="desktop" src="/assets/wise-home/19-20 - Mockups Design Phones/mockups%20phone%20WH%20new.png"/>
+  <app-mobile-image-slider class="mobile" [images]="showOffPhoneImages"></app-mobile-image-slider>
 </div>
 
 <div class="screen thanks" id="thanks" [routerLink]="route" [fragment]="'thanks'">

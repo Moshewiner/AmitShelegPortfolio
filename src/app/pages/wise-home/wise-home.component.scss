@@ -1071,6 +1071,8 @@ $cell: $gridWidth / 12;
       }
     }
       @media only screen and (max-width: $responsiveBreakPoint) {
+      height: 40%;
+      min-height: unset;
         .desktop {
           display: none;
         }
@@ -1090,13 +1092,26 @@ $cell: $gridWidth / 12;
     background-size: 100% 50%;
     background-position-y: center;
 
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
+
     img {
       width: 100%;
     }
 
     @media only screen and (max-width: $responsiveBreakPoint) {
-      height: 60%;
-      min-height: unset;
+      height: unset;
+      background: none;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
     }
   }
 

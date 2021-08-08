@@ -1,0 +1,16 @@
+<div class="slider-container">
+  <div class="control back" (click)="previous()">
+    <img src="/assets/beauty-zone/Mobile/arrow.svg" />
+  </div>
+  <app-tablet-player [videoSrc]="selectedImage"></app-tablet-player>
+  <div class="control next" (click)="next()">
+    <img src="/assets/beauty-zone/Mobile/arrow.svg" />
+  </div>
+</div>
+<div class="bullets">
+  <div class="bullet" (click)="slideTo(i)"
+       *ngFor="let item of images; let i = index">
+    <img *ngIf="isSelected(i)" src="/assets/beauty-zone/Mobile/selected.svg" />
+    <img *ngIf="!isSelected(i)" src="/assets/beauty-zone/Mobile/unselected.svg" />
+  </div>
+</div>

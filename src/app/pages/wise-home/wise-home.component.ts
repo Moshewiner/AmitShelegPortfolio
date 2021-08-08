@@ -75,6 +75,13 @@ export class WiseHomeComponent {
     '/assets/wise-home/Mobile/Show off tablets/4.png',
   ];
 
+  public showOffPhoneImages = [
+    '/assets/wise-home/Mobile/Show off mobile/1.png',
+    '/assets/wise-home/Mobile/Show off mobile/2.png',
+    '/assets/wise-home/Mobile/Show off mobile/3.png',
+    '/assets/wise-home/Mobile/Show off mobile/4.png',
+  ];
+
 
   private readonly isNotDesktopDevice = false;
 
