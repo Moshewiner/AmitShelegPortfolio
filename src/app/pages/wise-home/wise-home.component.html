@@ -90,7 +90,8 @@
   </div>
 </div>
 
-<div class="screen user-research-details" id="user-research-details" [routerLink]="route" [fragment]="'user-research-details'">
+<div class="screen user-research-details" id="user-research-details" [routerLink]="route"
+     [fragment]="'user-research-details'">
   <div class="picture">
     <img src="/assets/wise-home/7%20-%20User%20research%20part%20two/Man%20Home.png"/>
   </div>
@@ -118,8 +119,8 @@
   </div>
 </div>
 
-<!-- TODO: Mobile! -->
-<div class="screen information-architecture" id="information-architecture" [routerLink]="route" [fragment]="'information-architecture'">
+<div class="screen information-architecture" id="information-architecture" [routerLink]="route"
+     [fragment]="'information-architecture'">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
                         [text]="texts.informationArchitecture">
@@ -133,7 +134,7 @@
 <div class="screen wireframes" id="wireframes" [routerLink]="route" [fragment]="'wireframes'">
   <div class="picture">
     <img class="desktop" src="/assets/wise-home/9 - Scanned wireframes/Scanned Wireframes hand.png"/>
-    <img class="mobile" src="/assets/wise-home/Mobile/Mobile Scanned Wireframes hand.png" />
+    <img class="mobile" src="/assets/wise-home/Mobile/Mobile Scanned Wireframes hand.png"/>
   </div>
   <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'"
                       [text]="texts.wireframes">
@@ -143,7 +144,8 @@
 <div class="screen tablet-wireframes" id="tablet-wireframes" [routerLink]="route" [fragment]="'tablet-wireframes'">
   <app-text-paragraph headline="Visualize The Solution" subHeadline="Wireframes"></app-text-paragraph>
   <div class="picture">
-    <img src="/assets/wise-home/10-11%20-%20Tablet%20wireframes/tablet wireframes.png"/>
+    <img class="desktop" src="/assets/wise-home/10-11%20-%20Tablet%20wireframes/tablet wireframes.png"/>
+    <img class="mobile" src="/assets/wise-home/Mobile/Mobile%20wireframes.png"/>
   </div>
 </div>
 
@@ -184,13 +186,14 @@
       <app-text-paragraph [subHeadline]="'Icons'" [headline]="'Realistic & indicative icons'" [text]="''">
       </app-text-paragraph>
       <div class="picture">
-        <img src="/assets/wise-home/16 - Typhography-icons/icons home.svg"/>
+        <img class="desktop" src="/assets/wise-home/16 - Typhography-icons/icons home.svg"/>
+        <img class="mobile" src="/assets/wise-home/Mobile/Icons%20WH%20mobile.svg"/>
       </div>
     </div>
   </div>
 </div>
 
-<div class="screen colors"  id="colors" [routerLink]="route" [fragment]="'colors'">
+<div class="screen colors" id="colors" [routerLink]="route" [fragment]="'colors'">
   <app-text-paragraph [headline]="'Calming & Smart Colors'" [subHeadline]="'Colors'"
                       [text]="texts.colors">
   </app-text-paragraph>
@@ -203,24 +206,28 @@
   </div>
 </div>
 
-<!-- TODO: Mobile! -->
 <div class="screen show-off-tablets" id="show-off-tablets" [routerLink]="route" [fragment]="'show-off-tablets'">
-  <div class="single">
-    <img src="/assets/wise-home/18 - MockupsDesign Tablet/tablet simple white 2lines.png"/>
-  </div>
-  <div class="display">
-    <img src="/assets/wise-home/18 - MockupsDesign Tablet/mockups%20tablet%204.png"/>
-  </div>
+  <div class="desktop">
+    <div class="single">
+      <img src="/assets/wise-home/18 - MockupsDesign Tablet/tablet simple white 2lines.png"/>
+    </div>
+    <div class="display">
+      <img src="/assets/wise-home/18 - MockupsDesign Tablet/mockups%20tablet%204.png"/>
+    </div>
 
-  <div class="lines-container">
-    <div class="line first"></div>
-    <div class="line spacer"></div>
-    <div class="line second"></div>
-    <div class="line big-spacer"></div>
-    <div class="line third"></div>
+    <div class="lines-container">
+      <div class="line first"></div>
+      <div class="line spacer"></div>
+      <div class="line second"></div>
+      <div class="line big-spacer"></div>
+      <div class="line third"></div>
+    </div>
+  </div>
+  <div class="mobile">
+      <app-mobile-image-slider [images]="showOffTabletsImages"></app-mobile-image-slider>
   </div>
 </div>
-<div class="screen show-off-phones"  id="show-off-phones" [routerLink]="route" [fragment]="'show-off-phones'">
+<div class="screen show-off-phones" id="show-off-phones" [routerLink]="route" [fragment]="'show-off-phones'">
   <img src="/assets/wise-home/19-20 - Mockups Design Phones/mockups%20phone%20WH%20new.png"/>
 </div>
 
@@ -238,14 +245,14 @@
         <h2 class="headline">Addict</h2>
         <div class="description">Re-Design, Branding & UX | UI Design</div>
       </div>
-      <img class="img" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png" />
+      <img class="img" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png"/>
     </div>
     <div class="next" routerLink="/beautyzone">
       <div class="content">
         <h2 class="headline">Beauty Zone</h2>
         <div class="description">UX | UI Design Mobile App</div>
       </div>
-      <img class="img" src="/assets/home-page/3%20-%20Beautyzone/Phones.svg" />
+      <img class="img" src="/assets/home-page/3%20-%20Beautyzone/Phones.svg"/>
     </div>
   </div>
   <div class="info">
