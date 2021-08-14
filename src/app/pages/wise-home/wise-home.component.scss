@@ -12,6 +12,11 @@ $cell: $gridWidth / 12;
   width: calc(100vw - (100vw - 100%));
   height: 100vh;
   padding: 0;
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    display: flex;
+    flex-direction: column;
+    height: unset;
+  }
 
   .screen {
     outline: 0;
@@ -28,7 +33,8 @@ $cell: $gridWidth / 12;
     }
 
     @media only screen and (max-width: $responsiveBreakPoint) {
-      height: unset;
+      //height: unset;
+      height: 100vh;
       min-height: unset;
       margin: 10% auto;
       width: $mobileGridWidth;
@@ -121,7 +127,7 @@ $cell: $gridWidth / 12;
 
       @media only screen and (max-width: $responsiveBreakPoint) {
         margin: unset;
-
+        height: 100vh;
         .picture {
           img {
             height: 70vh;
@@ -208,6 +214,7 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         height: 60vh;
+        margin: unset;
         .logo {
           img {
             width: 80%;
@@ -616,11 +623,11 @@ $cell: $gridWidth / 12;
         background-size: cover;
         background-position-y: 100%;
         background-repeat: no-repeat;
-        height: 88%;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         width: 100%;
+        height: 88vh;
         .inner {
           padding-top: 10%;
           justify-content: flex-start;
@@ -674,6 +681,7 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column-reverse;
         align-items: flex-start;
+        margin-top: unset;
         app-text-paragraph {
           width: 100%;
           margin-left: 0;
@@ -729,6 +737,7 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: auto;
         min-height: unset;
+        margin: unset;
         .picture {
           margin-top: 7%;
           background: url("/assets/wise-home/Mobile/3rectangles background.png");
@@ -834,6 +843,7 @@ $cell: $gridWidth / 12;
 
         width: $mobileGridWidth;
         height: auto;
+        margin-top: unset;
         .phone {
           flex-direction: column;
 
@@ -912,6 +922,7 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        display: none;
         width: $mobileGridWidth;
         app-text-paragraph {
           width: 100%;
@@ -1119,13 +1130,16 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: unset;
         width: $mobileGridWidth;
+        margin: 0 auto;
         background: none;
+        justify-content: center;
         .desktop {
           display: none;
         }
         .mobile {
           display: block;
         }
+
       }
     }
 
@@ -1272,8 +1286,11 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 50%;
         min-height: unset;
+        margin: unset;
+        margin-top: 10%;
 
         .info {
+          margin: 10% auto;
           .headline {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -1294,12 +1311,43 @@ $cell: $gridWidth / 12;
         }
 
         .navigation {
+          display: flex;
           flex-direction: column;
+          justify-content: center;
           width: 100%;
+
 
           .prev, .next {
             width: 100%;
 
+            .container {
+              display: flex;
+              width: $mobileGridWidth;
+              justify-content: space-between;
+              flex-shrink: 3;
+
+              .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex: 2;
+              }
+
+              .spacer {
+                flex: .2;
+              }
+
+              img {
+                width: 30%;
+                flex: 1;
+              }
+            }
+          }
+
+          .prev {
+            .container {
+              flex-direction: row-reverse;
+            }
           }
         }
       }
