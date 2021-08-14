@@ -1256,6 +1256,10 @@ $cell: $gridWidth / 12;
               }
             }
 
+            .spacer {
+              display: none;
+            }
+
             &:hover {
               img {
                 transform: scale(1.05);
