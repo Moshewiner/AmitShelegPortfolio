@@ -243,6 +243,12 @@ $cell: $gridWidth / 12;
 
       .picture {
         width: 55%;
+        .mobile {
+          display: none;
+        }
+        .desktop {
+          display: block;
+        }
       }
 
       img {
@@ -262,6 +268,12 @@ $cell: $gridWidth / 12;
           margin: auto;
           margin-top: 10%;
           width: 90%;
+          .mobile {
+            display: block;
+          }
+          .desktop {
+            display: none;
+          }
         }
       }
     }

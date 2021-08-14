@@ -949,7 +949,7 @@ $cell: $gridWidth / 12;
 
         img {
           position: relative;
-          z-index: 99;
+          z-index: 9;
           margin: 0 auto;
           width: 100%;
           object-fit: cover;
@@ -997,7 +997,7 @@ $cell: $gridWidth / 12;
 
         img {
           position: relative;
-          z-index: 99;
+          z-index: 9;
           margin: 0 auto;
           width: 100%;
           object-fit: cover;
@@ -1016,7 +1016,7 @@ $cell: $gridWidth / 12;
         }
         .mobile {
           display: block;
-          z-index: 10;
+          z-index: 9;
         }
       }
     }
