@@ -1228,39 +1228,52 @@ $cell: $gridWidth / 12;
 
         .prev,
         .next {
-          flex: 5;
           align-items: center;
           display: flex;
-          padding-top: 45px;
-          padding-bottom: 45px;
-          outline: 0;
-          user-select: none;
-          justify-content: space-around;
-          //padding-left: 4%;
-          text-align: left;
+          flex: 5;
 
-          img {
-            object-fit: contain;
-            transition: 0.5s;
-          }
+          .container {
+            align-items: center;
+            display: flex;
+            padding-top: 45px;
+            padding-bottom: 45px;
+            outline: 0;
+            user-select: none;
+            justify-content: space-around;
+            //padding-left: 4%;
+            text-align: left;
 
-          &:hover {
             img {
-              transform: scale(1.05);
+              object-fit: contain;
+              transition: 0.5s;
+
+              &.desktop {
+                display: block;
+              }
+
+              &.mobile {
+                display: none;
+              }
             }
 
-            cursor: pointer;
-          }
+            &:hover {
+              img {
+                transform: scale(1.05);
+              }
 
-          .content {
-            .headline {
-              margin: 0;
-              color: white;
-              font-family: Butler;
+              cursor: pointer;
             }
 
-            .description {
-              color: white;
+            .content {
+              .headline {
+                margin: 0;
+                color: white;
+                font-family: Butler;
+              }
+
+              .description {
+                color: white;
+              }
             }
           }
         }
@@ -1354,6 +1367,14 @@ $cell: $gridWidth / 12;
               img {
                 width: 30%;
                 flex: 1;
+
+                &.desktop {
+                  display: none;
+                }
+
+                &.mobile {
+                  display: block;
+                }
               }
             }
           }
