@@ -408,7 +408,7 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         flex-direction: column-reverse;
         align-items: flex-start;
-        margin-top: 10%;
+        margin: 10% 0;
 
         app-text-paragraph {
           width: $mobileGridWidth;
@@ -628,7 +628,7 @@ $cell: $gridWidth / 12;
       .mobile {
         width: $mobileGridWidth;
         height: 100vh;
-        margin: 0 auto;
+        margin: 0 auto 15%;
         display: none;
         flex-direction: column;
         justify-content: center;
@@ -969,7 +969,7 @@ $cell: $gridWidth / 12;
 
 
           img {
-            transform: scale(1.35);
+            transform: scale(1.25);
           }
         }
       }
@@ -1044,6 +1044,7 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        margin-top: 5%;
         .content {
           font-size: 2.5rem;
         }
