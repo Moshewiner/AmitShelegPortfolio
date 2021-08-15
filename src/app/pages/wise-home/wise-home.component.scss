@@ -135,8 +135,8 @@ $cell: $gridWidth / 12;
           }
         }
         .inner {
-          background: url("/assets/wise-home/Mobile/Background WH.png");
-          background-size: cover;
+          background: url("/assets/wise-home/Mobile/Background WH.png") no-repeat;
+          background-size: 100% 100%;
           grid-template-areas:
             "headline headline headline headline headline headline . . . . ."
             ". . . . . . . . . . ."
