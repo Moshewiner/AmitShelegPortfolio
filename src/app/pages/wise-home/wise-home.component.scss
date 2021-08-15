@@ -1400,6 +1400,9 @@ $cell: $gridWidth / 12;
           .prev {
             .container {
               flex-direction: row-reverse;
+              .content {
+                padding-left: 5%;
+              }
             }
           }
         }
