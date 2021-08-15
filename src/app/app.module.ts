@@ -22,6 +22,7 @@ import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { MobileImageSliderComponent } from './components/mobile-image-slider/mobile-image-slider.component';
+import { TabletImageSliderComponent } from './components/tablet-image-slider/tablet-image-slider.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +43,14 @@ import { MobileImageSliderComponent } from './components/mobile-image-slider/mob
     ToggleComponent,
     AddictComponent,
     MobileUnsupportedComponent,
-    MobileImageSliderComponent
+    MobileImageSliderComponent,
+    TabletImageSliderComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule
-    ],
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

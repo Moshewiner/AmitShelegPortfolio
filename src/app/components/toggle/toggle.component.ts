@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-toggle',
@@ -6,7 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./toggle.component.scss']
 })
 export class ToggleComponent implements OnInit {
-  private isOn: boolean = false;
+  private isOn: boolean = true;
   @Output() onToggle: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }

@@ -13,7 +13,16 @@ $cell: $gridWidth / 12;
     visibility: hidden;
     position: absolute;
     left: -999em;
-    content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
+    content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif")
+      url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
   }
 
   width: calc(100vw - (100vw - 100%));
@@ -940,7 +949,7 @@ $cell: $gridWidth / 12;
 
         img {
           position: relative;
-          z-index: 99;
+          z-index: 9;
           margin: 0 auto;
           width: 100%;
           object-fit: cover;
@@ -988,7 +997,7 @@ $cell: $gridWidth / 12;
 
         img {
           position: relative;
-          z-index: 99;
+          z-index: 9;
           margin: 0 auto;
           width: 100%;
           object-fit: cover;
@@ -1007,7 +1016,7 @@ $cell: $gridWidth / 12;
         }
         .mobile {
           display: block;
-          z-index: 10;
+          z-index: 9;
         }
       }
     }
@@ -1070,9 +1079,8 @@ $cell: $gridWidth / 12;
             width: 40%;
           }
         }
-
         .next {
-          background: linear-gradient(90deg, #9C6C44 0%, rgba(236, 201, 183, 0.63) 100%);
+          background: linear-gradient(90deg, #9c6c44 0%, rgba(236, 201, 183, 0.63) 100%);
           background-size: cover;
           width: 90%;
 
@@ -1107,7 +1115,6 @@ $cell: $gridWidth / 12;
 
             cursor: pointer;
           }
-
           .content {
             .headline {
               margin: 0;

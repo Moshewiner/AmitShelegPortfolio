@@ -361,29 +361,28 @@
 
   </div>
   <div class="scroll">
-    <div class="icon" (click)="scroll(about, 'smooth')">
+    <div class="icon" (click)="scroll(myWorks, 'smooth')">
       <img src="/assets/home-page/1 - Welcome screen/scroll.svg"/>
     </div>
   </div>
 </div>
 
-<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
-  <div class="info">
-    <div class="container">
-      <h2 class="headline">About Me</h2>
-      <div class="content" [innerHTML]="texts.about | breakline"></div>
-    </div>
-    <div class="download button">
-      <a target="_blank" href="https://drive.google.com/file/d/1oETfQdqObt860sgHJ_1X-ufbi3kmL4bf/view?usp=sharing">DOWNLOAD
-        MY CV</a>
+<div id="home-my-works" #myWorks class="screen wise-home" [routerLink]="route" [fragment]="'home-my-works'">
+  <div class="container">
+    <div class="content">
+      <h2 class="headline">Wise Home</h2>
+      <div class="description">UX | UI Design Mobile & Tablet App</div>
+      <div class="view button">
+        <a [href]="'/wisehome'">VIEW PROJECT</a>
+      </div>
     </div>
   </div>
   <div class="picture">
-    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png"/>
+    <img class="desktop" src="/assets/home-page/4%20-%20Wisehome/mockups WH2.png"/>
+    <img class="mobile" src="/assets/home-page/Mobile/mockups WH.png"/>
   </div>
 </div>
-
-<div id="home-my-works" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-my-works'">
+<div id="home-beauty-zone" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-beauty-zone'">
   <div class="inner">
     <div class="picture">
       <img class="desktop" src="/assets/home-page/3%20-%20Beautyzone/Phones.png"/>
@@ -398,21 +397,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div id="home-wise-home" class="screen wise-home" [routerLink]="route" [fragment]="'home-wise-home'">
-  <div class="container">
-    <div class="content">
-      <h2 class="headline">Wise Home</h2>
-      <div class="description">UX | UI Design Mobile & Tablet App</div>
-      <div class="view button">
-        <a [href]="'/wisehome'">VIEW PROJECT</a>
-      </div>
-    </div>
-  </div>
-  <div class="picture">
-    <img class="desktop" src="/assets/home-page/4%20-%20Wisehome/mockups WH.png"/>
-    <img class="mobile" src="/assets/home-page/Mobile/mockups WH.png"/>
   </div>
 </div>
 <div id="home-addict" class="screen addict" [routerLink]="route" [fragment]="'home-addict'">
@@ -430,6 +414,22 @@
     </div>
   </div>
 </div>
+<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
+  <div class="info">
+    <div class="container">
+      <h2 class="headline">About Me</h2>
+      <div class="content" [innerHTML]="texts.about | breakline"></div>
+    </div>
+    <div class="download button">
+      <a target="_blank" href="https://drive.google.com/file/d/1oETfQdqObt860sgHJ_1X-ufbi3kmL4bf/view?usp=sharing">DOWNLOAD
+        MY CV</a>
+    </div>
+  </div>
+  <div class="picture">
+    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png"/>
+  </div>
+</div>
+
 <div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">
   <div class="container">
     <h2>Contact Me</h2>
