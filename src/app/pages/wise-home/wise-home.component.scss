@@ -1355,13 +1355,14 @@ $cell: $gridWidth / 12;
 
         .navigation {
           display: flex;
-          flex-direction: column;
+          flex-direction: column-reverse;
           justify-content: center;
           width: 100%;
 
 
           .prev, .next {
             width: 100%;
+            justify-content: center;
 
             .container {
               display: flex;
