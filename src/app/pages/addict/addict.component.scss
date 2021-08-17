@@ -139,17 +139,21 @@ $cell: $gridWidth / 12;
             "scroll download download download . . . . . . .";
 
           .headline {
-            grid-template-areas:
-              "up up up up up ."
-              "bottom bottom bottom bottom . . ";
-            margin-top: 40%;
+            display: block;
+            text-align: center;
+            margin-top: 30%;
+
+            grid-template-columns: unset;
+            grid-template-rows: unset;
+            grid-template-areas:unset;
+            grid-area: unset;
           }
 
           .up {
             grid-area: up;
 
             h1 {
-              margin-bottom: 10%;
+              margin-bottom: 5%;
               font-size: 3.5rem;
             }
           }
@@ -165,7 +169,7 @@ $cell: $gridWidth / 12;
 
           .scroll {
             position: absolute;
-            filter: revert;
+            filter: invert(100%);
 
             img {
               width: 65%;
@@ -450,6 +454,8 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         align-items: flex-start;
+        background: unset;
+
         app-text-paragraph {
           width: 100%;
           margin-left: 0;
@@ -476,11 +482,42 @@ $cell: $gridWidth / 12;
         justify-content: space-evenly;
 
         .picture {
+          .mobile {
+            display: none;
+          }
+
           img {
             width: 100%;
           }
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        margin-top: 10%;
+        background: url("/assets/addict/mobile/Woman backround.png") no-repeat;
+        background-size: cover;
+        background-position-y: 100%;
+        padding-bottom: 80%;
+        .inner {
+          app-text-paragraph {
+            margin-top: 10%;
+          }
+
+          .picture {
+            margin-top: 10%;
+
+            .mobile {
+              display: block;
+            }
+
+            .desktop {
+              display: none;
+            }
+          }
+        }
+      }
+
     }
 
     &.logo-show, &.branding-box, &.branding-bag, &.clothes, &.jeans {
@@ -824,6 +861,7 @@ $cell: $gridWidth / 12;
 
         .picture {
           margin-top: 30%;
+
           img {
             width: 70%;
           }
