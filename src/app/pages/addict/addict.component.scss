@@ -122,7 +122,11 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url("/assets/addict/mobile/Addict Background.png") no-repeat;
+        background-size: cover;
         .picture {
+          display: none;
+
           img {
             height: 70vh;
             bottom: 0;
@@ -161,6 +165,7 @@ $cell: $gridWidth / 12;
 
           .scroll {
             position: absolute;
+            filter: revert;
 
             img {
               width: 65%;
@@ -191,6 +196,14 @@ $cell: $gridWidth / 12;
       .info {
         text-align: center;
 
+        .desktop {
+          display: block;
+        }
+
+        .mobile {
+          display: none;
+        }
+
         .bold {
           font-weight: 400;
         }
@@ -205,6 +218,17 @@ $cell: $gridWidth / 12;
             width: 80%;
           }
         }
+
+        .info {
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+          }
+        }
+
         app-text-paragraph,
         .picture {
           width: 100%;
@@ -270,6 +294,10 @@ $cell: $gridWidth / 12;
         width: 60%;
         height: 100%;
 
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
           height: 100%;
@@ -292,6 +320,15 @@ $cell: $gridWidth / 12;
           width: 100%;
           display: flex;
           align-items: flex-end;
+          margin-top: -10%;
+
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+          }
         }
       }
     }
@@ -320,10 +357,15 @@ $cell: $gridWidth / 12;
         margin-right: $marginSize;
         text-align: right;
 
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
         }
       }
+
       .mobile {
         display: none;
       }
@@ -340,7 +382,7 @@ $cell: $gridWidth / 12;
           float: unset;
         }
         .picture {
-          margin-top: unset;
+          margin-top: 5%;
           width: 100%;
           position: unset;
           top: unset;
@@ -348,20 +390,28 @@ $cell: $gridWidth / 12;
           right: unset;
           margin-right: unset;
           text-align: unset;
+
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+
         }
 
         .mobile {
           display: block;
         }
-        .bullets {
-          width: calc($mobileGridWidth - 10%);
-          padding-left: 10%;
-          margin: 0 auto;
-          //list-style-image: url("");
 
-          .bullet {
-            //list-style: circle;
-          }
+        .desktop {
+          display: none;
+        }
+
+        .bullets {
+          width: $mobileGridWidth;
+          margin: 0 auto;
         }
       }
     }
@@ -473,6 +523,10 @@ $cell: $gridWidth / 12;
           width: 100%;
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        display: none;
+      }
     }
 
     &.design {
@@ -530,6 +584,31 @@ $cell: $gridWidth / 12;
           width: 100%;
           margin: 1.7% 0;
         }
+
+        .mobile {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        margin-top: 17%;
+        app-text-paragraph {
+          align-self: flex-start;
+          align-items: flex-start;
+          margin-bottom: 5%;
+        }
+        .picture {
+          .mobile {
+            display: block;
+          }
+          .desktop {
+            display: none;
+          }
+
+          img {
+            margin: 3% 0;
+          }
+        }
       }
     }
 
@@ -543,6 +622,10 @@ $cell: $gridWidth / 12;
       .picture {
         position: relative;
         z-index: 2;
+
+        .mobile {
+          display: none;
+        }
 
         img {
           width: 100%;
@@ -570,6 +653,21 @@ $cell: $gridWidth / 12;
 
         img {
           width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .picture {
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+        }
+        .logo-top, .logo-bottom {
+          display: none;
         }
       }
     }
@@ -601,7 +699,45 @@ $cell: $gridWidth / 12;
         img {
           width: $gridWidth;
         }
+
+        .mobile {
+          display: none;
+        }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        margin-top: 10%;
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 auto;
+          align-self: flex-start;
+          align-items: flex-start;
+        }
+        .picture {
+          background: url("/assets/addict/mobile/backround girl.png") no-repeat;
+          background-size: cover;
+
+          img {
+            width: $mobileGridWidth;
+          }
+           .mobile {
+            display: block;
+          }
+          .desktop {
+            display: none;
+          }
+        }
+        //
+        //.mobile {
+        //  display: block;
+        //}
+        //
+        //.desktop {
+        //  display: none;
+        //}
+      }
+
     }
 
     &.inspirations {
