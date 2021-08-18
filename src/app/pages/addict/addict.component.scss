@@ -124,6 +124,7 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         background: url("/assets/addict/mobile/Addict Background.png") no-repeat;
         background-size: cover;
+        background-position-y: 100%;
         .picture {
           display: none;
 
@@ -430,8 +431,6 @@ $cell: $gridWidth / 12;
       align-items: flex-start;
       flex: 10;
       width: 100%;
-      background: url("/assets/addict/24 - Colors/texture-background.png") no-repeat;
-      background-size: cover;
 
       app-text-paragraph {
         width: 55%;
