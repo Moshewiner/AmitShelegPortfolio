@@ -1,0 +1,24 @@
+:host {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-direction: row;
+
+  .control {
+    font-size: 10vw;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .picture {
+    width: 100%;
+  }
+}

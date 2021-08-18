@@ -214,10 +214,12 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         height: 60vh;
-        margin: unset;
+        margin: 0 auto;
+        justify-content: space-evenly;
+
         .logo {
           img {
-            width: 80%;
+            width: 100%;
           }
         }
         app-text-paragraph,
@@ -1197,7 +1199,7 @@ $cell: $gridWidth / 12;
 
         .picture {
           img {
-            width: 70%;
+            width: 60%;
           }
         }
       }

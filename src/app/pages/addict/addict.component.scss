@@ -122,7 +122,11 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url("/assets/addict/mobile/Addict Background.png") no-repeat;
+        background-size: cover;
         .picture {
+          display: none;
+
           img {
             height: 70vh;
             bottom: 0;
@@ -135,17 +139,21 @@ $cell: $gridWidth / 12;
             "scroll download download download . . . . . . .";
 
           .headline {
-            grid-template-areas:
-              "up up up up up ."
-              "bottom bottom bottom bottom . . ";
-            margin-top: 40%;
+            display: block;
+            text-align: center;
+            margin-top: 30%;
+
+            grid-template-columns: unset;
+            grid-template-rows: unset;
+            grid-template-areas:unset;
+            grid-area: unset;
           }
 
           .up {
             grid-area: up;
 
             h1 {
-              margin-bottom: 10%;
+              margin-bottom: 5%;
               font-size: 3.5rem;
             }
           }
@@ -161,6 +169,7 @@ $cell: $gridWidth / 12;
 
           .scroll {
             position: absolute;
+            filter: invert(100%);
 
             img {
               width: 65%;
@@ -191,6 +200,14 @@ $cell: $gridWidth / 12;
       .info {
         text-align: center;
 
+        .desktop {
+          display: block;
+        }
+
+        .mobile {
+          display: none;
+        }
+
         .bold {
           font-weight: 400;
         }
@@ -200,11 +217,25 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         height: 60vh;
+        margin: 0 auto;
+        justify-content: space-evenly;
+
         .logo {
           img {
             width: 80%;
           }
         }
+
+        .info {
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+          }
+        }
+
         app-text-paragraph,
         .picture {
           width: 100%;
@@ -269,9 +300,42 @@ $cell: $gridWidth / 12;
       .picture {
         width: 60%;
         height: 100%;
+
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
           height: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 10%;
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin-right: unset;
+        }
+
+        .picture {
+          width: 100%;
+          display: flex;
+          align-items: flex-end;
+          margin-top: -10%;
+
+          .desktop {
+            display: none;
+          }
+
+          .mobile {
+            display: block;
+          }
         }
       }
     }
@@ -299,8 +363,62 @@ $cell: $gridWidth / 12;
         right: 0;
         margin-right: $marginSize;
         text-align: right;
+
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
+        }
+      }
+
+      .mobile {
+        display: none;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        margin-top: 10%;
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 auto;
+          position: unset;
+          top: unset;
+          left: unset;
+          float: unset;
+        }
+        .picture {
+          margin-top: 5%;
+          width: 100%;
+          position: unset;
+          top: unset;
+          float: unset;
+          right: unset;
+          margin-right: unset;
+          text-align: unset;
+
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+
+        }
+
+        .mobile {
+          display: block;
+        }
+
+        .desktop {
+          display: none;
+        }
+
+        .bullets {
+          width: $mobileGridWidth;
+          margin: 0 auto;
         }
       }
     }
@@ -321,11 +439,17 @@ $cell: $gridWidth / 12;
         margin-top: 2%;
         flex: 2;
       }
+
       .inner {
         height: unset;
         flex: 5;
+
         .picture {
           width: 100%;
+
+          .mobile {
+            display: none;
+          }
         }
       }
 
@@ -337,57 +461,123 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         align-items: flex-start;
+        background: unset;
+        padding-bottom: 5%;
+
         app-text-paragraph {
           width: 100%;
           margin-left: 0;
+          margin-top: 15%;
         }
 
-        .picture {
-          width: 100%;
+        .inner {
 
-          img {
+          .picture {
             width: 100%;
+
+            .desktop {
+              display: none;
+            }
+
+            .mobile {
+              display: flex;
+              width: $mobileGridWidth;
+              margin: 0 auto;
+            }
+
+            img {
+              width: 100%;
+            }
           }
         }
       }
-    }
-
-    &.logo-show {
-      width: 100%;
-      background: url("/assets/addict/22 - Logo Show/logo show.png") no-repeat;
-      background-size: 100% 100%;
     }
 
     &.fonts {
       width: 100%;
       background: url("/assets/addict/23 - Fonts/Woman backround.png") no-repeat;
       background-size: 100% 100%;
+
       .inner {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
         .picture {
+          .mobile {
+            display: none;
+          }
+
           img {
             width: 100%;
           }
         }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        margin-top: 10%;
+        background: url("/assets/addict/mobile/Woman backround.png") no-repeat;
+        background-size: cover;
+        background-position-y: 100%;
+        padding-bottom: 80%;
+        .inner {
+          app-text-paragraph {
+            margin-top: 10%;
+          }
+
+          .picture {
+            margin-top: 10%;
+
+            .mobile {
+              display: block;
+            }
+
+            .desktop {
+              display: none;
+            }
+          }
+        }
+      }
+
     }
 
-    &.branding-box {
+    &.logo-show, &.branding-box, &.branding-bag, &.clothes, &.jeans {
+
       width: 100%;
-      background: url("/assets/addict/25- Box/Box Branding.png") no-repeat;
-      background-size: 100% 100%;
+      height: 100%;
+
+      .mobile {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        height: fit-content;
+
+        img {
+          height: unset;
+        }
+        .mobile {
+          display: block;
+        }
+        .desktop {
+          display: none;
+        }
+      }
     }
-    &.branding-bag {
-      width: 100%;
-      background: url("/assets/addict/26 - Bags/Bags Branding.png") no-repeat;
-      background-size: 100% 100%;
-    }
-    &.clothes {
-      width: 100%;
-      background: url("/assets/addict/27 - Clothes/clothes.png") no-repeat;
-      background-size: 100% 100%;
+
+    &.jeans {
+      display: none;
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        display: block;
+      }
     }
 
     &.product-research {
@@ -398,11 +588,17 @@ $cell: $gridWidth / 12;
       display: flex;
       justify-content: center;
       align-items: center;
+
       .picture {
         width: $gridWidth;
+
         img {
           width: 100%;
         }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        display: none;
       }
     }
 
@@ -456,9 +652,36 @@ $cell: $gridWidth / 12;
       .picture {
         position: relative;
         z-index: 2;
+
         img {
           width: 100%;
           margin: 1.7% 0;
+        }
+
+        .mobile {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        margin-top: 17%;
+        app-text-paragraph {
+          align-self: flex-start;
+          align-items: flex-start;
+          margin-bottom: 5%;
+        }
+        .picture {
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+
+          img {
+            margin: 3% 0;
+          }
         }
       }
     }
@@ -469,31 +692,56 @@ $cell: $gridWidth / 12;
       justify-content: space-between;
       height: auto;
       margin-top: 3%;
+
       .picture {
         position: relative;
         z-index: 2;
+
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
         }
       }
+
       .logo-top {
         position: absolute;
         width: 30%;
         margin-top: -13%;
         right: 1%;
         z-index: 1;
+
         img {
           width: 100%;
         }
       }
+
       .logo-bottom {
         position: absolute;
         margin-top: 90%;
         width: 50%;
         margin-left: -3%;
         z-index: 1;
+
         img {
           width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        .picture {
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+        }
+        .logo-top, .logo-bottom {
+          display: none;
         }
       }
     }
@@ -510,6 +758,7 @@ $cell: $gridWidth / 12;
         align-self: center;
         align-items: center;
       }
+
       .picture {
         background: url("/assets/addict/16-20 - Phone Design/backround girl.png") no-repeat;
         background-size: 100% 100%;
@@ -520,10 +769,43 @@ $cell: $gridWidth / 12;
         display: flex;
         flex-direction: row;
         justify-content: center;
+
         img {
           width: $gridWidth;
         }
+
+        .mobile {
+          display: none;
+        }
       }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        margin-top: 10%;
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 auto;
+          align-self: flex-start;
+          align-items: flex-start;
+        }
+        .picture {
+          background: url("/assets/addict/mobile/backround girl.png") no-repeat;
+          background-size: cover;
+
+          img {
+            width: $mobileGridWidth;
+          }
+
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
+        }
+      }
+
     }
 
     &.inspirations {
@@ -540,8 +822,33 @@ $cell: $gridWidth / 12;
 
       .picture {
         margin-top: -1%;
+
+        .mobile {
+          display: none;
+        }
+
         img {
           width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        margin-top: 10%;
+        app-text-paragraph {
+          width: $mobileGridWidth;
+          margin: 0 auto;
+        }
+
+        .picture {
+          margin-top: 5%;
+
+          .mobile {
+            display: block;
+          }
+
+          .desktop {
+            display: none;
+          }
         }
       }
     }
@@ -575,6 +882,8 @@ $cell: $gridWidth / 12;
         }
 
         .picture {
+          margin-top: 30%;
+
           img {
             width: 70%;
           }
@@ -597,7 +906,7 @@ $cell: $gridWidth / 12;
         flex: 10;
 
         .prev {
-          background: linear-gradient(90deg, #FF69A2  0%, #FF0060 100%);
+          background: linear-gradient(90deg, #FF69A2 0%, #FF0060 100%);
           background-size: cover;
           flex-direction: row-reverse;
 
@@ -606,8 +915,9 @@ $cell: $gridWidth / 12;
             width: 30%;
           }
         }
+
         .next {
-          background: linear-gradient(90deg, #366B6D 0%,  rgba(81, 161, 164, 0.33)  100%);
+          background: linear-gradient(90deg, #366B6D 0%, rgba(81, 161, 164, 0.33) 100%);
           background-size: cover;
           width: 90%;
 
@@ -642,6 +952,7 @@ $cell: $gridWidth / 12;
 
             cursor: pointer;
           }
+
           .content {
             .headline {
               margin: 0;
@@ -712,6 +1023,7 @@ $cell: $gridWidth / 12;
 
         .navigation {
           display: none;
+
           .prev {
             img {
               width: 75%;
@@ -727,4 +1039,5 @@ $cell: $gridWidth / 12;
       }
     }
   }
+
 }

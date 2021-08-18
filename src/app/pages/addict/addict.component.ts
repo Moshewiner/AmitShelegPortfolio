@@ -31,6 +31,14 @@ I thought of how order can give a calm and elegant feel to the user.`,
   };
 
 
+  public colorsImages: string[] = [
+    "/assets/addict/mobile/Colors/Sweatshirt%201.png",
+    "/assets/addict/mobile/Colors/Sweatshirt%202.png",
+    "/assets/addict/mobile/Colors/Sweatshirt%203.png",
+    "/assets/addict/mobile/Colors/Sweatshirt%204.png",
+    "/assets/addict/mobile/Colors/Sweatshirt%205.png",
+  ];
+
 
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
@@ -43,7 +51,7 @@ I thought of how order can give a calm and elegant feel to the user.`,
 
   ngOnInit() {
     if(this.isNotDesktopDevice) {
-      this.router.navigateByUrl('/mobile-unsupported');
+      // this.router.navigateByUrl('/mobile-unsupported');
     }
   }
 }

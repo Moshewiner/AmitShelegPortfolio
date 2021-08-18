@@ -232,6 +232,8 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         height: 60vh;
+        margin: 0 auto;
+        justify-content: space-evenly;
         .logo {
           img {
             width: 80%;
