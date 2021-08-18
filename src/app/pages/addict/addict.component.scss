@@ -124,7 +124,7 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         background: url("/assets/addict/mobile/Addict Background.png") no-repeat;
         background-size: cover;
-        background-position-y: 100%;
+        background-position-y: 80%;
         .picture {
           display: none;
 
@@ -997,10 +997,15 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 50%;
+        height: 30%;
         min-height: unset;
+        justify-content: flex-end;
 
         .info {
+          background-color: #fcdddd;
+          padding: 5% 0;
+          flex: unset;
+
           .headline {
             font-size: 2.5rem;
             margin-bottom: 1rem;
