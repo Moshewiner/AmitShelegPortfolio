@@ -443,6 +443,10 @@ $cell: $gridWidth / 12;
 
         .picture {
           width: 100%;
+
+          .mobile {
+            display: none;
+          }
         }
       }
 
@@ -455,17 +459,32 @@ $cell: $gridWidth / 12;
         flex-direction: column;
         align-items: flex-start;
         background: unset;
+        padding-bottom: 5%;
 
         app-text-paragraph {
           width: 100%;
           margin-left: 0;
+          margin-top: 15%;
         }
 
-        .picture {
-          width: 100%;
+        .inner {
 
-          img {
+          .picture {
             width: 100%;
+
+            .desktop {
+              display: none;
+            }
+
+            .mobile {
+              display: flex;
+              width: $mobileGridWidth;
+              margin: 0 auto;
+            }
+
+            img {
+              width: 100%;
+            }
           }
         }
       }

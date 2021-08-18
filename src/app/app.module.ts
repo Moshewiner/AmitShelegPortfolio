@@ -23,6 +23,7 @@ import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-un
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { MobileImageSliderComponent } from './components/mobile-image-slider/mobile-image-slider.component';
 import { TabletImageSliderComponent } from './components/tablet-image-slider/tablet-image-slider.component';
+import { ColorsSliderComponent } from './pages/addict/colors-slider/colors-slider.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TabletImageSliderComponent } from './components/tablet-image-slider/tab
     AddictComponent,
     MobileUnsupportedComponent,
     MobileImageSliderComponent,
-    TabletImageSliderComponent
+    TabletImageSliderComponent,
+    ColorsSliderComponent
   ],
   imports: [
     BrowserModule,
