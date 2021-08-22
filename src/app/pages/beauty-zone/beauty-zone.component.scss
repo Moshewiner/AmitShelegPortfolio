@@ -15,7 +15,11 @@ $cell: $gridWidth / 12;
     left: -999em;
     content: url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Onboarding gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Homepage gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Shop page gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/Product identifier gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UI/My profile gif ui.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Onboarding gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Home page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Shope page gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/Product identifier gif ux.gif") url("/assets/beauty-zone/11 - Phone mockup wd/Gif UX/My profile gif ux.gif");
   }
-
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    display: flex;
+    flex-direction: column;
+    height: unset;
+  }
   width: calc(100vw - (100vw - 100%));
   padding: 0;
 
@@ -34,7 +38,8 @@ $cell: $gridWidth / 12;
     }
 
     @media only screen and (max-width: $responsiveBreakPoint) {
-      height: unset;
+      //height: unset;
+      height: 100vh;
       min-height: unset;
       width: $mobileGridWidth;
       .inner {
@@ -150,6 +155,8 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        margin: unset;
+        height: 100vh;
         .picture {
           img {
             height: 70vh;
@@ -310,6 +317,7 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        margin: 0 auto;
         flex-direction: column-reverse;
         align-items: flex-start;
         width: $mobileGridWidth;
@@ -696,10 +704,11 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        margin: unset;
         background-position: bottom;
         background-image: url("/assets/mobile/mobile first persona.png");
         min-height: calc(120vh - 8%);
-        height: fit-content;
+        //height: fit-content;
         display: flex;
         flex-direction: column;
         .headline {
@@ -765,11 +774,12 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
+        margin: unset;
         background-position: bottom;
         direction: ltr;
         background-image: url("/assets/mobile/mobile first persona-1.png");
         min-height: calc(120vh - 8%);
-        height: fit-content;
+        //height: fit-content;
         display: flex;
         flex-direction: column;
         .headline {
@@ -950,7 +960,7 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 60%;
+        height: 60vh;
         display: flex;
         align-items: center;
         margin: 7% 0;
@@ -1037,7 +1047,8 @@ $cell: $gridWidth / 12;
       }
 
       @media only screen and (max-width: $responsiveBreakPoint) {
-        margin-top: 5%;
+        height: 50vh;
+        margin-top: 10%;
         .content {
           font-size: 2.5rem;
         }
