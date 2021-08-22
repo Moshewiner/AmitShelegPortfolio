@@ -26,10 +26,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO: mobile support (disable this logic on mobile)
-    let prevScrollpos = window.pageYOffset;
+    // let prevScrollpos = window.pageYOffset;
+
+    let prevScrollpos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+
     // tslint:disable-next-line:only-arrow-functions
     window.onscroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       if (prevScrollpos > currentScrollPos) {
         // @ts-ignore
         document.getElementsByClassName('navbar')[0].style.top = '0';
