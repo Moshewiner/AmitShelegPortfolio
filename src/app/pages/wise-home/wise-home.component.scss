@@ -1377,6 +1377,9 @@ $cell: $gridWidth / 12;
                 flex-direction: column;
                 justify-content: center;
                 flex: 2;
+                .headline {
+                  font-size: 3.63rem;
+                }
               }
 
               .spacer {
