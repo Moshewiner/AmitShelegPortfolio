@@ -526,8 +526,8 @@ $cell: $gridWidth / 12;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 100% - $headerSize;
-      min-height: 100% - $headerSize;
+      height: calc(100% - $headerSize);
+      min-height: calc(100% - $headerSize);
       position: relative;
 
       .container {
