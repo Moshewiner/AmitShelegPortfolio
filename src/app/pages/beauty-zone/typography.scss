@@ -1,6 +1,8 @@
 @import '/src/responsive';
 $fontRootSize: 23px;
 $headerSize: 7vh;
+$headerSize: calc(var(--vh, 1vh) * 7);
+
 
 
 h1 {

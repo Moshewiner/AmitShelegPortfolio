@@ -104,6 +104,12 @@ Sadly, It takes a long way to practice makeup or even just to master makeup as a
   }
 
   ngOnInit(): void {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
   }
 
   public changeUIUX(newState: boolean) {

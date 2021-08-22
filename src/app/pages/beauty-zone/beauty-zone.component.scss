@@ -29,7 +29,10 @@ $cell: $gridWidth / 12;
     margin: 0 auto;
     padding: 0;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+
 
     .inner {
       width: $gridWidth;
@@ -40,6 +43,7 @@ $cell: $gridWidth / 12;
     @media only screen and (max-width: $responsiveBreakPoint) {
       //height: unset;
       height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       min-height: unset;
       width: $mobileGridWidth;
       .inner {
@@ -57,6 +61,8 @@ $cell: $gridWidth / 12;
           position: absolute;
           right: 0;
           height: 100vh;
+          height: calc(var(--vh, 1vh) * 100);
+
         }
       }
 
@@ -129,6 +135,7 @@ $cell: $gridWidth / 12;
           img {
             object-fit: contain;
             width: 15vh;
+            width: calc(var(--vh, 1vh) * 15);
           }
         }
 
@@ -157,9 +164,11 @@ $cell: $gridWidth / 12;
       @media only screen and (max-width: $responsiveBreakPoint) {
         margin: unset;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         .picture {
           img {
             height: 70vh;
+            height: calc(var(--vh, 1vh) * 70);
             bottom: 0;
           }
         }
@@ -239,6 +248,7 @@ $cell: $gridWidth / 12;
         width: $mobileGridWidth;
         flex-direction: column;
         height: 60vh;
+        height: calc(var(--vh, 1vh) * 60);
         margin: 0 auto;
         justify-content: space-evenly;
         .logo {
@@ -436,6 +446,7 @@ $cell: $gridWidth / 12;
       background: url("/assets/beauty-zone/7-8 - Market research/brush background.png");
       background-size: cover;
       height: 200vh;
+      height: calc(var(--vh, 1vh) * 200);
       width: 100%;
 
       .container {
@@ -629,6 +640,7 @@ $cell: $gridWidth / 12;
       .mobile {
         width: $mobileGridWidth;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         margin: 0 auto 15%;
         display: none;
         flex-direction: column;
@@ -708,6 +720,8 @@ $cell: $gridWidth / 12;
         background-position: bottom;
         background-image: url("/assets/mobile/mobile first persona.png");
         min-height: calc(120vh - 8%);
+        min-height: calc(var(--vh, 1vh) * 120 - 8%);
+
         //height: fit-content;
         display: flex;
         flex-direction: column;
@@ -779,6 +793,8 @@ $cell: $gridWidth / 12;
         direction: ltr;
         background-image: url("/assets/mobile/mobile first persona-1.png");
         min-height: calc(120vh - 8%);
+        min-height: calc(var(--vh, 1vh) * 120 - 8%);
+
         //height: fit-content;
         display: flex;
         flex-direction: column;
@@ -912,6 +928,8 @@ $cell: $gridWidth / 12;
         background-size: cover;
         background-position: center;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+
 
         align-items: flex-start;
         .inner {
@@ -935,6 +953,8 @@ $cell: $gridWidth / 12;
     &.onboarding-preview {
       width: 100%;
       height: 200vh;
+      height: calc(var(--vh, 1vh) * 200);
+
 
       .container {
         text-align: center;
@@ -961,6 +981,8 @@ $cell: $gridWidth / 12;
 
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 60vh;
+        height: calc(var(--vh, 1vh) * 60);
+
         display: flex;
         align-items: center;
         margin: 7% 0;
@@ -981,6 +1003,8 @@ $cell: $gridWidth / 12;
     &.preview {
       width: 100%;
       height: 200vh;
+      height: calc(var(--vh, 1vh) * 200);
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1048,6 +1072,8 @@ $cell: $gridWidth / 12;
 
       @media only screen and (max-width: $responsiveBreakPoint) {
         height: 50vh;
+        height: calc(var(--vh, 1vh) * 50);
+
         margin-top: 10%;
         .content {
           font-size: 2.5rem;
@@ -1069,7 +1095,10 @@ $cell: $gridWidth / 12;
       width: 100%;
       flex: 18;
       height: 100vh - $headerSize;
+      height: calc(var(--vh, 1vh) * (100 - 7));
+
       min-height: 100vh - $headerSize;
+      min-height: calc(var(--vh, 1vh) * (100 - 7));
 
       .navigation {
         display: flex;
