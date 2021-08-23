@@ -2,6 +2,9 @@
 @import "./scrollbar.scss";
 @import "/src/responsive";
 
+* {
+  border: 1px solid red;
+}
 
 html,
 body {
