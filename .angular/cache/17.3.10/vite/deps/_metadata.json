@@ -1,0 +1,49 @@
+{
+  "hash": "dd4c294d",
+  "configHash": "7d4b695a",
+  "lockfileHash": "250dadf0",
+  "browserHash": "0311f97e",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "5e339552",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "c5b78a61",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "8f9cfdb1",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "cd864526",
+      "needsInterop": false
+    },
+    "ngx-device-detector": {
+      "src": "../../../../../node_modules/ngx-device-detector/fesm2022/ngx-device-detector.mjs",
+      "file": "ngx-device-detector.js",
+      "fileHash": "1f668a5f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-HJRTXLLH": {
+      "file": "chunk-HJRTXLLH.js"
+    },
+    "chunk-HQXNB4SY": {
+      "file": "chunk-HQXNB4SY.js"
+    },
+    "chunk-VE4PK55K": {
+      "file": "chunk-VE4PK55K.js"
+    }
+  }
+}

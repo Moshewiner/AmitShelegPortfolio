@@ -1,0 +1,88 @@
+@import "./typography.scss";
+
+:host {
+  width: 100%;
+  background: linear-gradient(180deg, #0D206A 0%, #193291 100%);
+  display: block;
+  color: white;
+  padding-top: calc($headerSize + 120px);
+  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+
+  .screen {
+    width: 1440px;
+    margin: 0 auto;
+
+    &.main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+
+      // The logo styling
+      .logo {
+
+        img {
+          max-width: 250px; // Adjust this based on your actual image size
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      // Headline styling
+      .headline {
+        color: #ffffff;
+      }
+
+      .picture {
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      width: 960px;
+    }
+
+  }
+
+  .colors {
+    .picture {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .buttons-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 10;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap:24px;
+      flex: 5.5;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap:24px;
+      flex: 3.3;
+    }
+  }
+}
