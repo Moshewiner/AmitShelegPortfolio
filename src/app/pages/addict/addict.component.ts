@@ -1,12 +1,18 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import {MenuItems} from './interfaces';
+import { TextParagraphComponent } from '../beauty-zone/text-paragraph/text-paragraph.component';
+import { TabletImageSliderComponent } from '../../components/tablet-image-slider/tablet-image-slider.component';
+import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
+import { ColorsSliderComponent } from './colors-slider/colors-slider.component';
 
 @Component({
   selector: 'app-addict',
   templateUrl: './addict.component.html',
   styleUrls: ['./addict.component.scss'],
+  standalone: true,
+  imports: [TextParagraphComponent, TabletImageSliderComponent, MobileImageSliderComponent, ColorsSliderComponent, RouterLink]
 })
 export class AddictComponent implements OnInit {
 

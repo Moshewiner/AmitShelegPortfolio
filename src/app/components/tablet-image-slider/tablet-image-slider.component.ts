@@ -1,9 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { TabletPlayerComponent } from '../tablet-player/tablet-player.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-tablet-image-slider',
   templateUrl: './tablet-image-slider.component.html',
-  styleUrls: ['./tablet-image-slider.component.scss']
+  styleUrls: ['./tablet-image-slider.component.scss'],
+  standalone: true,
+  imports: [TabletPlayerComponent, NgIf, NgFor]
 })
 export class TabletImageSliderComponent implements OnInit {
 
@@ -40,7 +44,7 @@ export class TabletImageSliderComponent implements OnInit {
     console.log(this.selectedImageIndex);
   }
 
-  slideTo(i) {
+  slideTo(i: number) {
     this.selectedImageIndex = i;
   }
 

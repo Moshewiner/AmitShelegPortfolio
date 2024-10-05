@@ -1,12 +1,17 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, withInMemoryScrolling, withHashLocation } from '@angular/router';
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',  // Enables scroll position restoration
+        anchorScrolling: 'enabled'            // Enables anchor scrolling
+      }),
+      withHashLocation()  // Optional: Use only if you want hash-based navigation
+    )
+  ]
+}).catch(err => console.error(err));

@@ -3,7 +3,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 @Component({
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
-  styleUrls: ['./toggle.component.scss']
+  styleUrls: ['./toggle.component.scss'],
+  standalone: true,
 })
 export class ToggleComponent implements OnInit {
   private isOn: boolean = true;

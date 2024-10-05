@@ -1,10 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItems} from './interfaces';
+import { TextParagraphComponent } from './text-paragraph/text-paragraph.component';
+import { PhonePlayerComponent } from './phone-player/phone-player.component';
+import { ToggleComponent } from '../../components/toggle/toggle.component';
+import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
+import { PainPointComponent } from './pain-point/pain-point.component';
+import { BreaklinePipe } from '../../pipes/breakline.pipe';
+import { RouterLink, RouterModule } from '@angular/router';
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-beauty-zone',
   templateUrl: './beauty-zone.component.html',
   styleUrls: ['./beauty-zone.component.scss'],
+  standalone: true,
+  imports: [TextParagraphComponent, PhonePlayerComponent, ToggleComponent, MobileImageSliderComponent, PainPointComponent, BreaklinePipe, RouterModule, NgClass, NgStyle, RouterLink],
 })
 export class BeautyZoneComponent implements OnInit {
 

@@ -1,5 +1,5 @@
 @import "./typography.scss";
-@import "/src/responsive";
+@import "../../../responsive";
 
 @media only screen and (max-width: $responsiveBreakPoint) {
   @import './mobile-typography';
@@ -8,9 +8,9 @@
 $gridWidth: 85%;
 $mobileGridWidth: 92%;
 
-$marginSize: (100% - $gridWidth) / 2;
-$mobileMarginSize: (100% - $mobileGridWidth) / 2;
-$cell: $gridWidth / 12;
+$marginSize: calc((100% - $gridWidth) / 2);
+$mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
+$cell: calc($gridWidth / 12);
 
 
 :host {
@@ -160,7 +160,7 @@ $cell: $gridWidth / 12;
         flex-direction: column;
         justify-content: space-evenly;
         width: 45%;
-        margin-left: $marginSize /2;
+        margin-left: calc($marginSize / 2);
         text-align: left;
 
         .container {

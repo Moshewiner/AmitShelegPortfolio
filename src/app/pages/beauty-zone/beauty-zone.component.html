@@ -40,7 +40,7 @@
 </div>
 
 <div class="screen introduction" id="introduction">
-  <app-text-paragraph [headline]="'The Beauty Zone'" [subHeadline]="'Introduction'" [text]="texts.introduction">
+  <app-text-paragraph [headline]="'The Beauty Zone'" [subHeadline]="'Introduction'" [text]="texts['introduction']">
   </app-text-paragraph>
   <div class='picture'>
     <img src="/assets/beauty-zone/3%20-%20Introduction/Mockup%20eyeshadow.png" />
@@ -52,7 +52,7 @@
     <img src="/assets/beauty-zone/4%20-%20User%20research/girl%20with%20makeup%20background.png" />
   </div>
   <app-text-paragraph [headline]="'There Is No Social \n Platform For Beauty Lovers'" [subHeadline]="'User Research'"
-    [text]="texts.userResearch">
+    [text]="texts['userResearch']">
   </app-text-paragraph>
 </div>
 
@@ -64,7 +64,7 @@
     </picture>
   </div>
   <div class="inner">
-    <p class="text" [innerHTML]="texts.firstPersona | breakline">
+    <p class="text" [innerHTML]="texts['firstPersona'] | breakline">
     </p>
   </div>
 </div>
@@ -75,7 +75,7 @@
     <img class="mobile" src="/assets/mobile/mobile%20name%201-1.svg" />
   </div>
   <div class="inner">
-    <p class="text" [innerHTML]="texts.secondPersona | breakline">
+    <p class="text" [innerHTML]="texts['secondPersona'] | breakline">
     </p>
   </div>
 </div>
@@ -83,11 +83,11 @@
 <div class="screen market-research" id="market-research" [routerLink]="route" [fragment]="'market-research'">
   <div class="container">
     <app-text-paragraph [headline]="'No Solution For Beauty Lovers'" [subHeadline]="'Market Research'"
-      [text]="texts.marketResearch">
+      [text]="texts['marketResearch']">
     </app-text-paragraph>
     <div class="pain-points">
       <app-pain-point class="pain-point" [subHeadline]="'PAIN POINT #'+ increase(i)" [headline]="painPoint.headline"
-        [text]="painPoint.text" *ngFor="let painPoint of painPoints; index as i;">
+        [text]="painPoint['text']" *ngFor="let painPoint of painPoints; index as i;">
       </app-pain-point>
     </div>
   </div>
@@ -96,7 +96,7 @@
 <div class="screen information-architecture" id="information-architecture">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
-      [text]="texts.informationArchitecture">
+      [text]="texts['informationArchitecture']">
     </app-text-paragraph>
     <div class="picture">
       <img src="/assets/beauty-zone/9%20-%20Information%20architecture/Flow%20BZ.svg" />
@@ -109,7 +109,7 @@
     <img class="desktop" src="/assets/beauty-zone/10 - Scanned wireframes/Wireframes scans hand.png"/>
     <img class="mobile" src="/assets/beauty-zone/Mobile/Mobile%20Wireframes%20scans.png"/>
   </div>
-  <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts.wireframes">
+  <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'" [text]="texts['wireframes']">
   </app-text-paragraph>
 </div>
 
@@ -156,7 +156,7 @@
 </div>
 
 <div class="screen colors" id="colors">
-  <app-text-paragraph [headline]="'Feminine & Elegant'" [subHeadline]="'Colors'" [text]="texts.colors">
+  <app-text-paragraph [headline]="'Feminine & Elegant'" [subHeadline]="'Colors'" [text]="texts['colors']">
   </app-text-paragraph>
 
   <div class="picture">
@@ -222,7 +222,7 @@
   <div class="info" id="info">
     <h1 class="headline">Start a project with me!</h1>
     <div class=container>
-      <div class="mail">Amitsheleg13@gmail.com</div>
+      <div class="mail">Amitsheleg13&#64;gmail.com</div>
       <div class="phone">053-3350577</div>
     </div>
     <div class="goto-top">

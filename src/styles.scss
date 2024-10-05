@@ -1,6 +1,6 @@
 @import "./assets/Fonts/Poppins/poppins.scss";
 @import "./scrollbar.scss";
-@import "/src/responsive";
+@import "./responsive.scss";
 
 
 html,
@@ -16,7 +16,10 @@ body {
   }
 
 }
-
+a {
+    text-decoration: none;
+    color: unset;
+}
 * {
   font-family: $poppinsFontFamily;
 }
@@ -37,3 +40,4 @@ body {
   src: url("/assets/Fonts/Karu/KaruLight.otf") format("truetype");
   font-weight: light;
 }
+ 

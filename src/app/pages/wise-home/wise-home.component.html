@@ -42,13 +42,13 @@
     <img class="mobile" src="/assets/wise-home/Mobile/WH%20mockups%20mobile.png"/>
   </div>
   <app-text-paragraph [headline]="'All You Need In A\n Single App'" [subHeadline]="'Introduction'"
-                      [text]="texts.introduction">
+                      [text]="texts['introduction']">
   </app-text-paragraph>
 </div>
 
 <div class="screen user-research" id="user-research">
   <app-text-paragraph [headline]="'Too Many Apps For A Smart Home'"
-                      [subHeadline]="'User Research'" [text]="texts.userResearch">
+                      [subHeadline]="'User Research'" [text]="texts['userResearch']">
   </app-text-paragraph>
   <div class="picture">
     <img src="/assets/wise-home/4 - User research/Girl Many Apps.png"/>
@@ -119,7 +119,7 @@
 <div class="screen information-architecture" id="information-architecture">
   <div class="inner">
     <app-text-paragraph [headline]="'Building The Roots'" [subHeadline]="'Information Architecture'"
-                        [text]="texts.informationArchitecture">
+                        [text]="texts['informationArchitecture']">
     </app-text-paragraph>
     <div class="picture">
       <img src="/assets/wise-home/8 - Information architecture/flowchart.svg"/>
@@ -133,7 +133,7 @@
     <img class="mobile" src="/assets/wise-home/Mobile/Mobile Scanned Wireframes hand.png"/>
   </div>
   <app-text-paragraph [headline]="'Put Ideas On Paper'" [subHeadline]="'Wireframes'"
-                      [text]="texts.wireframes">
+                      [text]="texts['wireframes']">
   </app-text-paragraph>
 </div>
 
@@ -155,7 +155,7 @@
 <div class="screen design" id="design">
   <div class="phone">
     <app-text-paragraph [headline]="'Clean And Informative\n User Interface'" [subHeadline]="'Design'"
-                        [text]="texts.phoneDesign">
+                        [text]="texts['phoneDesign']">
     </app-text-paragraph>
     <div class="picture">
       <app-phone-player videoSrc="/assets/wise-home/14 - Design phone/Mobile design WH.gif"></app-phone-player>
@@ -190,8 +190,8 @@
 </div>
 
 <div class="screen colors" id="colors">
-  <app-text-paragraph [headline]="'Calming & Smart Colors'" [subHeadline]="'Colors'"
-                      [text]="texts.colors">
+  <app-text-paragraph [headline]="'Calming & Smart Colors'" subHeadline="Colors"
+                      [text]="texts['colors']">
   </app-text-paragraph>
   <div class="picture">
     <img src="/assets/wise-home/17 - Colors/Lights - colors.svg"/>
@@ -236,7 +236,7 @@
 </div>
 <div class="screen contact" id="contact">
   <div class="navigation">
-    <div class="prev" routerLink="/addict">
+    <a class="prev" routerLink="/addict">
       <div class="container">
         <div class="content">
           <h2 class="headline">Addict</h2>
@@ -246,8 +246,8 @@
         <img class="img desktop" src="/assets/home-page/5%20-%20ecommerce/mockups%20addict.png"/>
         <img class="img mobile" src="/assets/previous-next-mobile/Addict%20mockup%20square.png"/>
       </div>
-    </div>
-    <div class="next" routerLink="/beautyzone">
+    </a>
+    <a class="next" routerLink="/beautyzone">
       <div class="container">
         <div class="content">
           <h2 class="headline">Beauty Zone</h2>
@@ -257,12 +257,12 @@
         <img class="img desktop" src="/assets/home-page/3%20-%20Beautyzone/Phones.svg"/>
         <img class="img mobile" src="/assets/previous-next-mobile/BZ%20mockup%20square.png"/>
       </div>
-    </div>
+    </a>
   </div>
   <div class="info">
     <h1 class="headline">Start a project with me!</h1>
     <div class=container>
-      <div class="mail">Amitsheleg13@gmail.com</div>
+      <div class="mail">Amitsheleg13&#64;gmail.com</div>
       <div class="phone">053-3350577</div>
     </div>
     <div class="goto-top">

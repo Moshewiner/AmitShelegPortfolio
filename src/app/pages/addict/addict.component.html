@@ -33,7 +33,7 @@
 </div>
 
 <div class="screen introduction" id="introduction">
-  <app-text-paragraph [headline]="'Online Shopping ADDICT'" [subHeadline]="'Introduction'" [text]="texts.introduction">
+  <app-text-paragraph [headline]="'Online Shopping ADDICT'" [subHeadline]="'Introduction'" [text]="texts['introduction']">
   </app-text-paragraph>
   <div class='picture'>
     <img src="/assets/addict/3 - Introduction/Girl%20Boxes2.png"/>
@@ -45,15 +45,15 @@
     <img class="desktop" src="/assets/addict/4%20-%20The%20problem/only woman.png"/>
     <img class="mobile" src="/assets/addict/mobile/Woman%20card.png"/>
   </div>
-  <app-text-paragraph [headline]="'Old-Fashion Experience'" [subHeadline]="'The Problem'" [text]="texts.problem">
+  <app-text-paragraph [headline]="'Old-Fashion Experience'" [subHeadline]="'The Problem'" [text]="texts['problem']">
   </app-text-paragraph>
 </div>
 
 <div class="screen solution" id="solution">
   <app-text-paragraph class="desktop" [headline]="'Approachable &\nInviting Website'" [subHeadline]="'The Solution'"
-                      [text]="texts.solution"></app-text-paragraph>
+                      [text]="texts['solution']"></app-text-paragraph>
   <app-text-paragraph class="mobile" [headline]="'Approachable & Inviting Website'" [subHeadline]="'The Solution'"
-                      [text]="texts.solution"></app-text-paragraph>
+                      [text]="texts['solution']"></app-text-paragraph>
   <div class='picture'>
     <img class="desktop" src="/assets/addict/5-6%20-%20Solution/wireframe%20arrows.svg"/>
     <img class="mobile" src="/assets/addict/mobile/Wireframe.png"/>
@@ -103,7 +103,7 @@
 </div>
 
 <div class="screen inspirations" id="inspirations" >
-  <app-text-paragraph [headline]="'The Beige Revolution'" [subHeadline]="'inspirations'" [text]="texts.inspirations">
+  <app-text-paragraph [headline]="'The Beige Revolution'" [subHeadline]="'inspirations'" [text]="texts['inspirations']">
   </app-text-paragraph>
   <div class="picture">
     <img class="desktop" src="/assets/addict/21%20-%20Inspo/Inspo%20board.png"/>
@@ -112,7 +112,7 @@
 </div>
 
 <div class="screen colors" id="colors">
-  <app-text-paragraph [headline]="'Calm & Pastoral Vibe'" [subHeadline]="'Colors'" [text]="texts.colors">
+  <app-text-paragraph [headline]="'Calm & Pastoral Vibe'" [subHeadline]="'Colors'" [text]="texts['colors']">
   </app-text-paragraph>
   <div class="inner">
     <div class="picture">
@@ -124,7 +124,7 @@
 
 <div class="screen fonts" id="fonts">
   <div class="inner">
-    <app-text-paragraph [headline]="'Stylish & Elegant Fonts'" [subHeadline]="'Typography'" [text]="texts.fonts">
+    <app-text-paragraph [headline]="'Stylish & Elegant Fonts'" [subHeadline]="'Typography'" [text]="texts['fonts']">
     </app-text-paragraph>
     <div class='picture'>
       <img class="desktop" src="/assets/addict/23 - Fonts/fonts.svg"/>
@@ -166,20 +166,20 @@
 
 <div class="screen contact" id="contact">
   <div class="navigation">
-    <div class="prev" routerLink="/beautyzone">
+    <a class="prev" routerLink="/beautyzone">
       <div class="content">
         <h2 class="headline">Beauty Zone</h2>
         <div class="description">UX | UI Design Mobile App</div>
       </div>
       <img class="img" src="/assets/home-page/3%20-%20Beautyzone/Phones.svg"/>
-    </div>
-    <div class="next">
+    </a>
+    <a class="next" routerLink="/wisehome">
       <div class="content">
         <h2 class="headline">Wise Home</h2>
         <div class="description">UX | UI Design Mobile & Tablet App</div>
       </div>
       <img class="img" src="/assets/home-page/4%20-%20Wisehome/mockups%20WH%20full.png"/>
-    </div>
+    </a>
 
     <!--    <div class="prev" routerLink="/beautyzone">-->
     <!--      <img src="/assets/previous next/beautyzone logo.png" />-->
@@ -191,7 +191,7 @@
   <div class="info" id="info">
     <h1 class="headline">Start a project with me!</h1>
     <div class=container>
-      <div class="mail">Amitsheleg13@gmail.com</div>
+      <div class="mail">Amitsheleg13&#64;gmail.com</div>
       <div class="phone">053-3350577</div>
     </div>
     <div class="goto-top">

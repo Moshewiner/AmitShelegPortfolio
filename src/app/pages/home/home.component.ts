@@ -1,15 +1,19 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { BreaklinePipe } from '../../pipes/breakline.pipe';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterLink, BreaklinePipe]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   public route: string = '/';
 
-  private screens: HTMLCollectionOf<Element>;
+  private screens!: HTMLCollectionOf<Element>;
   // tslint:disable-next-line:variable-name
   private _screenIndex = 0;
   private get screenIndex(): number {

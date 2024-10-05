@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'breakline'
+  name: 'breakline',
+  standalone: true,
 })
 export class BreaklinePipe implements PipeTransform {
 

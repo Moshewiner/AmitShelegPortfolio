@@ -1,3 +1,4 @@
+import { NgClass, NgStyle } from '@angular/common';
 import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 
 @Component({
@@ -5,11 +6,13 @@ import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
   templateUrl: './color.component.html',
   styleUrls: ['./color.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgStyle, NgClass]
 })
 export class ColorComponent implements OnInit {
   @Input() isDark = false;
-  @Input() color: string;
-  @Input() isShadow: boolean;
+  @Input() color!: string;
+  @Input() isShadow!: boolean;
 
   constructor() {
   }

@@ -1,9 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PhonePlayerComponent } from '../../pages/beauty-zone/phone-player/phone-player.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-mobile-image-slider',
   templateUrl: './mobile-image-slider.component.html',
   styleUrls: ['./mobile-image-slider.component.scss'],
+  standalone: true,
+  imports: [PhonePlayerComponent, NgFor, NgIf]
 })
 export class MobileImageSliderComponent implements OnInit {
 
@@ -40,7 +44,7 @@ export class MobileImageSliderComponent implements OnInit {
     console.log(this.selectedImageIndex);
   }
 
-  slideTo(i) {
+  slideTo(i: number) {
     this.selectedImageIndex = i;
   }
 

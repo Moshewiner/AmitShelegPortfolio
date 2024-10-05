@@ -1,11 +1,20 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import { Router } from '@angular/router';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { Router, RouterLink } from '@angular/router';
+import { DeviceDetectorService, TABLETS_RE } from 'ngx-device-detector';
+import { TabletImageSliderComponent } from '../../components/tablet-image-slider/tablet-image-slider.component';
+import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
+import { ColorComponent } from './color/color.component';
+import { TextParagraphComponent } from '../beauty-zone/text-paragraph/text-paragraph.component';
+import { BreaklinePipe } from '../../pipes/breakline.pipe';
+import { TabletPlayerComponent } from '../../components/tablet-player/tablet-player.component';
+import { PhonePlayerComponent } from '../beauty-zone/phone-player/phone-player.component';
 
 @Component({
   selector: 'app-wise-home',
   templateUrl: './wise-home.component.html',
   styleUrls: ['./wise-home.component.scss'],
+  standalone: true,
+  imports: [TabletImageSliderComponent, MobileImageSliderComponent, ColorComponent, TextParagraphComponent, BreaklinePipe, TabletPlayerComponent, PhonePlayerComponent, RouterLink]
 })
 export class WiseHomeComponent {
   constructor(private deviceService: DeviceDetectorService, private router: Router) {

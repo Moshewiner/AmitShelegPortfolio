@@ -373,7 +373,7 @@
       <h2 class="headline">Wise Home</h2>
       <div class="description">UX | UI Design Mobile & Tablet App</div>
       <div class="view button">
-        <a [href]="'/wisehome'">VIEW PROJECT</a>
+        <a [routerLink]="'/wisehome'">VIEW PROJECT</a>
       </div>
     </div>
   </div>
@@ -393,7 +393,7 @@
         <h2 class="headline">Beauty Zone</h2>
         <div class="description">UX | UI Design Mobile App</div>
         <div class="view button">
-          <a [href]="'/beautyzone'">VIEW PROJECT</a>
+          <a [routerLink]="'/beautyzone'">VIEW PROJECT</a>
         </div>
       </div>
     </div>
@@ -409,7 +409,7 @@
       <h2 class="headline">Addict</h2>
       <div class="description">Re-Design, Branding & UX | UI Design</div>
       <div class="view button">
-        <a href="/addict">VIEW PROJECT</a>
+        <a routerLink="/addict">VIEW PROJECT</a>
       </div>
     </div>
   </div>
@@ -418,7 +418,7 @@
   <div class="info">
     <div class="container">
       <h2 class="headline">About Me</h2>
-      <div class="content" [innerHTML]="texts.about | breakline"></div>
+      <div class="content" [innerHTML]="texts['about'] | breakline"></div>
     </div>
     <div class="download button">
       <a target="_blank" href="https://drive.google.com/file/d/1-RQ1U7u0yewrcbXvDka4yUP5zQILBIWY/view?usp=sharing">DOWNLOAD
@@ -434,9 +434,9 @@
   <div class="container">
     <h2>Contact Me</h2>
     <div class="social">
-      <a class="link" href="mailto:Amitsheleg13@gmail.com" target="_blank">
+      <a class="link" href="mailto:Amitsheleg13&#64;gmail.com" target="_blank">
         <img src="/assets/home-page/6%20-%20Contact/mail.svg"/>
-        <div class="label">Amitsheleg13@gmail.com</div>
+        <div class="label">Amitsheleg13&#64;gmail.com</div>
       </a>
       <a class="link" href="tel:+972533350577" target="_blank">
         <img src="/assets/home-page/6%20-%20Contact/phone.svg"/>

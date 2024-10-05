@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
     class: 'navbar',
     '[class.expanded]': 'isExpanded'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterModule]
 })
 export class HeaderComponent implements OnInit {
   public isExpanded = false;
