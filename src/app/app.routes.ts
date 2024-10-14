@@ -5,6 +5,7 @@ import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
 import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
+import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,4 +15,6 @@ export const routes: Routes = [
   { path: 'addict', component: AddictComponent },
   { path: 'mobile-unsupported', component: MobileUnsupportedComponent },
   { path: 'elal-cargo', component: ElalCargoComponent },
+  { path: 'elal-globaly', component: ElalGlobalyComponent },
+
 ];
