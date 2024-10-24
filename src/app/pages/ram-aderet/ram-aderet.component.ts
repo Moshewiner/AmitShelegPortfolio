@@ -6,21 +6,20 @@ import { TabletImageSliderComponent } from '../../components/tablet-image-slider
 import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
 
 @Component({
-  selector: 'app-elal-globaly',
-  templateUrl: './elal-globaly.component.html',
-  styleUrls: ['./elal-globaly.component.scss'],
+  selector: 'app-ram-aderet',
+  templateUrl: './ram-aderet.component.html',
+  styleUrls: ['./ram-aderet.component.scss'],
   standalone: true,
   imports: [TextParagraphComponent, TabletImageSliderComponent, MobileImageSliderComponent, RouterLink]
 })
-export class ElalGlobalyComponent implements OnInit {
+export class RamAderetComponent implements OnInit {
 
-  public route = '/elal-globaly';
+  public route = '/ram-aderet';
 
   public texts: { [key: string]: string } = {
     aboutHeadline: 'About the Project',
-    about: 'An internal tablet app for El Al’s airport station managers worldwide. The app is designed to assist station managers with their daily operations, streamline tasks, improve efficiency, and reduce costs. This app integrates multiple modules to support various logistical needs, such as flight schedules, station information, crew management, and more. The design process included developing high-fidelity wireframes to ensure a user-friendly experience, even for non-technical users. The result was a unified and effective solution that enhanced workflow and communication at airport stations.'
+    about: 'I led the design of an internal system for Ram Aderet, tailored to non-technical and old-fashioned users in the construction industry. The main goal was to replace outdated paper-based processes with an intuitive digital solution. I focused on simplifying complex data and forms to make the system accessible to all, regardless of tech experience. This resulted in a seamless platform that worked across desktops, tablets, and smartphones, streamlining project management and improving accessibility.'
   };
-
 
 
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
