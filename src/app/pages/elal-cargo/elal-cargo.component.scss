@@ -47,7 +47,7 @@
     }
   }
 
-  .about {
+  &.about {
     display: flex;
     flex-direction: column;
 
@@ -57,7 +57,7 @@
 
   }
 
-  .colors {
+  &.colors {
     .picture {
       img {
         width: 100%;
@@ -65,7 +65,7 @@
     }
   }
 
-  .buttons-inputs {
+  &.buttons-inputs {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -23,15 +23,6 @@ export class ElalCargoComponent implements OnInit {
   };
 
 
-  public colorsImages: string[] = [
-    "/assets/addict/mobile/Colors/Sweatshirt%201.png",
-    "/assets/addict/mobile/Colors/Sweatshirt%202.png",
-    "/assets/addict/mobile/Colors/Sweatshirt%203.png",
-    "/assets/addict/mobile/Colors/Sweatshirt%204.png",
-    "/assets/addict/mobile/Colors/Sweatshirt%205.png",
-  ];
-
-
   public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
   }

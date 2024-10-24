@@ -6,6 +6,7 @@ import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
 import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
+import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,5 +17,5 @@ export const routes: Routes = [
   { path: 'mobile-unsupported', component: MobileUnsupportedComponent },
   { path: 'elal-cargo', component: ElalCargoComponent },
   { path: 'elal-globaly', component: ElalGlobalyComponent },
-
+  { path: 'ram-aderet', component: RamAderetComponent },
 ];
