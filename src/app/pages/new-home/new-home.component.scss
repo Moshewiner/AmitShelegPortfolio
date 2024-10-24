@@ -1,0 +1,702 @@
+@import "./typography.scss";
+@import "../../../responsive";
+
+@media only screen and (max-width: $responsiveBreakPoint) {
+  @import './mobile-typography';
+}
+
+$gridWidth: 85%;
+$mobileGridWidth: 92%;
+
+$marginSize: calc((100% - $gridWidth) / 2);
+$mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
+$cell: calc($gridWidth / 12);
+
+
+:host {
+  // * {
+  //   border: 3px solid #000;
+  //   box-sizing: border-box;
+  // }
+  width: calc(100vw - (100vw - 100%));
+  height: 100vh;
+  padding: 0;
+
+  .screen {
+    outline: 0;
+    width: $gridWidth;
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    min-height: 100vh;
+
+    .inner {
+      width: $gridWidth;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+
+    .button {
+      border-radius: 50px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.10);
+      width: fit-content;
+      padding: 0.6rem 1.75rem;
+      vertical-align: middle;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      a,
+      div {
+        text-decoration: none;
+        outline: 0;
+        font-weight: 500;
+        font-size: 1.1rem;
+        letter-spacing: 1.25px;
+        color: #303030;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    @media only screen and (max-width: $responsiveBreakPoint) {
+      height: unset;
+      min-height: unset;
+      width: $mobileGridWidth;
+
+      .inner {
+        width: $mobileGridWidth;
+      }
+
+      .button {
+        padding: 0.8rem 1.75rem;
+      }
+    }
+
+    &.main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      gap: 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/assets/new-home/Texture.svg') repeat;
+        mix-blend-mode: overlay;
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .content {
+        width: 800px;
+        height: 100%;
+        margin-top: 190px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        gap: 16px;
+
+        .hello {
+          img {
+            width: 100%;
+            display: flex;
+          }
+        }
+
+        .title {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .headline .gradient,
+          .sub-headline {
+            font-family: Urbanist;
+            font-size: 96px;
+            font-weight: 600;
+            line-height: 96px;
+            letter-spacing: -0.015em;
+            text-align: center;
+          }
+
+          .headline .gradient {
+            color: transparent;
+            background-clip: text;
+            background:
+              linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%),
+              linear-gradient(101.32deg, #FD5129 -2.69%, #FF833D 25.27%, #FF8E16 63.08%, #FFCA10 98.68%);
+
+            background-clip: text;
+          }
+        }
+
+        .subtitle {
+          font-family: Imprima;
+          font-size: 32px;
+          font-weight: 400;
+          line-height: 38.4px;
+          text-align: center;
+          margin-top: 36px;
+        }
+
+        .icon {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+        }
+
+        @media only screen and (max-width: $responsiveBreakPoint) {
+          .picture {
+            .desktop {
+              display: none;
+            }
+
+            .mobile {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .scroll {
+            display: none;
+          }
+        }
+
+      }
+
+      .strip {
+        width: 100%;
+        height: 112px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        margin-bottom: 64px;
+      }
+
+      .right-gradient {
+        background: linear-gradient(45deg, #FF346B 5.85%, rgba(255, 203, 20, 0.3) 100%);
+
+        width: 325px;
+        height: 325px;
+        top: 0;
+        margin-top: 36px;
+        right: -60px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        z-index: -1;
+
+      }
+
+      .left-gradient {
+        background: linear-gradient(135deg, #FE8484 16%, rgba(255, 203, 20, 0.2) 84%);
+        width: 445px;
+        height: 445px;
+        bottom: 24px;
+        left: -32px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        opacity: 0.5;
+        filter: blur(105px);
+        z-index: -1;
+      }
+    }
+
+    &.about {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: $gridWidth + $marginSize;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 45%;
+        margin-left: calc($marginSize / 2);
+        text-align: left;
+
+        .container {
+          margin-top: -10vh;
+
+          .headline {
+            margin-bottom: 2%;
+          }
+        }
+
+        .download {
+          cursor: pointer;
+          background-color: #fcdddd;
+          margin-top: -10vh;
+        }
+
+      }
+
+      .picture {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        width: 100%;
+        //height: 100%;
+        margin-top: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        .info {
+          width: $mobileGridWidth;
+          margin-left: 0;
+
+          .container {
+            margin-top: 0;
+
+            .content,
+            .headline {
+              text-align: left;
+            }
+
+            .button {
+              margin: auto;
+            }
+
+          }
+
+          .content {
+            text-align: left;
+          }
+
+          .download {
+            margin-top: 8%;
+          }
+        }
+
+        .picture {
+          margin-top: 7%;
+          width: 100%;
+
+          .desktop {
+            display: none
+          }
+
+          .mobile {
+            display: block
+          }
+        }
+      }
+    }
+
+    &.beauty-zone {
+      width: 100%;
+
+      background: url('/assets/home-page/3 - Beautyzone/BeautyZone Background2.png');
+      background-size: cover;
+
+      .inner {
+
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        $pictureSize: 35%;
+
+        .picture {
+          width: $pictureSize;
+          display: flex;
+          align-items: center;
+
+          .mobile {
+            display: none;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .container {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+
+          .content {
+
+            .headline {
+              margin: 0;
+              color: white;
+            }
+
+            .description {
+              color: white;
+            }
+
+            .view {
+              margin-top: 3rem;
+              background: #f50f66;
+
+              a {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url('/assets/home-page/Mobile2/BZ BG.png') no-repeat;
+        background-size: cover;
+        height: 100%;
+
+        .inner {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+
+          .picture {
+            width: 70%;
+
+            .desktop {
+              display: none
+            }
+
+            .mobile {
+              display: block;
+              margin-bottom: 7%;
+            }
+          }
+
+          .container {
+            .content {
+              text-align: center;
+
+              .headline {
+                text-align: center;
+              }
+
+              .description {
+                white-space: nowrap;
+                margin-top: 1%;
+              }
+
+              .view {
+                margin: 2rem auto auto;
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+
+    &.wise-home {
+      width: 100%;
+      background: url('/assets/home-page/4 - Wisehome/WiseHome Background2.png');
+      background-size: cover;
+
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      $pictureSize: 40%;
+
+      .picture {
+        width: $pictureSize;
+        display: flex;
+        align-items: center;
+
+        .mobile {
+          display: none;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .container {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .content {
+          .headline {
+            margin: 0;
+          }
+
+          .view {
+            margin-top: 3rem;
+            background: #76b9bc;
+
+            a {
+              color: black;
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url('/assets/home-page/Mobile2/WH BG.png') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        .picture {
+          width: $mobileGridWidth;
+
+          .desktop {
+            display: none
+          }
+
+          .mobile {
+            display: block;
+            margin-bottom: 7%;
+          }
+        }
+
+        .container {
+
+          .content,
+          .headline {
+            text-align: center;
+          }
+
+          .description {
+            white-space: nowrap;
+            margin-top: 1%;
+          }
+
+          .button {
+            margin: 2rem auto auto;
+          }
+
+        }
+
+      }
+    }
+
+    &.addict {
+      width: 100%;
+      background: url('/assets/home-page/5 - ecommerce/Neige Background.png');
+      background-size: cover;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      $pictureSize: 43%;
+
+
+      .picture {
+        width: $pictureSize;
+        display: flex;
+        align-items: center;
+
+        .mobile {
+          display: none;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .container {
+        width: 100% - $pictureSize;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .content {
+          .headline {
+            margin: 0;
+          }
+
+          .description {}
+
+          .view {
+            margin-top: 3rem;
+            background: #e7c8b1;
+
+            a {
+              color: black;
+            }
+          }
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        background: url('/assets/home-page/Mobile2/AD BG.png') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .picture {
+          width: $mobileGridWidth;
+
+          .desktop {
+            display: none
+          }
+
+          .mobile {
+            display: block;
+            margin-bottom: 7%;
+          }
+        }
+
+        .container {
+
+          .content,
+          .headline {
+            text-align: center;
+          }
+
+          .description {
+            white-space: nowrap;
+            margin-top: 1%;
+          }
+
+          .button {
+            margin: 2rem auto auto;
+          }
+
+        }
+
+      }
+    }
+
+    &.contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh - $headerSize;
+      min-height: 100vh - $headerSize;
+      position: relative;
+
+      .container {
+        width: 60%;
+        margin-top: -$headerSize;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        h1 {
+          font-size: 4rem;
+        }
+
+        .social {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-auto-columns: 1fr;
+          grid-auto-flow: column;
+          grid-gap: 6%;
+
+          .link {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            text-decoration: none;
+            outline: none;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            img {
+              width: 5.5vw;
+            }
+
+            .label {}
+          }
+        }
+      }
+
+      .picture {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+
+        img {
+          width: 65%;
+        }
+      }
+
+      @media only screen and (max-width: $responsiveBreakPoint) {
+        height: 80vh;
+        min-height: unset;
+        margin-top: 5%;
+
+        .container {
+          width: $mobileGridWidth;
+          height: 100%;
+
+          .social {
+            display: flex;
+            flex-direction: column;
+            height: 30%;
+
+            .link {
+              width: 100%;
+
+              .label {
+                //font-size: 2rem;
+              }
+
+              img {
+                width: 20%;
+                margin-right: 1%;
+              }
+            }
+          }
+        }
+
+        .picture {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -7,10 +7,12 @@ import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-un
 import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
 import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
 import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
+import { NewHomeComponent } from './pages/new-home/new-home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: NewHomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'new-home', component: NewHomeComponent },
   { path: 'beautyzone', component: BeautyZoneComponent },
   { path: 'wisehome', component: WiseHomeComponent },
   { path: 'addict', component: AddictComponent },

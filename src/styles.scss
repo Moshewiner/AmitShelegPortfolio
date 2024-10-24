@@ -1,5 +1,7 @@
 @import "./assets/Fonts/Poppins/poppins.scss";
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imprima&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "./scrollbar.scss";
 @import "./responsive.scss";
 
@@ -10,6 +12,9 @@ body {
   padding: 0;
   height: 100%;
   font-size: calc((1vh + 1vw ) * 0.62);
+  overflow-x: hidden;
+  overflow-y: scroll;
+
   //scroll-behavior: smooth;
 
   @media only screen and (max-width: $responsiveBreakPoint) {

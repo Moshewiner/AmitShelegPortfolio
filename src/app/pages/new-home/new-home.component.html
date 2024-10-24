@@ -1,0 +1,122 @@
+<div id="home-main" class="screen main" #main>
+  <div class="content">
+
+    <div class="hello">
+      <img src="/assets/new-home/hello.svg" />
+    </div>
+    <div class="title">
+      <div class="headline"><span class="gradient">I'm Amit</span></div> <!--TODO: add animation for entry-->
+      <span class="sub-headline">Product Designer</span>
+    </div>
+    <div class="subtitle">
+      <span class="text">
+        Enjoying creating awesome design solutions for people who appreciate pixel-perfect design and a genuine love for
+        user experience.
+      </span>
+    </div>
+  </div>
+  <div class="strip">
+    <img src="/assets/new-home/Logos.svg" />
+  </div>
+  <div class="right-gradient"></div>
+  <div class="left-gradient"></div>
+</div>
+
+<div id="home-my-works" #myWorks class="screen wise-home" [routerLink]="route" [fragment]="'home-my-works'">
+  <div class="container">
+    <div class="content">
+      <h2 class="headline">Wise Home</h2>
+      <div class="description">UX | UI Design Mobile & Tablet App</div>
+      <div class="view button">
+        <a [routerLink]="'/wisehome'">VIEW PROJECT</a>
+      </div>
+    </div>
+  </div>
+  <div class="picture">
+    <img class="desktop" src="/assets/home-page/4%20-%20Wisehome/mockups WH2.png" />
+    <img class="mobile" src="/assets/home-page/Mobile/mockups WH.png" />
+  </div>
+</div>
+<div id="home-beauty-zone" class="screen beauty-zone" [routerLink]="route" [fragment]="'home-beauty-zone'">
+  <div class="inner">
+    <div class="picture">
+      <img class="desktop" src="/assets/home-page/3%20-%20Beautyzone/Phones.png" />
+      <img class="mobile" src="/assets/home-page/Mobile/mockups BZ.png" />
+    </div>
+    <div class="container">
+      <div class="content">
+        <h2 class="headline">Beauty Zone</h2>
+        <div class="description">UX | UI Design Mobile App</div>
+        <div class="view button">
+          <a [routerLink]="'/beautyzone'">VIEW PROJECT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="home-addict" class="screen addict" [routerLink]="route" [fragment]="'home-addict'">
+  <div class="picture">
+    <img class="desktop" src="/assets/home-page/5%20-%20ecommerce/mockups N.png" />
+    <img class="mobile" src="/assets/home-page/Mobile/mockups AD.png" />
+  </div>
+  <div class="container">
+    <div class="content">
+      <h2 class="headline">Addict</h2>
+      <div class="description">Re-Design, Branding & UX | UI Design</div>
+      <div class="view button">
+        <a routerLink="/addict">VIEW PROJECT</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="home-about" #about class="screen about" [routerLink]="route" [fragment]="'home-about'">
+  <div class="info">
+    <div class="container">
+      <h2 class="headline">About Me</h2>
+      <div class="content" [innerHTML]="texts['about'] | breakline"></div>
+    </div>
+    <div class="download button">
+      <a target="_blank"
+        href="https://drive.google.com/file/d/1-RQ1U7u0yewrcbXvDka4yUP5zQILBIWY/view?usp=sharing">DOWNLOAD
+        MY CV</a>
+    </div>
+  </div>
+  <div class="picture">
+    <img src="/assets/home-page/2%20-%20About%20me/profile%20photo.png" />
+  </div>
+</div>
+
+<div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <div class="social">
+      <a class="link" href="mailto:Amitsheleg13&#64;gmail.com" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/mail.svg" />
+        <div class="label">Amitsheleg13&#64;gmail.com</div>
+      </a>
+      <a class="link" href="tel:+972533350577" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/phone.svg" />
+        <div class="label">+97253-3350-577</div>
+      </a>
+      <a class="link" href="https://www.linkedin.com/in/amitsheleg" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/linkedin.svg" />
+        <div class="label">Linkedin</div>
+      </a>
+      <a class="link" href="https://www.instagram.com/amitsheleg13/" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/instagram-logo.svg" />
+        <div class="label">Instagram</div>
+      </a>
+      <a class="link" href="https://www.facebook.com/amitsheleg13" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/facebook.svg" />
+        <div class="label">Facebook</div>
+      </a>
+      <a class="link" href="https://dribbble.com/amitsheleg13" target="_blank">
+        <img src="/assets/home-page/6%20-%20Contact/dribbble.svg" />
+        <div class="label">Dribbble</div>
+      </a>
+    </div>
+  </div>
+  <div class="picture">
+    <img src="/assets/home-page/6%20-%20Contact/phone%20contact.png" />
+  </div>
+</div>
