@@ -1,17 +1,18 @@
 :host {
-  height: 7%;
+  // height: 7%;
+  padding: 24px 0;
   display: flex;
   align-items: center;
 
-  border-top: 1px solid rgba(#000, 0.2);
-
+  border-top: 1px solid rgba(#414141, 0.16);
 
   padding: 1rem;
   box-sizing: border-box;
 
   .rights {
-    width: 85%;
     margin: 0 auto;
     color: #272727;
+    font-weight: 300;
+    line-height: 120%;
   }
 }

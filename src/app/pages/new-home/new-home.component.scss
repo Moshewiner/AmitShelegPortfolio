@@ -1,17 +1,12 @@
 @import "./typography.scss";
-@import "../../../responsive";
 
-@media only screen and (max-width: $responsiveBreakPoint) {
-  @import './mobile-typography';
-}
 
-$gridWidth: 85%;
+$gridWidth: 73%;
 $mobileGridWidth: 92%;
 
 $marginSize: calc((100% - $gridWidth) / 2);
 $mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
 $cell: calc($gridWidth / 12);
-
 
 :host {
   // * {
@@ -60,20 +55,6 @@ $cell: calc($gridWidth / 12);
       }
     }
 
-    @media only screen and (max-width: $responsiveBreakPoint) {
-      height: unset;
-      min-height: unset;
-      width: $mobileGridWidth;
-
-      .inner {
-        width: $mobileGridWidth;
-      }
-
-      .button {
-        padding: 0.8rem 1.75rem;
-      }
-    }
-
     &.main {
       width: 100%;
       height: 100%;
@@ -81,8 +62,8 @@ $cell: calc($gridWidth / 12);
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      overflow: hidden;
       gap: 16px;
+      position: relative;
 
       &::before {
         content: "";
@@ -101,14 +82,15 @@ $cell: calc($gridWidth / 12);
       .content {
         width: 800px;
         height: 100%;
-        margin-top: 190px;
+        justify-content: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: hidden;
-        gap: 16px;
+        gap: 0;
 
         .hello {
+          margin-bottom: 16px;
+
           img {
             width: 100%;
             display: flex;
@@ -125,9 +107,10 @@ $cell: calc($gridWidth / 12);
             font-family: Urbanist;
             font-size: 96px;
             font-weight: 600;
-            line-height: 96px;
-            letter-spacing: -0.015em;
+            line-height: 100%;
+            letter-spacing: -1.5%;
             text-align: center;
+            color: $black;
           }
 
           .headline .gradient {
@@ -142,12 +125,12 @@ $cell: calc($gridWidth / 12);
         }
 
         .subtitle {
-          font-family: Imprima;
           font-size: 32px;
-          font-weight: 400;
-          line-height: 38.4px;
+          font-weight: 300;
+          line-height: 140%;
           text-align: center;
-          margin-top: 36px;
+          margin-top: 40px;
+          color: $gray;
         }
 
         .icon {
@@ -157,24 +140,6 @@ $cell: calc($gridWidth / 12);
           cursor: pointer;
         }
 
-        @media only screen and (max-width: $responsiveBreakPoint) {
-          .picture {
-            .desktop {
-              display: none;
-            }
-
-            .mobile {
-              display: block;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-
-          .scroll {
-            display: none;
-          }
-        }
 
       }
 
@@ -193,7 +158,6 @@ $cell: calc($gridWidth / 12);
 
       .right-gradient {
         background: linear-gradient(45deg, #FF346B 5.85%, rgba(255, 203, 20, 0.3) 100%);
-
         width: 325px;
         height: 325px;
         top: 0;
@@ -205,7 +169,7 @@ $cell: calc($gridWidth / 12);
         filter: blur(80px);
         opacity: 0.4;
         z-index: -1;
-
+        pointer-events: none;
       }
 
       .left-gradient {
@@ -220,6 +184,7 @@ $cell: calc($gridWidth / 12);
         opacity: 0.5;
         filter: blur(105px);
         z-index: -1;
+        pointer-events: none;
       }
     }
 
@@ -265,437 +230,58 @@ $cell: calc($gridWidth / 12);
         }
       }
 
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        width: 100%;
-        //height: 100%;
-        margin-top: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-
-        .info {
-          width: $mobileGridWidth;
-          margin-left: 0;
-
-          .container {
-            margin-top: 0;
-
-            .content,
-            .headline {
-              text-align: left;
-            }
-
-            .button {
-              margin: auto;
-            }
-
-          }
-
-          .content {
-            text-align: left;
-          }
-
-          .download {
-            margin-top: 8%;
-          }
-        }
-
-        .picture {
-          margin-top: 7%;
-          width: 100%;
-
-          .desktop {
-            display: none
-          }
-
-          .mobile {
-            display: block
-          }
-        }
-      }
     }
 
-    &.beauty-zone {
-      width: 100%;
-
-      background: url('/assets/home-page/3 - Beautyzone/BeautyZone Background2.png');
-      background-size: cover;
-
-      .inner {
-
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-
-        $pictureSize: 35%;
-
-        .picture {
-          width: $pictureSize;
-          display: flex;
-          align-items: center;
-
-          .mobile {
-            display: none;
-          }
-
-          img {
-            width: 100%;
-          }
-        }
-
-        .container {
-          width: 50%;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-
-          .content {
-
-            .headline {
-              margin: 0;
-              color: white;
-            }
-
-            .description {
-              color: white;
-            }
-
-            .view {
-              margin-top: 3rem;
-              background: #f50f66;
-
-              a {
-                color: white;
-              }
-            }
-          }
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background: url('/assets/home-page/Mobile2/BZ BG.png') no-repeat;
-        background-size: cover;
-        height: 100%;
-
-        .inner {
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-
-          .picture {
-            width: 70%;
-
-            .desktop {
-              display: none
-            }
-
-            .mobile {
-              display: block;
-              margin-bottom: 7%;
-            }
-          }
-
-          .container {
-            .content {
-              text-align: center;
-
-              .headline {
-                text-align: center;
-              }
-
-              .description {
-                white-space: nowrap;
-                margin-top: 1%;
-              }
-
-              .view {
-                margin: 2rem auto auto;
-              }
-            }
-          }
-
-        }
-      }
-
-    }
-
-    &.wise-home {
-      width: 100%;
-      background: url('/assets/home-page/4 - Wisehome/WiseHome Background2.png');
-      background-size: cover;
-
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-
-      $pictureSize: 40%;
-
-      .picture {
-        width: $pictureSize;
-        display: flex;
-        align-items: center;
-
-        .mobile {
-          display: none;
-        }
-
-        img {
-          width: 100%;
-        }
-      }
-
-      .container {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .content {
-          .headline {
-            margin: 0;
-          }
-
-          .view {
-            margin-top: 3rem;
-            background: #76b9bc;
-
-            a {
-              color: black;
-            }
-          }
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background: url('/assets/home-page/Mobile2/WH BG.png') no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-
-        .picture {
-          width: $mobileGridWidth;
-
-          .desktop {
-            display: none
-          }
-
-          .mobile {
-            display: block;
-            margin-bottom: 7%;
-          }
-        }
-
-        .container {
-
-          .content,
-          .headline {
-            text-align: center;
-          }
-
-          .description {
-            white-space: nowrap;
-            margin-top: 1%;
-          }
-
-          .button {
-            margin: 2rem auto auto;
-          }
-
-        }
-
-      }
-    }
-
-    &.addict {
-      width: 100%;
-      background: url('/assets/home-page/5 - ecommerce/Neige Background.png');
-      background-size: cover;
-
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      $pictureSize: 43%;
-
-
-      .picture {
-        width: $pictureSize;
-        display: flex;
-        align-items: center;
-
-        .mobile {
-          display: none;
-        }
-
-        img {
-          width: 100%;
-        }
-      }
-
-      .container {
-        width: 100% - $pictureSize;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .content {
-          .headline {
-            margin: 0;
-          }
-
-          .description {}
-
-          .view {
-            margin-top: 3rem;
-            background: #e7c8b1;
-
-            a {
-              color: black;
-            }
-          }
-        }
-      }
-
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        background: url('/assets/home-page/Mobile2/AD BG.png') no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .picture {
-          width: $mobileGridWidth;
-
-          .desktop {
-            display: none
-          }
-
-          .mobile {
-            display: block;
-            margin-bottom: 7%;
-          }
-        }
-
-        .container {
-
-          .content,
-          .headline {
-            text-align: center;
-          }
-
-          .description {
-            white-space: nowrap;
-            margin-top: 1%;
-          }
-
-          .button {
-            margin: 2rem auto auto;
-          }
-
-        }
-
-      }
-    }
 
     &.contact {
+      height: unset;
+      min-height: unset;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      height: 100vh - $headerSize;
-      min-height: 100vh - $headerSize;
+      //height: 100vh - $headerSize;
+      //min-height: 100vh - $headerSize;
       position: relative;
+      padding: 180px 0;
 
-      .container {
-        width: 60%;
-        margin-top: -$headerSize;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+      .headline {
 
-        h1 {
-          font-size: 4rem;
-        }
+        font-family: Urbanist;
+        font-size: 96px;
+        font-weight: 600;
+        line-height: 96px;
+        letter-spacing: -0.015em;
+        text-align: center;
 
-        .social {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
-          grid-auto-columns: 1fr;
-          grid-auto-flow: column;
-          grid-gap: 6%;
+        color: transparent;
+        background-clip: text;
+        background:
+          linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%),
+          linear-gradient(101.32deg, #FD5129 -2.69%, #FF833D 25.27%, #FF8E16 63.08%, #FFCA10 98.68%);
 
-          .link {
-            display: flex;
-            width: fit-content;
-            align-items: center;
-            text-decoration: none;
-            outline: none;
+        background-clip: text;
 
-            &:hover {
-              cursor: pointer;
-            }
-
-            img {
-              width: 5.5vw;
-            }
-
-            .label {}
-          }
-        }
       }
 
-      .picture {
-        display: flex;
-        justify-content: flex-end;
-        width: 50%;
-
-        img {
-          width: 65%;
-        }
+      .subheadline {
+        color: #171717;
+        font-size: 40px;
       }
+    }
 
-      @media only screen and (max-width: $responsiveBreakPoint) {
-        height: 80vh;
-        min-height: unset;
-        margin-top: 5%;
+    &.projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      column-gap: 64px;
+      row-gap: 140px;
+      padding: 180px 0;
+      height: auto;
 
-        .container {
-          width: $mobileGridWidth;
-          height: 100%;
+      app-project-item {
+        width: calc(50% - 32px);
 
-          .social {
-            display: flex;
-            flex-direction: column;
-            height: 30%;
-
-            .link {
-              width: 100%;
-
-              .label {
-                //font-size: 2rem;
-              }
-
-              img {
-                width: 20%;
-                margin-right: 1%;
-              }
-            }
-          }
-        }
-
-        .picture {
-          display: none;
-        }
       }
     }
   }
