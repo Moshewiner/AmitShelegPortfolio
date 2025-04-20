@@ -32,26 +32,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-  //   this.screens = document.getElementsByClassName('screen');
-  //
-  //   window.addEventListener('wheel', (event) => {
-  //     if (checkScrollDirectionIsUp(event)) {
-  //       this.screenIndex = this.screenIndex > 0 ? this.screenIndex - 1 : this.screenIndex;
-  //     } else {
-  //       this.screenIndex = this.screenIndex < this.screens.length - 1 ? this.screenIndex + 1 : this.screenIndex;
-  //     }
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   });
-  //
-  //   function checkScrollDirectionIsUp(event): boolean {
-  //     if (event.wheelDelta) {
-  //       return event.wheelDelta > 0;
-  //     }
-  //     return event.deltaY < 0;
-  //   }
-  //
-  //
+ 
   }
 
   ngOnInit(): void {
