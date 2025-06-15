@@ -65,7 +65,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       link: '/clalit',
     },
     { 
-      image: '/assets/new-home/item.png', 
+      image: '/assets/new-home/h.png', 
       name: 'clalit',
       title: 'Enhancing Clalit\'s Workshop Registration Experience', 
       link: '/clalit',

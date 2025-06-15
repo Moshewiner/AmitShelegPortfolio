@@ -22,7 +22,7 @@
 </div>
 
 <div id="home-projects" class="screen projects">
-    <app-project-item class="project-item"  *ngFor="let project of newProjects"
+    <app-project-item *ngFor="let project of newProjects"
       [projectName]="project.name"
       [projectImage]="project.image"
       [projectLink]="project.link"
