@@ -22,12 +22,23 @@
 </div>
 
 <div id="home-projects" class="screen projects">
-    <app-project-item *ngFor="let project of newProjects"
+  <div class="column">
+    <app-project-item *ngFor="let project of leftColumnProjects"
       [projectName]="project.name"
       [projectImage]="project.image"
       [projectLink]="project.link"
       [title]="project.title"
     ></app-project-item>
+  </div>
+  
+  <div class="column">
+    <app-project-item *ngFor="let project of rightColumnProjects"
+      [projectName]="project.name"
+      [projectImage]="project.image"
+      [projectLink]="project.link"
+      [title]="project.title"
+    ></app-project-item>
+  </div>
 </div>
 
 <div id="home-contact" class="screen contact" [routerLink]="route" [fragment]="'home-contact'">

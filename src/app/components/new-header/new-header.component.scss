@@ -38,10 +38,10 @@
     }
 
     .logo {
-      font-family: Imprima;
+      
       color: #171717;
       font-size: 24px;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 28.8px;
       text-align: center;
 
@@ -55,16 +55,15 @@
       flex-direction: row;
       justify-content: space-evenly;
       flex: 2;
-      background: rgba(179, 179, 179, 0.1);
+      background: rgba(132, 126, 113, 0.12);
       backdrop-filter: blur(18px);
       border-radius: 12px;
       padding: 6px;
       margin: 12px 0 ;
 
       .link {
-        font-family: Imprima;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 300;
         line-height: 120%;
         text-align: center;
         white-space: nowrap;
