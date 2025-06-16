@@ -8,6 +8,7 @@ import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
 import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
 import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
 import { NewHomeComponent } from './pages/new-home/new-home.component';
+import { ElatCargo2Component } from './pages/elal-cargo2/elal-cargo2.component';
 
 export const routes: Routes = [
   { path: '', component: NewHomeComponent },
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'addict', component: AddictComponent },
   { path: 'mobile-unsupported', component: MobileUnsupportedComponent },
   { path: 'elal-cargo', component: ElalCargoComponent },
+  { path: 'elal-cargo2', component: ElatCargo2Component },
   { path: 'elal-globaly', component: ElalGlobalyComponent },
   { path: 'ram-aderet', component: RamAderetComponent },
 ];

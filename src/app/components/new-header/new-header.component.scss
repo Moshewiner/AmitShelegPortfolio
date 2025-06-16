@@ -13,6 +13,7 @@
 
   overflow: hidden;
 
+
   .inner {
     width: 73%;
     margin: 0 auto;
@@ -37,40 +38,46 @@
       display: none;
     }
 
-    .logo {
-      
-      color: #171717;
-      font-size: 24px;
-      font-weight: 300;
-      line-height: 28.8px;
-      text-align: center;
+    .logo-blur {
+      background: rgba(253, 252, 249, 0.01);
+      border-radius: 8px;
+      backdrop-filter: blur(18px);
+      padding: 8px 16px;
+      margin-left: -16px;
+      .logo {
+        color: #171717;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 28.8px;
+        text-align: center;
+        
+        line-height: 115%;
 
-      cursor: pointer;
-      width: 60px;
-      height: 60px;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+      }
     }
 
     .routing {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
-      flex: 2;
-      background: rgba(132, 126, 113, 0.12);
+      justify-content: center;
+      background: rgba(179, 179, 179, 0.1);
       backdrop-filter: blur(18px);
       border-radius: 12px;
-      padding: 6px;
-      margin: 12px 0 ;
+      margin: 16px 0;
 
       .link {
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 120%;
+        font-size: 0.8rem;
+        font-weight: 400;
+        line-height: 125%;
         text-align: center;
         white-space: nowrap;
         cursor: pointer;
         user-select: none;
         outline: 0;
-        padding: 6px 12px;
+        padding: 12px 16px;
       }
     }
   }
