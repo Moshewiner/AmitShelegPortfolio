@@ -17,12 +17,9 @@ export class CellcomPocComponent {
     description: 'Cellcom Proof of Concept for next-generation telecommunications platform.',
     heroImage: './../../assets/cellcom-poc/hero.png',
     client: 'Cellcom',
-    year: '2025',
+    duration: '2 months',
     platform: 'Web & Mobile',
-    introduction: {
-      title: 'Introduction',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
+    introduction: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     content: {
       images: [
         './../../assets/cellcom-poc/hero.png',

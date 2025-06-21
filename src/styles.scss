@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 // @import "./scrollbar.scss";
 @import "./responsive.scss";
-
+@import "./colors.scss";
 // Owl Carousel CSS - Styles will be handled by component-level CSS
 
 
@@ -16,7 +16,7 @@ body {
   font-size: calc((1vh + 1vw ) * 0.62);
   overflow-x: hidden;
   overflow-y: visible;
-  background: rgba(253, 252, 249, 1);
+  background: $bgColor;
 
   //scroll-behavior: smooth;
 
@@ -31,6 +31,12 @@ a {
 }
 * {
   font-family: "Inter Tight", sans-serif;
+}
+
+// No-break span class for preventing line breaks within phrases
+.no-break {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 @font-face {

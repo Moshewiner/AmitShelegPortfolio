@@ -3,6 +3,7 @@
 :host {
   position: fixed;
   width: 100%;
+  height: $nav-height;
   transition: top 0.5s;
 
   top: 0;

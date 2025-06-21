@@ -12,21 +12,18 @@ import { BasePageComponent } from '../base-page/base-page.component';
 })
 export class ElalCargoComponent {
 
-  public project = {
-    title: 'Redesigning and Refining the El Al Cargo Website',
-    description: 'Elal Cargo is a leading provider of cargo services in the Middle East.',
-    heroImage: './../../assets/elal-cargo/hero.png',
-    client: 'Elal Cargo',
-    year: '2025',
-    platform: 'Web',
-    introduction: {
-      title: 'Introduction',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
+  project = {
+    title: 'Redesigning and Refining the [El Al] Cargo Website',
+    description: 'A full redesign of [El Al’s] cargo website to create a smarter, faster, and more user-friendly shipping experience.',
+    heroImage: '../../../assets/Cargo/wide.png',
+    client: 'El Al Israel Airlines',
+    duration: '8 Months',
+    platform: 'Desktop, Mobile, Native Mobile App',
+    introduction: 'El Al’s cargo division needed a modern, responsive website to serve business and individual customers with clear booking flows and trustworthy design. I was responsible for the full UX/UI process—research, wireframing, and prototyping. I simplified complex cargo services into clean user journeys, designed responsive interfaces for desktop and mobile, and built a flexible design system aligned with El Al’s brand language.',
     content: {
       images: [
-        './../../assets/elal-cargo/hero.png',
-        './../../assets/elal-cargo/hero.png'
+        '../../../assets/Cargo/preview.png',
+        '../../../assets/Cargo/wide.png'
       ]
     }
   };

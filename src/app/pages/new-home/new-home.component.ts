@@ -51,7 +51,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
 
   public newProjects = [
     { 
-      image: '/assets/new-home/item.png', 
+      image: '/assets/Cargo/preview.png', 
       name: 'EL AL CARGO',
       title: 'Redesigning and Refining the El Al Cargo Website', 
       link: '/elal-cargo',
@@ -69,7 +69,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       link: '/gov-onboarding',
     },
     { 
-      image: '/assets/new-home/item.png', 
+      image: '/assets/GlobaLY/preview.png', 
       name: 'EL AL GLOBALY',
       title: 'El Al Globaly Digital Platform', 
       link: '/elal-globaly',
@@ -81,7 +81,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       link: '/ram-aderet',
     },
     { 
-      image: '/assets/new-home/h.png', 
+      image: '/assets/Clalit/preview.png', 
       name: 'CLALIT',
       title: 'Clalit Health Services Digital Transformation', 
       link: '/clalit',
