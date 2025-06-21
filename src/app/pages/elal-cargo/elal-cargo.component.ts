@@ -1,40 +1,44 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import {MenuItems} from './interfaces';
-import { TextParagraphComponent } from '../beauty-zone/text-paragraph/text-paragraph.component';
-import { TabletImageSliderComponent } from '../../components/tablet-image-slider/tablet-image-slider.component';
-import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-elal-cargo',
-  templateUrl: './elal-cargo.component.html',
-  styleUrls: ['./elal-cargo.component.scss'],
   standalone: true,
-  imports: [TextParagraphComponent, TabletImageSliderComponent, MobileImageSliderComponent, RouterLink]
+  imports: [CommonModule, RouterModule],
+  templateUrl: './elal-cargo.component.html',
+  styleUrl: './elal-cargo.component.scss'
 })
-export class ElalCargoComponent implements OnInit {
+export class ElalCargoComponent {
 
-  public route = '/addict';
-
-  public texts: { [key: string]: string } = {
-    aboutHeadline: 'About the Project',
-    about: 'I refactored El Al Cargo’s website and designed a new mobile app to enhance the user experience. The current website was outdated, so I focused on making the site and app more modern and user-friendly. The new designs are fully aligned with El Al’s style guide, ensuring a consistent look and feel across all digital platforms. Now, the website is fully responsive, supporting both desktop and mobile displays, alongside the native mobile app. This redesign provided a unified and intuitive experience for all users, making it easier to navigate and access information, while putting the main services upfront to encourage more sales.'
+  @Input() project = {
+    title: 'Redesigning and Refining the El Al Cargo Website',
+    description: 'Elal Cargo is a leading provider of cargo services in the Middle East.',
+    heroImage: './../../assets/elal-cargo/hero.png',
+    client: 'Elal Cargo',
+    year: '2025',
+    platform: 'Web',
+    introduction: {
+      title: 'Introduction',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    content: {
+      images: [
+        './../../assets/elal-cargo/hero.png',
+        './../../assets/elal-cargo/hero.png'
+      ]
+    }
   };
 
+  constructor() { }
 
-  public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
-    e.scrollIntoView({behavior});
-  }
-
-  private isNotDesktopDevice = false;
-  constructor(private deviceService: DeviceDetectorService, private router: Router) {
-    this.isNotDesktopDevice = !this.deviceService.isDesktop();
-  }
-
-  ngOnInit() {
-    if(this.isNotDesktopDevice) {
-      // this.router.navigateByUrl('/mobile-unsupported');
+  // Method to scroll to specific sections if needed
+  public scrollToSection(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 }
