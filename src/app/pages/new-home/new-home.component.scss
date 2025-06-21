@@ -57,7 +57,8 @@ $cell: calc($gridWidth / 12);
 
     &.main {
       width: 100%;
-      height: 100%;
+      min-height: unset;
+      height: 80%;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -144,16 +145,96 @@ $cell: calc($gridWidth / 12);
       }
 
       .strip {
+        // Mobile/Tablet/Small Desktop (0-1440px): Full width carousel
         width: 100%;
+        margin: 0 0 64px 0;
         height: 112px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        overflow: hidden;
 
-        img {
+        .logo-carousel {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
+          height: 112px;
+          overflow: hidden;
+          position: relative;
+
+          .logo-track {
+            display: flex;
+            align-items: space-between;
+            height: 112px;
+            animation: scrollLeft 40s linear infinite;
+
+            .logo-item {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              padding: 0 24px;
+              flex-shrink: 0;
+              min-width: 48px; // Minimum gap between logos
+
+              img {
+                width: auto;
+                height: 96px;
+                object-fit: contain;
+                transition: 0.3s ease;
+
+                &:hover {
+                  scale: 1.1;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
         }
 
-        margin-bottom: 64px;
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0);
+          }
+
+          100% {
+            transform: translateX(-33.33%);
+          }
+        }
+
+        // Large Desktop (1440px+): Fixed logo strip in grid width
+        @media (min-width: 1440px) {
+          width: $gridWidth;
+          margin: 0 auto 64px auto;
+          justify-content: space-between;
+
+          .logo-carousel {
+            width: 100%;
+
+            .logo-track {
+              animation: none; // Remove carousel animation
+              justify-content: space-between;
+              gap: 48px; // Minimum 48px gap between logos
+
+              // Hide duplicate sets for fixed layout (show only first 6 logos)
+              .logo-item:nth-child(n+7) {
+                display: none;
+              }
+
+              .logo-item {
+                padding: 0;
+                flex: 0 0 auto;
+                min-width: auto; // Reset min-width for desktop
+
+                img {
+                  height: 96px;
+
+                  &:hover {
+                    scale: 1.05; // Smaller scale for fixed layout
+                  }
+                }
+              }
+            }
+          }
+        }
       }
 
       .right-gradient {

@@ -15,7 +15,21 @@
     </div>
   </div>
   <div class="strip">
-    <img src="/assets/new-home/Logos.svg" />
+    <div class="logo-carousel">
+      <div class="logo-track">
+        <div class="logo-item" *ngFor="let logo of logoImages">
+          <img [src]="logo.src" [alt]="logo.alt" />
+        </div>
+        <!-- Duplicate logos for seamless infinite scroll -->
+        <div class="logo-item" *ngFor="let logo of logoImages">
+          <img [src]="logo.src" [alt]="logo.alt" />
+        </div>
+        <!-- Third set for extra smoothness -->
+        <div class="logo-item" *ngFor="let logo of logoImages">
+          <img [src]="logo.src" [alt]="logo.alt" />
+        </div>
+      </div>
+    </div>
   </div>
   <div class="right-gradient"></div>
   <div class="left-gradient"></div>

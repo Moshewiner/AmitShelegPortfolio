@@ -29,6 +29,16 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     }
   }
 
+  // Logo images array for native carousel
+  public logoImages = [
+    { src: '/assets/new-home/logo-strip/elal.svg', alt: 'El Al' },
+    { src: '/assets/new-home/logo-strip/cargo.svg', alt: 'Cargo' },
+    { src: '/assets/new-home/logo-strip/applied-materials.svg', alt: 'Applied Materials' },
+    { src: '/assets/new-home/logo-strip/clalit.svg', alt: 'Clalit' },
+    { src: '/assets/new-home/logo-strip/gov.svg', alt: 'Government' },
+    { src: '/assets/new-home/logo-strip/ram.svg', alt: 'Ram Aderet' },
+  ];
+
   constructor(private el: ElementRef) {
   }
 
@@ -48,45 +58,57 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     },
     { 
       image: '/assets/new-home/h.png', 
+      name: 'GOV.IL - SHAHAF',
+      title: 'Government Shahaf Digital Platform', 
+      link: '/gov-shahaf',
+    },
+    { 
+      image: '/assets/new-home/item.png', 
+      name: 'GOV.IL - ONBOARDING',
+      title: 'Government Services Digital Onboarding', 
+      link: '/gov-onboarding',
+    },
+    { 
+      image: '/assets/new-home/item.png', 
+      name: 'EL AL GLOBALY',
+      title: 'El Al Globaly Digital Platform', 
+      link: '/elal-globaly',
+    },
+    { 
+      image: '/assets/new-home/h.png', 
+      name: 'RAM ADERET',
+      title: 'Ram Aderet Digital Platform', 
+      link: '/ram-aderet',
+    },
+    { 
+      image: '/assets/new-home/h.png', 
       name: 'CLALIT',
-      title: 'Enhancing Clalit\'s Workshop Registration Experience', 
+      title: 'Clalit Health Services Digital Transformation', 
       link: '/clalit',
     },
     { 
-      image: '/assets/new-home/item.png', 
-      name: 'EL AL GLOBALLY',
-      title: 'Smarter Tools for El Al\'s Airport Operations', 
-      link: '/el-al-globally',
+      image: '/assets/new-home/h.png', 
+      name: 'VONOTEAM',
+      title: 'VonoTeam Digital Platform', 
+      link: '/vonoteam',
     },
     { 
       image: '/assets/new-home/h.png', 
-      name: 'GOVIL - SHAHAF',
-      title: 'An interesting title for the project', 
-      link: '/govil-shahaf',
-    },
-    { 
-      image: '/assets/new-home/item.png', 
-      name: 'PROJECT FIVE',
-      title: 'A Comprehensive Design System for Modern Applications', 
-      link: '/project-five',
+      name: 'ABRA',
+      title: 'Abra Digital Banking Platform', 
+      link: '/abra',
     },
     { 
       image: '/assets/new-home/h.png', 
-      name: 'PROJECT SIX',
-      title: 'Mobile-First Approach to Complex Data Visualization and User Interface Design', 
-      link: '/project-six',
-    },
-    { 
-      image: '/assets/new-home/item.png', 
-      name: 'PROJECT SEVEN',
-      title: 'Redesigning Enterprise Software with Focus on User Experience', 
-      link: '/project-seven',
+      name: 'APPLIED MATERIALS',
+      title: 'Applied Materials Digital Platform', 
+      link: '/applied-materials',
     },
     { 
       image: '/assets/new-home/h.png', 
-      name: 'PROJECT EIGHT',
-      title: 'Cross-Platform Design Solutions', 
-      link: '/project-eight',
+      name: 'CELLCOM POC',
+      title: 'Cellcom POC Digital Platform', 
+      link: '/cellcom-poc',
     },
   ];
 
