@@ -59,7 +59,7 @@ $cell: calc($gridWidth / 12);
     &.main {
       width: 100%;
       min-height: unset;
-      height: 66%;
+      height: 70%;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -83,7 +83,7 @@ $cell: calc($gridWidth / 12);
 
       .content {
         width: 800px;
-        height: 75%;
+        height: 100%;
         justify-content: center;
         display: flex;
         flex-direction: column;
