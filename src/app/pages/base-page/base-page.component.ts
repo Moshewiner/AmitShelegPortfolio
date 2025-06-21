@@ -1,32 +1,32 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BasePageComponent } from '../base-page/base-page.component';
+
 
 @Component({
-  selector: 'app-elal-globaly',
+  selector: 'app-base-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './elal-globaly.component.html',
-  styleUrl: './elal-globaly.component.scss'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './base-page.component.html',
+  styleUrl: './base-page.component.scss'
 })
-export class ElalGlobalyComponent {
+export class BasePageComponent {
 
-  public project = {
-    title: 'El Al Globaly Digital Platform',
-    description: 'El Al Globaly comprehensive digital platform for global travel services.',
-    heroImage: './../../assets/elal-globaly/hero.png',
-    client: 'El Al Globaly',
+  @Input() project = {
+    title: 'Base Title',
+    description: 'Example Description',
+    heroImage: './../../assets/elal-cargo/hero.png',
+    client: 'Example Client',
     year: '2025',
-    platform: 'Web & Mobile',
+    platform: 'Example Platform',
     introduction: {
-      title: 'Introduction',
+      title: 'Example Introduction',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     content: {
       images: [
-        './../../assets/elal-globaly/hero.png',
-        './../../assets/elal-globaly/hero.png'
+        './../../assets/elal-cargo/hero.png',
+        './../../assets/elal-cargo/hero.png'
       ]
     }
   };

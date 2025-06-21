@@ -1,18 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
   selector: 'app-elal-cargo',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BasePageComponent],
   templateUrl: './elal-cargo.component.html',
   styleUrl: './elal-cargo.component.scss'
 })
 export class ElalCargoComponent {
 
-  @Input() project = {
+  public project = {
     title: 'Redesigning and Refining the El Al Cargo Website',
     description: 'Elal Cargo is a leading provider of cargo services in the Middle East.',
     heroImage: './../../assets/elal-cargo/hero.png',

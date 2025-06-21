@@ -1,0 +1,30 @@
+<div class="hero">
+  <div class="heading">{{project.title}}</div>
+  <div class="description"> {{project.description}}</div>
+  <img class="image" [src]="project.heroImage" />
+</div>
+<div class="details">
+  <div class="client">
+    <div class="title">Client</div>
+    <div class="value">{{project.client}}</div>
+  </div>
+  <div class="year">
+    <div class="title">Year</div>
+    <div class="value">{{project.year}}</div>
+  </div>
+  <div class="platform">
+    <div class="title">Platform</div>
+    <div class="value">{{project.platform}}</div>
+  </div>
+</div>
+<div class="introduction">
+  <div class="title">Introduction</div>
+  <div class="description">{{project.introduction.description}}</div>
+</div>
+<div class="content">
+    <img class="image" [src]="image"  *ngFor="let image of project.content.images" />
+</div>
+<div class="thank-you">
+  <div class="headline">Thank You</div>
+  <div class="subheadline">Let's Talk!</div>
+</div>

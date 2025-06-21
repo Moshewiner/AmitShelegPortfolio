@@ -1,23 +1,18 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { BeautyZoneComponent } from './pages/beauty-zone/beauty-zone.component';
-import { WiseHomeComponent } from './pages/wise-home/wise-home.component';
-import { AddictComponent } from './pages/addict/addict.component';
 import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
 import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
-import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
-import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
 import { NewHomeComponent } from './pages/new-home/new-home.component';
+import { ClalitComponent } from './pages/clalit/clalit.component';
+import { GovOnboardingComponent } from './pages/gov-onboarding/gov-onboarding.component';
+import { GovShahafComponent } from './pages/gov-shahaf/gov-shahaf.component';
+import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
 
 export const routes: Routes = [
   { path: '', component: NewHomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'new-home', component: NewHomeComponent },
-  { path: 'beautyzone', component: BeautyZoneComponent },
-  { path: 'wisehome', component: WiseHomeComponent },
-  { path: 'addict', component: AddictComponent },
   { path: 'mobile-unsupported', component: MobileUnsupportedComponent },
   { path: 'elal-cargo', component: ElalCargoComponent },
-  { path: 'elal-globaly', component: ElalGlobalyComponent },
+  { path: 'clalit', component: ClalitComponent },
+  { path: 'gov-onboarding', component: GovOnboardingComponent },
+  { path: 'gov-shahaf', component: GovShahafComponent },
   { path: 'ram-aderet', component: RamAderetComponent },
 ];

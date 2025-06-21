@@ -1,39 +1,44 @@
-import {Component, OnInit} from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { TextParagraphComponent } from '../beauty-zone/text-paragraph/text-paragraph.component';
-import { TabletImageSliderComponent } from '../../components/tablet-image-slider/tablet-image-slider.component';
-import { MobileImageSliderComponent } from '../../components/mobile-image-slider/mobile-image-slider.component';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
   selector: 'app-ram-aderet',
-  templateUrl: './ram-aderet.component.html',
-  styleUrls: ['./ram-aderet.component.scss'],
   standalone: true,
-  imports: [TextParagraphComponent, TabletImageSliderComponent, MobileImageSliderComponent, RouterLink]
+  imports: [CommonModule, RouterModule, BasePageComponent],
+  templateUrl: './ram-aderet.component.html',
+  styleUrl: './ram-aderet.component.scss'
 })
-export class RamAderetComponent implements OnInit {
+export class RamAderetComponent {
 
-  public route = '/ram-aderet';
-
-  public texts: { [key: string]: string } = {
-    aboutHeadline: 'About the Project',
-    about: 'I led the design of an internal system for Ram Aderet, tailored to non-technical and old-fashioned users in the construction industry. The main goal was to replace outdated paper-based processes with an intuitive digital solution. I focused on simplifying complex data and forms to make the system accessible to all, regardless of tech experience. This resulted in a seamless platform that worked across desktops, tablets, and smartphones, streamlining project management and improving accessibility.'
+  public project = {
+    title: 'Ram Aderet Digital Platform',
+    description: 'Ram Aderet comprehensive digital platform and user experience design.',
+    heroImage: './../../assets/ram-aderet/hero.png',
+    client: 'Ram Aderet',
+    year: '2025',
+    platform: 'Web & Mobile',
+    introduction: {
+      title: 'Introduction',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+    content: {
+      images: [
+        './../../assets/ram-aderet/hero.png',
+        './../../assets/ram-aderet/hero.png'
+      ]
+    }
   };
 
+  constructor() { }
 
-  public scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
-    e.scrollIntoView({behavior});
-  }
-
-  private isNotDesktopDevice = false;
-  constructor(private deviceService: DeviceDetectorService, private router: Router) {
-    this.isNotDesktopDevice = !this.deviceService.isDesktop();
-  }
-
-  ngOnInit() {
-    if(this.isNotDesktopDevice) {
-      // this.router.navigateByUrl('/mobile-unsupported');
+  // Method to scroll to specific sections if needed
+  public scrollToSection(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 }

@@ -4,19 +4,19 @@ import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-elal-globaly',
+  selector: 'app-gov-onboarding',
   standalone: true,
   imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './elal-globaly.component.html',
-  styleUrl: './elal-globaly.component.scss'
+  templateUrl: './gov-onboarding.component.html',
+  styleUrl: './gov-onboarding.component.scss'
 })
-export class ElalGlobalyComponent {
+export class GovOnboardingComponent {
 
   public project = {
-    title: 'El Al Globaly Digital Platform',
-    description: 'El Al Globaly comprehensive digital platform for global travel services.',
-    heroImage: './../../assets/elal-globaly/hero.png',
-    client: 'El Al Globaly',
+    title: 'Government Services Digital Onboarding',
+    description: 'Streamlining government services through digital onboarding and user experience design.',
+    heroImage: './../../assets/gov-onboarding/hero.png',
+    client: 'Government Services',
     year: '2025',
     platform: 'Web & Mobile',
     introduction: {
@@ -25,8 +25,8 @@ export class ElalGlobalyComponent {
     },
     content: {
       images: [
-        './../../assets/elal-globaly/hero.png',
-        './../../assets/elal-globaly/hero.png'
+        './../../assets/gov-onboarding/hero.png',
+        './../../assets/gov-onboarding/hero.png'
       ]
     }
   };

@@ -4,19 +4,19 @@ import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-elal-globaly',
+  selector: 'app-gov-shahaf',
   standalone: true,
   imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './elal-globaly.component.html',
-  styleUrl: './elal-globaly.component.scss'
+  templateUrl: './gov-shahaf.component.html',
+  styleUrl: './gov-shahaf.component.scss'
 })
-export class ElalGlobalyComponent {
+export class GovShahafComponent {
 
   public project = {
-    title: 'El Al Globaly Digital Platform',
-    description: 'El Al Globaly comprehensive digital platform for global travel services.',
-    heroImage: './../../assets/elal-globaly/hero.png',
-    client: 'El Al Globaly',
+    title: 'Government Shahaf Digital Platform',
+    description: 'Shahaf government services digital transformation and user experience enhancement.',
+    heroImage: './../../assets/gov-shahaf/hero.png',
+    client: 'Government Shahaf',
     year: '2025',
     platform: 'Web & Mobile',
     introduction: {
@@ -25,8 +25,8 @@ export class ElalGlobalyComponent {
     },
     content: {
       images: [
-        './../../assets/elal-globaly/hero.png',
-        './../../assets/elal-globaly/hero.png'
+        './../../assets/gov-shahaf/hero.png',
+        './../../assets/gov-shahaf/hero.png'
       ]
     }
   };
