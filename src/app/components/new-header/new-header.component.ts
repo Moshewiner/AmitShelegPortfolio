@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-new-header',
@@ -10,9 +11,9 @@ import { RouterModule } from '@angular/router';
     class: 'navbar',
     '[class.expanded]': 'isExpanded'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, CommonModule]
 })
 export class NewHeaderComponent implements OnInit {
   public isExpanded = false;
@@ -20,9 +21,11 @@ export class NewHeaderComponent implements OnInit {
   public openMenu(): void {
     this.isExpanded = true;
   }
+  
   public closeMenu(): void {
     this.isExpanded = false;
   }
+  
   public toggleMenu(): void {
     this.isExpanded = !this.isExpanded;
   }

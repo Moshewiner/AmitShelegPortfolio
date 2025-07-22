@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -14,4 +14,34 @@ export class ProjectItemComponent {
   @Input() projectImage: string = '';
   @Input() projectLink: string = '';
   @Input() title: string = '';
+  
+  @Output() projectClick = new EventEmitter<{link: string, rect: DOMRect}>();
+
+  @ViewChild('projectElement') projectElement!: ElementRef;
+
+  public isAnimating = false;
+
+  private isMobile(): boolean {
+    return window.innerWidth <= 768;
+  }
+
+  onProjectClick(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    if (this.isMobile() && this.projectElement) {
+      // Add visual feedback
+      this.isAnimating = true;
+      
+      const rect = this.projectElement.nativeElement.getBoundingClientRect();
+      this.projectClick.emit({link: this.projectLink, rect});
+      
+      // Reset animation state after a delay
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 2200);
+    } else {
+      window.location.href = this.projectLink;
+    }
+  }
 }

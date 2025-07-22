@@ -2,6 +2,22 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit} f
 import { RouterLink } from '@angular/router';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from '../../components/modal/modal.component';
+import { BasePageComponent } from '../base-page/base-page.component';
+
+// Project interface for the modal
+interface ModalProject {
+  title: string;
+  description: string;
+  heroImage: string;
+  client: string;
+  duration: string;
+  platform: string;
+  introduction: string;
+  content: {
+    images: string[];
+  };
+}
 
 @Component({
   selector: 'app-home',
@@ -9,10 +25,15 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./new-home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RouterLink, ProjectItemComponent, CommonModule]
+  imports: [RouterLink, ProjectItemComponent, CommonModule, ModalComponent, BasePageComponent]
 })
 export class NewHomeComponent implements OnInit, AfterViewInit {
   public route: string = '/';
+
+  // Modal state
+  public isModalOpen = false;
+  public selectedProject: ModalProject | null = null;
+  public selectedRect: DOMRect | null = null;
 
   private screens!: HTMLCollectionOf<Element>;
   // tslint:disable-next-line:variable-name
@@ -124,6 +145,34 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
 
   scroll(e: HTMLElement, behavior: 'auto' | 'smooth' = 'auto') {
     e.scrollIntoView({behavior});
+  }
+
+  // Modal methods
+  onProjectClick(event: {link: string, rect: DOMRect}) {
+    const project = this.newProjects.find(p => p.link === event.link);
+    if (project) {
+      // Create modal project data from home project data
+      this.selectedProject = {
+        title: project.title,
+        description: project.title, // Using title as description for now
+        heroImage: project.image,
+        client: project.name,
+        duration: '6 months', // Default duration
+        platform: 'Web & Mobile', // Default platform
+        introduction: `${project.title} - This is a showcase of our design and development capabilities.`,
+        content: {
+          images: [project.image, project.image] // Using the preview image
+        }
+      };
+      this.selectedRect = event.rect;
+      this.isModalOpen = true;
+    }
+  }
+
+  onCloseModal() {
+    this.isModalOpen = false;
+    this.selectedProject = null;
+    this.selectedRect = null;
   }
 
 }

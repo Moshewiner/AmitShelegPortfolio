@@ -1,4 +1,7 @@
-<div class="project-item" [routerLink]="projectLink">
+<div class="project-item" 
+     [class.animating]="isAnimating"
+     #projectElement 
+     (click)="onProjectClick($event)">
   <div class="project-image">
     <img [src]="projectImage" alt="{{ projectName }}" />
   </div>
@@ -8,9 +11,9 @@
     <div class="title">
       <div>{{ title }}</div>
     </div>
-    <a class="project-link" [routerLink]="projectLink">
+    <div class="project-link">
         <span class="read-more">View More</span>
         <span class="arrow"><img src="/assets/new-home/arrow.svg" alt="arrow" /></span>
-    </a>
+    </div>
   </div>
 </div>

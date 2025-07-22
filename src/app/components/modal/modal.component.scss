@@ -1,0 +1,162 @@
+@import '../../../responsive.scss';
+@import '../../../colors.scss';
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+  
+  // Mobile: Full screen modal
+  @media (max-width: $responsiveBreakPoint) {
+    .modal-content {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      border-radius: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      will-change: transform, top, left, width, height, border-radius;
+      
+      .modal-close {
+        position: fixed;
+        top: env(safe-area-inset-top, 20px);
+        right: 20px;
+        z-index: 1001;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(.32,.72,.0,1);
+        color: #333;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        
+        &:hover {
+          background: rgba(255, 255, 255, 1);
+          transform: scale(1.08);
+          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        &:active {
+          transform: scale(0.92);
+          transition-duration: 0.1s;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      
+      .modal-body {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        opacity: 1;
+      }
+    }
+  }
+  
+  // Desktop: Keep existing behavior (hide modal, use navigation)
+  @media (min-width: calc(#{$responsiveBreakPoint} + 1px)) {
+    display: none;
+  }
+}
+
+// Fallback styles for when desktop accidentally shows modal
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+  
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1001;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.32,.72,.0,1);
+    color: #333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.08);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    &:active {
+      transform: scale(0.92);
+      transition-duration: 0.1s;
+    }
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  .modal-body {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    opacity: 1;
+  }
+}
+
+// Animation enhancements
+.modal-backdrop {
+  animation-fill-mode: both;
+  will-change: opacity;
+}
+
+.modal-content {
+  will-change: transform, opacity;
+}
+
+// Modal content is visible from start - no fade-in needed
+
+// Ensure content inside modal doesn't have margins that break the layout
+:host ::ng-deep .modal-body {
+  app-base-page {
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+} 

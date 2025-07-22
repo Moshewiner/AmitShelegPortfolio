@@ -44,6 +44,7 @@
       [projectImage]="project.image"
       [projectLink]="project.link"
       [title]="project.title"
+      (projectClick)="onProjectClick($event)"
     ></app-project-item>
   </div>
   
@@ -53,6 +54,7 @@
       [projectImage]="project.image"
       [projectLink]="project.link"
       [title]="project.title"
+      (projectClick)="onProjectClick($event)"
     ></app-project-item>
   </div>
 </div>
@@ -61,3 +63,14 @@
   <div class="headline">Thank You</div>
   <div class="subheadline">Let's Talk!</div>
 </div>
+
+<!-- Project Modal for Mobile -->
+<app-modal 
+  [isOpen]="isModalOpen" 
+  [itemRect]="selectedRect"
+  (closeModal)="onCloseModal()">
+  <app-base-page 
+    *ngIf="selectedProject" 
+    [project]="selectedProject">
+  </app-base-page>
+</app-modal>
