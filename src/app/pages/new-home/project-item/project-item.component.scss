@@ -69,5 +69,18 @@
       margin-left: 5px;
       vertical-align: middle;
     }
+     // Responsive adjustments
+     @media (max-width: 768px) {
+      .name {
+        font-size: 12px;
+      }
+      .title {
+        font-size: 22px;
+      }
+
+      .project-link {
+        font-size: 16px;
+      }
+     }
   }
 }

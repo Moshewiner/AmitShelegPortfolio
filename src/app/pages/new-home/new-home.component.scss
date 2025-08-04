@@ -3,7 +3,7 @@
 
 
 $gridWidth: 73%;
-$mobileGridWidth: 92%;
+$mobileGridWidth: calc(100% - 32px); //92%;
 
 $marginSize: calc((100% - $gridWidth) / 2);
 $mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
@@ -115,6 +115,7 @@ $cell: calc($gridWidth / 12);
         .hello {
           margin-bottom: 16px;
           width: 12%;
+
           img {
             width: 100%;
             display: flex;
@@ -257,6 +258,18 @@ $cell: calc($gridWidth / 12);
             }
           }
         }
+
+        @media (max-width: 768px) {
+          .logo-carousel {
+            .logo-track {
+              .logo-item {
+                img {
+                  height: 64px;
+                }
+              }
+            }
+          }
+        }
       }
 
       .right-gradient {
@@ -371,6 +384,17 @@ $cell: calc($gridWidth / 12);
         color: #171717;
         font-size: 40px;
       }
+
+      // Responsive adjustments
+      @media (max-width: 768px) {
+        .headline {
+          font-size: 46px;
+        }
+
+        .subheadline {
+          font-size: 18px;
+        }
+      }
     }
 
     &.projects {
@@ -393,16 +417,8 @@ $cell: calc($gridWidth / 12);
       // Responsive adjustments
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 0;
-        padding: 120px 0;
-
-        .column {
-          gap: 120px;
-        }
-      }
-
-      @media (min-width: 769px) and (max-width: 1200px) {
         gap: 40px;
+        width: $mobileGridWidth;
 
         .column {
           gap: 120px;
