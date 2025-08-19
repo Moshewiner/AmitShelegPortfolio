@@ -17,9 +17,12 @@ export class ClalitComponent {
     description: 'Clalit Health Services digital platform redesign and user experience enhancement.',
     heroImage: './../../assets/clalit/hero.png',
     client: 'Clalit Health Services',
-    duration: '1 year',
-    platform: 'Web & Mobile',
-    introduction: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    duration: 'One Month',
+    platform: 'Mobile Adaption',
+    introduction: `Clalit Health Services launched a new website to improve services for its customers. <br />
+The purpose of the website is to enable registration for health-improvement workshops, both in-person and online.<br /><br /> 
+
+The project was done in collaboration with a fellow designer from my team, and my role was to adapt the desktop design into a fully responsive mobile version. The site is now live and serves Clalit’s customers with a smooth and accessible registration experience across devices.`,
     content: {
       images: [
         './../../assets/clalit/hero.png',

@@ -92,7 +92,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     { 
       image: '/assets/GlobaLY/preview.png', 
       name: 'EL AL GLOBALY',
-      title: 'El Al Globaly Digital Platform', 
+      title: `Smarter Tools for El Al's Airport Operations`, 
       link: '/elal-globaly',
     },
     // { 

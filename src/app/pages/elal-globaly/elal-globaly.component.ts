@@ -13,7 +13,7 @@ import { BasePageComponent } from '../base-page/base-page.component';
 export class ElalGlobalyComponent {
 
   public project = {
-    title: 'El Al Globaly Digital Platform',
+    title: `Smarter Tools for El Al's Airport Operations`,
     description: 'El Al Globaly comprehensive digital platform for global travel services.',
     heroImage: './../../assets/GlobaLY/wide.png',
     client: 'El Al Globaly',
