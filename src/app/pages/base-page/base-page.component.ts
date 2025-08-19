@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
@@ -11,7 +11,7 @@ import { NoBreakPipe } from '../../pipes/no-break.pipe';
   templateUrl: './base-page.component.html',
   styleUrl: './base-page.component.scss'
 })
-export class BasePageComponent {
+export class BasePageComponent implements OnInit {
 
   @Input() project = {
     title: 'Base Title',
@@ -30,6 +30,11 @@ export class BasePageComponent {
   };
 
   constructor() { }
+
+  ngOnInit(): void {
+    // Scroll to top when the base page component initializes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   // Method to scroll to specific sections if needed
   public scrollToSection(elementId: string) {

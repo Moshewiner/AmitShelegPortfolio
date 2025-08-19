@@ -13,13 +13,18 @@ import { BasePageComponent } from '../base-page/base-page.component';
 export class GovShahafComponent {
 
   public project = {
-    title: 'Government Shahaf Digital Platform',
-    description: 'Shahaf government services digital transformation and user experience enhancement.',
+    title: 'Simplifying Freedom of Information (FOI) Requests Management',
+    description: 'Creating a simple and efficient system for public authorities to manage FOI requests through a focused, digital-first approach.',
     heroImage: './../../assets/Shahaf-gov/shahaf-wide.png',
-    client: 'Government Shahaf',
-    duration: '5 months',
-    platform: 'Web & Mobile',
-    introduction: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    client: 'Gov.il - National Digital Agency',
+    duration: '8 Months (ongoing)',
+    platform: 'Desktop',
+    introduction: `Shahaf is a BackOffice system designed to manage Freedom of Information (FOI) requests across public authorities.
+                  <br /><br />
+                  The system allows users to receive, enter, and manage requests - including cost calculations, documentation management, decision-making, coordination with third party consultants, as well as with the requesters themselves.
+                  <br /><br />
+                  Shahaf digitizes the FOI process, making it faster, transparent, and more efficient - enabling public sector organizations to improve oversight, service, and daily operations.
+`,
     content: {
       images: [
         './../../assets/Shahaf-gov/shahaf-preview.png',
