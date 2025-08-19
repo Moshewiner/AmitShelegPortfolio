@@ -74,19 +74,19 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     { 
       image: '/assets/Cargo/preview.png', 
       name: 'EL AL CARGO',
-      title: 'Redesigning and Refining the El Al Cargo Website', 
+      title: `Redesigning and Refining [El Al] Cargo's Website & App`, 
       link: '/elal-cargo',
     },
     { 
       image: '/assets/Shahaf-gov/shahaf-preview.png', 
       name: 'GOV.IL - SHAHAF',
-      title: 'Government Shahaf Digital Platform', 
+      title: 'Simplifying Freedom of Information (FOI) Requests Management', 
       link: '/gov-shahaf',
     },
     { 
       image: '/assets/Clalit/preview.png', 
       name: 'CLALIT',
-      title: 'Clalit Health Services Digital Transformation', 
+      title: `Enhancing Clalit's Workshop Registration Experience`, 
       link: '/clalit',
     },
     { 

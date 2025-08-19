@@ -13,7 +13,7 @@ import { BasePageComponent } from '../base-page/base-page.component';
 export class ClalitComponent {
 
   public project = {
-    title: 'Clalit Health Services Digital Transformation',
+    title: `Enhancing Clalit's Workshop Registration Experience`,
     description: 'Clalit Health Services digital platform redesign and user experience enhancement.',
     heroImage: './../../assets/clalit/hero.png',
     client: 'Clalit Health Services',
