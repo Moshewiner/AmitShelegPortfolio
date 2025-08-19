@@ -84,10 +84,10 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       link: '/gov-shahaf',
     },
     { 
-      image: '/assets/new-home/item.png', 
-      name: 'GOV.IL - ONBOARDING',
-      title: 'Government Services Digital Onboarding', 
-      link: '/gov-onboarding',
+      image: '/assets/Clalit/preview.png', 
+      name: 'CLALIT',
+      title: 'Clalit Health Services Digital Transformation', 
+      link: '/clalit',
     },
     { 
       image: '/assets/GlobaLY/preview.png', 
@@ -95,42 +95,42 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       title: 'El Al Globaly Digital Platform', 
       link: '/elal-globaly',
     },
-    { 
-      image: '/assets/new-home/h.png', 
-      name: 'RAM ADERET',
-      title: 'Ram Aderet Digital Platform', 
-      link: '/ram-aderet',
-    },
-    { 
-      image: '/assets/Clalit/preview.png', 
-      name: 'CLALIT',
-      title: 'Clalit Health Services Digital Transformation', 
-      link: '/clalit',
-    },
-    { 
-      image: '/assets/new-home/h.png', 
-      name: 'VONOTEAM',
-      title: 'VonoTeam Digital Platform', 
-      link: '/vonoteam',
-    },
-    { 
-      image: '/assets/new-home/h.png', 
-      name: 'ABRA',
-      title: 'Abra Digital Banking Platform', 
-      link: '/abra',
-    },
-    { 
-      image: '/assets/new-home/h.png', 
-      name: 'APPLIED MATERIALS',
-      title: 'Applied Materials Digital Platform', 
-      link: '/applied-materials',
-    },
-    { 
-      image: '/assets/new-home/h.png', 
-      name: 'CELLCOM POC',
-      title: 'Cellcom POC Digital Platform', 
-      link: '/cellcom-poc',
-    },
+    // { 
+    //   image: '/assets/new-home/h.png', 
+    //   name: 'RAM ADERET',
+    //   title: 'Ram Aderet Digital Platform', 
+    //   link: '/ram-aderet',
+    // },
+    // { 
+    //   image: '/assets/new-home/item.png', 
+    //   name: 'GOV.IL - ONBOARDING',
+    //   title: 'Government Services Digital Onboarding', 
+    //   link: '/gov-onboarding',
+    // },
+    // { 
+    //   image: '/assets/new-home/h.png', 
+    //   name: 'VONOTEAM',
+    //   title: 'VonoTeam Digital Platform', 
+    //   link: '/vonoteam',
+    // },
+    // { 
+    //   image: '/assets/new-home/h.png', 
+    //   name: 'ABRA',
+    //   title: 'Abra Digital Banking Platform', 
+    //   link: '/abra',
+    // },
+    // { 
+    //   image: '/assets/new-home/h.png', 
+    //   name: 'APPLIED MATERIALS',
+    //   title: 'Applied Materials Digital Platform', 
+    //   link: '/applied-materials',
+    // },
+    // { 
+    //   image: '/assets/new-home/h.png', 
+    //   name: 'CELLCOM POC',
+    //   title: 'Cellcom POC Digital Platform', 
+    //   link: '/cellcom-poc',
+    // },
   ];
 
   // Split projects into two columns

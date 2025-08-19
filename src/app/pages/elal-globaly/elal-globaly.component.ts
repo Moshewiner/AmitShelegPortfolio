@@ -15,7 +15,7 @@ export class ElalGlobalyComponent {
   public project = {
     title: 'El Al Globaly Digital Platform',
     description: 'El Al Globaly comprehensive digital platform for global travel services.',
-    heroImage: './../../assets/elal-globaly/hero.png',
+    heroImage: './../../assets/GlobaLY/wide.png',
     client: 'El Al Globaly',
     duration: '8 months',
     platform: 'Web & Mobile',
