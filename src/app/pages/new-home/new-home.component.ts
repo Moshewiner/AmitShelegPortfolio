@@ -165,7 +165,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
         }
       };
       this.selectedRect = event.rect;
-      this.isModalOpen = true;
+      this.isModalOpen = true; 
     }
   }
 

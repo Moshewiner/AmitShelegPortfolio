@@ -165,20 +165,20 @@ $gridWidth: 73%;
 // Mobile responsive styles
 @media (max-width: $responsiveBreakPoint) {
   :host {
-    width: 90%;
-    margin: 120px auto 0 auto;
+    width: calc(100% - 32px);
+    margin: 32px auto 0 auto;
 
     .hero {
       .heading {
         max-width: 100%;
-        font-size: 2rem; // Smaller heading for mobile
         line-height: 120%;
+        font-size: $h1-size-mobile;
       }
 
       .description {
         max-width: 100%;
-        margin-top: 16px;
-        font-size: $text-size;
+        margin-top: 1px;
+        font-size: $h1-subtile-size-mobile;
       }
 
       .image {
@@ -188,7 +188,7 @@ $gridWidth: 73%;
     }
 
     .details-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
       margin: 64px auto;
       row-gap: 40px;
 
@@ -196,6 +196,18 @@ $gridWidth: 73%;
         padding-right: 0;
         row-gap: 20px;
         order: 2; // Move details below introduction on mobile
+
+        .client,
+        .duration,
+        .platform {
+          .title {
+            font-size: $sub-text-size-mobile;
+          }
+        }
+
+        .value {
+          font-size: $text-size-mobile;
+        }
       }
 
       .introduction {
@@ -205,14 +217,13 @@ $gridWidth: 73%;
         padding-left: 0;
         padding-top: 32px;
         order: 1;
-
         .title {
-          font-size: $h2-subtile-size;
+          font-size: $h2-size-mobile;
         }
 
         .description {
           margin-top: 8px;
-          font-size: $sub-text-size;
+          font-size: $text-size-mobile;
         }
       }
     }
@@ -228,94 +239,16 @@ $gridWidth: 73%;
 
     .thank-you {
       padding: 120px 0;
+      display: none;
 
       .headline {
-        font-size: 48px;
         line-height: 48px;
+        font-size: 48px;
       }
 
       .subheadline {
-        font-size: 24px;
         margin-top: 8px;
-      }
-    }
-  }
-}
-
-// Extra small mobile devices
-@media (max-width: 480px) {
-  :host {
-    width: 95%;
-    margin: 100px auto 0 auto;
-
-    .hero {
-      .heading {
-        font-size: 1.75rem;
-      }
-
-      .description {
-        margin-top: 12px;
-        font-size: $sub-text-size;
-      }
-
-      .image {
-        margin-top: 32px;
-        border-radius: 12px;
-      }
-    }
-
-    .details-container {
-      margin: 48px auto;
-      row-gap: 32px;
-
-      .details {
-        row-gap: 16px;
-
-        .client,
-        .duration,
-        .platform {
-          .title {
-            font-size: 0.7rem;
-          }
-
-          .value {
-            font-size: $sub-text-size;
-          }
-        }
-      }
-
-      .introduction {
-        padding-top: 24px;
-
-        .title {
-          font-size: $text-size;
-        }
-
-        .description {
-          font-size: 0.85rem;
-        }
-      }
-    }
-
-    .content {
-      row-gap: 32px;
-      padding-bottom: 32px;
-
-      .image {
-        border-radius: 12px;
-      }
-    }
-
-    .thank-you {
-      padding: 80px 0;
-
-      .headline {
-        font-size: 36px;
-        line-height: 36px;
-      }
-
-      .subheadline {
-        font-size: 20px;
+        font-size: 24px;
       }
     }
   }

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-item',
@@ -20,6 +20,8 @@ export class ProjectItemComponent {
   @ViewChild('projectElement') projectElement!: ElementRef;
 
   public isAnimating = false;
+
+  constructor(private router: Router) {}
 
   private isMobile(): boolean {
     return window.innerWidth <= 768;
@@ -41,7 +43,8 @@ export class ProjectItemComponent {
         this.isAnimating = false;
       }, 2200);
     } else {
-      window.location.href = this.projectLink;
+      // Use Angular Router for proper navigation on desktop
+      this.router.navigate([this.projectLink]);
     }
   }
 }

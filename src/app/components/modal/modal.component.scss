@@ -36,7 +36,7 @@
       
       .modal-close {
         position: fixed;
-        top: env(safe-area-inset-top, 20px);
+        top: 20px;
         right: 20px;
         z-index: 1001;
         width: 44px;
@@ -150,13 +150,3 @@
 .modal-content {
   will-change: transform, opacity;
 }
-
-// Modal content is visible from start - no fade-in needed
-
-// Ensure content inside modal doesn't have margins that break the layout
-:host ::ng-deep .modal-body {
-  app-base-page {
-    margin-top: 0 !important;
-    width: 100% !important;
-  }
-} 
