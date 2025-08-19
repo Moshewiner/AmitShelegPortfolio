@@ -78,7 +78,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       link: '/elal-cargo',
     },
     { 
-      image: '/assets/new-home/h.png', 
+      image: '/assets/Shahaf-gov/shahaf-preview.png', 
       name: 'GOV.IL - SHAHAF',
       title: 'Government Shahaf Digital Platform', 
       link: '/gov-shahaf',
