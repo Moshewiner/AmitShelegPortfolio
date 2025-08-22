@@ -14,11 +14,11 @@ export class ClalitComponent {
 
   public project = {
     title: `Enhancing Clalit's Workshop Registration Experience`,
-    description: 'Clalit Health Services digital platform redesign and user experience enhancement.',
-    heroImage: './../../assets/clalit/hero.png',
+    description: 'Adapting Clalit’s workshop registration into a seamless mobile experience.',
+    heroImage: './../../assets/Clalit/wide.png',
     client: 'Clalit Health Services',
     duration: 'One Month',
-    platform: 'Mobile Adaption',
+    platform: 'Mobile Adaptation',
     introduction: `Clalit Health Services launched a new website to improve services for its customers. <br />
 The purpose of the website is to enable registration for health-improvement workshops, both in-person and online.<br /><br /> 
 

@@ -14,12 +14,12 @@ export class ElalGlobalyComponent {
 
   public project = {
     title: `Smarter Tools for El Al's Airport Operations`,
-    description: 'El Al Globaly comprehensive digital platform for global travel services.',
+    description: `A global back-office platform that streamlines station management, simplifies daily workflows, and saves time and resources across El Al’s operations.`,
     heroImage: './../../assets/GlobaLY/wide.png',
-    client: 'El Al Globaly',
-    duration: '8 months',
-    platform: 'Web & Mobile',
-    introduction: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    client: 'El Al Israel Airlines',
+    duration: 'Two Years (ongoing)',
+    platform: 'Native iOS App for iPad',
+    introduction: `GlobalLY is a back-office application created to optimize the daily operations of El Al’s station managers across the globe. Designed as a single hub for flight operations, station information, crew assignments and more - the system replaces manual processes with a streamlined digital workflow.<br /><br />I led the project end-to-end, from mapping workflows and creating detailed wireframes, to delivering a production-ready product design. The interface was crafted in line with El Al’s brand guidelines, ensuring visual consistency across the company’s digital ecosystem. Throughout the process, I collaborated closely with project managers, system analysts, and the development team, while testing early prototypes directly with field managers.<br /><br />One of the key challenges was designing for non-technical users who primarily access the system on tablets, often in time-sensitive environments. By prioritizing clarity and accessibility, I ensured that even complex tasks could be performed in just a few taps.<br /><br />The outcome is a fully deployed solution, now used daily by El Al station managers worldwide. In pilot-phase interviews, station managers highlighted the system’s simplicity and efficiency.Most importantly, GlobalLY saves each station manager more than 10 hours of manual work every week - optimizing time and costs across El Al’s global operations.`,
     content: {
       images: [
         './../../assets/elal-globaly/hero.png',
