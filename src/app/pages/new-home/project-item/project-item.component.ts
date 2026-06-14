@@ -28,6 +28,14 @@ export class ProjectItemComponent {
 
   constructor(private router: Router) {}
 
+  /**
+   * A project with no link is still in development / not published yet. We use
+   * this to show a "Coming soon" overlay and to disable navigation.
+   */
+  get comingSoon(): boolean {
+    return !this.projectLink || this.projectLink.trim() === '';
+  }
+
   private isMobile(): boolean {
     return window.innerWidth <= 768;
   }
@@ -35,6 +43,11 @@ export class ProjectItemComponent {
   onProjectClick(event: Event) {
     event.preventDefault();
     event.stopPropagation();
+
+    // Project not published yet: ignore clicks, the overlay explains why.
+    if (this.comingSoon) {
+      return;
+    }
     
     if (this.isMobile() && this.projectElement) {
       // Mobile: emit the cover IMAGE rect so the home page can morph it into

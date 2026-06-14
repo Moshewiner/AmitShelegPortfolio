@@ -14,6 +14,7 @@
   }
 
   .project-image {
+    position: relative;
     width: 100%;
     height: auto;
     display: flex;
@@ -36,6 +37,68 @@
       }
     }
   
+  }
+
+  // "Coming soon" projects (no link yet): not clickable, and a dim overlay with
+  // a message fades in on hover/focus.
+  &.coming-soon {
+    cursor: default;
+
+    .project-image {
+      &:hover img {
+        transform: none; // no zoom on a project you can't open yet
+      }
+    }
+
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(23, 23, 23, 0.55);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transform: translateY(8px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .coming-soon-icon {
+      flex-shrink: 0;
+    }
+
+    &:hover,
+    &:focus-within {
+      .coming-soon-overlay {
+        opacity: 1;
+      }
+      .coming-soon-badge {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .coming-soon-badge {
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+    }
   }
 
   .project-info {

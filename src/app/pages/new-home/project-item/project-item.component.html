@@ -1,9 +1,24 @@
 <div class="project-item" 
      [class.animating]="active"
+     [class.coming-soon]="comingSoon"
      #projectElement 
      (click)="onProjectClick($event)">
   <div class="project-image">
     <img [src]="projectImage" alt="{{ projectName }}" />
+
+    @if (comingSoon) {
+      <div class="coming-soon-overlay" aria-hidden="true">
+        <div class="coming-soon-badge">
+          <svg class="coming-soon-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+            <path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Coming soon</span>
+        </div>
+      </div>
+    }
   </div>
   
   <div class="project-info">
@@ -11,9 +26,11 @@
     <div class="title">
       <div [innerHTML]="title | noBreak"></div>
     </div>
-    <div class="project-link">
-        <span class="read-more">View More</span>
-        <span class="arrow"><img src="/assets/new-home/arrow.svg" alt="arrow" /></span>
-    </div>
+    @if (!comingSoon) {
+      <div class="project-link">
+          <span class="read-more">View More</span>
+          <span class="arrow"><img src="/assets/new-home/arrow.svg" alt="arrow" /></span>
+      </div>
+    }
   </div>
 </div>
