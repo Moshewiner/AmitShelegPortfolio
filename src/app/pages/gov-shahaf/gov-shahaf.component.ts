@@ -33,6 +33,7 @@ export class GovShahafComponent {
         '../../../assets/Shahaf-gov/04BF.png',
         '../../../assets/Shahaf-gov/05DB.png',
         '../../../assets/Shahaf-gov/06CM.png',
+        '../../../assets/Shahaf-gov/07Web.png',
       ]
     }
   };
