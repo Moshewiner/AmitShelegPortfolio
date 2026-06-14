@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-applied-materials',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './applied-materials.component.html',
-  styleUrl: './applied-materials.component.scss'
+    selector: 'app-applied-materials',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './applied-materials.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './applied-materials.component.scss'
 })
 export class AppliedMaterialsComponent {
 

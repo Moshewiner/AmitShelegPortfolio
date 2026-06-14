@@ -1,19 +1,18 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
-  selector: 'app-new-header',
-  templateUrl: './new-header.component.html',
-  styleUrls: ['./new-header.component.scss'],
-  // tslint:disable-next-line:no-host-metadata-property
-  host: {
-    class: 'navbar',
-    '[class.expanded]': 'isExpanded'
-  },
-  changeDetection: ChangeDetectionStrategy.Default,
-  standalone: true,
-  imports: [RouterModule, CommonModule]
+    selector: 'app-new-header',
+    templateUrl: './new-header.component.html',
+    styleUrls: ['./new-header.component.scss'],
+    // tslint:disable-next-line:no-host-metadata-property
+    host: {
+        class: 'navbar',
+        '[class.expanded]': 'isExpanded'
+    },
+    changeDetection: ChangeDetectionStrategy.Eager,
+    imports: [RouterModule]
 })
 export class NewHeaderComponent implements OnInit {
   public isExpanded = false;

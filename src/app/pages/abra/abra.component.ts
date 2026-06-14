@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-abra',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './abra.component.html',
-  styleUrl: './abra.component.scss'
+    selector: 'app-abra',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './abra.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './abra.component.scss'
 })
 export class AbraComponent {
 

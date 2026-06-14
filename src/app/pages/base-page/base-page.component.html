@@ -1,9 +1,21 @@
 <div class="hero">
-  <div class="heading" [innerHTML]="project.title | noBreak"></div>
-  <div class="description" [innerHTML]="project.description | noBreak"></div>
-  <img class="image" [src]="project.heroImage" />
+  <div class="heading enter-up enter-1" [innerHTML]="project.title | noBreak"></div>
+  <div class="description enter-up enter-2" [innerHTML]="project.description | noBreak"></div>
+  <div
+    class="hero-media"
+    [class.enter-up]="!morphActive"
+    [class.enter-3]="!morphActive"
+    [class.loaded]="heroLoaded">
+    <div class="skeleton" aria-hidden="true"></div>
+    <img
+      #heroImage
+      class="image"
+      [class.morph-hidden]="heroHidden"
+      [src]="project.heroImage"
+      (load)="onHeroLoad()" />
+  </div>
 </div>
-<div class="details-container">
+<div class="details-container enter-up enter-4">
   <div class="details">
     <div class="client">
       <div class="title">Client</div>
@@ -24,9 +36,51 @@
   </div>
 </div>
 <div class="content">
-  <img class="image" [src]="image" *ngFor="let image of project.content.images" />
+  @for (image of project.content.images; track image; let i = $index) {
+    <img
+      class="image content-enter"
+      [style.animation-delay.s]="0.05 + (i < 6 ? i : 6) * 0.07"
+      [src]="image"
+      (click)="openLightbox(i)" />
+  }
 </div>
 <div class="thank-you">
   <div class="headline">Thank You</div>
   <div class="subheadline">Let's Talk!</div>
 </div>
+
+@if (lightboxOpen) {
+  <div class="lightbox" (click)="closeLightbox()">
+    <button class="lightbox-close" type="button" aria-label="Close" (click)="closeLightbox(); $event.stopPropagation()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    @if (project.content.images.length > 1) {
+      <button class="lightbox-nav prev" type="button" aria-label="Previous image" (click)="prevImage(); $event.stopPropagation()">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="lightbox-nav next" type="button" aria-label="Next image" (click)="nextImage(); $event.stopPropagation()">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    }
+
+    <img
+      class="lightbox-image"
+      [src]="project.content.images[currentIndex]"
+      (click)="$event.stopPropagation()"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)" />
+
+    @if (project.content.images.length > 1) {
+      <div class="lightbox-counter" (click)="$event.stopPropagation()">
+        {{ currentIndex + 1 }} / {{ project.content.images.length }}
+      </div>
+    }
+  </div>
+}

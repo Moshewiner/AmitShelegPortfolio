@@ -1,5 +1,5 @@
-@import '../../../responsive.scss';
-@import '../../../colors.scss';
+@use '../../../responsive.scss' as *;
+@use '../../../colors.scss' as *;
 
 .modal-backdrop {
   position: fixed;
@@ -32,7 +32,10 @@
       left: 0;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      will-change: transform, top, left, width, height, border-radius;
+      // The modal only fades (opacity); no transform/box-shadow here, so the
+      // full-screen container never casts a ghost edge while scrolling.
+      will-change: opacity;
+      box-shadow: none;
       
       .modal-close {
         position: fixed;
@@ -148,5 +151,5 @@
 }
 
 .modal-content {
-  will-change: transform, opacity;
+  will-change: opacity;
 }

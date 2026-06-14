@@ -1,25 +1,30 @@
-import { Component, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule, Router } from '@angular/router';
+import { NoBreakPipe } from '../../../pipes/no-break.pipe';
 
 @Component({
-  selector: 'app-project-item',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './project-item.component.html',
-  styleUrl: './project-item.component.scss'
+    selector: 'app-project-item',
+    imports: [RouterModule, NoBreakPipe],
+    templateUrl: './project-item.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './project-item.component.scss'
 })
 export class ProjectItemComponent {
   @Input() projectName: string = '';
   @Input() projectImage: string = '';
   @Input() projectLink: string = '';
   @Input() title: string = '';
+  /**
+   * Whether this card is the one currently open in the mobile modal. Driven by
+   * the parent off the modal open/close state, so the pressed/dimmed look is
+   * cleared deterministically on close (never a leftover blur).
+   */
+  @Input() active = false;
   
   @Output() projectClick = new EventEmitter<{link: string, rect: DOMRect}>();
 
   @ViewChild('projectElement') projectElement!: ElementRef;
-
-  public isAnimating = false;
 
   constructor(private router: Router) {}
 
@@ -32,18 +37,13 @@ export class ProjectItemComponent {
     event.stopPropagation();
     
     if (this.isMobile() && this.projectElement) {
-      // Add visual feedback
-      this.isAnimating = true;
-      
-      const rect = this.projectElement.nativeElement.getBoundingClientRect();
+      // Mobile: emit the cover IMAGE rect so the home page can morph it into
+      // the project page hero. The parent flips `active` for the pressed look.
+      const imageEl = this.projectElement.nativeElement.querySelector('.project-image') as HTMLElement | null;
+      const rect = (imageEl ?? this.projectElement.nativeElement).getBoundingClientRect();
       this.projectClick.emit({link: this.projectLink, rect});
-      
-      // Reset animation state after a delay
-      setTimeout(() => {
-        this.isAnimating = false;
-      }, 2200);
     } else {
-      // Use Angular Router for proper navigation on desktop
+      // Desktop: navigate normally via the Router (no shared-element morph).
       this.router.navigate([this.projectLink]);
     }
   }

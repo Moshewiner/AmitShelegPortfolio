@@ -1,10 +1,10 @@
-@import "./assets/Fonts/Poppins/poppins.scss";
+@use "./responsive.scss" as *;
+@use "./colors.scss" as *;
+@use "./assets/Fonts/Poppins/poppins.scss" as *;
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Imprima&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
-// @import "./scrollbar.scss";
-@import "./responsive.scss";
-@import "./colors.scss";
+// @use "./scrollbar.scss" as *;
 
 html,
 body {
@@ -35,6 +35,21 @@ a {
 .no-break {
   white-space: nowrap;
   display: inline-block;
+}
+
+// Respect users who prefer reduced motion: neutralize transitions/animations
+// everywhere, and make entry-animated content immediately visible (no delay
+// flash) so nothing is ever stuck invisible.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @font-face {

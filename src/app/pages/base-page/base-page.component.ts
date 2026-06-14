@@ -1,17 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit, OnDestroy, AfterViewInit, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
 
 
 @Component({
-  selector: 'app-base-page',
-  standalone: true,
-  imports: [CommonModule, RouterModule, NoBreakPipe],
-  templateUrl: './base-page.component.html',
-  styleUrl: './base-page.component.scss'
+    selector: 'app-base-page',
+    imports: [RouterModule, NoBreakPipe],
+    templateUrl: './base-page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './base-page.component.scss'
 })
-export class BasePageComponent implements OnInit {
+export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() project = {
     title: 'Base Title',
@@ -29,11 +29,230 @@ export class BasePageComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  /**
+   * Mobile shared-element morph: when set (by the home page modal), a fixed
+   * clone of the tapped cover image flies from `morphFromRect` into this page's
+   * hero image, then crossfades to the real hero. Unset on desktop router
+   * pages, where the hero just plays its normal entry animation.
+   */
+  @Input() morphFromRect: DOMRect | null = null;
+  @Input() morphFromSrc: string | null = null;
+
+  lightboxOpen = false;
+  currentIndex = 0;
+
+  /** Drives the hero shimmer skeleton; flips true once the hero image paints. */
+  heroLoaded = false;
+  /** True while the morph clone is flying in; keeps the real hero hidden. */
+  morphActive = false;
+  /** Hides the real hero (opacity 0) until the clone reaches it. */
+  heroHidden = false;
+
+  @ViewChild('heroImage') heroImageRef?: ElementRef<HTMLImageElement>;
+
+  private touchStartX = 0;
+  private touchStartY = 0;
+
+  private morphClone: HTMLImageElement | null = null;
+  private morphStarted = false;
+  private destroyed = false;
+  private morphFallback: ReturnType<typeof setTimeout> | null = null;
+  /** Scrollable ancestors locked for the morph duration (restored after). */
+  private scrollLocks: { el: HTMLElement; prev: string }[] = [];
+
+  constructor(private cdr: ChangeDetectorRef, private el: ElementRef<HTMLElement>) { }
+
+  private prefersReducedMotion(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
 
   ngOnInit(): void {
-    // Scroll to top when the base page component initializes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.morphActive =
+      !!this.morphFromRect && !!this.morphFromSrc && !this.prefersReducedMotion();
+
+    if (this.morphActive) {
+      // Hold the real hero hidden and spawn the flying clone over the card.
+      this.heroHidden = true;
+      this.createMorphClone();
+      // Safety net so the hero is never stuck hidden if 'load' never fires.
+      this.morphFallback = setTimeout(() => this.finishMorph(), 2500);
+    } else {
+      // Full-page (desktop) behavior: jump to top INSTANTLY so it never
+      // animates against (and fights) the hero entry animation.
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }
+
+  ngAfterViewInit(): void {
+    // Lock scrolling for the whole morph so the fixed clone and the (scrollable)
+    // hero/card never drift apart mid-flight.
+    if (this.morphActive) {
+      this.lockScroll();
+    }
+
+    const img = this.heroImageRef?.nativeElement;
+    // Cached images can fire 'load' before the binding is attached, which would
+    // otherwise leave the skeleton up (or the hero hidden) forever.
+    if (img && img.complete && img.naturalWidth > 0) {
+      this.heroLoaded = true;
+      if (this.morphActive) {
+        requestAnimationFrame(() => this.runMorph());
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    document.body.style.overflow = '';
+    this.destroyed = true;
+    this.cleanupMorph();
+  }
+
+  onHeroLoad(): void {
+    this.heroLoaded = true;
+    if (this.morphActive) {
+      requestAnimationFrame(() => this.runMorph());
+    }
+  }
+
+  private createMorphClone(): void {
+    const rect = this.morphFromRect;
+    if (!rect || !this.morphFromSrc) {
+      return;
+    }
+    const clone = document.createElement('img');
+    clone.src = this.morphFromSrc;
+    clone.alt = '';
+    clone.setAttribute('aria-hidden', 'true');
+
+    const s = clone.style;
+    s.position = 'fixed';
+    s.top = `${rect.top}px`;
+    s.left = `${rect.left}px`;
+    s.width = `${rect.width}px`;
+    s.height = `${rect.height}px`;
+    s.margin = '0';
+    s.padding = '0';
+    s.objectFit = 'cover';
+    s.borderRadius = '16px';
+    s.zIndex = '99999';
+    s.pointerEvents = 'none';
+    s.transformOrigin = 'top left';
+    // Only transform + opacity animate, so the clone stays on the compositor.
+    s.willChange = 'transform, opacity';
+    // Promote to its own GPU layer to avoid repaints during the flight.
+    s.transform = 'translateZ(0)';
+    s.backfaceVisibility = 'hidden';
+
+    document.body.appendChild(clone);
+    this.morphClone = clone;
+  }
+
+  private runMorph(): void {
+    if (this.morphStarted || this.destroyed) {
+      return;
+    }
+    const clone = this.morphClone;
+    const heroImg = this.heroImageRef?.nativeElement;
+    const from = this.morphFromRect;
+    if (!clone || !heroImg || !from) {
+      this.finishMorph();
+      return;
+    }
+
+    const to = heroImg.getBoundingClientRect();
+    if (!to.width || !to.height) {
+      this.finishMorph();
+      return;
+    }
+    this.morphStarted = true;
+
+    const dx = to.left - from.left;
+    const dy = to.top - from.top;
+    const sx = to.width / from.width;
+    const sy = to.height / from.height;
+
+    // Animate ONLY compositor-friendly properties (transform via translate3d +
+    // scale3d). border-radius is left static so there are no per-frame repaints.
+    const flight = clone.animate(
+      [
+        { transform: 'translate3d(0px, 0px, 0) scale3d(1, 1, 1)' },
+        { transform: `translate3d(${dx}px, ${dy}px, 0) scale3d(${sx}, ${sy}, 1)` },
+      ],
+      { duration: 560, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' }
+    );
+
+    flight.onfinish = () => {
+      // Reveal the real hero, then fade the clone out over it. The home preview
+      // and the modal hero are the same image, so the swap is seamless.
+      this.revealHero();
+      const fade = clone.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 220,
+        easing: 'ease',
+        fill: 'forwards',
+      });
+      fade.onfinish = () => this.cleanupMorph();
+    };
+  }
+
+  /** Make the real hero visible (used at crossfade time and as a fallback). */
+  private revealHero(): void {
+    this.heroHidden = false;
+    const img = this.heroImageRef?.nativeElement;
+    if (img) {
+      img.style.transition = 'opacity 240ms ease';
+      img.style.opacity = '1';
+    }
+    if (!this.destroyed) {
+      this.cdr.detectChanges();
+    }
+  }
+
+  /** Bail out of the morph and guarantee the hero is shown. */
+  private finishMorph(): void {
+    this.morphStarted = true;
+    this.morphActive = false;
+    this.revealHero();
+    this.cleanupMorph();
+  }
+
+  private cleanupMorph(): void {
+    if (this.morphFallback) {
+      clearTimeout(this.morphFallback);
+      this.morphFallback = null;
+    }
+    if (this.morphClone && this.morphClone.parentNode) {
+      this.morphClone.parentNode.removeChild(this.morphClone);
+    }
+    this.morphClone = null;
+    // Always release the scroll lock, on every end path (finish/fallback/destroy).
+    this.unlockScroll();
+  }
+
+  /** Lock scrollable ancestors (e.g. the modal body) for the morph duration. */
+  private lockScroll(): void {
+    if (this.scrollLocks.length) {
+      return;
+    }
+    let node: HTMLElement | null = this.el.nativeElement.parentElement;
+    while (node) {
+      const overflowY = getComputedStyle(node).overflowY;
+      if (overflowY === 'auto' || overflowY === 'scroll') {
+        this.scrollLocks.push({ el: node, prev: node.style.overflow });
+        node.style.overflow = 'hidden';
+      }
+      node = node.parentElement;
+    }
+  }
+
+  private unlockScroll(): void {
+    for (const lock of this.scrollLocks) {
+      lock.el.style.overflow = lock.prev;
+    }
+    this.scrollLocks = [];
   }
 
   // Method to scroll to specific sections if needed
@@ -41,6 +260,75 @@ export class BasePageComponent implements OnInit {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  openLightbox(index: number): void {
+    this.currentIndex = index;
+    this.lightboxOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(): void {
+    this.lightboxOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  nextImage(): void {
+    const total = this.project.content.images.length;
+    this.currentIndex = (this.currentIndex + 1) % total;
+  }
+
+  prevImage(): void {
+    const total = this.project.content.images.length;
+    this.currentIndex = (this.currentIndex - 1 + total) % total;
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].clientX;
+    this.touchStartY = event.changedTouches[0].clientY;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    const deltaX = event.changedTouches[0].clientX - this.touchStartX;
+    const deltaY = event.changedTouches[0].clientY - this.touchStartY;
+    const threshold = 50;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < -threshold) {
+        this.nextImage();
+      } else if (deltaX > threshold) {
+        this.prevImage();
+      }
+    } else {
+      if (deltaY < -threshold) {
+        this.nextImage();
+      } else if (deltaY > threshold) {
+        this.prevImage();
+      }
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent): void {
+    if (!this.lightboxOpen) {
+      return;
+    }
+
+    switch (event.key) {
+      case 'Escape':
+        this.closeLightbox();
+        break;
+      case 'ArrowRight':
+      case 'ArrowDown':
+        event.preventDefault();
+        this.nextImage();
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        event.preventDefault();
+        this.prevImage();
+        break;
     }
   }
 

@@ -1,68 +1,37 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
+
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
-  selector: 'app-modal',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './modal.component.html',
-  styleUrl: './modal.component.scss',
-  animations: [
-    trigger('backdropAnimation', [
-      state('closed', style({ opacity: 0 })),
-      state('open', style({ opacity: 1 })),
-      transition('closed => open', animate('1500ms cubic-bezier(.23,.1,.32,1)')),
-      transition('open => closed', animate('600ms cubic-bezier(.68,-.55,.265,1.55)'))
-    ]),
-    trigger('modalAnimation', [
-      state('closed', style({
-        opacity: 0,
-        transform: 'scale(0.85) translateY(50px)'
-      })),
-      state('open', style({
-        opacity: 1,
-        transform: 'scale(1) translateY(0)'
-      })),
-      transition('closed => open', [
-        style({
-          position: 'fixed',
-          top: '{{ top }}px',
-          left: '{{ left }}px',
-          width: '{{ width }}px',
-          height: '{{ height }}px',
-          borderRadius: '16px',
-          transform: 'scale(1)',
-          transformOrigin: 'center center',
-          opacity: 1,
-          overflow: 'hidden'
-        }),
-        animate('2000ms cubic-bezier(.23,.1,.32,1)', style({
-          top: '0px',
-          left: '0px',
-          width: '100%',
-          height: '100%',
-          borderRadius: '0px',
-          transform: 'scale(1)',
-          opacity: 1,
-          overflow: 'auto'
-        }))
-      ], { params: { top: '50%', left: '50%', width: '300px', height: '200px' } }),
-      transition('open => closed', [
-        animate('800ms cubic-bezier(.68,-.55,.265,1.55)', style({
-          position: 'fixed',
-          top: '{{ top }}px',
-          left: '{{ left }}px',
-          width: '{{ width }}px',
-          height: '{{ height }}px',
-          borderRadius: '16px',
-          transform: 'scale(0.95)',
-          opacity: 0,
-          overflow: 'hidden'
-        }))
-      ], { params: { top: '50%', left: '50%', width: '300px', height: '200px' } })
-    ])
-  ]
+    selector: 'app-modal',
+    imports: [],
+    templateUrl: './modal.component.html',
+    styleUrl: './modal.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    animations: [
+        // The shared-element morph (a flying clone of the cover image into the
+        // hero) is owned by the base page. The modal itself just fades the
+        // backdrop and content in/out so the morph target stays stable.
+        trigger('backdropAnimation', [
+            state('closed', style({ opacity: 0 })),
+            state('open', style({ opacity: 1 })),
+            transition('closed => open', animate('320ms cubic-bezier(.23,.1,.32,1)')),
+            transition('open => closed', animate('260ms ease'))
+        ]),
+        trigger('modalAnimation', [
+            state('closed', style({ opacity: 0 })),
+            state('open', style({ opacity: 1 })),
+            // Opacity-only (no transform) so the morph's hero target rect, which
+            // is measured inside this container, is never distorted by a scale.
+            transition('closed => open', [
+                style({ opacity: 0 }),
+                animate('320ms cubic-bezier(.23,.1,.32,1)')
+            ]),
+            transition('open => closed', [
+                animate('240ms ease', style({ opacity: 0 }))
+            ])
+        ])
+    ]
 })
 export class ModalComponent implements OnInit, OnDestroy, OnChanges {
   @Input() isOpen = false;

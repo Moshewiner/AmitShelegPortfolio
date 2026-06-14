@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-clalit',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './clalit.component.html',
-  styleUrl: './clalit.component.scss'
+    selector: 'app-clalit',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './clalit.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './clalit.component.scss'
 })
 export class ClalitComponent {
 

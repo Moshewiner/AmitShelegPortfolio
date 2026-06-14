@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-elal-cargo',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './elal-cargo.component.html',
-  styleUrl: './elal-cargo.component.scss'
+    selector: 'app-elal-cargo',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './elal-cargo.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './elal-cargo.component.scss'
 })
 export class ElalCargoComponent {
 
@@ -22,8 +22,15 @@ export class ElalCargoComponent {
     introduction: `El Al Cargo specializes in transporting a wide variety of commercial shipments worldwide, offering unique, end-to-end solutions for every client. From airport pickup to final delivery, the service emphasizes safety, reliability, and a personal touch.<br /><br />My role involved leading the redesign of El Al Cargo’s website, along with creating a new native mobile app. Focusing on UX strategy, I improved key flows and crafted a clean, intuitive interface that follows the brand’s visual identity. The product was developed in-house through close collaboration between the design and development team, working directly with project managers and El Al Cargo’s stakeholders.`,
     content: {
       images: [
-        '../../../assets/Cargo/preview.png',
-        '../../../assets/Cargo/wide.png'
+        '../../../assets/Cargo/01HP.png',
+        '../../../assets/Cargo/02SR.png',
+        '../../../assets/Cargo/03HP-BA.png',
+        '../../../assets/Cargo/04FS-BA.png',
+        '../../../assets/Cargo/05CP.png',
+        '../../../assets/Cargo/06BI.png',
+        '../../../assets/Cargo/07DS.png',
+        '../../../assets/Cargo/08Web.png',
+        '../../../assets/Cargo/09App.png'
       ]
     }
   };

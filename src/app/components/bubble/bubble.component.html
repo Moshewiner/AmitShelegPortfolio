@@ -1,3 +1,7 @@
-<img *ngIf="direction != 'rtl' " src="../../../assets/beauty-zone/Speaking%20Bubble%20Left%20(1).svg"/>
-<img *ngIf="direction =='rtl'" src="../../../assets/beauty-zone/Speaking%20Bubble%20Right%20(1).svg"/>
+@if (direction != 'rtl' ) {
+  <img src="../../../assets/beauty-zone/Speaking%20Bubble%20Left%20(1).svg"/>
+}
+@if (direction =='rtl') {
+  <img src="../../../assets/beauty-zone/Speaking%20Bubble%20Right%20(1).svg"/>
+}
 <span class="text">{{text}}</span>

@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-gov-onboarding',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './gov-onboarding.component.html',
-  styleUrl: './gov-onboarding.component.scss'
+    selector: 'app-gov-onboarding',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './gov-onboarding.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './gov-onboarding.component.scss'
 })
 export class GovOnboardingComponent {
 

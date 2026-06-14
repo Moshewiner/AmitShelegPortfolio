@@ -1,5 +1,5 @@
 <div class="project-item" 
-     [class.animating]="isAnimating"
+     [class.animating]="active"
      #projectElement 
      (click)="onProjectClick($event)">
   <div class="project-image">
@@ -9,7 +9,7 @@
   <div class="project-info">
     <div class="name">{{ projectName }}</div>
     <div class="title">
-      <div>{{ title }}</div>
+      <div [innerHTML]="title | noBreak"></div>
     </div>
     <div class="project-link">
         <span class="read-more">View More</span>

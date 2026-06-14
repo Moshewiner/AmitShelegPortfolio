@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-ram-aderet',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './ram-aderet.component.html',
-  styleUrl: './ram-aderet.component.scss'
+    selector: 'app-ram-aderet',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './ram-aderet.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './ram-aderet.component.scss'
 })
 export class RamAderetComponent {
 

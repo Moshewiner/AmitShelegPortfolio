@@ -1,5 +1,5 @@
-@import "./typography.scss";
-@import "../../../responsive.scss";
+@use "./typography.scss" as *;
+@use "../../../responsive.scss" as *;
 
 
 $gridWidth: 73%;
@@ -8,6 +8,47 @@ $mobileGridWidth: calc(100% - 32px); //92%;
 $marginSize: calc((100% - $gridWidth) / 2);
 $mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
 $cell: calc($gridWidth / 12);
+
+// Staggered entry animation for the hero ("I'm Amit") block.
+.hero-enter {
+  animation: home-hero-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-enter-2 {
+  animation-delay: 0.18s;
+}
+
+.hero-enter-3 {
+  animation-delay: 0.3s;
+}
+
+.hero-enter-4 {
+  animation-delay: 0.42s;
+}
+
+@keyframes home-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Project cards animate in immediately on load (one-shot, staggered via an
+// inline animation-delay). They are NOT gated behind scroll, so the cards and
+// their cover images are always present and never stuck invisible.
+.card-enter {
+  display: block;
+  animation: home-hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
 :host {
   // * {
@@ -110,6 +151,22 @@ $cell: calc($gridWidth / 12);
           pointer-events: none;
         }
 
+        @media (max-width: 768px) {
+          .top-circle {
+            width: 158px;
+            height: 158px;
+            top: -54.1px;
+            left: 275.98px;
+          }
+  
+          .bottom-circle {
+            width: 216px;
+            height: 216px;
+            top: 520px;
+            left: -71px;
+            opacity: 0.5;
+          }
+        }
 
 
         .hello {
@@ -188,7 +245,8 @@ $cell: calc($gridWidth / 12);
           .logo-track {
             display: flex;
             align-items: space-between;
-            animation: scrollLeft 40s linear infinite;
+            width: max-content;
+            animation: scrollLeft 13s linear infinite;
 
             .logo-item {
               display: flex;
@@ -219,7 +277,7 @@ $cell: calc($gridWidth / 12);
           }
 
           100% {
-            transform: translateX(-33.33%);
+            transform: translateX(calc(-100% / 3));
           }
         }
 
@@ -234,6 +292,7 @@ $cell: calc($gridWidth / 12);
 
             .logo-track {
               animation: none; // Remove carousel animation
+              width: 100%; // Restore full width for fixed space-between layout
               justify-content: space-between;
               gap: 48px; // Minimum 48px gap between logos
 
@@ -274,8 +333,8 @@ $cell: calc($gridWidth / 12);
 
       .right-gradient {
         background: linear-gradient(45deg, #FF346B 5.85%, rgba(255, 203, 20, 0.3) 100%);
-        width: 325px;
-        height: 325px;
+        width: 158px;
+        height: 158px;
         top: 0;
         margin-top: 36px;
         right: -60px;
@@ -290,8 +349,8 @@ $cell: calc($gridWidth / 12);
 
       .left-gradient {
         background: linear-gradient(135deg, #FE8484 16%, rgba(255, 203, 20, 0.2) 84%);
-        width: 445px;
-        height: 445px;
+        width: 215px;
+        height: 215px;
         bottom: 24px;
         left: -32px;
         position: absolute;

@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-vonoteam',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './vonoteam.component.html',
-  styleUrl: './vonoteam.component.scss'
+    selector: 'app-vonoteam',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './vonoteam.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './vonoteam.component.scss'
 })
 export class VonoteamComponent {
 

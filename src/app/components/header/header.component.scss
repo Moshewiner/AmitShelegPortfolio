@@ -1,4 +1,5 @@
-@import '../../../responsive.scss';
+@use '../../../responsive.scss' as *;
+@use '../../../colors.scss' as *;
 
 :host {
   position: fixed;
@@ -23,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    color: black;
+    color: $black;
 
     .menu-items {
       display: flex;

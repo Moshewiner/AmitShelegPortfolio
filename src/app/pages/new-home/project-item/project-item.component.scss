@@ -1,4 +1,4 @@
-@import '../typography.scss';
+@use '../typography.scss' as *;
 
 .project-item {
   display: flex;

@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-gov-shahaf',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './gov-shahaf.component.html',
-  styleUrl: './gov-shahaf.component.scss'
+    selector: 'app-gov-shahaf',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './gov-shahaf.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './gov-shahaf.component.scss'
 })
 export class GovShahafComponent {
 
@@ -27,7 +27,12 @@ export class GovShahafComponent {
 `,
     content: {
       images: [
-        './../../assets/Shahaf-gov/shahaf-preview.png',
+        '../../../assets/Shahaf-gov/01MT.png',
+        '../../../assets/Shahaf-gov/02BC.png',
+        '../../../assets/Shahaf-gov/03BD.png',
+        '../../../assets/Shahaf-gov/04BF.png',
+        '../../../assets/Shahaf-gov/05DB.png',
+        '../../../assets/Shahaf-gov/06CM.png',
       ]
     }
   };

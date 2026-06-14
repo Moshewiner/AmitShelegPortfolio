@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
 
 @Component({
-  selector: 'app-cellcom-poc',
-  standalone: true,
-  imports: [CommonModule, RouterModule, BasePageComponent],
-  templateUrl: './cellcom-poc.component.html',
-  styleUrl: './cellcom-poc.component.scss'
+    selector: 'app-cellcom-poc',
+    imports: [RouterModule, BasePageComponent],
+    templateUrl: './cellcom-poc.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './cellcom-poc.component.scss'
 })
 export class CellcomPocComponent {
 

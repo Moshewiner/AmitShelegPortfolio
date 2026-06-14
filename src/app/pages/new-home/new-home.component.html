@@ -1,14 +1,14 @@
 <div id="home-main" class="screen main" #main>
   <div class="content">
     <img class="top-circle" src="/assets/new-home/top-circle.svg" />
-    <div class="hello">
+    <div class="hello hero-enter hero-enter-1">
       <img src="/assets/new-home/hello.svg" />
     </div>
     <div class="title">
-      <div class="headline"><span class="gradient">I'm Amit</span></div> <!--TODO: add animation for entry-->
-      <span class="sub-headline">Product Designer</span>
+      <div class="headline hero-enter hero-enter-2"><span class="gradient">I'm Amit</span></div>
+      <span class="sub-headline hero-enter hero-enter-3">Product Designer</span>
     </div>
-    <div class="subtitle">
+    <div class="subtitle hero-enter hero-enter-4">
       <span class="text">
         Enjoying creating awesome design solutions for people who appreciate pixel-perfect design and a genuine love for
         user experience.
@@ -19,17 +19,23 @@
   <div class="strip">
     <div class="logo-carousel">
       <div class="logo-track">
-        <div class="logo-item" *ngFor="let logo of logoImages">
-          <img [src]="logo.src" [alt]="logo.alt" />
-        </div>
+        @for (logo of logoImages; track logo) {
+          <div class="logo-item">
+            <img [src]="logo.src" [alt]="logo.alt" />
+          </div>
+        }
         <!-- Duplicate logos for seamless infinite scroll -->
-        <div class="logo-item" *ngFor="let logo of logoImages">
-          <img [src]="logo.src" [alt]="logo.alt" />
-        </div>
+        @for (logo of logoImages; track logo) {
+          <div class="logo-item">
+            <img [src]="logo.src" [alt]="logo.alt" />
+          </div>
+        }
         <!-- Third set for extra smoothness -->
-        <div class="logo-item" *ngFor="let logo of logoImages">
-          <img [src]="logo.src" [alt]="logo.alt" />
-        </div>
+        @for (logo of logoImages; track logo) {
+          <div class="logo-item">
+            <img [src]="logo.src" [alt]="logo.alt" />
+          </div>
+        }
       </div>
     </div>
   </div>
@@ -39,23 +45,33 @@
 
 <div id="home-projects" class="screen projects">
   <div class="column">
-    <app-project-item *ngFor="let project of leftColumnProjects"
-      [projectName]="project.name"
-      [projectImage]="project.image"
-      [projectLink]="project.link"
-      [title]="project.title"
-      (projectClick)="onProjectClick($event)"
-    ></app-project-item>
+    @for (project of leftColumnProjects; track project; let i = $index) {
+      <app-project-item
+        class="card-enter"
+        [style.animation-delay.s]="0.1 + i * 0.12"
+        [projectName]="project.name"
+        [projectImage]="project.image"
+        [projectLink]="project.link"
+        [title]="project.title"
+        [active]="project.link === activeLink"
+        (projectClick)="onProjectClick($event)"
+      ></app-project-item>
+    }
   </div>
-  
+
   <div class="column">
-    <app-project-item *ngFor="let project of rightColumnProjects"
-      [projectName]="project.name"
-      [projectImage]="project.image"
-      [projectLink]="project.link"
-      [title]="project.title"
-      (projectClick)="onProjectClick($event)"
-    ></app-project-item>
+    @for (project of rightColumnProjects; track project; let i = $index) {
+      <app-project-item
+        class="card-enter"
+        [style.animation-delay.s]="0.16 + i * 0.12"
+        [projectName]="project.name"
+        [projectImage]="project.image"
+        [projectLink]="project.link"
+        [title]="project.title"
+        [active]="project.link === activeLink"
+        (projectClick)="onProjectClick($event)"
+      ></app-project-item>
+    }
   </div>
 </div>
 
@@ -65,12 +81,15 @@
 </div>
 
 <!-- Project Modal for Mobile -->
-<app-modal 
-  [isOpen]="isModalOpen" 
+<app-modal
+  [isOpen]="isModalOpen"
   [itemRect]="selectedRect"
   (closeModal)="onCloseModal()">
-  <app-base-page 
-    *ngIf="selectedProject" 
-    [project]="selectedProject">
-  </app-base-page>
+  @if (selectedProject) {
+    <app-base-page
+      [project]="selectedProject"
+      [morphFromRect]="selectedRect"
+      [morphFromSrc]="selectedProject.heroImage">
+    </app-base-page>
+  }
 </app-modal>
