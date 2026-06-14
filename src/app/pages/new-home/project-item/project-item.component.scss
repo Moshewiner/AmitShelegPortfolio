@@ -84,7 +84,8 @@
     }
 
     &:hover,
-    &:focus-within {
+    &:focus-within,
+    &.coming-soon-revealed {
       .coming-soon-overlay {
         opacity: 1;
       }
@@ -97,6 +98,25 @@
       .coming-soon-badge {
         font-size: 13px;
         padding: 8px 14px;
+      }
+
+      // No hover on touch: only an explicit tap (.coming-soon-revealed) reveals
+      // the overlay, so it doesn't get stuck on after the first tap.
+      &:hover .coming-soon-overlay,
+      &:focus-within .coming-soon-overlay {
+        opacity: 0;
+      }
+      &:hover .coming-soon-badge,
+      &:focus-within .coming-soon-badge {
+        transform: translateY(8px) scale(0.96);
+      }
+      &.coming-soon-revealed {
+        .coming-soon-overlay {
+          opacity: 1;
+        }
+        .coming-soon-badge {
+          transform: translateY(0) scale(1);
+        }
       }
     }
   }

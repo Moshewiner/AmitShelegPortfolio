@@ -36,6 +36,12 @@ export class ProjectItemComponent {
     return !this.projectLink || this.projectLink.trim() === '';
   }
 
+  /**
+   * On mobile there's no hover, so a tap toggles the "Coming soon" overlay
+   * instead. On desktop the overlay is driven purely by :hover.
+   */
+  public comingSoonRevealed = false;
+
   private isMobile(): boolean {
     return window.innerWidth <= 768;
   }
@@ -44,8 +50,12 @@ export class ProjectItemComponent {
     event.preventDefault();
     event.stopPropagation();
 
-    // Project not published yet: ignore clicks, the overlay explains why.
+    // Project not published yet: ignore navigation. On mobile, a tap reveals
+    // (and toggles) the overlay since hover isn't available.
     if (this.comingSoon) {
+      if (this.isMobile()) {
+        this.comingSoonRevealed = !this.comingSoonRevealed;
+      }
       return;
     }
     
