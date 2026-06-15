@@ -1,15 +1,28 @@
-import { Component, Input, OnInit, OnDestroy, AfterViewInit, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, AfterViewInit, HostBinding, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 import { RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
+import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 
 
 @Component({
     selector: 'app-base-page',
-    imports: [RouterModule, NoBreakPipe],
+    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective],
     templateUrl: './base-page.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
-    styleUrl: './base-page.component.scss'
+    styleUrl: './base-page.component.scss',
+    animations: [
+      trigger('lightboxFade', [
+        transition(':enter', [
+          style({ opacity: 0 }),
+          animate('220ms ease', style({ opacity: 1 })),
+        ]),
+        transition(':leave', [
+          animate('200ms ease', style({ opacity: 0 })),
+        ]),
+      ]),
+    ],
 })
 export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
@@ -40,6 +53,13 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   lightboxOpen = false;
   currentIndex = 0;
+  /** Slides currently rendered in the lightbox track (1 at rest, 2 during a slide). */
+  slides: { src: string; key: string }[] = [];
+  /** Track transform; switches between two slides to create a carousel scroll. */
+  trackTransform = 'translateX(0)';
+  /** True only while the track is mid-transition (adds the CSS transition). */
+  sliding = false;
+  private pendingIndex: number | null = null;
 
   /** Drives the hero shimmer skeleton; flips true once the hero image paints. */
   heroLoaded = false;
@@ -61,6 +81,10 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   private scrollLocks: { el: HTMLElement; prev: string }[] = [];
 
   constructor(private cdr: ChangeDetectorRef, private el: ElementRef<HTMLElement>) { }
+
+  @HostBinding('@.disabled') get animationsDisabled(): boolean {
+    return this.prefersReducedMotion();
+  }
 
   private prefersReducedMotion(): boolean {
     return (
@@ -265,23 +289,86 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   openLightbox(index: number): void {
     this.currentIndex = index;
+    this.slides = [{ src: this.project.content.images[index], key: 'c' + index }];
+    this.trackTransform = 'translateX(0)';
+    this.sliding = false;
+    this.pendingIndex = null;
     this.lightboxOpen = true;
     document.body.style.overflow = 'hidden';
   }
 
   closeLightbox(): void {
     this.lightboxOpen = false;
+    this.sliding = false;
+    this.pendingIndex = null;
     document.body.style.overflow = '';
   }
 
   nextImage(): void {
     const total = this.project.content.images.length;
-    this.currentIndex = (this.currentIndex + 1) % total;
+    this.slideTo((this.currentIndex + 1) % total, false);
   }
 
   prevImage(): void {
     const total = this.project.content.images.length;
-    this.currentIndex = (this.currentIndex - 1 + total) % total;
+    this.slideTo((this.currentIndex - 1 + total) % total, true);
+  }
+
+  /**
+   * Lays the incoming image next to the current one and translates the whole
+   * track by one slide so they scroll together like a carousel.
+   * `fromLeft` true => incoming sits on the left (used by "next").
+   */
+  private slideTo(incoming: number, fromLeft: boolean): void {
+    if (this.sliding || incoming === this.currentIndex) {
+      return;
+    }
+    const imgs = this.project.content.images;
+
+    if (this.prefersReducedMotion()) {
+      this.currentIndex = incoming;
+      this.slides = [{ src: imgs[incoming], key: 'c' + incoming }];
+      this.trackTransform = 'translateX(0)';
+      this.cdr.detectChanges();
+      return;
+    }
+
+    this.pendingIndex = incoming;
+    if (fromLeft) {
+      this.slides = [
+        { src: imgs[incoming], key: 'in' },
+        { src: imgs[this.currentIndex], key: 'cur' },
+      ];
+      this.trackTransform = 'translateX(-100%)';
+    } else {
+      this.slides = [
+        { src: imgs[this.currentIndex], key: 'cur' },
+        { src: imgs[incoming], key: 'in' },
+      ];
+      this.trackTransform = 'translateX(0)';
+    }
+    this.sliding = false;
+    this.cdr.detectChanges();
+
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        this.sliding = true;
+        this.trackTransform = fromLeft ? 'translateX(0)' : 'translateX(-100%)';
+        this.cdr.detectChanges();
+      })
+    );
+  }
+
+  onSlideTransitionEnd(): void {
+    if (!this.sliding || this.pendingIndex === null) {
+      return;
+    }
+    this.currentIndex = this.pendingIndex;
+    this.pendingIndex = null;
+    this.slides = [{ src: this.project.content.images[this.currentIndex], key: 'c' + this.currentIndex }];
+    this.trackTransform = 'translateX(0)';
+    this.sliding = false;
+    this.cdr.detectChanges();
   }
 
   onTouchStart(event: TouchEvent): void {

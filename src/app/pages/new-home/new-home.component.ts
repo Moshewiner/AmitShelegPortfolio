@@ -1,6 +1,7 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 
 import { ModalComponent } from '../../components/modal/modal.component';
 import { BasePageComponent } from '../base-page/base-page.component';
@@ -24,7 +25,7 @@ interface ModalProject {
     templateUrl: './new-home.component.html',
     styleUrls: ['./new-home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [RouterLink, ProjectItemComponent, ModalComponent, BasePageComponent]
+    imports: [RouterLink, ProjectItemComponent, ModalComponent, BasePageComponent, RevealOnScrollDirective]
 })
 export class NewHomeComponent implements OnInit, AfterViewInit {
   public route: string = '/';

@@ -47,8 +47,8 @@
   <div class="column">
     @for (project of leftColumnProjects; track project; let i = $index) {
       <app-project-item
-        class="card-enter"
-        [style.animation-delay.s]="0.1 + i * 0.12"
+        appRevealOnScroll
+        [revealDelay]="0.1 + i * 0.12"
         [projectName]="project.name"
         [projectImage]="project.image"
         [projectLink]="project.link"
@@ -62,8 +62,8 @@
   <div class="column">
     @for (project of rightColumnProjects; track project; let i = $index) {
       <app-project-item
-        class="card-enter"
-        [style.animation-delay.s]="0.16 + i * 0.12"
+        appRevealOnScroll
+        [revealDelay]="0.16 + i * 0.12"
         [projectName]="project.name"
         [projectImage]="project.image"
         [projectLink]="project.link"

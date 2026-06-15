@@ -38,8 +38,9 @@
 <div class="content">
   @for (image of project.content.images; track image; let i = $index) {
     <img
-      class="image content-enter"
-      [style.animation-delay.s]="0.05 + (i < 6 ? i : 6) * 0.07"
+      class="image"
+      appRevealOnScroll
+      [revealDelay]="0.05 + i * 0.07"
       [src]="image"
       (click)="openLightbox(i)" />
   }
@@ -50,7 +51,7 @@
 </div>
 
 @if (lightboxOpen) {
-  <div class="lightbox" (click)="closeLightbox()">
+  <div class="lightbox" [@lightboxFade] (click)="closeLightbox()">
     <button class="lightbox-close" type="button" aria-label="Close" (click)="closeLightbox(); $event.stopPropagation()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -70,12 +71,24 @@
       </button>
     }
 
-    <img
-      class="lightbox-image"
-      [src]="project.content.images[currentIndex]"
-      (click)="$event.stopPropagation()"
-      (touchstart)="onTouchStart($event)"
-      (touchend)="onTouchEnd($event)" />
+    <div class="lightbox-viewport">
+      <div
+        class="lightbox-track"
+        [class.animating]="sliding"
+        [style.transform]="trackTransform"
+        (transitionend)="onSlideTransitionEnd()">
+        @for (slide of slides; track slide.key) {
+          <div class="lightbox-slide">
+            <img
+              class="lightbox-image"
+              [src]="slide.src"
+              (click)="$event.stopPropagation()"
+              (touchstart)="onTouchStart($event)"
+              (touchend)="onTouchEnd($event)" />
+          </div>
+        }
+      </div>
+    </div>
 
     @if (project.content.images.length > 1) {
       <div class="lightbox-counter" (click)="$event.stopPropagation()">

@@ -50,6 +50,16 @@ $cell: calc($gridWidth / 12);
   animation: home-hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+// Project cards reveal as they scroll into view (via appRevealOnScroll).
+app-project-item.reveal-up {
+  display: block;
+  opacity: 0;
+}
+
+app-project-item.reveal-up.is-revealed {
+  animation: home-hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 :host {
   // * {
   //   border: 3px solid #000;
