@@ -87,8 +87,8 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     },
     { 
       image: '/assets/Routines/preview.png', 
-      name: 'Routines',
-      title: `bla bla bla`, 
+      name: 'ROUTINES.AI',
+      title: `Leading the Design of an Orchestration & Scheduling Platform`, 
       link: '',
     },
     { 
