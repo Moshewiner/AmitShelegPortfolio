@@ -17,8 +17,10 @@ import { RouterModule } from '@angular/router';
 export class NewHeaderComponent implements OnInit {
   public isExpanded = false;
 
-  // TODO: replace with the real CV file URL once provided.
-  public readonly resumeUrl = 'assets/cv.pdf';
+  // Google Drive direct-download URL (the `download` HTML attribute is ignored
+  // cross-origin, so the `uc?export=download` form is what forces the download).
+  public readonly resumeUrl =
+    'https://drive.google.com/uc?export=download&id=1-RQ1U7u0yewrcbXvDka4yUP5zQILBIWY';
 
   public openMenu(): void {
     this.isExpanded = true;
