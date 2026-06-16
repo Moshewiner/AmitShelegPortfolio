@@ -17,6 +17,9 @@ import { RouterModule } from '@angular/router';
 export class NewHeaderComponent implements OnInit {
   public isExpanded = false;
 
+  // TODO: replace with the real CV file URL once provided.
+  public readonly resumeUrl = 'assets/cv.pdf';
+
   public openMenu(): void {
     this.isExpanded = true;
   }

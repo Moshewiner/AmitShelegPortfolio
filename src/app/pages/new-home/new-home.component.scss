@@ -42,6 +42,36 @@ $cell: calc($gridWidth / 12);
   }
 }
 
+// On load: grow the gradient from zero width so the warm color paints in from
+// left to right, while the black background shows through the not-yet-covered part.
+@keyframes hero-text-reveal {
+  from {
+    background-size: 0% auto;
+  }
+
+  to {
+    background-size: 200% auto;
+  }
+}
+
+// Slides the (unchanged) hero gradient across "I'm Amit" for a subtle shimmer.
+@keyframes hero-text-gradient {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 100% center;
+  }
+}
+
+// Respect users who prefer reduced motion: keep the gradient static.
+@media (prefers-reduced-motion: reduce) {
+  .headline .gradient {
+    animation: none;
+  }
+}
+
 // Project cards animate in immediately on load (one-shot, staggered via an
 // inline animation-delay). They are NOT gated behind scroll, so the cards and
 // their cover images are always present and never stuck invisible.
@@ -211,12 +241,25 @@ app-project-item.reveal-up.is-revealed {
 
           .headline .gradient {
             color: transparent;
-            background-clip: text;
-            background:
+            // Black sits behind the gradient (also clipped to the text). While the
+            // gradient layer doesn't cover the text, the black shows through.
+            background-color: $black;
+            background-image:
               linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%),
               linear-gradient(101.32deg, #FD5129 -2.69%, #FF833D 25.27%, #FF8E16 63.08%, #FFCA10 98.68%);
 
+            // Oversize the gradient so there is room to slide it across the text,
+            // and never tile it so the black can show during the reveal.
+            background-repeat: no-repeat;
+            background-size: 200% auto;
+            background-position: 0% center;
+            -webkit-background-clip: text;
             background-clip: text;
+            // 1) Paint the color in from left to right once on load, then
+            // 2) hand off to the continuous gradient shimmer.
+            animation:
+              hero-text-reveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both,
+              hero-text-gradient 2s ease-in-out 2.3s infinite alternate;
           }
         }
 
