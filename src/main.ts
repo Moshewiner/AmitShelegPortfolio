@@ -1,20 +1,5 @@
-import { provideZoneChangeDetection } from "@angular/core";
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, withInMemoryScrolling, withHashLocation } from '@angular/router';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { routes } from './app/app.routes';
+import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideZoneChangeDetection(),provideAnimations(),
-    provideRouter(
-      routes,
-      withInMemoryScrolling({
-        scrollPositionRestoration: 'enabled',  // Enables scroll position restoration
-        anchorScrolling: 'enabled'            // Enables anchor scrolling
-      }),
-      withHashLocation()  // Optional: Use only if you want hash-based navigation
-    )
-  ]
-}).catch(err => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));

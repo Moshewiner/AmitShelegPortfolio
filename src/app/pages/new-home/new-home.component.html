@@ -80,16 +80,19 @@
   <div class="subheadline">Let's Talk!</div>
 </div>
 
-<!-- Project Modal for Mobile -->
-<app-modal
-  [isOpen]="isModalOpen"
-  [itemRect]="selectedRect"
-  (closeModal)="onCloseModal()">
-  @if (selectedProject) {
-    <app-base-page
-      [project]="selectedProject"
-      [morphFromRect]="selectedRect"
-      [morphFromSrc]="selectedProject.heroImage">
-    </app-base-page>
-  }
-</app-modal>
+<!-- Project Modal for Mobile. Deferred so its (heavy) base-page code is not in
+     the initial home bundle; it loads on first interaction/open instead. -->
+@defer (when isModalOpen; prefetch on idle) {
+  <app-modal
+    [isOpen]="isModalOpen"
+    [itemRect]="selectedRect"
+    (closeModal)="onCloseModal()">
+    @if (selectedProject) {
+      <app-base-page
+        [project]="selectedProject"
+        [morphFromRect]="selectedRect"
+        [morphFromSrc]="selectedProject.heroImage">
+      </app-base-page>
+    }
+  </app-modal>
+}

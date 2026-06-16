@@ -1,4 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  PLATFORM_ID,
+  inject,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 
@@ -16,6 +23,8 @@ import { RouterModule } from '@angular/router';
 })
 export class NewHeaderComponent implements OnInit {
   public isExpanded = false;
+
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   // Google Drive direct-download URL (the `download` HTML attribute is ignored
   // cross-origin, so the `uc?export=download` form is what forces the download).
@@ -35,6 +44,11 @@ export class NewHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Browser-only: hide the fixed header on scroll-down, show on scroll-up.
+    // Guarded so it never runs during server-side prerendering.
+    if (!this.isBrowser) {
+      return;
+    }
     // TODO: mobile support (disable this logic on mobile)
     let prevScrollpos = window.pageYOffset;
     // tslint:disable-next-line:only-arrow-functions

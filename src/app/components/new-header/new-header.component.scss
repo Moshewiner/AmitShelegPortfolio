@@ -145,6 +145,9 @@
       width: calc(100% - 32px);
       padding: 8px 8px 8px 16px;
       overflow: visible;
+      // Background is opaque white here, so the blur is invisible yet forces an
+      // expensive per-frame backdrop capture on mobile GPUs. Drop it.
+      backdrop-filter: none;
 
       .logo-blur .logo {
         height: 28px;
@@ -235,7 +238,6 @@
         left: 0;
         right: 0;
         background: #ffffff;
-        backdrop-filter: blur(18px);
         border: 1px solid rgba(0, 0, 0, 0.06);
         border-radius: 20px;
         padding: 8px;

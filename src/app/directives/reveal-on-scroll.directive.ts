@@ -21,6 +21,8 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
   @Input() revealVariant: 'up' | 'fade' = 'up';
 
   private observer?: IntersectionObserver;
+  private fallbackTimer?: ReturnType<typeof setTimeout>;
+  private revealed = false;
 
   ngOnInit(): void {
     const element = this.el.nativeElement;
@@ -43,13 +45,24 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
           }
         }
       },
-      { threshold: 0.15, rootMargin: '0px 0px -10%' }
+      // Trigger on any sliver of the element, and a touch before it scrolls
+      // into view (positive bottom margin), so reveals fire reliably on mobile
+      // even during scroll jank instead of being missed.
+      { threshold: 0.01, rootMargin: '0px 0px 120px 0px' }
     );
     this.observer.observe(element);
+
+    // Safety net: never leave content permanently invisible if the observer
+    // misses an entry (which can happen on slow mobile devices during heavy
+    // load). After a few seconds, reveal regardless.
+    this.fallbackTimer = setTimeout(() => this.reveal(), 3000);
   }
 
   ngOnDestroy(): void {
     this.observer?.disconnect();
+    if (this.fallbackTimer !== undefined) {
+      clearTimeout(this.fallbackTimer);
+    }
   }
 
   private shouldRevealImmediately(): boolean {
@@ -64,6 +77,14 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
   }
 
   private reveal(): void {
+    if (this.revealed) {
+      return;
+    }
+    this.revealed = true;
+    if (this.fallbackTimer !== undefined) {
+      clearTimeout(this.fallbackTimer);
+      this.fallbackTimer = undefined;
+    }
     const element = this.el.nativeElement;
     if (this.revealDelay > 0) {
       element.style.animationDelay = `${this.revealDelay}s`;

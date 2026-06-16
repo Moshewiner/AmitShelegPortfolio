@@ -1,28 +1,68 @@
 import { Routes } from '@angular/router';
-import { MobileUnsupportedComponent } from './pages/mobile-unsupported/mobile-unsupported.component';
-import { ElalCargoComponent } from './pages/elal-cargo/elal-cargo.component';
 import { NewHomeComponent } from './pages/new-home/new-home.component';
-import { ClalitComponent } from './pages/clalit/clalit.component';
-import { GovOnboardingComponent } from './pages/gov-onboarding/gov-onboarding.component';
-import { GovShahafComponent } from './pages/gov-shahaf/gov-shahaf.component';
-import { RamAderetComponent } from './pages/ram-aderet/ram-aderet.component';
-import { ElalGlobalyComponent } from './pages/elal-globaly/elal-globaly.component';
-import { VonoteamComponent } from './pages/vonoteam/vonoteam.component';
-import { AbraComponent } from './pages/abra/abra.component';
-import { AppliedMaterialsComponent } from './pages/applied-materials/applied-materials.component';
-import { CellcomPocComponent } from './pages/cellcom-poc/cellcom-poc.component';
 
+// Only the landing page is eagerly bundled. Every project/detail page is
+// lazy-loaded as its own chunk so the initial download + parse (which gates
+// first paint on mobile) stays as small as possible.
 export const routes: Routes = [
   { path: '', component: NewHomeComponent },
-  { path: 'mobile-unsupported', component: MobileUnsupportedComponent },
-  { path: 'elal-cargo', component: ElalCargoComponent },
-  { path: 'elal-globaly', component: ElalGlobalyComponent },
-  { path: 'clalit', component: ClalitComponent },
-  { path: 'gov-onboarding', component: GovOnboardingComponent },
-  { path: 'gov-shahaf', component: GovShahafComponent },
-  { path: 'ram-aderet', component: RamAderetComponent },
-  { path: 'vonoteam', component: VonoteamComponent },
-  { path: 'abra', component: AbraComponent },
-  { path: 'applied-materials', component: AppliedMaterialsComponent },
-  { path: 'cellcom-poc', component: CellcomPocComponent },
+  {
+    path: 'mobile-unsupported',
+    loadComponent: () =>
+      import('./pages/mobile-unsupported/mobile-unsupported.component').then(
+        (m) => m.MobileUnsupportedComponent
+      ),
+  },
+  {
+    path: 'elal-cargo',
+    loadComponent: () =>
+      import('./pages/elal-cargo/elal-cargo.component').then((m) => m.ElalCargoComponent),
+  },
+  {
+    path: 'elal-globaly',
+    loadComponent: () =>
+      import('./pages/elal-globaly/elal-globaly.component').then((m) => m.ElalGlobalyComponent),
+  },
+  {
+    path: 'clalit',
+    loadComponent: () => import('./pages/clalit/clalit.component').then((m) => m.ClalitComponent),
+  },
+  {
+    path: 'gov-onboarding',
+    loadComponent: () =>
+      import('./pages/gov-onboarding/gov-onboarding.component').then(
+        (m) => m.GovOnboardingComponent
+      ),
+  },
+  {
+    path: 'gov-shahaf',
+    loadComponent: () =>
+      import('./pages/gov-shahaf/gov-shahaf.component').then((m) => m.GovShahafComponent),
+  },
+  {
+    path: 'ram-aderet',
+    loadComponent: () =>
+      import('./pages/ram-aderet/ram-aderet.component').then((m) => m.RamAderetComponent),
+  },
+  {
+    path: 'vonoteam',
+    loadComponent: () =>
+      import('./pages/vonoteam/vonoteam.component').then((m) => m.VonoteamComponent),
+  },
+  {
+    path: 'abra',
+    loadComponent: () => import('./pages/abra/abra.component').then((m) => m.AbraComponent),
+  },
+  {
+    path: 'applied-materials',
+    loadComponent: () =>
+      import('./pages/applied-materials/applied-materials.component').then(
+        (m) => m.AppliedMaterialsComponent
+      ),
+  },
+  {
+    path: 'cellcom-poc',
+    loadComponent: () =>
+      import('./pages/cellcom-poc/cellcom-poc.component').then((m) => m.CellcomPocComponent),
+  },
 ];
