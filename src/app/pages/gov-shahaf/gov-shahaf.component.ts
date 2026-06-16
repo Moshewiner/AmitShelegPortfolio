@@ -15,7 +15,7 @@ export class GovShahafComponent {
   public project = {
     title: 'Simplifying Freedom of Information (FOI) Requests Management',
     description: 'Creating a simple and efficient system for public authorities to manage FOI requests through a focused, digital-first approach.',
-    heroImage: './../../assets/Shahaf-gov/shahaf-wide.png',
+    heroImage: './../../assets/Shahaf-gov/shahaf-wide.webp',
     client: 'Gov.il - National Digital Agency',
     duration: '8 Months (ongoing)',
     platform: 'Desktop',
@@ -27,13 +27,13 @@ export class GovShahafComponent {
 `,
     content: {
       images: [
-        '../../../assets/Shahaf-gov/01MT.png',
-        '../../../assets/Shahaf-gov/02BC.png',
-        '../../../assets/Shahaf-gov/03BD.png',
-        '../../../assets/Shahaf-gov/04BF.png',
-        '../../../assets/Shahaf-gov/05DB.png',
-        '../../../assets/Shahaf-gov/06CM.png',
-        '../../../assets/Shahaf-gov/07Web.png',
+        '../../../assets/Shahaf-gov/01MT.webp',
+        '../../../assets/Shahaf-gov/02BC.webp',
+        '../../../assets/Shahaf-gov/03BD.webp',
+        '../../../assets/Shahaf-gov/04BF.webp',
+        '../../../assets/Shahaf-gov/05DB.webp',
+        '../../../assets/Shahaf-gov/06CM.webp',
+        '../../../assets/Shahaf-gov/07Web.webp',
       ]
     }
   };

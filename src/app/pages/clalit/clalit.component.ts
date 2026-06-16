@@ -15,7 +15,7 @@ export class ClalitComponent {
   public project = {
     title: `Enhancing Clalit's Workshop Registration Experience`,
     description: 'Adapting Clalit’s workshop registration into a seamless mobile experience.',
-    heroImage: './../../assets/Clalit/wide.png',
+    heroImage: './../../assets/Clalit/wide.webp',
     client: 'Clalit Health Services',
     duration: 'One Month',
     platform: 'Mobile Adaptation',

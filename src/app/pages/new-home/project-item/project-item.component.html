@@ -5,7 +5,7 @@
      #projectElement 
      (click)="onProjectClick($event)">
   <div class="project-image">
-    <img [src]="projectImage" alt="{{ projectName }}" />
+    <img [src]="projectImage" alt="{{ projectName }}" loading="lazy" decoding="async" />
 
     @if (comingSoon) {
       <div class="coming-soon-overlay" aria-hidden="true">
