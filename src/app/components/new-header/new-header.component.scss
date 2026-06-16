@@ -139,10 +139,12 @@
     backdrop-filter: none;
     height: auto;
     padding: 12px 0;
+    overflow: visible;
 
     .inner {
       width: calc(100% - 32px);
       padding: 8px 8px 8px 16px;
+      overflow: visible;
 
       .logo-blur .logo {
         height: 28px;
@@ -150,24 +152,58 @@
       }
 
       .mobile-menu {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 40px;
         height: 40px;
+        padding: 0;
+        background: none;
+        border: none;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
 
-        img, svg {
+        .bar {
+          position: absolute;
+          left: 50%;
+          top: 50%;
           width: 22px;
-          height: 22px;
+          height: 2px;
+          background: $black;
+          border-radius: 2px;
           opacity: 0.85;
-          transition: opacity 0.2s ease;
-          color: $black;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
         }
 
-        &:hover {
-          img, svg {
-            opacity: 1;
+        .bar1 {
+          transform: translate(-50%, calc(-50% - 6px));
+        }
+
+        .bar2 {
+          transform: translate(-50%, -50%);
+        }
+
+        .bar3 {
+          transform: translate(-50%, calc(-50% + 6px));
+        }
+
+        &:hover .bar {
+          opacity: 1;
+        }
+
+        &.is-open {
+          .bar1 {
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+
+          .bar2 {
+            opacity: 0;
+            transform: translate(-50%, -50%) scaleX(0.4);
+          }
+
+          .bar3 {
+            transform: translate(-50%, -50%) rotate(-45deg);
           }
         }
       }
@@ -189,50 +225,59 @@
       }
 
       .routing {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 0;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 20px;
+        padding: 8px;
+        z-index: 2;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transform-origin: top center;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0s linear 0.25s;
+
+        .link {
+          font-family: Poppins, sans-serif;
+          font-size: 1.05rem;
+          font-weight: 500;
+          user-select: none;
+          padding: 14px 16px;
+          text-align: left;
+          text-decoration: none;
+          color: $black;
+          border-radius: 12px;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.04);
+            color: rgba(0, 0, 0, 0.7);
+          }
+        }
       }
     }
 
     &.expanded {
       overflow: visible;
 
-      .inner {
-        overflow: visible;
-
-        .routing {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: center;
-          gap: 0;
-          position: absolute;
-          top: calc(100% + 8px);
-          left: 0;
-          right: 0;
-          background: #ffffff;
-          backdrop-filter: blur(18px);
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          border-radius: 20px;
-          padding: 8px;
-          z-index: 2;
-
-          .link {
-            font-family: Poppins, sans-serif;
-            font-size: 1.05rem;
-            font-weight: 500;
-            user-select: none;
-            padding: 14px 16px;
-            text-align: left;
-            text-decoration: none;
-            color: $black;
-            border-radius: 12px;
-
-            &:hover {
-              background: rgba(0, 0, 0, 0.04);
-              color: rgba(0, 0, 0, 0.7);
-            }
-          }
-        }
+      .inner .routing {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 0s;
       }
     }
   }
