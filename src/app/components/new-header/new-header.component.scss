@@ -30,7 +30,7 @@
     text-align: center;
     color: $black;
 
-    background: rgba(255, 255, 255, 0.85);
+    background: #ffffff;
     backdrop-filter: blur(18px);
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 999px;
@@ -176,6 +176,7 @@
         .resume-btn {
           margin-left: 0;
           padding: 8px 18px;
+          font-size: 1.22rem; // ~14px at the mobile 11.5px root
 
           .resume-full {
             display: none;
@@ -208,7 +209,7 @@
           top: calc(100% + 8px);
           left: 0;
           right: 0;
-          background: rgba(255, 255, 255, 0.97);
+          background: #ffffff;
           backdrop-filter: blur(18px);
           border: 1px solid rgba(0, 0, 0, 0.06);
           border-radius: 20px;
