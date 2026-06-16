@@ -539,12 +539,12 @@ app-project-item.reveal-up.is-revealed {
       // Responsive adjustments
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 40px;
+        gap: 96px;
         width: $mobileGridWidth;
 
         
         .column {
-          gap: 120px;
+          gap: 96px;
         }
       }
     }
