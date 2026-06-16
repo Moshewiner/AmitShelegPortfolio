@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { BasePageComponent } from '../base-page/base-page.component';
+import { getProject } from '../../data/projects';
 
 @Component({
     selector: 'app-gov-shahaf',
@@ -12,31 +13,7 @@ import { BasePageComponent } from '../base-page/base-page.component';
 })
 export class GovShahafComponent {
 
-  public project = {
-    title: 'Simplifying Freedom of Information (FOI) Requests Management',
-    description: 'Creating a simple and efficient system for public authorities to manage FOI requests through a focused, digital-first approach.',
-    heroImage: './../../assets/Shahaf-gov/shahaf-wide.webp',
-    client: 'Gov.il - National Digital Agency',
-    duration: '8 Months (ongoing)',
-    platform: 'Desktop',
-    introduction: `Shahaf is a BackOffice system designed to manage Freedom of Information (FOI) requests across public authorities.
-                  <br /><br />
-                  The system allows users to receive, enter, and manage requests - including cost calculations, documentation management, decision-making, coordination with third party consultants, as well as with the requesters themselves.
-                  <br /><br />
-                  Shahaf digitizes the FOI process, making it faster, transparent, and more efficient - enabling public sector organizations to improve oversight, service, and daily operations.
-`,
-    content: {
-      images: [
-        '../../../assets/Shahaf-gov/01MT.webp',
-        '../../../assets/Shahaf-gov/02BC.webp',
-        '../../../assets/Shahaf-gov/03BD.webp',
-        '../../../assets/Shahaf-gov/04BF.webp',
-        '../../../assets/Shahaf-gov/05DB.webp',
-        '../../../assets/Shahaf-gov/06CM.webp',
-        '../../../assets/Shahaf-gov/07Web.webp',
-      ]
-    }
-  };
+  public project = getProject('/gov-shahaf')!;
 
   constructor() { }
 

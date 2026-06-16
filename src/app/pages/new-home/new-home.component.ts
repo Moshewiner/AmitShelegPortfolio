@@ -5,20 +5,7 @@ import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.direc
 
 import { ModalComponent } from '../../components/modal/modal.component';
 import { BasePageComponent } from '../base-page/base-page.component';
-
-// Project interface for the modal
-interface ModalProject {
-  title: string;
-  description: string;
-  heroImage: string;
-  client: string;
-  duration: string;
-  platform: string;
-  introduction: string;
-  content: {
-    images: string[];
-  };
-}
+import { Project, getProject } from '../../data/projects';
 
 @Component({
     selector: 'app-home',
@@ -32,7 +19,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
 
   // Modal state
   public isModalOpen = false;
-  public selectedProject: ModalProject | null = null;
+  public selectedProject: Project | null = null;
   public selectedRect: DOMRect | null = null;
   /** Link of the card currently open in the modal (drives the pressed look). */
   public activeLink: string | null = null;
@@ -164,20 +151,15 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
 
   // Modal methods
   onProjectClick(event: {link: string, rect: DOMRect}) {
-    const project = this.newProjects.find(p => p.link === event.link);
-    if (project) {
-      // Create modal project data from home project data
+    const card = this.newProjects.find(p => p.link === event.link);
+    const data = getProject(event.link);
+    if (card && data) {
+      // Use the real case-study data (same source as the desktop route page) so
+      // the mobile modal shows the full image set and correct metadata. Keep the
+      // tapped cover as the hero so the shared-element morph stays seamless.
       this.selectedProject = {
-        title: project.title,
-        description: project.title, // Using title as description for now
-        heroImage: project.image,
-        client: project.name,
-        duration: '6 months', // Default duration
-        platform: 'Web & Mobile', // Default platform
-        introduction: `${project.title} - This is a showcase of our design and development capabilities.`,
-        content: {
-          images: [project.image, project.image] // Using the preview image
-        }
+        ...data,
+        heroImage: card.image,
       };
       this.selectedRect = event.rect;
       this.activeLink = event.link;
