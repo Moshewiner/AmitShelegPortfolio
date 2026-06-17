@@ -50,6 +50,12 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   @Input() morphFromRect: DOMRect | null = null;
   @Input() morphFromSrc: string | null = null;
+  /** True when rendered inside the mobile home drawer (not a routed page). */
+  @Input() inDrawer = false;
+
+  @HostBinding('class.in-drawer') get drawerMode(): boolean {
+    return this.inDrawer;
+  }
 
   lightboxOpen = false;
   currentIndex = 0;

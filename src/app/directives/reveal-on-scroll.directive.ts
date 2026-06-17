@@ -5,6 +5,7 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
+  afterNextRender,
   inject,
 } from '@angular/core';
 
@@ -23,6 +24,18 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
   private observer?: IntersectionObserver;
   private fallbackTimer?: ReturnType<typeof setTimeout>;
   private revealed = false;
+  private observerReady = false;
+
+  constructor() {
+    // Wait until after the first paint so layout is stable. Starting the
+    // observer in ngOnInit fires false positives on mobile (every card reads as
+    // intersecting while the page is still laying out).
+    afterNextRender(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => this.startObserver());
+      });
+    });
+  }
 
   ngOnInit(): void {
     const element = this.el.nativeElement;
@@ -31,31 +44,7 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
 
     if (this.shouldRevealImmediately()) {
       this.reveal();
-      return;
     }
-
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            this.reveal();
-            if (this.revealOnce) {
-              this.observer?.unobserve(element);
-            }
-          }
-        }
-      },
-      // Trigger on any sliver of the element, and a touch before it scrolls
-      // into view (positive bottom margin), so reveals fire reliably on mobile
-      // even during scroll jank instead of being missed.
-      { threshold: 0.01, rootMargin: '0px 0px 120px 0px' }
-    );
-    this.observer.observe(element);
-
-    // Safety net: never leave content permanently invisible if the observer
-    // misses an entry (which can happen on slow mobile devices during heavy
-    // load). After a few seconds, reveal regardless.
-    this.fallbackTimer = setTimeout(() => this.reveal(), 3000);
   }
 
   ngOnDestroy(): void {
@@ -63,6 +52,78 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
     if (this.fallbackTimer !== undefined) {
       clearTimeout(this.fallbackTimer);
     }
+  }
+
+  private startObserver(): void {
+    if (this.revealed || this.observerReady) {
+      return;
+    }
+    this.observerReady = true;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      this.reveal();
+      return;
+    }
+
+    const element = this.el.nativeElement;
+    const root = this.findScrollRoot(element);
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            this.reveal();
+            if (this.revealOnce) {
+              this.observer?.unobserve(element);
+            }
+          }
+        }
+      },
+      {
+        root,
+        threshold: 0.08,
+        // Slight lead so the fade begins just before the item fully enters.
+        rootMargin: '0px 0px 60px 0px',
+      }
+    );
+    this.observer.observe(element);
+
+    // Safety net: only reveal off-screen items that are genuinely near the
+    // viewport, never the whole page at once.
+    this.fallbackTimer = setTimeout(() => {
+      if (!this.revealed && this.isNearVisibleRegion(element, root)) {
+        this.reveal();
+      }
+    }, 5000);
+  }
+
+  private findScrollRoot(element: HTMLElement): Element | null {
+    let parent = element.parentElement;
+    while (parent && parent !== document.documentElement) {
+      const style = getComputedStyle(parent);
+      const scrollableY =
+        style.overflowY === 'auto' ||
+        style.overflowY === 'scroll' ||
+        style.overflow === 'auto' ||
+        style.overflow === 'scroll';
+      if (scrollableY && parent.scrollHeight > parent.clientHeight + 1) {
+        return parent;
+      }
+      parent = parent.parentElement;
+    }
+    return null;
+  }
+
+  private isNearVisibleRegion(element: HTMLElement, root: Element | null): boolean {
+    const rect = element.getBoundingClientRect();
+    const lead = 80;
+
+    if (root) {
+      const rootRect = root.getBoundingClientRect();
+      return rect.bottom > rootRect.top - lead && rect.top < rootRect.bottom + lead;
+    }
+
+    return rect.bottom > -lead && rect.top < window.innerHeight + lead;
   }
 
   private shouldRevealImmediately(): boolean {

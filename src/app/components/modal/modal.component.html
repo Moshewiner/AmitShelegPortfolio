@@ -3,19 +3,24 @@
     class="modal-backdrop"
     [@backdropAnimation]="isOpen ? 'open' : 'closed'"
     (click)="onBackdropClick($event)">
-    <div class="modal-content"
-       [@modalAnimation]="{
-         value: isOpen ? 'open' : 'closed',
-         params: animationParams
-       }"
+    <div
+      class="modal-content drawer"
+      [@drawerAnimation]="isOpen ? 'open' : 'closed'"
       (click)="onModalContentClick($event)">
-      <!-- Close button -->
-      <button class="modal-close" (click)="onClose()" aria-label="Close modal">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <!-- Modal content slot -->
+      <div class="drawer-top">
+        <div class="drawer-handle" aria-hidden="true"></div>
+        <header class="drawer-header">
+          <button class="modal-back" type="button" (click)="onClose()" aria-label="Go back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.5 6L9 12L14.5 18" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          @if (clientName) {
+            <h2 class="drawer-client">{{ clientName | titleCase }}</h2>
+          }
+        </header>
+        <div class="drawer-divider" aria-hidden="true"></div>
+      </div>
       <div class="modal-body">
         <ng-content></ng-content>
       </div>

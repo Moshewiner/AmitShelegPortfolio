@@ -240,7 +240,8 @@
         background: #ffffff;
         border: 1px solid rgba(0, 0, 0, 0.06);
         border-radius: 20px;
-        padding: 8px;
+        padding: 0;
+        overflow: hidden;
         z-index: 2;
 
         opacity: 0;
@@ -252,19 +253,38 @@
           visibility 0s linear 0.25s;
 
         .link {
+          display: block;
+          width: 100%;
+          box-sizing: border-box;
           font-family: Poppins, sans-serif;
           font-size: 1.05rem;
           font-weight: 500;
           user-select: none;
-          padding: 14px 16px;
+          padding: 20px 16px;
           text-align: left;
           text-decoration: none;
           color: $black;
-          border-radius: 12px;
+          border-radius: 0;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          }
 
           &:hover {
-            background: rgba(0, 0, 0, 0.04);
+            background: rgba(0, 0, 0, 0.03);
             color: rgba(0, 0, 0, 0.7);
+          }
+
+          &:first-child:hover {
+            border-radius: 20px 20px 0 0;
+          }
+
+          &:last-child:hover {
+            border-radius: 0 0 20px 20px;
+          }
+
+          &:only-child:hover {
+            border-radius: 20px;
           }
         }
       }

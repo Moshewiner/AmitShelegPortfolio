@@ -380,12 +380,17 @@ $gridWidth: 73%;
 }
 
 // Gallery images reveal as they scroll into view (via appRevealOnScroll).
-.content .image.reveal-up {
+.content .image.reveal-up,
+.content .image.reveal-fade {
   opacity: 0;
 }
 
 .content .image.reveal-up.is-revealed {
   animation: enter-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.content .image.reveal-fade.is-revealed {
+  animation: reveal-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes enter-up {
@@ -397,6 +402,16 @@ $gridWidth: 73%;
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes reveal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -492,6 +507,10 @@ $gridWidth: 73%;
           transform: none;
         }
       }
+
+      .image.reveal-up.is-revealed {
+        animation: reveal-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
     }
 
     .thank-you {
@@ -513,6 +532,7 @@ $gridWidth: 73%;
   .lightbox-image {
     max-width: 100vw;
     max-height: 80vh;
+    border-radius: 0;
   }
 
   .lightbox-close {
@@ -540,5 +560,95 @@ $gridWidth: 73%;
 
   .lightbox-counter {
     bottom: 24px;
+  }
+}
+
+// Mobile drawer (home modal) — tuned layout separate from routed pages.
+@media (max-width: $responsiveBreakPoint) {
+  :host(.in-drawer) {
+    width: 100%;
+    margin: 0;
+    padding: 12px 20px 0;
+    box-sizing: border-box;
+
+    .hero {
+      .heading {
+        font-size: 2rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .description {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        line-height: 1.45;
+        color: $gray01;
+      }
+
+      .hero-media {
+        margin-top: 28px;
+      }
+    }
+
+    .details-container {
+      margin: 48px 0 0;
+      row-gap: 32px;
+
+      .details {
+        row-gap: 0;
+        width: 100%;
+        border: 1px solid rgba(23, 23, 23, 0.08);
+        border-radius: 14px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.55);
+
+        .client,
+        .duration,
+        .platform {
+          padding: 14px 16px;
+
+          &:not(:last-child) {
+            border-bottom: 1px solid $divider;
+          }
+
+          .title {
+            font-size: 0.95rem;
+            font-weight: 400;
+            text-transform: none;
+            color: $gray02;
+            letter-spacing: 0;
+          }
+
+          .value {
+            margin-top: 4px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.35;
+          }
+        }
+      }
+
+      .introduction {
+        padding-top: 0;
+        border-top: none;
+
+        .title {
+          font-size: 1.15rem;
+          font-weight: 500;
+        }
+
+        .description {
+          margin-top: 10px;
+          font-size: 1.05rem;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .content {
+      margin-top: 48px;
+      row-gap: 32px;
+      padding-bottom: 32px;
+    }
   }
 }

@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { TitleCasePipe } from '../../pipes/title-case.pipe';
 
 @Component({
     selector: 'app-modal',
-    imports: [],
+    imports: [TitleCasePipe],
     templateUrl: './modal.component.html',
     styleUrl: './modal.component.scss',
     changeDetection: ChangeDetectionStrategy.Eager,
@@ -18,24 +19,18 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
             transition('closed => open', animate('320ms cubic-bezier(.23,.1,.32,1)')),
             transition('open => closed', animate('260ms ease'))
         ]),
-        trigger('modalAnimation', [
-            state('closed', style({ opacity: 0 })),
-            state('open', style({ opacity: 1 })),
-            // Opacity-only (no transform) so the morph's hero target rect, which
-            // is measured inside this container, is never distorted by a scale.
-            transition('closed => open', [
-                style({ opacity: 0 }),
-                animate('320ms cubic-bezier(.23,.1,.32,1)')
-            ]),
-            transition('open => closed', [
-                animate('240ms ease', style({ opacity: 0 }))
-            ])
+        trigger('drawerAnimation', [
+            state('closed', style({ transform: 'translateY(100%)' })),
+            state('open', style({ transform: 'translateY(0)' })),
+            transition('closed => open', animate('420ms cubic-bezier(.32,.72,0,1)')),
+            transition('open => closed', animate('320ms cubic-bezier(.32,.72,0,1)'))
         ])
     ]
 })
 export class ModalComponent implements OnInit, OnDestroy, OnChanges {
   @Input() isOpen = false;
   @Input() title = '';
+  @Input() clientName = '';
   @Input() itemRect: DOMRect | null = null;
   @Output() closeModal = new EventEmitter<void>();
 

@@ -42,6 +42,16 @@ $cell: calc($gridWidth / 12);
   }
 }
 
+@keyframes reveal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 // On load: slide the diagonal black cover layer from fully covering the text
 // (bottom-right) off toward the top-left, so the warm color is revealed
 // diagonally (bottom-right -> top-left). The two color layers stay put.
@@ -75,22 +85,26 @@ $cell: calc($gridWidth / 12);
   }
 }
 
-// Project cards animate in immediately on load (one-shot, staggered via an
-// inline animation-delay). They are NOT gated behind scroll, so the cards and
-// their cover images are always present and never stuck invisible.
-.card-enter {
-  display: block;
-  animation: home-hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 // Project cards reveal as they scroll into view (via appRevealOnScroll).
-app-project-item.reveal-up {
+app-project-item.reveal-up,
+app-project-item.reveal-fade {
   display: block;
   opacity: 0;
 }
 
 app-project-item.reveal-up.is-revealed {
   animation: home-hero-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+app-project-item.reveal-fade.is-revealed {
+  animation: reveal-fade-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (max-width: 768px) {
+  // On mobile, use a lighter fade-in (no slide) as items enter the viewport.
+  app-project-item.reveal-up.is-revealed {
+    animation: reveal-fade-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
 }
 
 :host {

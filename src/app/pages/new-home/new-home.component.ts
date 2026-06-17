@@ -81,13 +81,6 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       badge: 'new' as const,
     },
     { 
-      image: '/assets/Applied-Materials/preview.webp', 
-      name: 'APPLIED MATERIALS',
-      title: 'An interesting title for the project', 
-      link: '',
-      badge: 'confidential' as const,
-    },
-    { 
       image: '/assets/Shahaf-gov/shahaf-preview.webp', 
       name: 'GOV.IL - SHAHAF',
       title: 'Simplifying Freedom of Information (FOI) Requests Management', 
@@ -105,10 +98,17 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       title: `Enhancing Clalit's Workshop Registration Experience`, 
       link: '/clalit',
     },
+    { 
+      image: '/assets/Applied-Materials/preview.webp', 
+      name: 'APPLIED MATERIALS',
+      title: 'An interesting title for the project', 
+      link: '',
+      badge: 'confidential' as const,
+    },
     // { 
-    //   image: '/assets/new-home/h.png', 
-    //   name: 'RAM ADERET',
-    //   title: 'Ram Aderet Digital Platform', 
+      //   image: '/assets/new-home/h.png', 
+      //   name: 'RAM ADERET',
+      //   title: 'Ram Aderet Digital Platform', 
     //   link: '/ram-aderet',
     // },
     // { 

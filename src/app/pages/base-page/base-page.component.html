@@ -17,16 +17,18 @@
 </div>
 <div class="details-container enter-up enter-4">
   <div class="details">
-    <div class="client">
-      <div class="title">Client</div>
-      <div class="value">{{project.client}}</div>
-    </div>
+    @if (!inDrawer) {
+      <div class="client">
+        <div class="title">client</div>
+        <div class="value">{{project.client}}</div>
+      </div>
+    }
     <div class="duration">
-      <div class="title">Duration</div>
+      <div class="title">duration</div>
       <div class="value">{{project.duration}}</div>
     </div>
     <div class="platform">
-      <div class="title">Platform</div>
+      <div class="title">platform</div>
       <div class="value">{{project.platform}}</div>
     </div>
   </div>

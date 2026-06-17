@@ -3,88 +3,121 @@
 
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
+  inset: 0;
+  background-color: rgba(23, 23, 23, 0.32);
   z-index: 1000;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   -webkit-overflow-scrolling: touch;
-  
-  // Mobile: Full screen modal
+
   @media (max-width: $responsiveBreakPoint) {
-    .modal-content {
+    align-items: flex-end;
+    justify-content: stretch;
+
+    .modal-content.drawer {
       width: 100%;
-      height: 100%;
       max-width: none;
-      max-height: none;
-      border-radius: 0;
-      margin: 0;
+      height: calc(100dvh - 10px);
+      max-height: calc(100dvh - 10px);
       display: flex;
       flex-direction: column;
-      background: white;
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      // The modal only fades (opacity); no transform/box-shadow here, so the
-      // full-screen container never casts a ghost edge while scrolling.
-      will-change: opacity;
-      box-shadow: none;
-      
-      .modal-close {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(0, 0, 0, 0.08);
+      background: $bgColor;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      box-shadow: 0 -12px 48px rgba(23, 23, 23, 0.14);
+      will-change: transform;
+
+      .drawer-top {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        flex-shrink: 0;
+        background: rgba($bgColor, 0.88);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding-top: max(8px, env(safe-area-inset-top));
+      }
+
+      .drawer-handle {
+        width: 32px;
+        height: 4px;
+        margin: 0 auto 10px;
+        border-radius: 100px;
+        background: rgba(23, 23, 23, 0.14);
+      }
+
+      .drawer-header {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: 44px;
+        padding: 0 20px 12px;
+      }
+
+      .modal-back {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(23, 23, 23, 0.07);
+        color: $black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
         cursor: pointer;
-        transition: all 0.3s cubic-bezier(.32,.72,.0,1);
-        color: #333;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        
-        &:hover {
-          background: rgba(255, 255, 255, 1);
-          transform: scale(1.08);
-          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-        }
-        
+        transition: background-color 0.2s ease, transform 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+
         &:active {
-          transform: scale(0.92);
-          transition-duration: 0.1s;
+          transform: translateY(-50%) scale(0.94);
+          background: rgba(23, 23, 23, 0.12);
         }
-        
+
         svg {
-          width: 20px;
-          height: 20px;
+          display: block;
         }
       }
-      
+
+      .drawer-client {
+        margin: 0;
+        min-width: 0;
+        max-width: calc(100% - 96px);
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: -0.01em;
+        color: $black;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .drawer-divider {
+        height: 1px;
+        margin: 0 20px;
+        background: $divider;
+      }
+
       .modal-body {
         flex: 1;
-        width: 100%;
-        height: 100%;
+        min-height: 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        opacity: 1;
+        padding-top: 8px;
+        padding-bottom: max(24px, env(safe-area-inset-bottom));
       }
     }
   }
-  
-  // Desktop: Keep existing behavior (hide modal, use navigation)
+
   @media (min-width: calc(#{$responsiveBreakPoint} + 1px)) {
     display: none;
   }
@@ -92,64 +125,39 @@
 
 // Fallback styles for when desktop accidentally shows modal
 .modal-content {
-  background: white;
+  background: $bgColor;
   border-radius: 20px;
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
   overflow: hidden;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
-  
-  .modal-close {
+
+  .modal-back {
     position: absolute;
     top: 16px;
-    right: 16px;
+    left: 16px;
     z-index: 1001;
     width: 36px;
     height: 36px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(.32,.72,.0,1);
     color: #333;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    
-    &:hover {
-      background: rgba(255, 255, 255, 1);
-      transform: scale(1.08);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    &:active {
-      transform: scale(0.92);
-      transition-duration: 0.1s;
-    }
-    
-    svg {
-      width: 18px;
-      height: 18px;
-    }
   }
-  
+
   .modal-body {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    opacity: 1;
   }
 }
 
-// Animation enhancements
 .modal-backdrop {
   animation-fill-mode: both;
-  will-change: opacity;
-}
-
-.modal-content {
   will-change: opacity;
 }
