@@ -14,6 +14,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'routines',
+    loadComponent: () =>
+      import('./pages/routines/routines.component').then((m) => m.RoutinesComponent),
+  },
+  {
     path: 'elal-cargo',
     loadComponent: () =>
       import('./pages/elal-cargo/elal-cargo.component').then((m) => m.ElalCargoComponent),

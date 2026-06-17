@@ -7,6 +7,16 @@
   <div class="project-image">
     <img [src]="projectImage" alt="{{ projectName }}" loading="lazy" decoding="async" />
 
+    @if (projectBadge) {
+      <div class="project-badge" [attr.aria-label]="projectBadge === 'new' ? 'New project' : 'Confidential project'">
+        @if (projectBadge === 'new') {
+          <span>New</span>
+        } @else {
+          <span>🔒 Confidential</span>
+        }
+      </div>
+    }
+
     @if (comingSoon) {
       <div class="coming-soon-overlay" aria-hidden="true">
         <div class="coming-soon-badge">

@@ -42,26 +42,29 @@ $cell: calc($gridWidth / 12);
   }
 }
 
-// On load: grow the gradient from zero width so the warm color paints in from
-// left to right, while the black background shows through the not-yet-covered part.
+// On load: slide the diagonal black cover layer from fully covering the text
+// (bottom-right) off toward the top-left, so the warm color is revealed
+// diagonally (bottom-right -> top-left). The two color layers stay put.
+// Order: cover, pink, warm.
 @keyframes hero-text-reveal {
   from {
-    background-size: 0% auto;
+    background-position: 100% 100%, 0% center, 0% center;
   }
 
   to {
-    background-size: 200% auto;
+    background-position: 0% 0%, 0% center, 0% center;
   }
 }
 
 // Slides the (unchanged) hero gradient across "I'm Amit" for a subtle shimmer.
+// The cover layer stays parked off (top-left) the whole time.
 @keyframes hero-text-gradient {
   from {
-    background-position: 0% center;
+    background-position: 0% 0%, 0% center, 0% center;
   }
 
   to {
-    background-position: 100% center;
+    background-position: 0% 0%, 100% center, 100% center;
   }
 }
 
@@ -241,25 +244,31 @@ app-project-item.reveal-up.is-revealed {
 
           .headline .gradient {
             color: transparent;
-            // Black sits behind the gradient (also clipped to the text). While the
-            // gradient layer doesn't cover the text, the black shows through.
+            -webkit-text-fill-color: transparent;
+            // Black sits behind the gradient (also clipped to the text) as a base.
             background-color: $black;
+            // Layer order (top -> bottom):
+            // 1) a diagonal black "cover" that hides the color until revealed,
+            // 2) the pink overlay, 3) the warm gradient.
             background-image:
+              linear-gradient(135deg, transparent 0%, transparent 45%, $black 55%, $black 100%),
               linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%),
               linear-gradient(101.32deg, #FD5129 -2.69%, #FF833D 25.27%, #FF8E16 63.08%, #FFCA10 98.68%);
 
-            // Oversize the gradient so there is room to slide it across the text,
-            // and never tile it so the black can show during the reveal.
             background-repeat: no-repeat;
-            background-size: 200% auto;
-            background-position: 0% center;
+            // Cover layer is oversized so it can slide fully on/off diagonally;
+            // the color layers are oversized horizontally for the shimmer.
+            background-size: 250% 250%, 200% auto, 200% auto;
+            // Base = revealed state (cover parked at top-left), so static /
+            // reduced-motion shows the full color.
+            background-position: 0% 0%, 0% center, 0% center;
             -webkit-background-clip: text;
             background-clip: text;
-            // 1) Paint the color in from left to right once on load, then
-            // 2) hand off to the continuous gradient shimmer.
+            // 1) Slide the black cover off (top-left -> bottom-right) once on load,
+            // 2) then hand off to the continuous gradient shimmer.
             animation:
               hero-text-reveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both,
-              hero-text-gradient 2s ease-in-out 2.3s infinite alternate;
+              hero-text-gradient 3.2s ease-in-out 2.3s infinite alternate;
           }
         }
 

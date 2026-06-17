@@ -77,7 +77,15 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
       image: '/assets/Routines/preview.webp', 
       name: 'ROUTINES.AI',
       title: `Leading the Design of an Orchestration & Scheduling Platform`, 
+      link: '/routines',
+      badge: 'new' as const,
+    },
+    { 
+      image: '/assets/Applied-Materials/preview.webp', 
+      name: 'APPLIED MATERIALS',
+      title: 'An interesting title for the project', 
       link: '',
+      badge: 'confidential' as const,
     },
     { 
       image: '/assets/Shahaf-gov/shahaf-preview.webp', 

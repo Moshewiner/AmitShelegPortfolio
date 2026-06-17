@@ -15,6 +15,8 @@ export class ProjectItemComponent {
   @Input() projectImage: string = '';
   @Input() projectLink: string = '';
   @Input() title: string = '';
+  /** Optional badge overlay on the project image (top-left). */
+  @Input() projectBadge: 'new' | 'confidential' | null = null;
   /**
    * Whether this card is the one currently open in the mobile modal. Driven by
    * the parent off the modal open/close state, so the pressed/dimmed look is

@@ -53,6 +53,7 @@
         [projectImage]="project.image"
         [projectLink]="project.link"
         [title]="project.title"
+        [projectBadge]="project.badge ?? null"
         [active]="project.link === activeLink"
         (projectClick)="onProjectClick($event)"
       ></app-project-item>
@@ -68,6 +69,7 @@
         [projectImage]="project.image"
         [projectLink]="project.link"
         [title]="project.title"
+        [projectBadge]="project.badge ?? null"
         [active]="project.link === activeLink"
         (projectClick)="onProjectClick($event)"
       ></app-project-item>
