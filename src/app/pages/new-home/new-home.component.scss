@@ -33,7 +33,7 @@ $cell: calc($gridWidth / 12);
 @keyframes home-hero-enter {
   from {
     opacity: 0;
-    transform: translateY(26px);
+    transform: translateY(var(--reveal-shift, 26px));
   }
 
   to {
@@ -102,8 +102,18 @@ app-project-item.reveal-fade.is-revealed {
 
 @media (max-width: 768px) {
   // On mobile, use a lighter fade-in (no slide) as items enter the viewport.
+  // IMPORTANT: do NOT reference a @keyframes name (via `animation` /
+  // `animation-name`) from inside an @media block here. Angular's emulated
+  // view-encapsulation scopes @keyframes names (e.g. `home-hero-enter` ->
+  // `_ngcontent-xxx_home-hero-enter`) but does NOT rewrite keyframe references
+  // that live inside @media rules. Such a reference resolves to a non-existent
+  // unscoped keyframe, the animation never runs, and the cards stay stuck at
+  // the base `opacity: 0` (project cards invisible on mobile). Instead we keep
+  // the same (correctly-scoped) `home-hero-enter` animation and just zero the
+  // slide distance via a custom property, turning it into a pure fade-in.
   app-project-item.reveal-up.is-revealed {
-    animation: reveal-fade-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    --reveal-shift: 0px;
+    animation-duration: 0.65s;
   }
 }
 

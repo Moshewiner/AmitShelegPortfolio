@@ -1,11 +1,14 @@
 @if (isOpen) {
   <div
     class="modal-backdrop"
-    [@backdropAnimation]="isOpen ? 'open' : 'closed'"
+    @sheetHost
     (click)="onBackdropClick($event)">
+    <!-- Dim layer fades independently so the sheet itself slides without
+         fading (iOS-style). pointer-events:none lets taps reach the backdrop. -->
+    <div class="modal-dim" @backdropAnimation aria-hidden="true"></div>
     <div
       class="modal-content drawer"
-      [@drawerAnimation]="isOpen ? 'open' : 'closed'"
+      @drawerAnimation
       (click)="onModalContentClick($event)">
       <div class="drawer-top">
         <div class="drawer-handle" aria-hidden="true"></div>
@@ -15,9 +18,9 @@
               <path d="M14.5 6L9 12L14.5 18" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          @if (clientName) {
-            <h2 class="drawer-client">{{ clientName | titleCase }}</h2>
-          }
+          <h2 class="drawer-client">{{ clientName | titleCase }}</h2>
+          <!-- Mirrors the back button so the title stays centred. -->
+          <span class="drawer-header-spacer" aria-hidden="true"></span>
         </header>
         <div class="drawer-divider" aria-hidden="true"></div>
       </div>

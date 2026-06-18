@@ -4,18 +4,27 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(23, 23, 23, 0.32);
   z-index: 1000;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   -webkit-overflow-scrolling: touch;
 
+  .modal-dim {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(23, 23, 23, 0.32);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   @media (max-width: $responsiveBreakPoint) {
     align-items: flex-end;
     justify-content: stretch;
 
     .modal-content.drawer {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: none;
       height: calc(100dvh - 10px);
@@ -47,23 +56,29 @@
         background: rgba(23, 23, 23, 0.14);
       }
 
+      // Three flex columns: [back] [title (flex, centred)] [spacer]. The spacer
+      // mirrors the back button's width so the title stays perfectly centred,
+      // and every item shares one baseline via align-items:center (no absolute
+      // positioning, so the back button and title can't drift apart).
       .drawer-header {
-        position: relative;
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 12px;
         min-height: 44px;
         padding: 0 20px 12px;
       }
 
-      .modal-back {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        flex-shrink: 0;
+      .modal-back,
+      .drawer-header-spacer {
+        flex: 0 0 36px;
         width: 36px;
         height: 36px;
+      }
+
+      .modal-back {
+        // Override the desktop-fallback .modal-content .modal-back (absolute);
+        // on mobile the button is a normal flex item in the header row.
+        position: static;
         border: none;
         border-radius: 50%;
         background: rgba(23, 23, 23, 0.07);
@@ -77,7 +92,7 @@
         -webkit-tap-highlight-color: transparent;
 
         &:active {
-          transform: translateY(-50%) scale(0.94);
+          transform: scale(0.94);
           background: rgba(23, 23, 23, 0.12);
         }
 
@@ -87,9 +102,9 @@
       }
 
       .drawer-client {
-        margin: 0;
+        flex: 1 1 auto;
         min-width: 0;
-        max-width: calc(100% - 96px);
+        margin: 0;
         font-size: 1.05rem;
         font-weight: 500;
         line-height: 36px;
@@ -157,7 +172,6 @@
   }
 }
 
-.modal-backdrop {
-  animation-fill-mode: both;
+.modal-dim {
   will-change: opacity;
 }

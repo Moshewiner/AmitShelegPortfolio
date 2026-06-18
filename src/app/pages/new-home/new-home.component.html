@@ -87,15 +87,12 @@
 @defer (when isModalOpen; prefetch on idle) {
   <app-modal
     [isOpen]="isModalOpen"
-    [itemRect]="selectedRect"
     [clientName]="selectedProject?.client ?? ''"
     (closeModal)="onCloseModal()">
     @if (selectedProject) {
       <app-base-page
         [project]="selectedProject"
-        [inDrawer]="true"
-        [morphFromRect]="selectedRect"
-        [morphFromSrc]="selectedProject.heroImage">
+        [inDrawer]="true">
       </app-base-page>
     }
   </app-modal>

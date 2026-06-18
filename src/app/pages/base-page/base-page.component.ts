@@ -110,11 +110,25 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
       this.createMorphClone();
       // Safety net so the hero is never stuck hidden if 'load' never fires.
       this.morphFallback = setTimeout(() => this.finishMorph(), 2500);
-    } else {
-      // Full-page (desktop) behavior: jump to top INSTANTLY so it never
-      // animates against (and fights) the hero entry animation.
-      window.scrollTo({ top: 0, behavior: 'auto' });
+    } else if (!this.inDrawer) {
+      // Full-page (desktop) behavior: a freshly opened project page must start
+      // at the very top. In the mobile drawer the sheet has its own internal
+      // scroll, so we must NOT scroll the window (that would move the home page
+      // underneath the open sheet).
+      this.scrollPageToTop();
     }
+  }
+
+  /**
+   * Reset every candidate scroller to the top. The site scrolls on <body>
+   * (overflow-x:hidden makes <body> the scroll container), so window.scrollTo /
+   * Angular's ViewportScroller alone don't reset it and the new page would keep
+   * the previous page's scroll position.
+   */
+  private scrollPageToTop(): void {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }
 
   ngAfterViewInit(): void {
@@ -279,8 +293,12 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private unlockScroll(): void {
+    // Reset to the natural (stylesheet-driven) state rather than a captured
+    // inline value. These ancestors (incl. <html> and the modal body) carry no
+    // inline overflow in normal use, and restoring a stale captured 'hidden'
+    // here was one of the ways the page could end up permanently unscrollable.
     for (const lock of this.scrollLocks) {
-      lock.el.style.overflow = lock.prev;
+      lock.el.style.overflow = '';
     }
     this.scrollLocks = [];
   }
