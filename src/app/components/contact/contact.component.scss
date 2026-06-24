@@ -1,0 +1,426 @@
+@use "../../../responsive.scss" as *;
+@use "../../../colors.scss" as *;
+
+// Brand warm gradient (same stops as the home hero / about page).
+$warm: linear-gradient(101.32deg, #fd5129 -2.69%, #ff833d 25.27%, #ff8e16 63.08%, #ffca10 98.68%);
+$pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%);
+
+// Slides the gradient across the channel label on hover (mirrors the hero).
+// Kept at the top level — never inside @media — so view-encapsulation keeps the
+// keyframe name in sync with its reference.
+@keyframes contact-text-shimmer {
+  from { background-position: 0% center; }
+  to { background-position: 100% center; }
+}
+
+// Confirmation pill "pop" — a soft spring overshoot on copy.
+@keyframes contact-tip-pop {
+  0% { transform: translateY(0) scale(0.82); }
+  55% { transform: translateY(0) scale(1.06); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+// Check mark draws itself in.
+@keyframes contact-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+   Scroll track / pinning
+   - Default (About page): normal flow, the card scrubs as it passes through.
+   - .pinned (dedicated /contact page): a tall track with the card stuck to the
+     centre of the viewport, so there is lots of scroll travel to scrub across.
+---------------------------------------------------------------------------- */
+.scrub {
+  position: relative;
+  width: 100%;
+}
+
+.pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+
+.scrub.pinned {
+  height: 220vh;
+
+  .pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 0;
+  }
+}
+
+// Loop mode needs no scroll travel: collapse the track and let the page host
+// centre the card in the viewport.
+.scrub.pinned.is-loop {
+  height: auto;
+
+  .pin {
+    position: static;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Card
+---------------------------------------------------------------------------- */
+.card {
+  position: relative;
+  width: min(82%, 1180px);
+  aspect-ratio: 1180 / 470;
+  border-radius: 32px;
+  // Overflow is visible so the handset can hang out past the bottom edge; the
+  // gradient + text are kept rounded by .card-bg's own clip below.
+  overflow: visible;
+}
+
+// Rounded gradient fill (clipped to the card's radius even though .card itself
+// no longer clips).
+.card-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  background-image: url("/assets/contact/contact-box.webp");
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 0;
+}
+
+// White handset video. The black background is keyed to transparency by the
+// SVG luminance filter, so the phone shows over the gradient AND where it
+// overflows the card onto the page. Anchored to the card top, hanging out the
+// bottom.
+.phone {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  height: 122%;
+  width: auto;
+  object-fit: contain;
+  // contrast/brightness firm up the key (darks -> fully transparent, the white
+  // handset stays solid), then the matrix turns luminance into alpha.
+  filter: contrast(1.15) brightness(1.05) url("#contact-phone-luma");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------------------------
+   Card content
+---------------------------------------------------------------------------- */
+.card-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  box-sizing: border-box;
+  padding: clamp(28px, 4.4vw, 56px) clamp(28px, 4.4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  color: $black;
+}
+
+// Figma: Inter Tight, Regular 400, 16px / 100% / 0.
+.eyebrow {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: $black;
+  margin-bottom: clamp(14px, 1.8vw, 22px);
+}
+
+// Figma: Urbanist, Bold 700, 48px / 115% / -1.5%.
+.title {
+  font-family: Urbanist, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: $black;
+}
+
+.channels {
+  list-style: none;
+  margin: clamp(28px, 4vw, 48px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.6vw, 18px);
+}
+
+// Figma: Inter Tight, Regular 400, 18px / 140% / 0.
+// Click-to-copy button (reset native button styling).
+.channel {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  color: $black;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0;
+  width: fit-content;
+}
+
+// The number/email text. On hover/focus it fills with the brand warm gradient
+// and gently shimmers (same idea as the hero) — no layout movement.
+.channel-label {
+  background-image: $pink, $warm;
+  background-repeat: no-repeat;
+  background-size: 220% auto;
+  background-position: 0% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  // Transparent fill on hover reveals the gradient; transitions back to solid.
+  -webkit-text-fill-color: $black;
+  transition: -webkit-text-fill-color 0.28s ease;
+}
+
+.channel:hover .channel-label,
+.channel:focus-visible .channel-label {
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: contact-text-shimmer 3.6s ease-in-out infinite alternate;
+}
+
+.channel-icon {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.channel:hover .channel-icon,
+.channel:focus-visible .channel-icon {
+  transform: scale(1.06);
+}
+
+// Tooltip: a copy call-to-action on hover/focus, switching to the confirmation
+// after a click. Brand colours only.
+.tooltip {
+  position: absolute;
+  left: 46px; // tucked just past the icon
+  bottom: calc(100% + 11px);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 0; // the check expands its own gap when copied
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(23, 23, 23, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  // Layered shadow + a faint inner top highlight for a crafted, dimensional pill.
+  box-shadow: 0 12px 28px rgba(23, 23, 23, 0.26), 0 3px 8px rgba(23, 23, 23, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  opacity: 0;
+  transform: translateY(9px) scale(0.86);
+  transform-origin: bottom left;
+  pointer-events: none;
+  // Springy entrance.
+  transition: opacity 0.22s ease,
+    transform 0.34s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+
+  // Pointer notch.
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 18px;
+    border: 5px solid transparent;
+    border-top-color: rgba(23, 23, 23, 0.96);
+    transition: border-top-color 0.28s ease;
+  }
+}
+
+.channel:hover .tooltip,
+.channel:focus-visible .tooltip,
+.channel.copied .tooltip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+// Drawn check mark — hidden (zero width) until the copied state.
+.tip-check {
+  width: 0;
+  height: 14px;
+  margin-right: 0;
+  flex: 0 0 auto;
+  overflow: visible;
+  opacity: 0;
+  transition: width 0.26s cubic-bezier(0.34, 1.56, 0.64, 1),
+    margin-right 0.26s ease, opacity 0.18s ease;
+
+  path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 22;
+    stroke-dashoffset: 22;
+  }
+}
+
+// Confirmed state: warm brand gradient pill, dark readable text, a check that
+// draws in, and a soft spring pop.
+.channel.copied .tooltip {
+  background: $warm;
+  color: rgba(74, 28, 0, 1);
+  box-shadow: 0 14px 32px rgba(255, 131, 61, 0.42), 0 3px 10px rgba(253, 81, 41, 0.26);
+  animation: contact-tip-pop 0.46s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &::after {
+    border-top-color: #ffb24d; // blends with the gradient base near the notch
+  }
+
+  .tip-check {
+    width: 15px;
+    margin-right: 7px;
+    opacity: 1;
+    path {
+      animation: contact-check-draw 0.4s 0.08s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip,
+  .channel.copied .tooltip,
+  .tip-check path { animation: none; transition: opacity 0.15s ease; }
+  .channel:hover .channel-label,
+  .channel:focus-visible .channel-label { animation: none; }
+}
+
+.channel-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: block;
+}
+
+// Figma: Urbanist, Regular 400, 20px / 140% / -1.5%.
+.footnote {
+  margin: auto 0 0;
+  padding-top: clamp(20px, 2.6vw, 32px);
+  font-family: Urbanist, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.015em;
+  color: $black;
+}
+
+/* ----------------------------------------------------------------------------
+   Tablet
+---------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .card {
+    width: min(90%, 900px);
+    aspect-ratio: 1024 / 520;
+  }
+  .phone {
+    right: 0;
+    height: 140%;
+  }
+  .title {
+    font-size: 40px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Mobile — stack the layout, shrink the phone and tuck it to the corner.
+---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .scrub.pinned {
+    // A little less travel feels right at phone heights.
+    height: 200vh;
+  }
+
+  .card {
+    width: calc(100% - 32px);
+    aspect-ratio: auto;
+    min-height: 460px;
+    border-radius: 24px;
+  }
+
+  .card-body {
+    padding: 28px 24px 26px;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+  }
+
+  .title {
+    max-width: 78%;
+    font-size: 30px;
+  }
+
+  .channel {
+    font-size: 16px;
+  }
+
+  .footnote {
+    font-size: 16px;
+  }
+
+  .phone {
+    top: auto;
+    bottom: -6%;
+    right: -4%;
+    height: 62%;
+    width: auto;
+    transform: none;
+  }
+
+  .channels {
+    margin-top: 26px;
+  }
+
+  .footnote {
+    max-width: 80%;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Reduced motion — no scrub; the card just fades in and rests on one frame.
+---------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .scrub.pinned {
+    height: auto;
+  }
+  .scrub.pinned .pin {
+    position: static;
+    height: auto;
+    padding: 80px 0;
+  }
+}

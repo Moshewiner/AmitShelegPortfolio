@@ -82,14 +82,14 @@
       pointer-events: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 8px;
+      gap: 5px;
+      padding: 6px 10px;
+      border-radius: 7px;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: #fff;
-      font-size: 18px;
+      font-size: 14px;
       letter-spacing: 0.2px;
       line-height: 1;
       border: 1px solid rgba(255, 255, 255, 0.25);
@@ -107,7 +107,8 @@
       @media (max-width: 768px) {
         top: 12px;
         left: 12px;
-        font-size: 12px;
+        font-size: 11px;
+        padding: 5px 9px;
       }
     }
   }

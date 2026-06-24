@@ -1,0 +1,85 @@
+<!-- Luminance -> alpha key for the phone video. The clip is a white handset on
+     black with no alpha; keying alpha from luminance drops the black to true
+     transparency (so the phone reads correctly even where it overflows the card
+     onto the page) while preserving the handset's own shading. -->
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <filter id="contact-phone-luma" color-interpolation-filters="sRGB">
+    <feColorMatrix
+      type="matrix"
+      values="1 0 0 0 0
+              0 1 0 0 0
+              0 0 1 0 0
+              0.2126 0.7152 0.0722 0 0" />
+  </filter>
+</svg>
+
+<!-- Outer track. In scrub mode + [pinned] it is tall with the card sticky-
+     centered (scroll travel for the scrub). In loop mode the card is simply
+     centered in the viewport (no extra scroll). -->
+<div class="scrub" #scrub [class.pinned]="pinned" [class.is-loop]="isLoop">
+  <div class="pin">
+    <div class="card" appRevealOnScroll revealVariant="fade">
+      <!-- Rounded gradient background (clipped). -->
+      <div class="card-bg" aria-hidden="true"></div>
+
+      <!-- Phone: white handset on black, composited via mix-blend: screen.
+           Loop mode autoplays it; scrub mode drives currentTime from scroll. -->
+      <video
+        class="phone"
+        #video
+        src="/assets/contact/phone.mp4"
+        [muted]="true"
+        [loop]="isLoop"
+        [autoplay]="isLoop"
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        aria-hidden="true"
+        tabindex="-1"></video>
+
+      <div class="card-body">
+        <span class="eyebrow">Let's Talk!</span>
+        <h2 class="title">Imagine what we<br />will create together.</h2>
+
+        <ul class="channels">
+          <li>
+            <button
+              type="button"
+              class="channel"
+              [class.copied]="copied() === 'phone'"
+              (click)="copy(phoneDisplay, 'phone')"
+              aria-label="Copy phone number">
+              <img class="channel-icon" src="/assets/contact/phone-icon.svg" alt="" />
+              <span class="channel-label">{{ phoneDisplay }}</span>
+              <span class="tooltip" role="status" aria-live="polite">
+                <svg class="tip-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.5 12.5l4.5 4.5L19.5 6.5" />
+                </svg>
+                <span class="tip-text">{{ copied() === 'phone' ? 'Copied' : 'Click to copy' }}</span>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="channel"
+              [class.copied]="copied() === 'email'"
+              (click)="copy(email, 'email')"
+              aria-label="Copy email address">
+              <img class="channel-icon" src="/assets/contact/mail-icon.svg" alt="" />
+              <span class="channel-label">{{ email }}</span>
+              <span class="tooltip" role="status" aria-live="polite">
+                <svg class="tip-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.5 12.5l4.5 4.5L19.5 6.5" />
+                </svg>
+                <span class="tip-text">{{ copied() === 'email' ? 'Copied' : 'Click to copy' }}</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+
+        <p class="footnote">Give me a call ! // What's your favorite coffee?</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
+import { ContactComponent } from '../../components/contact/contact.component';
 
 /**
  * About Me page. Editorial two-section layout themed to match the home page
@@ -12,6 +13,6 @@ import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.direc
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RevealOnScrollDirective],
+  imports: [RouterLink, RevealOnScrollDirective, ContactComponent],
 })
 export class AboutComponent {}

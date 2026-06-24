@@ -73,27 +73,26 @@ $contentWidthMobile: calc(100% - 32px);
 
 .section-label {
   display: inline-block;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.86rem;
+  font-weight: 400;
   text-transform: uppercase;
-  color: $gray02;
-  margin-bottom: 20px;
+  color: #6b6b6b;
+  margin-bottom: 8px;
 }
 
 // Display heading shared by both sections.
 %display {
   font-family: Urbanist, sans-serif;
-  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 115%;
-  letter-spacing: -0.02em;
+  letter-spacing: -1.5%;
   margin: 0;
 }
 
 // Body copy shared by both sections.
 %body-copy {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.65;
   color: $gray01;
@@ -173,23 +172,45 @@ $contentWidthMobile: calc(100% - 32px);
 }
 
 /* ----------------------------------------------------------------------------
-   MY WORK — headline + copy stacked on the left
+   MY WORK — headline + copy on the left, portrait on the right
 ---------------------------------------------------------------------------- */
 .work {
+  display: flex;
+  align-items: center;
+  // 120px between copy and image at 1920px wide, scaling down proportionally.
+  gap: clamp(40px, 6.25vw, 120px);
   padding: 56px 0 96px;
+
+  .work-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 720px; // 720px copy column at 1920
+  }
 
   .work-title {
     @extend %display;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
   }
 
   .work-body {
-    max-width: 600px;
+    max-width: none;
     display: flex;
     flex-direction: column;
     gap: 22px;
 
     p { @extend %body-copy; }
+  }
+
+  .work-media {
+    flex: 0 0 auto;
+    // 560px square at 1920px wide (image is 1120x1120), scaling down with the viewport.
+    width: clamp(300px, 29.17vw, 560px);
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   }
 }
 
@@ -291,9 +312,18 @@ $contentWidthMobile: calc(100% - 32px);
   .glow-bottom-right { width: 360px; height: 360px; right: -120px; }
 
   .work {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
     padding: 32px 0 72px;
     .work-title { margin-bottom: 26px; }
     .work-body { max-width: none; }
+    .work-media {
+      flex: none;
+      width: min(72%, 320px);
+      align-self: center;
+      order: -1; // portrait above the copy on mobile
+    }
   }
 
   .story {

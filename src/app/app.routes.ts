@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./pages/about/about.component').then((m) => m.AboutComponent),
   },
   {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then((m) => m.ContactPageComponent),
+  },
+  {
     path: 'mobile-unsupported',
     loadComponent: () =>
       import('./pages/mobile-unsupported/mobile-unsupported.component').then(
