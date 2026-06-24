@@ -1,0 +1,312 @@
+@use "../../../responsive.scss" as *;
+@use "../../../colors.scss" as *;
+
+// Warm brand gradient (same stops as the home hero).
+$warm: linear-gradient(101.32deg, #fd5129 -2.69%, #ff833d 25.27%, #ff8e16 63.08%, #ffca10 98.68%);
+$pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%);
+
+$contentWidth: 73%;
+$contentWidthMobile: calc(100% - 32px);
+
+/* ----------------------------------------------------------------------------
+   Animations.
+   Keyframes (and their references) are kept at the top level — never inside an
+   @media block — because Angular's view-encapsulation does not rewrite keyframe
+   names referenced inside @media, which would silently break the animation.
+   Mobile only tweaks the --reveal-shift custom property.
+---------------------------------------------------------------------------- */
+@keyframes about-enter {
+  from { opacity: 0; transform: translateY(var(--reveal-shift, 28px)); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes about-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes about-shimmer {
+  from { background-position: 0% center; }
+  to { background-position: 100% center; }
+}
+@keyframes about-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -22px, 0) scale(1.05); }
+}
+
+// Staggered entrance for the first (above-the-fold) section.
+.hero-enter { animation: about-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-enter-1 { animation-delay: 0.05s; }
+.hero-enter-2 { animation-delay: 0.16s; }
+.hero-enter-3 { animation-delay: 0.3s; }
+
+// Scroll-reveal (driven by appRevealOnScroll adding .is-revealed).
+[appRevealOnScroll].reveal-up,
+[appRevealOnScroll].reveal-fade { opacity: 0; }
+[appRevealOnScroll].reveal-up.is-revealed {
+  animation: about-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+[appRevealOnScroll].reveal-fade.is-revealed {
+  animation: about-fade 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  [appRevealOnScroll].reveal-up.is-revealed,
+  [appRevealOnScroll].reveal-fade.is-revealed { animation: none; }
+  [appRevealOnScroll].reveal-up,
+  [appRevealOnScroll].reveal-fade { opacity: 1; }
+}
+
+/* ----------------------------------------------------------------------------
+   Shared helpers
+---------------------------------------------------------------------------- */
+.gradient {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-color: $black;
+  background-image: $pink, $warm;
+  background-repeat: no-repeat;
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: about-shimmer 4.5s ease-in-out infinite alternate;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $gray02;
+  margin-bottom: 20px;
+}
+
+// Display heading shared by both sections.
+%display {
+  font-family: Urbanist, sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+// Body copy shared by both sections.
+%body-copy {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: $gray01;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   Host + decorative layers
+---------------------------------------------------------------------------- */
+:host {
+  display: block;
+  position: relative;
+  width: calc(100vw - (100vw - 100%));
+  overflow-x: clip;
+  background: $bgColor;
+  color: $black;
+  padding-top: $nav-height;
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/new-home/Texture.svg') repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+.glow-top {
+  top: 2%;
+  right: -140px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(255, 142, 22, 0.4) 0%, rgba(255, 52, 107, 0.14) 55%, rgba(255, 203, 16, 0) 75%);
+  opacity: 0.5;
+  animation: about-float 16s ease-in-out infinite;
+}
+// Warm wash behind the CTA at the bottom of the page.
+.glow-bottom-left {
+  bottom: 2%;
+  left: -180px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 131, 61, 0.32) 0%, rgba(255, 52, 107, 0.14) 48%, rgba(255, 203, 20, 0) 74%);
+  opacity: 0.6;
+  animation: about-float 18s ease-in-out infinite;
+  animation-delay: -5s;
+}
+.glow-bottom-right {
+  bottom: -4%;
+  right: -160px;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(255, 203, 20, 0.3) 0%, rgba(255, 142, 22, 0.16) 46%, rgba(255, 203, 20, 0) 74%);
+  opacity: 0.55;
+  animation: about-float 20s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+// Sections share the grid width and sit above the decorative layers.
+.work,
+.story,
+.cta {
+  position: relative;
+  z-index: 1;
+  width: $contentWidth;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------------------------
+   MY WORK — headline + copy stacked on the left
+---------------------------------------------------------------------------- */
+.work {
+  padding: 56px 0 96px;
+
+  .work-title {
+    @extend %display;
+    margin-bottom: 36px;
+  }
+
+  .work-body {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    p { @extend %body-copy; }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   MY STORY — dark headline on the left, copy on the right
+---------------------------------------------------------------------------- */
+.story {
+  display: flex;
+  gap: 72px;
+  padding: 40px 0 120px;
+
+  .story-head {
+    flex: 0 0 38%;
+  }
+
+  .story-title {
+    @extend %display;
+    color: $black;
+  }
+
+  .story-body {
+    flex: 1 1 auto;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    p { @extend %body-copy; }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   CTA
+---------------------------------------------------------------------------- */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 120px 0 170px;
+
+  .cta-title {
+    font-family: Urbanist, sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 600;
+    line-height: 115%;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+
+  .cta-sub {
+    font-family: "Inter Tight", sans-serif;
+    font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+    font-weight: 400;
+    color: $black;
+    margin: 0 0 40px;
+  }
+
+  // Soft tan pill — matches the header "My Resume" button.
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 40px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgba(82, 33, 0, 1);
+    background: rgba(255, 207, 153, 1);
+    border: 1px solid rgba(255, 117, 48, 0.3);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s ease;
+
+    &:hover {
+      background: rgba(255, 196, 128, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(255, 142, 22, 0.28);
+    }
+    &:active { transform: translateY(0); }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Responsive — only non-animation properties change here (see note up top).
+---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  // Lighter reveal on mobile: pure fade, no vertical slide.
+  [appRevealOnScroll].reveal-up.is-revealed { --reveal-shift: 0px; }
+
+  .work,
+  .story,
+  .cta { width: $contentWidthMobile; }
+
+  .glow { filter: blur(72px); }
+  .glow-top { width: 240px; height: 240px; right: -90px; }
+  .glow-bottom-left { width: 340px; height: 340px; left: -120px; }
+  .glow-bottom-right { width: 360px; height: 360px; right: -120px; }
+
+  .work {
+    padding: 32px 0 72px;
+    .work-title { margin-bottom: 26px; }
+    .work-body { max-width: none; }
+  }
+
+  .story {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0 88px;
+
+    .story-head { flex: none; }
+    .story-body { max-width: none; }
+  }
+
+  .cta {
+    padding: 80px 0 110px;
+    .cta-sub { margin-bottom: 32px; }
+  }
+}

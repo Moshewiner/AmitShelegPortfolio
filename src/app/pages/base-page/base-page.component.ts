@@ -57,6 +57,15 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.inDrawer;
   }
 
+  /** Shown in the content area when a project has no gallery images yet. */
+  public readonly comingSoonImage = '/assets/coming-soon/coming-soon-desktop.webp';
+  public readonly comingSoonImageMobile = '/assets/coming-soon/coming-soon-mobile.webp';
+
+  /** True when the case study has no images yet — render the empty state. */
+  get isComingSoon(): boolean {
+    return !this.project?.content?.images?.length;
+  }
+
   lightboxOpen = false;
   currentIndex = 0;
   /** Slides currently rendered in the lightbox track (1 at rest, 2 during a slide). */
@@ -312,6 +321,10 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openLightbox(index: number): void {
+    // The "coming soon" empty state is not a real asset — never open it.
+    if (this.isComingSoon) {
+      return;
+    }
     this.currentIndex = index;
     this.slides = [{ src: this.project.content.images[index], key: 'c' + index }];
     this.trackTransform = 'translateX(0)';

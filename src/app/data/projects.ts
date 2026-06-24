@@ -42,7 +42,7 @@ export const PROJECTS: Record<string, Project> = {
       'Creating a simple and efficient system for public authorities to manage FOI requests through a focused, digital-first approach.',
     heroImage: '/assets/Shahaf-gov/shahaf-wide.webp',
     client: 'Gov.il - National Digital Agency',
-    duration: '8 Months (ongoing)',
+    duration: 'One Year',
     platform: 'Desktop',
     introduction: `Shahaf is a BackOffice system designed to manage Freedom of Information (FOI) requests across public authorities.
                   <br /><br />
@@ -67,11 +67,12 @@ export const PROJECTS: Record<string, Project> = {
     description: `A global back-office platform that streamlines station management, simplifies daily workflows, and saves time and resources across El Al’s operations.`,
     heroImage: '/assets/GlobaLY/wide.webp',
     client: 'El Al Israel Airlines',
-    duration: 'Two Years (ongoing)',
+    duration: 'Three Years+ (ongoing)',
     platform: 'Native iOS App for iPad',
     introduction: `GlobalLY is a back-office application created to optimize the daily operations of El Al’s station managers across the globe. Designed as a single hub for flight operations, station information, crew assignments and more - the system replaces manual processes with a streamlined digital workflow.<br /><br />I led the project end-to-end, from mapping workflows and creating detailed wireframes, to delivering a production-ready product design. The interface was crafted in line with El Al’s brand guidelines, ensuring visual consistency across the company’s digital ecosystem. Throughout the process, I collaborated closely with project managers, system analysts, and the development team, while testing early prototypes directly with field managers.<br /><br />One of the key challenges was designing for non-technical users who primarily access the system on tablets, often in time-sensitive environments. By prioritizing clarity and accessibility, I ensured that even complex tasks could be performed in just a few taps.<br /><br />The outcome is a fully deployed solution, now used daily by El Al station managers worldwide. In pilot-phase interviews, station managers highlighted the system’s simplicity and efficiency.Most importantly, GlobalLY saves each station manager more than 10 hours of manual work every week - optimizing time and costs across El Al’s global operations.`,
     content: {
-      images: ['/assets/GlobaLY/preview.webp', '/assets/GlobaLY/wide.webp'],
+      // Empty on purpose: an empty gallery renders the "coming soon" empty state.
+      images: [],
     },
   },
   '/routines': {
@@ -84,6 +85,7 @@ export const PROJECTS: Record<string, Project> = {
     platform: 'Desktop SaaS',
     introduction: `Routines is an enterprise orchestration and scheduling platform that helps organizations automate processes, manage complex workflows, and coordinate operational activities from a single centralized system. The platform is actively used in production by leading organizations across Israel (Rafael, Harel Insurance, Soreq, and others).<br /><br />Since joining the team, I have played an active role in the ongoing evolution of the product by designing new features, modernizing existing workflows, and continuously improving usability, efficiency, and the overall user experience.<br /><br />Working closely with the development team, product stakeholders, and CEO, allows me to identify opportunities for improvement, align business and user needs, and drive the product forward through new features and enhanced user experiences.<br /><br />One of the most rewarding challenges throughout the project is making powerful automation and AI capabilities feel approachable, accessible, and easy to use, while maintaining the flexibility and depth required by enterprise users.`,
     content: {
+      // Empty on purpose: an empty gallery renders the "coming soon" empty state.
       images: [],
     },
   },
@@ -99,7 +101,8 @@ The purpose of the website is to enable registration for health-improvement work
 
 The project was done in collaboration with a fellow designer from my team, and my role was to adapt the desktop design into a fully responsive mobile version. The site is now live and serves Clalit’s customers with a smooth and accessible registration experience across devices.`,
     content: {
-      images: ['/assets/clalit/hero.png', '/assets/clalit/hero.png'],
+      // Empty on purpose: an empty gallery renders the "coming soon" empty state.
+      images: [],
     },
   },
 };

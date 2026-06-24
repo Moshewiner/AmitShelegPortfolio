@@ -7,6 +7,11 @@ import { NewHomeComponent } from './pages/new-home/new-home.component';
 export const routes: Routes = [
   { path: '', component: NewHomeComponent },
   {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then((m) => m.AboutComponent),
+  },
+  {
     path: 'mobile-unsupported',
     loadComponent: () =>
       import('./pages/mobile-unsupported/mobile-unsupported.component').then(

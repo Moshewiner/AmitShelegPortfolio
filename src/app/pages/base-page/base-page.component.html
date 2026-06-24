@@ -36,13 +36,26 @@
   </div>
 </div>
 <div class="content">
-  @for (image of project.content.images; track image; let i = $index) {
-    <img
-      class="image"
-      appRevealOnScroll
-      [revealDelay]="0.05 + i * 0.07"
-      [src]="image"
-      (click)="openLightbox(i)" />
+  @if (project.content.images.length) {
+    @for (image of project.content.images; track image; let i = $index) {
+      <img
+        class="image"
+        appRevealOnScroll
+        [revealDelay]="0.05 + i * 0.07"
+        [src]="image"
+        (click)="openLightbox(i)" />
+    }
+  } @else {
+    <!-- No assets yet: coming-soon empty state (not clickable, no lightbox).
+         Art-directed: a mobile crop on small screens, wide crop on desktop. -->
+    <picture class="coming-soon-pic">
+      <source media="(max-width: 768px)" [srcset]="comingSoonImageMobile" type="image/webp" />
+      <img
+        class="image image--coming-soon"
+        appRevealOnScroll
+        [src]="comingSoonImage"
+        alt="Case study coming soon" />
+    </picture>
   }
 </div>
 <div class="thank-you">

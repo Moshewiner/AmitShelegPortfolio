@@ -1,23 +1,28 @@
-<div class="project-item" 
+<div class="project-item"
      [class.animating]="active"
      [class.coming-soon]="comingSoon"
      [class.coming-soon-revealed]="comingSoonRevealed"
-     #projectElement 
+     [class.confidential]="isConfidential"
+     [class.confidential-revealed]="confidentialRevealed"
+     #projectElement
      (click)="onProjectClick($event)">
   <div class="project-image">
     <img [src]="projectImage" alt="{{ projectName }}" loading="lazy" decoding="async" />
 
     @if (projectBadge) {
-      <div class="project-badge" [attr.aria-label]="projectBadge === 'new' ? 'New project' : 'Confidential project'">
+      <div class="project-badge"
+           [class.badge-new]="projectBadge === 'new'"
+           [class.badge-confidential]="projectBadge === 'confidential'"
+           [attr.aria-label]="projectBadge === 'new' ? 'New project' : 'Confidential project'">
         @if (projectBadge === 'new') {
           <span>New</span>
         } @else {
-          <span>🔒 Confidential</span>
+          <span class="lock">🔒</span><span>Confidential</span>
         }
       </div>
     }
 
-    @if (comingSoon) {
+    @if (comingSoon && !isConfidential) {
       <div class="coming-soon-overlay" aria-hidden="true">
         <div class="coming-soon-badge">
           <svg class="coming-soon-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -49,6 +54,8 @@
             </svg>
           </span>
       </div>
+    } @else if (isConfidential) {
+      <div class="project-link project-link--soon">Confidential</div>
     } @else {
       <div class="project-link project-link--soon">Coming soon...</div>
     }

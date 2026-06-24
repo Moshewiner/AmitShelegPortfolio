@@ -126,11 +126,6 @@ $gridWidth: 73%;
         }
       }
 
-      // The client name is shown in uppercase (duration/platform stay as-is).
-      .client .value {
-        text-transform: uppercase;
-      }
-
     }
 
     .introduction {
@@ -178,6 +173,23 @@ $gridWidth: 73%;
 
       &:hover {
         transform: scale(1.01);
+      }
+    }
+
+    // Coming-soon empty state: framed like the gallery images (same radius), but
+    // not interactive — no pointer, no hover zoom, and no lightbox.
+    .coming-soon-pic {
+      display: block;
+      width: 100%;
+    }
+
+    .image--coming-soon {
+      box-sizing: border-box;
+      border: 1px solid $divider;
+      cursor: default;
+
+      &:hover {
+        transform: none;
       }
     }
   }

@@ -38,11 +38,17 @@ export class ProjectItemComponent {
     return !this.projectLink || this.projectLink.trim() === '';
   }
 
+  /** Confidential projects emphasize the badge instead of "Coming soon". */
+  get isConfidential(): boolean {
+    return this.projectBadge === 'confidential';
+  }
+
   /**
-   * On mobile there's no hover, so a tap toggles the "Coming soon" overlay
-   * instead. On desktop the overlay is driven purely by :hover.
+   * On mobile there's no hover, so a tap toggles the reveal instead. On desktop
+   * it's driven purely by :hover.
    */
   public comingSoonRevealed = false;
+  public confidentialRevealed = false;
 
   private isMobile(): boolean {
     return window.innerWidth <= 768;
@@ -56,7 +62,11 @@ export class ProjectItemComponent {
     // (and toggles) the overlay since hover isn't available.
     if (this.comingSoon) {
       if (this.isMobile()) {
-        this.comingSoonRevealed = !this.comingSoonRevealed;
+        if (this.isConfidential) {
+          this.confidentialRevealed = !this.confidentialRevealed;
+        } else {
+          this.comingSoonRevealed = !this.comingSoonRevealed;
+        }
       }
       return;
     }
