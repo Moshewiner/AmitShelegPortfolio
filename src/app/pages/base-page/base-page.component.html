@@ -93,9 +93,14 @@
           <div class="lightbox-slide">
             <img
               class="lightbox-image"
+              [class.zoomed]="zoomScale > 1"
               [src]="slide.src"
+              [style.transform]="imageTransform"
+              [style.transition]="zoomTransition ? 'transform 250ms ease' : 'none'"
               (click)="$event.stopPropagation()"
+              (dblclick)="onDoubleClick($event)"
               (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event)"
               (touchend)="onTouchEnd($event)" />
           </div>
         }

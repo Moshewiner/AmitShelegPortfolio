@@ -89,6 +89,39 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   private touchStartX = 0;
   private touchStartY = 0;
 
+  /**
+   * Pinch-to-zoom / pan state for the lightbox image (native photo-gallery
+   * style). The image is transformed as `translate(tx, ty) scale(scale)` about
+   * its center; `zoomTransition` only turns on for snap-back / double-tap so
+   * live pinching stays 1:1 with the fingers.
+   */
+  zoomScale = 1;
+  zoomTx = 0;
+  zoomTy = 0;
+  zoomTransition = false;
+
+  private readonly maxScale = 4;
+  /** What the active touch sequence is doing. */
+  private gesture: 'none' | 'swipe' | 'pinch' | 'pan' = 'none';
+  private pinchStartDist = 0;
+  private pinchStartScale = 1;
+  private pinchStartTx = 0;
+  private pinchStartTy = 0;
+  /** Pinch midpoint relative to the viewport center (kept anchored). */
+  private pinchMidX = 0;
+  private pinchMidY = 0;
+  private panStartX = 0;
+  private panStartY = 0;
+  private panStartTx = 0;
+  private panStartTy = 0;
+  /** Distinguishes a tap (double-tap zoom) from a drag (swipe / pan). */
+  private touchMoved = false;
+  private lastTapTime = 0;
+
+  get imageTransform(): string {
+    return `translate(${this.zoomTx}px, ${this.zoomTy}px) scale(${this.zoomScale})`;
+  }
+
   private morphClone: HTMLImageElement | null = null;
   private morphStarted = false;
   private destroyed = false;
@@ -331,6 +364,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.trackTransform = 'translateX(0)';
     this.sliding = false;
     this.pendingIndex = null;
+    this.resetZoom();
     this.lightboxOpen = true;
     document.body.style.overflow = 'hidden';
   }
@@ -339,6 +373,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.lightboxOpen = false;
     this.sliding = false;
     this.pendingIndex = null;
+    this.resetZoom();
     document.body.style.overflow = '';
   }
 
@@ -361,6 +396,8 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.sliding || incoming === this.currentIndex) {
       return;
     }
+    // Navigating always returns the image to its natural, un-panned size.
+    this.resetZoom();
     const imgs = this.project.content.images;
 
     if (this.prefersReducedMotion()) {
@@ -410,11 +447,109 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onTouchStart(event: TouchEvent): void {
-    this.touchStartX = event.changedTouches[0].clientX;
-    this.touchStartY = event.changedTouches[0].clientY;
+    this.zoomTransition = false;
+
+    if (event.touches.length >= 2) {
+      // Two fingers down: start a pinch. Remember the starting spread, scale
+      // and translation, plus the midpoint between the fingers so we can keep
+      // that point of the image anchored as it scales.
+      this.gesture = 'pinch';
+      this.pinchStartDist = this.touchDistance(event);
+      this.pinchStartScale = this.zoomScale;
+      this.pinchStartTx = this.zoomTx;
+      this.pinchStartTy = this.zoomTy;
+      const mid = this.touchMidpoint(event);
+      this.pinchMidX = mid.x - window.innerWidth / 2;
+      this.pinchMidY = mid.y - window.innerHeight / 2;
+      return;
+    }
+
+    const t = event.touches[0];
+    this.touchMoved = false;
+
+    if (this.zoomScale > 1) {
+      // Already zoomed in: a one-finger drag pans the image.
+      this.gesture = 'pan';
+      this.panStartX = t.clientX;
+      this.panStartY = t.clientY;
+      this.panStartTx = this.zoomTx;
+      this.panStartTy = this.zoomTy;
+    } else {
+      // At natural size: a one-finger drag swipes between images.
+      this.gesture = 'swipe';
+      this.touchStartX = t.clientX;
+      this.touchStartY = t.clientY;
+    }
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    if (this.gesture === 'pinch' && event.touches.length >= 2) {
+      if (this.pinchStartDist <= 0) {
+        return;
+      }
+      const next = (this.touchDistance(event) / this.pinchStartDist) * this.pinchStartScale;
+      this.zoomScale = Math.min(this.maxScale, Math.max(1, next));
+      // Keep the pinch midpoint over the same image point as it scales.
+      const ratio = this.zoomScale / this.pinchStartScale;
+      this.zoomTx = this.pinchMidX - ratio * (this.pinchMidX - this.pinchStartTx);
+      this.zoomTy = this.pinchMidY - ratio * (this.pinchMidY - this.pinchStartTy);
+      this.clampPan(this.imgFromEvent(event));
+      this.cdr.detectChanges();
+    } else if (this.gesture === 'pan' && event.touches.length === 1) {
+      const t = event.touches[0];
+      // Ignore tiny jitter so a stationary double-tap (to zoom back out) isn't
+      // mistaken for a pan drag.
+      if (Math.abs(t.clientX - this.panStartX) > 6 || Math.abs(t.clientY - this.panStartY) > 6) {
+        this.touchMoved = true;
+      }
+      this.zoomTx = this.panStartTx + (t.clientX - this.panStartX);
+      this.zoomTy = this.panStartTy + (t.clientY - this.panStartY);
+      this.clampPan(this.imgFromEvent(event));
+      this.cdr.detectChanges();
+    } else if (this.gesture === 'swipe') {
+      const t = event.touches[0];
+      if (Math.abs(t.clientX - this.touchStartX) > 6 || Math.abs(t.clientY - this.touchStartY) > 6) {
+        this.touchMoved = true;
+      }
+    }
   }
 
   onTouchEnd(event: TouchEvent): void {
+    if (this.gesture === 'pinch') {
+      // Snap back to natural size (and re-center) if pinched to/below 1x.
+      if (this.zoomScale <= 1.01) {
+        this.resetZoom(true);
+      } else {
+        this.clampPan(this.imgFromEvent(event));
+      }
+      this.gesture = 'none';
+      this.cdr.detectChanges();
+      return;
+    }
+
+    // Single-finger gesture (pan when zoomed, swipe otherwise).
+    const wasPan = this.gesture === 'pan';
+    this.gesture = 'none';
+
+    // A stationary touch is a tap — double-tap toggles zoom in OR out. This must
+    // run for both pan (zoomed in) and swipe (zoomed out) so you can zoom back.
+    if (!this.touchMoved) {
+      const now = Date.now();
+      if (now - this.lastTapTime < 300) {
+        this.lastTapTime = 0;
+        const t = event.changedTouches[0];
+        this.toggleZoomAt(t.clientX, t.clientY, this.imgFromEvent(event));
+      } else {
+        this.lastTapTime = now;
+      }
+      return;
+    }
+
+    // A drag while zoomed just panned the image — nothing to do on release.
+    if (wasPan) {
+      return;
+    }
+
     const deltaX = event.changedTouches[0].clientX - this.touchStartX;
     const deltaY = event.changedTouches[0].clientY - this.touchStartY;
     const threshold = 50;
@@ -432,6 +567,73 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.prevImage();
       }
     }
+  }
+
+  /** Double-click (mouse) zooms in/out at the cursor, like double-tap on touch. */
+  onDoubleClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.toggleZoomAt(event.clientX, event.clientY, this.imgFromEvent(event));
+  }
+
+  /**
+   * Toggle between natural size and a 2.5x zoom centered on (x, y). Shared by
+   * double-tap (touch) and double-click (mouse).
+   */
+  private toggleZoomAt(x: number, y: number, img?: HTMLImageElement | null): void {
+    this.zoomTransition = true;
+    if (this.zoomScale > 1) {
+      this.resetZoom(true);
+    } else {
+      const target = 2.5;
+      const rx = x - window.innerWidth / 2;
+      const ry = y - window.innerHeight / 2;
+      this.zoomScale = target;
+      // Anchor the point under the cursor: from scale 1 / translate 0, the
+      // translation that keeps point r fixed is r * (1 - scale).
+      this.zoomTx = rx * (1 - target);
+      this.zoomTy = ry * (1 - target);
+      this.clampPan(img ?? null);
+    }
+    this.cdr.detectChanges();
+  }
+
+  /** Reset the lightbox image to its natural, centered size. */
+  private resetZoom(animated = false): void {
+    this.zoomTransition = animated;
+    this.zoomScale = 1;
+    this.zoomTx = 0;
+    this.zoomTy = 0;
+  }
+
+  /** Keep the (scaled) image from being panned entirely off-screen. */
+  private clampPan(img: HTMLImageElement | null): void {
+    if (!img) {
+      return;
+    }
+    // offsetWidth/Height are the un-transformed layout size of the image.
+    const w = img.offsetWidth * this.zoomScale;
+    const h = img.offsetHeight * this.zoomScale;
+    const maxX = Math.max(0, (w - window.innerWidth) / 2);
+    const maxY = Math.max(0, (h - window.innerHeight) / 2);
+    this.zoomTx = Math.min(maxX, Math.max(-maxX, this.zoomTx));
+    this.zoomTy = Math.min(maxY, Math.max(-maxY, this.zoomTy));
+  }
+
+  private touchDistance(event: TouchEvent): number {
+    const dx = event.touches[0].clientX - event.touches[1].clientX;
+    const dy = event.touches[0].clientY - event.touches[1].clientY;
+    return Math.hypot(dx, dy);
+  }
+
+  private touchMidpoint(event: TouchEvent): { x: number; y: number } {
+    return {
+      x: (event.touches[0].clientX + event.touches[1].clientX) / 2,
+      y: (event.touches[0].clientY + event.touches[1].clientY) / 2,
+    };
+  }
+
+  private imgFromEvent(event: Event): HTMLImageElement | null {
+    return event.currentTarget instanceof HTMLImageElement ? event.currentTarget : null;
   }
 
   @HostListener('document:keydown', ['$event'])

@@ -242,6 +242,13 @@ $gridWidth: 73%;
   border-radius: 24px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
   user-select: none;
+  // Pinch-to-zoom transforms about the image center (see imageTransform).
+  transform-origin: center center;
+  -webkit-user-drag: none;
+
+  &.zoomed {
+    cursor: grab;
+  }
 }
 
 .lightbox-close {

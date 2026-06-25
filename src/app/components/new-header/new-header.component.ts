@@ -1,6 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
+  HostListener,
   OnInit,
   PLATFORM_ID,
   inject,
@@ -25,6 +27,7 @@ export class NewHeaderComponent implements OnInit {
   public isExpanded = false;
 
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly elementRef = inject(ElementRef);
 
   // Google Drive direct-download URL (the `download` HTML attribute is ignored
   // cross-origin, so the `uc?export=download` form is what forces the download).
@@ -41,6 +44,17 @@ export class NewHeaderComponent implements OnInit {
   
   public toggleMenu(): void {
     this.isExpanded = !this.isExpanded;
+  }
+
+  // Close the mobile menu when clicking anywhere outside the header.
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: MouseEvent): void {
+    if (!this.isExpanded) {
+      return;
+    }
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.closeMenu();
+    }
   }
 
   ngOnInit(): void {
