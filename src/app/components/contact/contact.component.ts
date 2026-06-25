@@ -48,7 +48,7 @@ export class ContactComponent implements OnDestroy {
   @ViewChild('scrub', { static: true }) scrubRef?: ElementRef<HTMLElement>;
   @ViewChild('video', { static: true }) videoRef?: ElementRef<HTMLVideoElement>;
 
-  readonly phoneDisplay = '+972 53-50577';
+  readonly phoneDisplay = '+97253-3350577';
   readonly email = 'amitsheleg13@gmail.com';
 
   /** Which channel was just copied (drives the "Copied to clipboard" tooltip). */

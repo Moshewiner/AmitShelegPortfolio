@@ -136,19 +136,19 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 // Figma: Inter Tight, Regular 400, 16px / 100% / 0.
 .eyebrow {
   font-family: "Inter Tight", sans-serif;
+  color: $gray01;
   font-size: 16px;
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 0;
-  color: $black;
-  margin-bottom: clamp(14px, 1.8vw, 22px);
+  margin-bottom: 8px;
 }
 
 // Figma: Urbanist, Bold 700, 48px / 115% / -1.5%.
 .title {
   font-family: Urbanist, sans-serif;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 115%;
   letter-spacing: -0.015em;
   margin: 0;
@@ -180,7 +180,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   color: $black;
   font-family: "Inter Tight", sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 140%;
   letter-spacing: 0;
   width: fit-content;
@@ -233,7 +233,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   color: #fff;
   font-family: "Inter Tight", sans-serif;
   font-size: 12.5px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0.2px;
   white-space: nowrap;
@@ -333,7 +333,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   padding-top: clamp(20px, 2.6vw, 32px);
   font-family: Urbanist, sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 140%;
   letter-spacing: -0.015em;
   color: $black;
