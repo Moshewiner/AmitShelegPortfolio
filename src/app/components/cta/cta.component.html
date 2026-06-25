@@ -1,0 +1,15 @@
+<section class="cta">
+  <h2 class="cta-title" appRevealOnScroll>
+    <span class="gradient">{{ title }}</span>
+  </h2>
+  <p class="cta-sub" appRevealOnScroll [revealDelay]="0.06">
+    {{ subtitle }}
+  </p>
+  <a
+    class="cta-btn"
+    appRevealOnScroll
+    [revealDelay]="0.12"
+    [routerLink]="buttonLink">
+    {{ buttonText }}
+  </a>
+</section>

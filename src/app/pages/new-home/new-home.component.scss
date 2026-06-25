@@ -5,6 +5,7 @@
 $gridWidth: 73%;
 $mobileGridWidth: calc(100% - 32px); //92%;
 
+
 $marginSize: calc((100% - $gridWidth) / 2);
 $mobileMarginSize: calc((100% - $mobileGridWidth) / 2);
 $cell: calc($gridWidth / 12);
@@ -533,7 +534,6 @@ app-project-item.reveal-fade.is-revealed {
       }
 
     }
-
 
     &.contact {
       height: unset;

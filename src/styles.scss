@@ -1,6 +1,6 @@
 @use "./responsive.scss" as *;
 @use "./colors.scss" as *;
-@use "./assets/Fonts/Poppins/poppins.scss" as *;
+@use "./assets/fonts/Poppins/poppins.scss" as *;
 // Google Fonts (Urbanist, Imprima, Inter Tight) are loaded non-render-blockingly
 // via <link> tags in index.html instead of a render-blocking CSS @import chain.
 // @use "./scrollbar.scss" as *;
@@ -53,20 +53,20 @@ a {
 
 @font-face {
   font-family: Butler;
-  src: url("/assets/Fonts/Butler/Butler_Regular.otf") format("opentype");
+  src: url("/assets/fonts/Butler/Butler_Regular.otf") format("opentype");
   font-weight: normal;
   font-display: swap;
 }
 @font-face {
   font-family: Butler;
-  src: url("/assets/Fonts/Butler/Butler_Bold.otf") format("opentype");
+  src: url("/assets/fonts/Butler/Butler_Bold.otf") format("opentype");
   font-weight: bold;
   font-display: swap;
 }
 
 @font-face {
   font-family: Karu;
-  src: url("/assets/Fonts/Karu/KaruLight.otf") format("truetype");
+  src: url("/assets/fonts/Karu/KaruLight.otf") format("truetype");
   font-weight: light;
   font-display: swap;
 }

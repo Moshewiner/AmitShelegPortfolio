@@ -242,58 +242,7 @@ $contentWidthMobile: calc(100% - 32px);
   }
 }
 
-/* ----------------------------------------------------------------------------
-   CTA
----------------------------------------------------------------------------- */
-.cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 120px 0 170px;
 
-  .cta-title {
-    font-family: Urbanist, sans-serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    font-weight: 600;
-    line-height: 115%;
-    letter-spacing: -0.02em;
-    margin: 0 0 12px;
-  }
-
-  .cta-sub {
-    font-family: "Inter Tight", sans-serif;
-    font-size: clamp(1.4rem, 2.6vw, 2.1rem);
-    font-weight: 400;
-    color: $black;
-    margin: 0 0 40px;
-  }
-
-  // Soft tan pill — matches the header "My Resume" button.
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 40px;
-    font-size: 1.05rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: rgba(82, 33, 0, 1);
-    background: rgba(255, 207, 153, 1);
-    border: 1px solid rgba(255, 117, 48, 0.3);
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background-color 0.25s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.25s ease;
-
-    &:hover {
-      background: rgba(255, 196, 128, 1);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(255, 142, 22, 0.28);
-    }
-    &:active { transform: translateY(0); }
-  }
-}
 
 /* ----------------------------------------------------------------------------
    Responsive — only non-animation properties change here (see note up top).
@@ -304,7 +253,6 @@ $contentWidthMobile: calc(100% - 32px);
 
   .work,
   .story,
-  .cta { width: $contentWidthMobile; }
 
   .glow { filter: blur(72px); }
   .glow-top { width: 240px; height: 240px; right: -90px; }
@@ -333,10 +281,5 @@ $contentWidthMobile: calc(100% - 32px);
 
     .story-head { flex: none; }
     .story-body { max-width: none; }
-  }
-
-  .cta {
-    padding: 80px 0 110px;
-    .cta-sub { margin-bottom: 32px; }
   }
 }

@@ -4,11 +4,12 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
+import { CtaComponent } from '../../components/cta/cta.component';
 
 
 @Component({
     selector: 'app-base-page',
-    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective],
+    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective, CtaComponent],
     templateUrl: './base-page.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './base-page.component.scss',
