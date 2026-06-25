@@ -606,9 +606,28 @@ app-project-item.reveal-fade.is-revealed {
         gap: 96px;
         width: $mobileGridWidth;
 
-        
+        // Interleave the two desktop columns into a single stacked list so the
+        // order reads left[0], right[0], left[1], right[1]… (i.e. the original
+        // sequential project order) instead of the whole left column followed
+        // by the whole right column.
+        //
+        // `display: contents` removes the .column wrapper boxes from layout,
+        // promoting their app-project-item children to be direct flex children
+        // of .projects. Only then can `order` reorder items across columns.
+        // The gap between cards now comes from .projects' own `gap` (96px).
         .column {
-          gap: 96px;
+          display: contents;
+        }
+
+        @for $i from 1 through 12 {
+          // col1 (left) items take even slots: 0, 2, 4…
+          .column:nth-child(1) app-project-item:nth-child(#{$i}) {
+            order: #{($i - 1) * 2};
+          }
+          // col2 (right) items take odd slots: 1, 3, 5…
+          .column:nth-child(2) app-project-item:nth-child(#{$i}) {
+            order: #{($i - 1) * 2 + 1};
+          }
         }
       }
     }
