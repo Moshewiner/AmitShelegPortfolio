@@ -22,9 +22,13 @@
       <!-- Rounded gradient background (clipped). -->
       <div class="card-bg" aria-hidden="true"></div>
 
-      <!-- Phone: white handset on black, composited via mix-blend: screen.
-           Loop mode autoplays it; scrub mode drives currentTime from scroll. -->
-      <video
+      <!-- Phone: static image (swapped in for the animated clip). -->
+      <img class="phone" src="/assets/contact/phone.png" alt="" aria-hidden="true" />
+
+      <!-- Phone (animated): white handset on black, composited via mix-blend: screen.
+           Loop mode autoplays it; scrub mode drives currentTime from scroll.
+           Kept for later use — re-enable this and remove the <img> above to restore. -->
+      <!-- <video
         class="phone"
         #video
         src="/assets/contact/phone.mp4"
@@ -35,7 +39,7 @@
         preload="auto"
         disablepictureinpicture
         aria-hidden="true"
-        tabindex="-1"></video>
+        tabindex="-1"></video> -->
 
       <div class="card-body">
         <span class="eyebrow">Let's Talk!</span>
@@ -55,7 +59,7 @@
                 <svg class="tip-check" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4.5 12.5l4.5 4.5L19.5 6.5" />
                 </svg>
-                <span class="tip-text">{{ copied() === 'phone' ? 'Copied' : 'Click to copy' }}</span>
+                <span class="tip-text">{{ copied() === 'phone' ? 'Copied!' : 'Click to copy' }}</span>
               </span>
             </button>
           </li>
@@ -72,7 +76,7 @@
                 <svg class="tip-check" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4.5 12.5l4.5 4.5L19.5 6.5" />
                 </svg>
-                <span class="tip-text">{{ copied() === 'email' ? 'Copied' : 'Click to copy' }}</span>
+                <span class="tip-text">{{ copied() === 'email' ? 'Copied!' : 'Click to copy' }}</span>
               </span>
             </button>
           </li>

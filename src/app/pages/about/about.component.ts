@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { ContactComponent } from '../../components/contact/contact.component';
 
@@ -13,6 +12,6 @@ import { ContactComponent } from '../../components/contact/contact.component';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RevealOnScrollDirective, ContactComponent],
+  imports: [RevealOnScrollDirective, ContactComponent],
 })
 export class AboutComponent {}

@@ -1,6 +1,6 @@
 @use "./responsive.scss" as *;
 @use "./colors.scss" as *;
-@use "./assets/fonts/Poppins/poppins.scss" as *;
+@use "./assets/fonts/poppins/poppins.scss" as *;
 // Google Fonts (Urbanist, Imprima, Inter Tight) are loaded non-render-blockingly
 // via <link> tags in index.html instead of a render-blocking CSS @import chain.
 // @use "./scrollbar.scss" as *;

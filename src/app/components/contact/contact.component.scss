@@ -108,13 +108,14 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 .phone {
   position: absolute;
   top: 0;
-  right: 2%;
-  height: 122%;
+  right: 0;
+  margin-right: 160px;
+  height: 120%;
   width: auto;
   object-fit: contain;
-  // contrast/brightness firm up the key (darks -> fully transparent, the white
-  // handset stays solid), then the matrix turns luminance into alpha.
-  filter: contrast(1.15) brightness(1.05) url("#contact-phone-luma");
+  // The static PNG carries its own transparency, so no luma keying is needed.
+  // (Filter below was for the MP4 — white handset on black — kept for later.)
+  // filter: contrast(1.15) brightness(1.05) url("#contact-phone-luma");
   pointer-events: none;
   z-index: 1;
 }
@@ -186,26 +187,39 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   width: fit-content;
 }
 
-// The number/email text. On hover/focus it fills with the brand warm gradient
-// and gently shimmers (same idea as the hero) — no layout movement.
+// TEST: plain gray01 text that transitions to $black on hover/focus, instead of
+// the brand warm gradient shimmer below. Original kept commented out so it can
+// be restored.
 .channel-label {
-  background-image: $pink, $warm;
-  background-repeat: no-repeat;
-  background-size: 220% auto;
-  background-position: 0% center;
-  -webkit-background-clip: text;
-  background-clip: text;
-  // Transparent fill on hover reveals the gradient; transitions back to solid.
-  -webkit-text-fill-color: $black;
-  transition: -webkit-text-fill-color 0.28s ease;
+  color: $gray01;
+  transition: color 0.28s ease;
 }
 
 .channel:hover .channel-label,
 .channel:focus-visible .channel-label {
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: contact-text-shimmer 3.6s ease-in-out infinite alternate;
+  color: $black;
 }
+
+// The number/email text. On hover/focus it fills with the brand warm gradient
+// and gently shimmers (same idea as the hero) — no layout movement.
+// .channel-label {
+//   background-image: $pink, $warm;
+//   background-repeat: no-repeat;
+//   background-size: 220% auto;
+//   background-position: 0% center;
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   // Transparent fill on hover reveals the gradient; transitions back to solid.
+//   -webkit-text-fill-color: $black;
+//   transition: -webkit-text-fill-color 0.28s ease;
+// }
+
+// .channel:hover .channel-label,
+// .channel:focus-visible .channel-label {
+//   -webkit-text-fill-color: transparent;
+//   color: transparent;
+//   animation: contact-text-shimmer 3.6s ease-in-out infinite alternate;
+// }
 
 .channel-icon {
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
@@ -290,16 +304,16 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   }
 }
 
-// Confirmed state: warm brand gradient pill, dark readable text, a check that
-// draws in, and a soft spring pop.
+// Confirmed state: inverts to a white pill with dark text, a check that draws
+// in, and a soft spring pop.
 .channel.copied .tooltip {
-  background: $warm;
-  color: rgba(74, 28, 0, 1);
-  box-shadow: 0 14px 32px rgba(255, 131, 61, 0.42), 0 3px 10px rgba(253, 81, 41, 0.26);
+  background: #fff;
+  color: $black;
+  box-shadow: 0 14px 32px rgba(23, 23, 23, 0.22), 0 3px 10px rgba(23, 23, 23, 0.14);
   animation: contact-tip-pop 0.46s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   &::after {
-    border-top-color: #ffb24d; // blends with the gradient base near the notch
+    border-top-color: #fff; // matches the white pill near the notch
   }
 
   .tip-check {
@@ -340,23 +354,6 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 }
 
 /* ----------------------------------------------------------------------------
-   Tablet
----------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .card {
-    width: min(90%, 900px);
-    aspect-ratio: 1024 / 520;
-  }
-  .phone {
-    right: 0;
-    height: 140%;
-  }
-  .title {
-    font-size: 40px;
-  }
-}
-
-/* ----------------------------------------------------------------------------
    Mobile — stack the layout, shrink the phone and tuck it to the corner.
 ---------------------------------------------------------------------------- */
 @media (max-width: 768px) {
@@ -394,6 +391,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   }
 
   .phone {
+    display: none;
     top: auto;
     bottom: -6%;
     right: -4%;
