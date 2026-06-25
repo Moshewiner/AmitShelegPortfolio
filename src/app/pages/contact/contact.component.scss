@@ -7,10 +7,6 @@
 }
 
 :host {
-  // One screen: the card is vertically centred in the viewport and the footer
-  // still fits below (it is shorter than the nav). Height is capped at the
-  // viewport minus the fixed nav, and overflow is clipped so the decorative
-  // glow blobs never add a vertical scrollbar.
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +14,6 @@
   width: calc(100vw - (100vw - 100%));
   min-height: calc(100vh - #{$nav-height});
   box-sizing: border-box;
-  // Clip horizontally (contain the glow blobs) but allow the handset to hang
-  // out below the card vertically.
   overflow-x: clip;
   background: $bgColor;
   color: $black;
@@ -36,56 +30,7 @@
   z-index: 0;
 }
 
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-}
-.glow-top {
-  top: 6%;
-  right: -140px;
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, rgba(255, 142, 22, 0.4) 0%, rgba(255, 52, 107, 0.14) 55%, rgba(255, 203, 16, 0) 75%);
-  opacity: 0.5;
-  animation: contact-float 16s ease-in-out infinite;
-}
-.glow-bottom-left {
-  bottom: 8%;
-  left: -180px;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(255, 131, 61, 0.32) 0%, rgba(255, 52, 107, 0.14) 48%, rgba(255, 203, 20, 0) 74%);
-  opacity: 0.6;
-  animation: contact-float 18s ease-in-out infinite;
-  animation-delay: -5s;
-}
-.glow-bottom-right {
-  bottom: 0%;
-  right: -160px;
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(255, 203, 20, 0.3) 0%, rgba(255, 142, 22, 0.16) 46%, rgba(255, 203, 20, 0) 74%);
-  opacity: 0.55;
-  animation: contact-float 20s ease-in-out infinite;
-  animation-delay: -10s;
-}
-
 app-contact {
   position: relative;
   z-index: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .glow { animation: none; }
-}
-
-@media (max-width: 768px) {
-  .glow { filter: blur(72px); }
-  .glow-top { width: 240px; height: 240px; right: -90px; }
-  .glow-bottom-left { width: 340px; height: 340px; left: -120px; }
-  .glow-bottom-right { width: 360px; height: 360px; right: -120px; }
 }

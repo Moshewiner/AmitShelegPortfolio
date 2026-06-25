@@ -3,14 +3,9 @@
 // Centered column matching the site grid (was the home page `.screen` width).
 :host {
   display: block;
-  width: 73%;
+  width: 100%;
   margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  :host {
-    width: calc(100% - 32px);
-  }
+  position: relative;
 }
 
 .cta {
@@ -70,6 +65,40 @@
       transform: translateY(0);
     }
   }
+  .right-gradient {
+        background: linear-gradient(138.78deg, #FE8484 16.62%, rgba(255, 203, 20, 0.5) 83.61%);
+
+        //background: linear-gradient(45deg, #FF346B 5.85%, rgba(255, 203, 20, 0.6) 98.22%);
+        width: 472px;
+        height: 472px;
+        bottom: 0;
+        margin-right: -96px;
+        margin-top: -10px;
+        right: 0;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        filter: blur(75px);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .left-gradient {
+        //background: linear-gradient(44.38deg, #FF346B 5.85%, rgba(255, 203, 20, 0.3) 98.22%);
+        background: linear-gradient(44.38deg, #FF346B 5.85%, rgba(255, 203, 20, 0.6) 98.22%);
+        //background: linear-gradient(135deg, #FE8484 16%, rgba(255, 203, 20, 0.5) 84%);
+        width: 324px;
+        height: 324px;
+        top: 114px;
+        left: 0;
+        margin-left: -125px;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        opacity: 0.4;
+        filter: blur(75px);
+        pointer-events: none;
+      }
 }
 
 @media (max-width: 768px) {
@@ -79,5 +108,24 @@
     .cta-sub {
       margin-bottom: 32px;
     }
+    .right-gradient {
+          background: radial-gradient(circle, rgba(255, 52, 107, 0.45) 0%, rgba(255, 131, 61, 0.18) 42%, rgba(255, 203, 20, 0) 72%);
+          width: 320px;
+          height: 320px;
+          margin-top: -40px;
+          right: -120px;
+          filter: none;
+          opacity: 0.55;
+        }
+
+        .left-gradient {
+          background: radial-gradient(circle, rgba(254, 132, 132, 0.42) 0%, rgba(255, 203, 20, 0.14) 45%, rgba(255, 203, 20, 0) 72%);
+          width: 420px;
+          height: 420px;
+          bottom: -80px;
+          left: -150px;
+          filter: none;
+          opacity: 0.6;
+        }
   }
 }

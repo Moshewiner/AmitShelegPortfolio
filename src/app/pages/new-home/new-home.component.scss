@@ -613,4 +613,11 @@ app-project-item.reveal-fade.is-revealed {
       }
     }
   }
+  .cta {
+   // width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    height: fit-content;
+    min-height: fit-content;
+  }
 }
