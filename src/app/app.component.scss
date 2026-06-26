@@ -1,8 +1,17 @@
 :host {
-  //display: flex;
-  //flex-direction: column;
-  //min-height: 100vh;
-  //height: 100%;
+  display: flex;
+  flex-direction: column;
+  // Fill at least the visible viewport. `dvh` tracks the real mobile viewport
+  // (excluding the collapsing address bar) so short pages don't leave a gap
+  // between the footer and the bottom of the screen.
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+// On short pages the routed content doesn't fill the viewport; this pushes the
+// footer to the bottom instead of leaving empty space beneath it.
+app-footer {
+  margin-top: auto;
 }
 
 // Slim top progress bar shown during route navigation.

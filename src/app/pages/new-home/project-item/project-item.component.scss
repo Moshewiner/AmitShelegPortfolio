@@ -21,15 +21,20 @@
 }
 
 // Shared "revealed" look, used by both desktop :hover and the mobile tap state.
+// The badge lifts out of its corner, glides to the centre of the cover and
+// glows a few times (not forever) so the reveal feels like a deliberate beat.
 @mixin confidential-on {
   .project-image::after {
     background: rgba(23, 23, 23, 0.42);
   }
   .project-badge.badge-confidential {
-    transform: scale(1.26) translateY(-3px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.4);
+    transform-origin: center;
     background: rgba(23, 23, 23, 0.55);
     border-color: rgba(255, 255, 255, 0.5);
-    animation: badge-breathe 1.9s ease-in-out 0.45s infinite;
+    animation: badge-breathe 1.6s ease-in-out 0.45s 3 both;
 
     .lock {
       animation: lock-wiggle 0.7s ease-in-out 0.15s;
@@ -94,9 +99,11 @@
       line-height: 1;
       border: 1px solid rgba(255, 255, 255, 0.25);
       font-weight: 400;
-      // Grows from its own corner so it never drifts off the cover.
+      // Sits in the corner at rest, then glides to the centre when revealed.
       transform-origin: top left;
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        left 0.5s cubic-bezier(0.22, 1, 0.36, 1),
         background-color 0.3s ease, border-color 0.3s ease;
 
       .lock {

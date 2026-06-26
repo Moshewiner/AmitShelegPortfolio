@@ -6,6 +6,10 @@
   width: 100%;
   margin: 0 auto;
   position: relative;
+  // Contain the decorative blurred gradient circles. Without this the
+  // absolutely-positioned .left-gradient (bottom: -80px) overflows below the
+  // section and extends the document past the footer, leaving a gap under it.
+  overflow: hidden;
 }
 
 .cta {

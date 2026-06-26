@@ -124,7 +124,11 @@ app-project-item.reveal-fade.is-revealed {
   //   box-sizing: border-box;
   // }
   width: calc(100vw - (100vw - 100%));
-  height: 100vh;
+  // Must be min-height, not height: as a flex child of the app shell the host
+  // is blockified, so a fixed height would clamp the page to one screen and
+  // push the footer up into the middle. min-height lets it grow with content.
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0;
 
   .screen {
@@ -168,7 +172,10 @@ app-project-item.reveal-fade.is-revealed {
     &.main {
       width: 100%;
       min-height: unset;
-      height: 80%;
+      // Was `height: 80%` of a 100vh host (= 80vh). The host is no longer a
+      // fixed height, so express it directly. dvh tracks the real mobile viewport.
+      height: 80vh;
+      height: 80dvh;
       display: flex;
       justify-content: center;
       flex-direction: column;
