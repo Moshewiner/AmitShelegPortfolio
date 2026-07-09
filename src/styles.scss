@@ -22,6 +22,24 @@ body {
   }
 
 }
+// Contact page: paint the warm gradient on the page canvas so it covers 100% of
+// the screen — the routed page host and the globally-rendered footer both sit on
+// top of it. Toggled by ContactPageComponent while the page is mounted.
+body.contact-bg {
+  background: url("/assets/contact/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+
+  // On mobile the wide image gets scaled down so much that it reads as a flat
+  // wash. Instead, crop it: keep it at (roughly) its natural scale and let the
+  // narrow viewport show only a slice. `scroll` also avoids the buggy `fixed`
+  // behaviour on mobile browsers.
+  @media only screen and (max-width: $responsiveBreakPoint) {
+    background-attachment: scroll;
+    background-size: auto 100%;
+    background-position-x: 35%;
+  }
+}
+
 a {
     text-decoration: none;
     color: unset;

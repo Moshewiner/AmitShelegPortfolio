@@ -15,7 +15,9 @@
   min-height: calc(100vh - #{$nav-height});
   box-sizing: border-box;
   overflow-x: clip;
-  background: $bgColor;
+  // The warm gradient is painted on <body> (see styles.scss `.contact-bg`) so it
+  // spans the full screen including the footer. This host stays transparent.
+  background: transparent;
   color: $black;
   padding-top: $nav-height;
 }

@@ -101,6 +101,16 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   z-index: 0;
 }
 
+// On the dedicated /contact page the warm gradient is the full-page background
+// (background.jpg), so the card becomes a subtle translucent panel that lets
+// the page show through — rather than carrying its own gradient box.
+.scrub.pinned .card-bg {
+  background-image: none;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
 // White handset video. The black background is keyed to transparency by the
 // SVG luminance filter, so the phone shows over the gradient AND where it
 // overflows the card onto the page. Anchored to the card top, hanging out the
@@ -362,19 +372,32 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
     height: 200vh;
   }
 
+  // Figma (mobile blur card): 343×480, radius 16.
   .card {
-    width: calc(100% - 32px);
+    width: min(343px, calc(100% - 32px));
     aspect-ratio: auto;
-    min-height: 460px;
-    border-radius: 24px;
+    height: 480px;
+    min-height: 0;
+    border-radius: 16px;
   }
 
+  // Figma: white 20% fill, background blur 8.
+  .scrub.pinned .card-bg {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  // Figma: padding 24, gap 10.
   .card-body {
-    padding: 28px 24px 26px;
+    padding: 24px;
+    gap: 10px;
   }
 
   .eyebrow {
     font-size: 14px;
+    // Spacing is handled by the card-body `gap` on mobile.
+    margin-bottom: 0;
   }
 
   .title {
@@ -401,7 +424,8 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   }
 
   .channels {
-    margin-top: 26px;
+    // Spacing is handled by the card-body `gap` on mobile.
+    margin-top: 0;
   }
 
   .footnote {
