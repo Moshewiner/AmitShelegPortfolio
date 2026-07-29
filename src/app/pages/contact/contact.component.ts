@@ -15,8 +15,8 @@ import { ContactComponent } from '../../components/contact/contact.component';
   imports: [ContactComponent],
 })
 export class ContactPageComponent implements OnInit, OnDestroy {
-  // Painting the warm gradient on <body> (the page canvas) — rather than on this
-  // component's host — is the only way it can cover 100% of the screen including
+  // Painting the warm gradient on <body> (the page canvas) - rather than on this
+  // component's host - is the only way it can cover 100% of the screen including
   // the globally-rendered footer, which lives outside this page. The class is
   // added only while the contact page is mounted and removed on leave.
   constructor(@Inject(DOCUMENT) private readonly document: Document) {}

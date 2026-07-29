@@ -127,7 +127,7 @@
 
     .project-image {
       &:hover img {
-        transform: none; // not an openable project — no zoom
+        transform: none; // not an openable project - no zoom
       }
 
       &::after {

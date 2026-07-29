@@ -1,9 +1,10 @@
 @use "../../../responsive.scss" as *;
 @use "../../../colors.scss" as *;
 
-@keyframes contact-float {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(0, -22px, 0) scale(1.05); }
+// The grain layer eases in rather than popping with the background photo.
+@keyframes contact-page-texture-in {
+  from { opacity: 0; }
+  to { opacity: 0.05; }
 }
 
 :host {
@@ -30,9 +31,23 @@
   opacity: 0.05;
   pointer-events: none;
   z-index: 0;
+  animation: contact-page-texture-in 1.1s ease-out both;
 }
 
 app-contact {
   position: relative;
   z-index: 1;
+}
+
+// Mobile: the page is a single screen, with nothing to scroll to.
+// `min-height: 100vh` (above) plus the globally rendered footer always adds up
+// to more than one screen — and on mobile `100vh` is the *large* viewport, so it
+// already overshoots what's actually visible. Instead, let the app shell (a flex
+// column of `min-height: 100dvh`) hand this page exactly the room left over
+// between the fixed header and the footer.
+@media (max-width: $responsiveBreakPoint) {
+  :host {
+    flex: 1;
+    min-height: 0;
+  }
 }

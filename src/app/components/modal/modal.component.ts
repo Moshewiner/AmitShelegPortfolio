@@ -12,7 +12,7 @@ import { TitleCasePipe } from '../../pipes/title-case.pipe';
     animations: [
         // The @if is on the (non-animated) backdrop host. Without this, Angular
         // tears the whole subtree out on close BEFORE the child dim/sheet :leave
-        // can play — so the drawer would vanish instead of sliding down. This
+        // can play - so the drawer would vanish instead of sliding down. This
         // host trigger defers removal and explicitly runs the child animations.
         trigger('sheetHost', [
             transition(':enter', [query('@*', animateChild(), { optional: true })]),
@@ -21,7 +21,7 @@ import { TitleCasePipe } from '../../pipes/title-case.pipe';
         // iOS-style sheet: the backdrop dims in/out while the sheet slides up
         // from the bottom on present and back down on dismiss. :enter/:leave
         // (rather than state transitions) so it animates every time the @if
-        // adds/removes the modal — including the very first open.
+        // adds/removes the modal - including the very first open.
         trigger('backdropAnimation', [
             transition(':enter', [
                 style({ opacity: 0 }),

@@ -17,13 +17,13 @@ import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.direc
  *
  * The phone is an MP4 (white handset on black) composited onto the warm
  * gradient card with `mix-blend-mode: screen` so the black drops out. We never
- * let the browser play it — instead its `currentTime` is *scrubbed* by scroll:
+ * let the browser play it - instead its `currentTime` is *scrubbed* by scroll:
  *
  *   • scrolling DOWN runs the clip from its END to its START,
  *   • scrolling UP runs it back from START to END.
  *
  * A single rAF loop recomputes the scroll-derived target each frame (from the
- * card's live viewport rect, so it is immune to which element actually scrolls —
+ * card's live viewport rect, so it is immune to which element actually scrolls -
  * this site scrolls <body>, not the window) and eases a displayed time toward
  * it. The easing is what makes the scrub buttery instead of snapping; a
  * single-seek-in-flight guard avoids queuing overlapping seeks. The loop idles
@@ -45,6 +45,14 @@ import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.direc
 export class ContactComponent implements OnDestroy {
   @Input() pinned = false;
 
+  /**
+   * Opts the card into the staged entrance animation (card lifts in, phone
+   * swings in and then floats, copy staggers up). Set only by the dedicated
+   * /contact page - the About page keeps the plain, unanimated card so the
+   * motion stays a property of the page, not of the shared component.
+   */
+  @Input() animated = false;
+
   @ViewChild('scrub', { static: true }) scrubRef?: ElementRef<HTMLElement>;
   @ViewChild('video', { static: true }) videoRef?: ElementRef<HTMLVideoElement>;
 
@@ -59,8 +67,8 @@ export class ContactComponent implements OnDestroy {
 
   /**
    * Experiment toggle. Flip this one constant to switch behaviour:
-   *   'loop'  — the clip just autoplays on a continuous muted loop.
-   *   'scrub' — playback is tied to scroll position (down = end -> start).
+   *   'loop'  - the clip just autoplays on a continuous muted loop.
+   *   'scrub' - playback is tied to scroll position (down = end -> start).
    */
   private readonly mode: 'loop' | 'scrub' = 'loop';
 
@@ -132,7 +140,7 @@ export class ContactComponent implements OnDestroy {
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ---- Loop mode: autoplay is handled by the template bindings
-    // ([autoplay]/[loop]/[muted]), which apply to the live element — imperative
+    // ([autoplay]/[loop]/[muted]), which apply to the live element - imperative
     // play() here can race with Angular hydration swapping the <video> node.
     if (this.mode === 'loop') {
       if (this.reduceMotion) {
@@ -158,7 +166,7 @@ export class ContactComponent implements OnDestroy {
     }
 
     if (this.reduceMotion) {
-      return; // no scrubbing — just rests on a single frame
+      return; // no scrubbing - just rests on a single frame
     }
 
     this.startLoop();
@@ -168,7 +176,7 @@ export class ContactComponent implements OnDestroy {
    * Maps scroll position to 0->1 progress, then reverses it into a time so
    * scrolling DOWN runs the clip end -> start.
    *
-   * • pinned (dedicated page): progress spans exactly the pinned range — 0 when
+   * • pinned (dedicated page): progress spans exactly the pinned range - 0 when
    *   the tall track's top hits the viewport top (card starts sticking), 1 when
    *   its bottom reaches the viewport bottom (card unsticks). This plays the
    *   whole clip across the deliberate, sticky scroll.
@@ -220,7 +228,7 @@ export class ContactComponent implements OnDestroy {
     // Source of truth, recomputed every frame from the live viewport rect.
     this.updateTarget();
 
-    // Ease toward the target — this is what makes the scrub buttery instead of
+    // Ease toward the target - this is what makes the scrub buttery instead of
     // snapping on every wheel notch. When far off-screen this settles to a
     // resting frame and stops issuing seeks (cheap idle).
     const diff = this.targetTime - this.displayedTime;
@@ -233,7 +241,7 @@ export class ContactComponent implements OnDestroy {
     const video = this.videoRef?.nativeElement;
     // Seek only when the frame would actually change. The browser coalesces
     // rapid currentTime writes (a new write supersedes an in-flight seek), so
-    // there is no need to track a "seek in flight" flag — and doing so risks
+    // there is no need to track a "seek in flight" flag - and doing so risks
     // deadlocking if a stalled seek's `seeked` event never arrives.
     if (video && Math.abs(this.displayedTime - video.currentTime) > 0.012) {
       this.safeSeek(this.displayedTime);

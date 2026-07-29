@@ -1,7 +1,14 @@
+@use 'sass:math';
 @use '../../../colors.scss' as *;
 @use '../../../responsive.scss' as *;
 
 $gridWidth: 73%;
+
+// How far the CTA has to poke out of each side of the centered grid column to
+// reach the full page width. Expressed as a % of the host (the grid column),
+// so it stays exact whatever the viewport is - and, unlike a 100vw breakout,
+// never counts the scrollbar and so never causes horizontal overflow.
+$ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
 
 :host {
   display: block;
@@ -177,7 +184,7 @@ $gridWidth: 73%;
     }
 
     // Coming-soon empty state: framed like the gallery images (same radius), but
-    // not interactive — no pointer, no hover zoom, and no lightbox.
+    // not interactive - no pointer, no hover zoom, and no lightbox.
     .coming-soon-pic {
       display: block;
       width: 100%;
@@ -192,6 +199,115 @@ $gridWidth: 73%;
         transform: none;
       }
     }
+  }
+
+  // Previous / next case study, so you can move between projects without going
+  // back to the home page. Always shows both directions (the list wraps).
+  .project-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-top: 40px;
+    border-top: 1px solid $divider;
+
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition:
+        background-color 0.25s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+      &:hover {
+        background: rgba(23, 23, 23, 0.035);
+        transform: translateY(-2px);
+      }
+
+      // The "next" card mirrors the "previous" one so the pair reads outward
+      // from the center of the page.
+      &.next {
+        align-items: flex-end;
+        text-align: right;
+
+        .nav-body {
+          flex-direction: row-reverse;
+        }
+      }
+
+      &.prev:hover .nav-arrow {
+        transform: translateX(-4px);
+      }
+
+      &.next:hover .nav-arrow {
+        transform: translateX(4px);
+      }
+    }
+
+    .nav-dir {
+      display: inline-flex;
+      align-items: center;
+      column-gap: 8px;
+      font-size: $sub-text-size;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $gray02;
+    }
+
+    .nav-arrow {
+      flex: none;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-body {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+      min-width: 0;
+    }
+
+    .nav-thumb {
+      flex: none;
+      width: 104px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .nav-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .nav-client {
+      font-size: $sub-text-size;
+      font-weight: 300;
+      color: $gray02;
+      line-height: 140%;
+    }
+
+    .nav-title {
+      margin-top: 2px;
+      font-size: $text-size;
+      font-weight: 500;
+      color: $black;
+      line-height: 135%;
+    }
+  }
+
+  // The CTA is full-bleed: it breaks out of the grid column and spans the whole
+  // page width. `width: auto` is required - the component's own :host sets
+  // width: 100%, which would otherwise keep it at the column width.
+  app-cta {
+    display: block;
+    width: auto;
+    margin-left: -$ctaBleed;
+    margin-right: -$ctaBleed;
   }
 
 }
@@ -509,6 +625,57 @@ $gridWidth: 73%;
       }
     }
 
+    // Stack the two cards and drop the mirroring - side by side they'd be too
+    // narrow to read, and a right-aligned card looks arbitrary once stacked.
+    .project-nav {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-top: 32px;
+
+      .nav-card {
+        padding: 16px 0;
+        border-radius: 0;
+
+        &:hover {
+          background: none;
+          transform: none;
+        }
+
+        &.next {
+          align-items: flex-start;
+          text-align: left;
+          border-top: 1px solid $divider;
+
+          .nav-body {
+            flex-direction: row;
+          }
+        }
+      }
+
+      // Not $sub-text-size-mobile: that's larger than $text-size-mobile, which
+      // would make the labels shout over the project titles they introduce.
+      .nav-dir,
+      .nav-client {
+        font-size: 0.95rem;
+      }
+
+      .nav-thumb {
+        width: 88px;
+        height: 64px;
+      }
+
+      .nav-title {
+        font-size: $text-size-mobile;
+      }
+    }
+
+    // Mobile host is `calc(100% - 32px)`, so the full-bleed gutter is a flat
+    // 16px per side rather than the desktop percentage.
+    app-cta {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
   }
 
   .lightbox-image {
@@ -545,7 +712,7 @@ $gridWidth: 73%;
   }
 }
 
-// Mobile drawer (home modal) — tuned layout separate from routed pages.
+// Mobile drawer (home modal) - tuned layout separate from routed pages.
 @media (max-width: $responsiveBreakPoint) {
   :host(.in-drawer) {
     width: 100%;

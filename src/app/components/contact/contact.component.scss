@@ -6,14 +6,14 @@ $warm: linear-gradient(101.32deg, #fd5129 -2.69%, #ff833d 25.27%, #ff8e16 63.08%
 $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 0) 94.19%);
 
 // Slides the gradient across the channel label on hover (mirrors the hero).
-// Kept at the top level — never inside @media — so view-encapsulation keeps the
+// Kept at the top level - never inside @media - so view-encapsulation keeps the
 // keyframe name in sync with its reference.
 @keyframes contact-text-shimmer {
   from { background-position: 0% center; }
   to { background-position: 100% center; }
 }
 
-// Confirmation pill "pop" — a soft spring overshoot on copy.
+// Confirmation pill "pop" - a soft spring overshoot on copy.
 @keyframes contact-tip-pop {
   0% { transform: translateY(0) scale(0.82); }
   55% { transform: translateY(0) scale(1.06); }
@@ -23,6 +23,61 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 // Check mark draws itself in.
 @keyframes contact-check-draw {
   to { stroke-dashoffset: 0; }
+}
+
+/* ----------------------------------------------------------------------------
+   Entrance keyframes for the dedicated /contact page (`.scrub.is-page`).
+   Declared at the top level - Angular's emulated encapsulation only rewrites
+   keyframe *references* outside @media, so nothing below may name these from
+   inside a media query (see the shift custom properties instead).
+---------------------------------------------------------------------------- */
+
+// The glass panel lifts and settles.
+@keyframes contact-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--contact-card-shift, 38px)) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Copy rises into place, one line at a time.
+@keyframes contact-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--contact-item-shift, 20px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Handset swings in from off the right edge…
+@keyframes contact-phone-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--contact-phone-shift, 90px), 34px, 0) rotate(7deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// …then breathes, so the card never looks fully at rest.
+@keyframes contact-phone-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -16px, 0); }
+}
+
+// A single soft highlight sweeps across the glass once the card has landed.
+@keyframes contact-sheen {
+  from { transform: translateX(-120%) skewX(-14deg); }
+  to { transform: translateX(320%) skewX(-14deg); }
 }
 
 :host {
@@ -103,7 +158,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 
 // On the dedicated /contact page the warm gradient is the full-page background
 // (background.jpg), so the card becomes a subtle translucent panel that lets
-// the page show through — rather than carrying its own gradient box.
+// the page show through - rather than carrying its own gradient box.
 .scrub.pinned .card-bg {
   background-image: none;
   background: rgba(255, 255, 255, 0.14);
@@ -124,7 +179,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   width: auto;
   object-fit: contain;
   // The static PNG carries its own transparency, so no luma keying is needed.
-  // (Filter below was for the MP4 — white handset on black — kept for later.)
+  // (Filter below was for the MP4 - white handset on black - kept for later.)
   // filter: contrast(1.15) brightness(1.05) url("#contact-phone-luma");
   pointer-events: none;
   z-index: 1;
@@ -211,7 +266,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 }
 
 // The number/email text. On hover/focus it fills with the brand warm gradient
-// and gently shimmers (same idea as the hero) — no layout movement.
+// and gently shimmers (same idea as the hero) - no layout movement.
 // .channel-label {
 //   background-image: $pink, $warm;
 //   background-repeat: no-repeat;
@@ -292,7 +347,7 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   transform: translateY(0) scale(1);
 }
 
-// Drawn check mark — hidden (zero width) until the copied state.
+// Drawn check mark - hidden (zero width) until the copied state.
 .tip-check {
   width: 0;
   height: 14px;
@@ -364,7 +419,82 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
 }
 
 /* ----------------------------------------------------------------------------
-   Mobile — stack the layout, shrink the phone and tuck it to the corner.
+   Entrance animation - DEDICATED /contact PAGE ONLY.
+   Everything here is scoped to `.scrub.is-page`, which is only present when the
+   host passes [animated]="true" (the /contact page). The About page renders the
+   very same component without the flag and is completely unaffected.
+
+   `.card` carries appRevealOnScroll, so `is-revealed` lands as soon as the card
+   is in view - immediately on the contact page - and drives the whole stagger.
+---------------------------------------------------------------------------- */
+.scrub.is-page {
+  .card {
+    // The directive's own `reveal-fade` class has no styles in this component,
+    // so the card's visibility is owned entirely by the rules below.
+    opacity: 0;
+  }
+
+  .card.is-revealed {
+    animation: contact-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+  }
+
+  // Sheen: a soft diagonal highlight that crosses the glass panel once.
+  // (.card-bg already clips to the card radius, so the sweep stays inside it.)
+  .card-bg {
+    &::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: 0;
+      width: 42%;
+      height: 160%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.38) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translateX(-120%) skewX(-14deg);
+      pointer-events: none;
+    }
+  }
+
+  .card.is-revealed .card-bg::after {
+    animation: contact-sheen 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both;
+  }
+
+  // Phone: swings in, then hands over to the endless float. The float is listed
+  // last so it wins the transform once its delay elapses, and its 0% frame
+  // matches the entrance's resting transform - no visible seam.
+  .phone {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
+  .card.is-revealed .phone {
+    animation: contact-phone-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both,
+      contact-phone-float 7s ease-in-out 1.35s infinite;
+  }
+
+  // Copy: eyebrow -> title -> each channel -> footnote.
+  .eyebrow,
+  .title,
+  .channels li,
+  .footnote {
+    opacity: 0;
+  }
+
+  .card.is-revealed {
+    .eyebrow { animation: contact-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+    .title { animation: contact-item-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
+    .channels li:nth-child(1) { animation: contact-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both; }
+    .channels li:nth-child(2) { animation: contact-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.68s both; }
+    .footnote { animation: contact-item-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both; }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Mobile - stack the layout, shrink the phone and tuck it to the corner.
 ---------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .scrub.pinned {
@@ -379,6 +509,15 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
     height: 480px;
     min-height: 0;
     border-radius: 16px;
+  }
+
+  // The dedicated /contact page is a single screen with no scroll, so there the
+  // card is also capped to what's actually left over (viewport minus the fixed
+  // header, the footer and a little breathing room): on a short phone it shrinks
+  // rather than pushing the page into a scroll. On any normal handset the cap
+  // lands well above 480px, so Figma's size is what shows.
+  .scrub.pinned .card {
+    height: min(480px, calc(100dvh - 150px));
   }
 
   // Figma: white 20% fill, background blur 8.
@@ -431,10 +570,17 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
   .footnote {
     max-width: 80%;
   }
+
+  // Page entrance: shorter travel at phone widths (custom properties only - the
+  // keyframe names themselves must not be referenced from inside @media).
+  .scrub.is-page {
+    --contact-card-shift: 22px;
+    --contact-item-shift: 14px;
+  }
 }
 
 /* ----------------------------------------------------------------------------
-   Reduced motion — no scrub; the card just fades in and rests on one frame.
+   Reduced motion - no scrub; the card just fades in and rests on one frame.
 ---------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .scrub.pinned {
@@ -444,5 +590,26 @@ $pink: linear-gradient(82.88deg, rgba(255, 52, 107, 0.5) 0%, rgba(255, 52, 107, 
     position: static;
     height: auto;
     padding: 80px 0;
+  }
+
+  // Page entrance: nothing moves or fades - everything is simply there. The
+  // `.is-revealed` selectors are repeated so these wins on specificity against
+  // the animated rules above (which qualify the card with `.is-revealed`).
+  .scrub.is-page {
+    .card,
+    .card.is-revealed,
+    .card.is-revealed .phone,
+    .card.is-revealed .eyebrow,
+    .card.is-revealed .title,
+    .card.is-revealed .channels li,
+    .card.is-revealed .footnote {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .card.is-revealed .card-bg::after {
+      display: none;
+    }
   }
 }

@@ -29,10 +29,13 @@ export class NewHeaderComponent implements OnInit {
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly elementRef = inject(ElementRef);
 
-  // Google Drive direct-download URL (the `download` HTML attribute is ignored
-  // cross-origin, so the `uc?export=download` form is what forces the download).
+  // Google Drive *viewer* URL: opens the CV in a new browser tab instead of
+  // saving it to disk. The `/file/d/<id>/view` form is what renders in-browser —
+  // `uc?export=download` (and the `download` attribute, which is ignored
+  // cross-origin anyway) would force a file download. The viewer still offers a
+  // download button for anyone who wants the file.
   public readonly resumeUrl =
-    'https://drive.google.com/uc?export=download&id=1-RQ1U7u0yewrcbXvDka4yUP5zQILBIWY';
+    'https://drive.google.com/file/d/1-RQ1U7u0yewrcbXvDka4yUP5zQILBIWY/view';
 
   public openMenu(): void {
     this.isExpanded = true;

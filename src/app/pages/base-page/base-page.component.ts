@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, OnDestroy, AfterViewInit, HostBinding, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { CtaComponent } from '../../components/cta/cta.component';
+import { ProjectNavItem, getProjectNav } from '../../data/project-nav';
 
 
 @Component({
@@ -58,11 +59,18 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.inDrawer;
   }
 
+  /**
+   * Previous/next case study, shown at the end of a routed project page so you
+   * can keep browsing without going back to the home page. Null in the mobile
+   * drawer and on pages that aren't part of the published project list.
+   */
+  public projectNav: { prev: ProjectNavItem; next: ProjectNavItem } | null = null;
+
   /** Shown in the content area when a project has no gallery images yet. */
   public readonly comingSoonImage = '/assets/coming-soon/coming-soon-desktop.webp';
   public readonly comingSoonImageMobile = '/assets/coming-soon/coming-soon-mobile.webp';
 
-  /** True when the case study has no images yet — render the empty state. */
+  /** True when the case study has no images yet - render the empty state. */
   get isComingSoon(): boolean {
     return !this.project?.content?.images?.length;
   }
@@ -129,7 +137,12 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   /** Scrollable ancestors locked for the morph duration (restored after). */
   private scrollLocks: { el: HTMLElement; prev: string }[] = [];
 
-  constructor(private cdr: ChangeDetectorRef, private el: ElementRef<HTMLElement>) { }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private el: ElementRef<HTMLElement>,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   @HostBinding('@.disabled') get animationsDisabled(): boolean {
     return this.prefersReducedMotion();
@@ -144,6 +157,10 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Only routed pages get the prev/next nav; inside the mobile drawer the
+    // active route is the home page, and the sheet has its own close affordance.
+    this.projectNav = this.inDrawer ? null : getProjectNav(this.currentProjectLink());
+
     this.morphActive =
       !!this.morphFromRect && !!this.morphFromSrc && !this.prefersReducedMotion();
 
@@ -160,6 +177,16 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
       // underneath the open sheet).
       this.scrollPageToTop();
     }
+  }
+
+  /**
+   * The PROJECTS key for the page we're on. Each project component wraps this
+   * one without passing its own link down, so we read it off the active route
+   * (`elal-cargo` -> `/elal-cargo`) and fall back to the raw URL.
+   */
+  private currentProjectLink(): string {
+    const path = this.route.snapshot.routeConfig?.path;
+    return path ? `/${path}` : this.router.url.split(/[?#]/)[0];
   }
 
   /**
@@ -355,7 +382,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openLightbox(index: number): void {
-    // The "coming soon" empty state is not a real asset — never open it.
+    // The "coming soon" empty state is not a real asset - never open it.
     if (this.isComingSoon) {
       return;
     }
@@ -531,7 +558,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     const wasPan = this.gesture === 'pan';
     this.gesture = 'none';
 
-    // A stationary touch is a tap — double-tap toggles zoom in OR out. This must
+    // A stationary touch is a tap - double-tap toggles zoom in OR out. This must
     // run for both pan (zoomed in) and swipe (zoomed out) so you can zoom back.
     if (!this.touchMoved) {
       const now = Date.now();
@@ -545,7 +572,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    // A drag while zoomed just panned the image — nothing to do on release.
+    // A drag while zoomed just panned the image - nothing to do on release.
     if (wasPan) {
       return;
     }
