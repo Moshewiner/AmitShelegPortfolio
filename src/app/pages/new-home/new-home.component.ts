@@ -96,7 +96,7 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
     { 
       image: '/assets/applied-materials/preview.webp', 
       name: 'APPLIED MATERIALS',
-      title: 'An interesting title for the project', 
+      title: 'Design System Migration and Product Design', 
       link: '',
       badge: 'confidential' as const,
     },
