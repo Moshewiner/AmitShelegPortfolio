@@ -10,6 +10,44 @@ $gridWidth: 73%;
 // never counts the scrollbar and so never causes horizontal overflow.
 $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
 
+// The mobile-sheet shell from the template. Everywhere but a mobile routed page
+// it is completely transparent: the wrappers box nothing (`display: contents`,
+// so every existing `:host .foo` rule and the CTA's percentage bleed keep
+// working) and the sheet chrome is not rendered at all.
+.page-sheet,
+.sheet-body {
+  display: contents;
+}
+
+.sheet-dim,
+.sheet-top {
+  display: none;
+}
+
+// The entrance, declared out here for the same scoping reason as the keyframes.
+// Above the breakpoint .page-sheet boxes nothing, so there is nothing to move.
+:host(.as-sheet) .page-sheet {
+  animation: sheet-rise 480ms cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.as-sheet) .page-sheet {
+    animation-duration: 1ms;
+  }
+}
+
+// Declared outside the media query on purpose: Angular does not scope a
+// @keyframes name referenced from inside an @media block, so the animation
+// would resolve to nothing. See the .image.reveal-up note further down.
+@keyframes sheet-rise {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 :host {
   display: block;
   width: $gridWidth;
@@ -205,9 +243,17 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
   // back to the home page. Always shows both directions (the list wraps).
   .project-nav {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    // 40% per card rather than a half each, so long titles wrap instead of
+    // stretching into one very wide line.
+    grid-template-columns: 40% 40%;
+    justify-content: space-between;
+    // Cards size to their own content - stretching them to a shared height
+    // leaves dead space under the one with the shorter title.
+    align-items: start;
     gap: 16px;
-    padding-top: 40px;
+    // Matches .content's padding-bottom, so the divider sits in the middle of
+    // an even (picture -> divider -> card) rhythm.
+    padding-top: 64px;
     border-top: 1px solid $divider;
 
     .nav-card {
@@ -218,18 +264,25 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
       border-radius: 20px;
       text-decoration: none;
       color: inherit;
-      transition:
-        background-color 0.25s ease,
-        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background-color 0.25s ease;
 
+      // Only the tint and the arrow move on hover - lifting the whole card
+      // made it jump under the cursor.
       &:hover {
         background: rgba(23, 23, 23, 0.035);
-        transform: translateY(-2px);
+      }
+
+      // The padding is bled outward with a negative margin so the hover tint
+      // overhangs into the page margin while the label, thumbnail and title
+      // stay flush with the content column (and the divider above them).
+      &.prev {
+        margin-left: -20px;
       }
 
       // The "next" card mirrors the "previous" one so the pair reads outward
       // from the center of the page.
       &.next {
+        margin-right: -20px;
         align-items: flex-end;
         text-align: right;
 
@@ -535,7 +588,10 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
 @media (max-width: $responsiveBreakPoint) {
   :host {
     width: calc(100% - 32px);
-    margin: 32px auto 0 auto;
+    // The mobile header is a fixed 82px block (12px padding + the 58px pill +
+    // 12px), so 32px put the hero heading underneath it. 102px clears the pill
+    // with a 32px breathing gap.
+    margin: 102px auto 0 auto;
 
     .hero {
       .heading {
@@ -630,18 +686,25 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
     .project-nav {
       grid-template-columns: 1fr;
       gap: 8px;
-      padding-top: 32px;
+      // Mirrors .content's mobile padding-bottom, same as on desktop.
+      padding-top: 40px;
 
       .nav-card {
         padding: 16px 0;
         border-radius: 0;
 
+        // Undo the desktop tint bleed at matching specificity - stacked and
+        // untinted, these cards just align with the column.
+        &.prev {
+          margin-left: 0;
+        }
+
         &:hover {
           background: none;
-          transform: none;
         }
 
         &.next {
+          margin-right: 0;
           align-items: flex-start;
           text-align: left;
           border-top: 1px solid $divider;
@@ -770,7 +833,9 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
           .title {
             font-size: 0.95rem;
             font-weight: 400;
-            text-transform: none;
+            // Uppercase like the routed page's labels - the drawer is the same
+            // case study, so the headings read the same way in both.
+            text-transform: uppercase;
             color: $gray02;
             letter-spacing: 0;
           }
@@ -807,4 +872,129 @@ $ctaBleed: math.div(100% - $gridWidth, 2 * $gridWidth) * 100%;
       padding-bottom: 32px;
     }
   }
+
+  // ---------------------------------------------------------------- sheet --
+  // A routed case study opens as the same iOS-style sheet the home page shows,
+  // so a project looks identical however you got to it. The page content below
+  // is untouched - it just rides inside the sheet's own scroller, with the
+  // 16px gutter the host used to give it.
+  :host(.as-sheet) {
+    width: 100%;
+    margin: 0;
+
+    .sheet-dim {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background-color: rgba(23, 23, 23, 0.32);
+      pointer-events: none;
+    }
+
+    .page-sheet {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 10px 0 0;
+      z-index: 1000;
+      background: $bgColor;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      box-shadow: 0 -12px 48px rgba(23, 23, 23, 0.14);
+      will-change: transform;
+    }
+
+    .sheet-top {
+      display: block;
+      flex-shrink: 0;
+      background: rgba($bgColor, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding-top: max(8px, env(safe-area-inset-top));
+    }
+
+    .sheet-handle {
+      width: 32px;
+      height: 4px;
+      margin: 0 auto 10px;
+      border-radius: 100px;
+      background: rgba(23, 23, 23, 0.14);
+    }
+
+    // Three columns: [back] [client (flex, centred)] [spacer], the spacer
+    // mirroring the button so the title cannot drift off-centre.
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+      padding: 0 20px 12px;
+    }
+
+    .sheet-back,
+    .sheet-header-spacer {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .sheet-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(23, 23, 23, 0.07);
+      color: $black;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        background-color 0.2s ease,
+        transform 0.15s ease;
+
+      &:active {
+        transform: scale(0.94);
+        background: rgba(23, 23, 23, 0.12);
+      }
+
+      svg {
+        display: block;
+      }
+    }
+
+    .sheet-client {
+      flex: 1 1 auto;
+      min-width: 0;
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 36px;
+      letter-spacing: -0.01em;
+      color: $black;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sheet-divider {
+      height: 1px;
+      margin: 0 20px;
+      background: $divider;
+    }
+
+    .sheet-body {
+      display: block;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 16px max(24px, env(safe-area-inset-bottom));
+    }
+
+    // The sheet header replaces the site header the page was clearing.
+    .hero {
+      margin-top: 8px;
+    }
+  }
+
 }

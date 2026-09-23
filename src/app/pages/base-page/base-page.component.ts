@@ -5,12 +5,25 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { CtaComponent } from '../../components/cta/cta.component';
+import { TitleCasePipe } from '../../pipes/title-case.pipe';
 import { ProjectNavItem, getProjectNav } from '../../data/project-nav';
+
+/**
+ * Present a routed project page as the mobile sheet, so a case study opens the
+ * same way whether it was tapped on the home page or opened straight from its
+ * URL. Everything it does lives behind the `as-sheet` host class and the mobile
+ * media query - set this to false and the plain responsive page (still fully
+ * intact in the stylesheet) comes back.
+ */
+const PRESENT_AS_SHEET = true;
+
+/** Matches $responsiveBreakPoint - the width the sheet styles switch on. */
+const SHEET_BREAKPOINT = 768;
 
 
 @Component({
     selector: 'app-base-page',
-    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective, CtaComponent],
+    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective, CtaComponent, TitleCasePipe],
     templateUrl: './base-page.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './base-page.component.scss',
@@ -57,6 +70,16 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @HostBinding('class.in-drawer') get drawerMode(): boolean {
     return this.inDrawer;
+  }
+
+  /**
+   * Routed pages (not the home drawer, which is already inside a sheet) carry
+   * the class that turns the shell in the template into a real sheet on mobile.
+   * A plain class binding, not a viewport check - the media query decides when
+   * it applies, so the prerendered HTML and the hydrated DOM always agree.
+   */
+  @HostBinding('class.as-sheet') get sheetMode(): boolean {
+    return PRESENT_AS_SHEET && !this.inDrawer;
   }
 
   /**
@@ -130,6 +153,13 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     return `translate(${this.zoomTx}px, ${this.zoomTy}px) scale(${this.zoomScale})`;
   }
 
+  /** Viewport watcher that keeps the body scroll lock in sync with the sheet. */
+  private sheetQuery: MediaQueryList | null = null;
+  private readonly onSheetQueryChange = (event: MediaQueryListEvent): void =>
+    this.lockBodyForSheet(event.matches);
+  /** True while the sheet is up and the page behind it must not scroll. */
+  private bodyLockedForSheet = false;
+
   private morphClone: HTMLImageElement | null = null;
   private morphStarted = false;
   private destroyed = false;
@@ -202,6 +232,15 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    // The sheet is a fixed overlay with its own scroller, so the page behind it
+    // must not scroll with it. Purely a side effect on <body> - it never
+    // changes the rendered DOM, so hydration is unaffected.
+    if (this.sheetMode && typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      this.sheetQuery = window.matchMedia(`(max-width: ${SHEET_BREAKPOINT}px)`);
+      this.lockBodyForSheet(this.sheetQuery.matches);
+      this.sheetQuery.addEventListener('change', this.onSheetQueryChange);
+    }
+
     // Lock scrolling for the whole morph so the fixed clone and the (scrollable)
     // hero/card never drift apart mid-flight.
     if (this.morphActive) {
@@ -221,8 +260,20 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.body.style.overflow = '';
+    this.bodyLockedForSheet = false;
+    this.sheetQuery?.removeEventListener('change', this.onSheetQueryChange);
+    this.sheetQuery = null;
     this.destroyed = true;
     this.cleanupMorph();
+  }
+
+  /** Hold (or release) the page behind the sheet, as the viewport crosses the breakpoint. */
+  private lockBodyForSheet(active: boolean): void {
+    this.bodyLockedForSheet = active;
+    // Never fight the lightbox, which holds its own lock while it is open.
+    if (!this.lightboxOpen) {
+      document.body.style.overflow = active ? 'hidden' : '';
+    }
   }
 
   onHeroLoad(): void {
@@ -401,7 +452,9 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sliding = false;
     this.pendingIndex = null;
     this.resetZoom();
-    document.body.style.overflow = '';
+    // Back to whatever the sheet needs, rather than unconditionally unlocking -
+    // on mobile the sheet is still up behind the lightbox.
+    document.body.style.overflow = this.bodyLockedForSheet ? 'hidden' : '';
   }
 
   nextImage(): void {

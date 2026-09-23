@@ -1,101 +1,127 @@
-<div class="hero">
-  <div class="heading enter-up enter-1" [innerHTML]="project.title | noBreak"></div>
-  <div class="description enter-up enter-2" [innerHTML]="project.description | noBreak"></div>
-  <div
-    class="hero-media"
-    [class.enter-up]="!morphActive"
-    [class.enter-3]="!morphActive"
-    [class.loaded]="heroLoaded">
-    <div class="skeleton" aria-hidden="true"></div>
-    <img
-      #heroImage
-      class="image"
-      [class.morph-hidden]="heroHidden"
-      [src]="project.heroImage"
-      (load)="onHeroLoad()" />
+<!-- A routed project page presents itself as the same iOS-style sheet the home
+     page opens, but on mobile only. It is done with CSS (these wrappers are
+     `display: contents` everywhere else), so the prerendered HTML still
+     hydrates as-is and there is no page-then-sheet flash. The whole thing hangs
+     off the `as-sheet` host class - flip PRESENT_AS_SHEET in the component and
+     the plain responsive page below comes back untouched. -->
+<div class="sheet-dim" aria-hidden="true"></div>
+<div class="page-sheet">
+  <div class="sheet-top">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <header class="sheet-header">
+      <a class="sheet-back" routerLink="/" aria-label="Back to all projects">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5 6L9 12L14.5 18" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <h2 class="sheet-client">{{ project.client | titleCase }}</h2>
+      <!-- Mirrors the back button so the title stays centred. -->
+      <span class="sheet-header-spacer" aria-hidden="true"></span>
+    </header>
+    <div class="sheet-divider" aria-hidden="true"></div>
   </div>
-</div>
-<div class="details-container enter-up enter-4">
-  <div class="details">
-    <div class="client">
-      <div class="title">client</div>
-      <div class="value">{{project.client}}</div>
+  <div class="sheet-body">
+    <div class="hero">
+      <div class="heading enter-up enter-1" [innerHTML]="project.title | noBreak"></div>
+      <div class="description enter-up enter-2" [innerHTML]="project.description | noBreak"></div>
+      <div
+        class="hero-media"
+        [class.enter-up]="!morphActive"
+        [class.enter-3]="!morphActive"
+        [class.loaded]="heroLoaded">
+        <div class="skeleton" aria-hidden="true"></div>
+        <img
+          #heroImage
+          class="image"
+          [class.morph-hidden]="heroHidden"
+          [src]="project.heroImage"
+          (load)="onHeroLoad()" />
+      </div>
     </div>
-    <div class="duration">
-      <div class="title">duration</div>
-      <div class="value">{{project.duration}}</div>
+    <div class="details-container enter-up enter-4">
+      <div class="details">
+        <div class="client">
+          <div class="title">client</div>
+          <div class="value">{{project.client}}</div>
+        </div>
+        <div class="duration">
+          <div class="title">duration</div>
+          <div class="value">{{project.duration}}</div>
+        </div>
+        <div class="platform">
+          <div class="title">platform</div>
+          <div class="value">{{project.platform}}</div>
+        </div>
+      </div>
+      <div class="introduction">
+        <div class="title">Introduction</div>
+        <div class="description" [innerHTML]="project.introduction | noBreak"></div>
+      </div>
     </div>
-    <div class="platform">
-      <div class="title">platform</div>
-      <div class="value">{{project.platform}}</div>
+    <div class="content">
+      @if (project.content.images.length) {
+        @for (image of project.content.images; track image; let i = $index) {
+          <img
+            class="image"
+            appRevealOnScroll
+            [revealDelay]="0.05 + i * 0.07"
+            [src]="image"
+            (click)="openLightbox(i)" />
+        }
+      } @else {
+        <!-- No assets yet: coming-soon empty state (not clickable, no lightbox).
+             Art-directed: a mobile crop on small screens, wide crop on desktop. -->
+        <picture class="coming-soon-pic">
+          <source media="(max-width: 768px)" [srcset]="comingSoonImageMobile" type="image/webp" />
+          <img
+            class="image image--coming-soon"
+            appRevealOnScroll
+            [src]="comingSoonImage"
+            alt="Case study coming soon" />
+        </picture>
+      }
     </div>
-  </div>
-  <div class="introduction">
-    <div class="title">Introduction</div>
-    <div class="description" [innerHTML]="project.introduction | noBreak"></div>
-  </div>
-</div>
-<div class="content">
-  @if (project.content.images.length) {
-    @for (image of project.content.images; track image; let i = $index) {
-      <img
-        class="image"
-        appRevealOnScroll
-        [revealDelay]="0.05 + i * 0.07"
-        [src]="image"
-        (click)="openLightbox(i)" />
+    @if (projectNav) {
+      <nav class="project-nav" aria-label="More case studies">
+        <a class="nav-card prev" [routerLink]="projectNav.prev.link">
+          <span class="nav-dir">
+            <svg class="nav-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Previous project
+          </span>
+          <span class="nav-body">
+            <img class="nav-thumb" [src]="projectNav.prev.image" alt="" />
+            <span class="nav-text">
+              <span class="nav-client">{{ projectNav.prev.client }}</span>
+              <span class="nav-title" [innerHTML]="projectNav.prev.title | noBreak"></span>
+            </span>
+          </span>
+        </a>
+        <a class="nav-card next" [routerLink]="projectNav.next.link">
+          <span class="nav-dir">
+            Next project
+            <svg class="nav-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="nav-body">
+            <img class="nav-thumb" [src]="projectNav.next.image" alt="" />
+            <span class="nav-text">
+              <span class="nav-client">{{ projectNav.next.client }}</span>
+              <span class="nav-title" [innerHTML]="projectNav.next.title | noBreak"></span>
+            </span>
+          </span>
+        </a>
+      </nav>
     }
-  } @else {
-    <!-- No assets yet: coming-soon empty state (not clickable, no lightbox).
-         Art-directed: a mobile crop on small screens, wide crop on desktop. -->
-    <picture class="coming-soon-pic">
-      <source media="(max-width: 768px)" [srcset]="comingSoonImageMobile" type="image/webp" />
-      <img
-        class="image image--coming-soon"
-        appRevealOnScroll
-        [src]="comingSoonImage"
-        alt="Case study coming soon" />
-    </picture>
-  }
-</div>
-@if (projectNav) {
-  <nav class="project-nav" aria-label="More case studies">
-    <a class="nav-card prev" [routerLink]="projectNav.prev.link">
-      <span class="nav-dir">
-        <svg class="nav-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        Previous project
-      </span>
-      <span class="nav-body">
-        <img class="nav-thumb" [src]="projectNav.prev.image" alt="" />
-        <span class="nav-text">
-          <span class="nav-client">{{ projectNav.prev.client }}</span>
-          <span class="nav-title" [innerHTML]="projectNav.prev.title | noBreak"></span>
-        </span>
-      </span>
-    </a>
-    <a class="nav-card next" [routerLink]="projectNav.next.link">
-      <span class="nav-dir">
-        Next project
-        <svg class="nav-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </span>
-      <span class="nav-body">
-        <img class="nav-thumb" [src]="projectNav.next.image" alt="" />
-        <span class="nav-text">
-          <span class="nav-client">{{ projectNav.next.client }}</span>
-          <span class="nav-title" [innerHTML]="projectNav.next.title | noBreak"></span>
-        </span>
-      </span>
-    </a>
-  </nav>
-}
 
-@if (!inDrawer) {
-  <app-cta></app-cta>
-}
+    @if (!inDrawer) {
+      <app-cta></app-cta>
+    }
+  </div>
+</div>
+
 
 @if (lightboxOpen) {
   <div class="lightbox" [@lightboxFade] (click)="closeLightbox()">

@@ -1,0 +1,16 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#080808",
+        "titleBar.activeBackground": "#0B0B0B",
+        "titleBar.activeForeground": "#FAFAFA",
+        "titleBar.inactiveBackground": "#080808",
+        "titleBar.inactiveForeground": "#FAFAFA",
+        "statusBar.background": "#080808",
+        "statusBar.foreground": "#FAFAFA",
+        "statusBar.debuggingBackground": "#080808",
+        "statusBar.debuggingForeground": "#FAFAFA",
+        "statusBar.noFolderBackground": "#080808",
+        "statusBar.noFolderForeground": "#FAFAFA"
+    },
+    "windowColors.baseColor": "#080808"
+}
