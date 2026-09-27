@@ -10,8 +10,8 @@ $contentWidthMobile: calc(100% - 32px);
 
 /* ----------------------------------------------------------------------------
    Animations.
-   Keyframes (and their references) are kept at the top level — never inside an
-   @media block — because Angular's view-encapsulation does not rewrite keyframe
+   Keyframes (and their references) are kept at the top level - never inside an
+   @media block - because Angular's view-encapsulation does not rewrite keyframe
    names referenced inside @media, which would silently break the animation.
    Mobile only tweaks the --reveal-shift custom property.
 ---------------------------------------------------------------------------- */
@@ -123,7 +123,7 @@ $contentWidthMobile: calc(100% - 32px);
 }
 
 /* ----------------------------------------------------------------------------
-   MY WORK — headline + copy on the left, portrait on the right
+   MY WORK - headline + copy on the left, portrait on the right
 ---------------------------------------------------------------------------- */
 .work {
   display: flex;
@@ -166,7 +166,7 @@ $contentWidthMobile: calc(100% - 32px);
 }
 
 /* ----------------------------------------------------------------------------
-   MY STORY — dark headline on the left, copy on the right
+   MY STORY - dark headline on the left, copy on the right
 ---------------------------------------------------------------------------- */
 .story {
   display: flex;
@@ -196,7 +196,7 @@ $contentWidthMobile: calc(100% - 32px);
 
 
 /* ----------------------------------------------------------------------------
-   Responsive — only non-animation properties change here (see note up top).
+   Responsive - only non-animation properties change here (see note up top).
 ---------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   // Lighter reveal on mobile: pure fade, no vertical slide.

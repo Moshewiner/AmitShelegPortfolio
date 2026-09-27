@@ -14,7 +14,8 @@
   </div>
 
   <div class="actions">
-    <a class="resume-btn" [href]="resumeUrl" target="_blank" rel="noopener noreferrer" download (click)="closeMenu()">
+    <!-- No `download` attribute: the CV should open in a browser tab (see resumeUrl). -->
+    <a class="resume-btn" [href]="resumeUrl" target="_blank" rel="noopener noreferrer" (click)="closeMenu()">
       <span class="resume-full">My Resume</span>
       <span class="resume-short">Resume</span>
     </a>

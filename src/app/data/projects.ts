@@ -71,8 +71,9 @@ export const PROJECTS: Record<string, Project> = {
     platform: 'Native iOS App for iPad',
     introduction: `GlobalLY is a back-office application created to optimize the daily operations of El Al’s station managers across the globe. Designed as a single hub for flight operations, station information, crew assignments and more - the system replaces manual processes with a streamlined digital workflow.<br /><br />I led the project end-to-end, from mapping workflows and creating detailed wireframes, to delivering a production-ready product design. The interface was crafted in line with El Al’s brand guidelines, ensuring visual consistency across the company’s digital ecosystem. Throughout the process, I collaborated closely with project managers, system analysts, and the development team, while testing early prototypes directly with field managers.<br /><br />One of the key challenges was designing for non-technical users who primarily access the system on tablets, often in time-sensitive environments. By prioritizing clarity and accessibility, I ensured that even complex tasks could be performed in just a few taps.<br /><br />The outcome is a fully deployed solution, now used daily by El Al station managers worldwide. In pilot-phase interviews, station managers highlighted the system’s simplicity and efficiency.Most importantly, GlobalLY saves each station manager more than 10 hours of manual work every week - optimizing time and costs across El Al’s global operations.`,
     content: {
-      // Empty on purpose: an empty gallery renders the "coming soon" empty state.
-      images: [],
+      images: [
+        '/assets/globaly/01FO.webp',
+      ],
     },
   },
   '/routines': {
@@ -81,7 +82,7 @@ export const PROJECTS: Record<string, Project> = {
       'Transforming a complex enterprise platform through modern UX, continuous innovation, and AI-driven experiences.',
     heroImage: '/assets/routines/wide.png',
     client: 'Routines.ai',
-    duration: '9 Months+ (ongoing)',
+    duration: '1 Year (ongoing)',
     platform: 'Desktop SaaS',
     introduction: `Routines is an enterprise orchestration and scheduling platform that helps organizations automate processes, manage complex workflows, and coordinate operational activities from a single centralized system. The platform is actively used in production by leading organizations across Israel (Rafael, Harel Insurance, Soreq, and others).<br /><br />Since joining the team, I have played an active role in the ongoing evolution of the product by designing new features, modernizing existing workflows, and continuously improving usability, efficiency, and the overall user experience.<br /><br />Working closely with the development team, product stakeholders, and CEO, allows me to identify opportunities for improvement, align business and user needs, and drive the product forward through new features and enhanced user experiences.<br /><br />One of the most rewarding challenges throughout the project is making powerful automation and AI capabilities feel approachable, accessible, and easy to use, while maintaining the flexibility and depth required by enterprise users.`,
     content: {

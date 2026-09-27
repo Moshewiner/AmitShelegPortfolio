@@ -23,7 +23,7 @@ body {
 
 }
 // Contact page: paint the warm gradient on the page canvas so it covers 100% of
-// the screen — the routed page host and the globally-rendered footer both sit on
+// the screen - the routed page host and the globally-rendered footer both sit on
 // top of it. Toggled by ContactPageComponent while the page is mounted.
 body.contact-bg {
   background: url("/assets/contact/background.jpg") no-repeat center center fixed;

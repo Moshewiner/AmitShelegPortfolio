@@ -1,15 +1,29 @@
 import { Component, Input, OnInit, OnDestroy, AfterViewInit, HostBinding, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NoBreakPipe } from '../../pipes/no-break.pipe';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { CtaComponent } from '../../components/cta/cta.component';
+import { TitleCasePipe } from '../../pipes/title-case.pipe';
+import { ProjectNavItem, getProjectNav } from '../../data/project-nav';
+
+/**
+ * Present a routed project page as the mobile sheet, so a case study opens the
+ * same way whether it was tapped on the home page or opened straight from its
+ * URL. Everything it does lives behind the `as-sheet` host class and the mobile
+ * media query - set this to false and the plain responsive page (still fully
+ * intact in the stylesheet) comes back.
+ */
+const PRESENT_AS_SHEET = true;
+
+/** Matches $responsiveBreakPoint - the width the sheet styles switch on. */
+const SHEET_BREAKPOINT = 768;
 
 
 @Component({
     selector: 'app-base-page',
-    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective, CtaComponent],
+    imports: [RouterModule, NoBreakPipe, RevealOnScrollDirective, CtaComponent, TitleCasePipe],
     templateUrl: './base-page.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './base-page.component.scss',
@@ -58,11 +72,28 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.inDrawer;
   }
 
+  /**
+   * Routed pages (not the home drawer, which is already inside a sheet) carry
+   * the class that turns the shell in the template into a real sheet on mobile.
+   * A plain class binding, not a viewport check - the media query decides when
+   * it applies, so the prerendered HTML and the hydrated DOM always agree.
+   */
+  @HostBinding('class.as-sheet') get sheetMode(): boolean {
+    return PRESENT_AS_SHEET && !this.inDrawer;
+  }
+
+  /**
+   * Previous/next case study, shown at the end of a routed project page so you
+   * can keep browsing without going back to the home page. Null in the mobile
+   * drawer and on pages that aren't part of the published project list.
+   */
+  public projectNav: { prev: ProjectNavItem; next: ProjectNavItem } | null = null;
+
   /** Shown in the content area when a project has no gallery images yet. */
   public readonly comingSoonImage = '/assets/coming-soon/coming-soon-desktop.webp';
   public readonly comingSoonImageMobile = '/assets/coming-soon/coming-soon-mobile.webp';
 
-  /** True when the case study has no images yet — render the empty state. */
+  /** True when the case study has no images yet - render the empty state. */
   get isComingSoon(): boolean {
     return !this.project?.content?.images?.length;
   }
@@ -122,6 +153,13 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     return `translate(${this.zoomTx}px, ${this.zoomTy}px) scale(${this.zoomScale})`;
   }
 
+  /** Viewport watcher that keeps the body scroll lock in sync with the sheet. */
+  private sheetQuery: MediaQueryList | null = null;
+  private readonly onSheetQueryChange = (event: MediaQueryListEvent): void =>
+    this.lockBodyForSheet(event.matches);
+  /** True while the sheet is up and the page behind it must not scroll. */
+  private bodyLockedForSheet = false;
+
   private morphClone: HTMLImageElement | null = null;
   private morphStarted = false;
   private destroyed = false;
@@ -129,7 +167,12 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   /** Scrollable ancestors locked for the morph duration (restored after). */
   private scrollLocks: { el: HTMLElement; prev: string }[] = [];
 
-  constructor(private cdr: ChangeDetectorRef, private el: ElementRef<HTMLElement>) { }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private el: ElementRef<HTMLElement>,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   @HostBinding('@.disabled') get animationsDisabled(): boolean {
     return this.prefersReducedMotion();
@@ -144,6 +187,10 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Only routed pages get the prev/next nav; inside the mobile drawer the
+    // active route is the home page, and the sheet has its own close affordance.
+    this.projectNav = this.inDrawer ? null : getProjectNav(this.currentProjectLink());
+
     this.morphActive =
       !!this.morphFromRect && !!this.morphFromSrc && !this.prefersReducedMotion();
 
@@ -163,6 +210,16 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
+   * The PROJECTS key for the page we're on. Each project component wraps this
+   * one without passing its own link down, so we read it off the active route
+   * (`elal-cargo` -> `/elal-cargo`) and fall back to the raw URL.
+   */
+  private currentProjectLink(): string {
+    const path = this.route.snapshot.routeConfig?.path;
+    return path ? `/${path}` : this.router.url.split(/[?#]/)[0];
+  }
+
+  /**
    * Reset every candidate scroller to the top. The site scrolls on <body>
    * (overflow-x:hidden makes <body> the scroll container), so window.scrollTo /
    * Angular's ViewportScroller alone don't reset it and the new page would keep
@@ -175,6 +232,15 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    // The sheet is a fixed overlay with its own scroller, so the page behind it
+    // must not scroll with it. Purely a side effect on <body> - it never
+    // changes the rendered DOM, so hydration is unaffected.
+    if (this.sheetMode && typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      this.sheetQuery = window.matchMedia(`(max-width: ${SHEET_BREAKPOINT}px)`);
+      this.lockBodyForSheet(this.sheetQuery.matches);
+      this.sheetQuery.addEventListener('change', this.onSheetQueryChange);
+    }
+
     // Lock scrolling for the whole morph so the fixed clone and the (scrollable)
     // hero/card never drift apart mid-flight.
     if (this.morphActive) {
@@ -194,8 +260,20 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     document.body.style.overflow = '';
+    this.bodyLockedForSheet = false;
+    this.sheetQuery?.removeEventListener('change', this.onSheetQueryChange);
+    this.sheetQuery = null;
     this.destroyed = true;
     this.cleanupMorph();
+  }
+
+  /** Hold (or release) the page behind the sheet, as the viewport crosses the breakpoint. */
+  private lockBodyForSheet(active: boolean): void {
+    this.bodyLockedForSheet = active;
+    // Never fight the lightbox, which holds its own lock while it is open.
+    if (!this.lightboxOpen) {
+      document.body.style.overflow = active ? 'hidden' : '';
+    }
   }
 
   onHeroLoad(): void {
@@ -355,7 +433,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openLightbox(index: number): void {
-    // The "coming soon" empty state is not a real asset — never open it.
+    // The "coming soon" empty state is not a real asset - never open it.
     if (this.isComingSoon) {
       return;
     }
@@ -374,7 +452,9 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.sliding = false;
     this.pendingIndex = null;
     this.resetZoom();
-    document.body.style.overflow = '';
+    // Back to whatever the sheet needs, rather than unconditionally unlocking -
+    // on mobile the sheet is still up behind the lightbox.
+    document.body.style.overflow = this.bodyLockedForSheet ? 'hidden' : '';
   }
 
   nextImage(): void {
@@ -531,7 +611,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
     const wasPan = this.gesture === 'pan';
     this.gesture = 'none';
 
-    // A stationary touch is a tap — double-tap toggles zoom in OR out. This must
+    // A stationary touch is a tap - double-tap toggles zoom in OR out. This must
     // run for both pan (zoomed in) and swipe (zoomed out) so you can zoom back.
     if (!this.touchMoved) {
       const now = Date.now();
@@ -545,7 +625,7 @@ export class BasePageComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    // A drag while zoomed just panned the image — nothing to do on release.
+    // A drag while zoomed just panned the image - nothing to do on release.
     if (wasPan) {
       return;
     }

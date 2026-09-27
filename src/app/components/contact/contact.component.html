@@ -16,7 +16,7 @@
 <!-- Outer track. In scrub mode + [pinned] it is tall with the card sticky-
      centered (scroll travel for the scrub). In loop mode the card is simply
      centered in the viewport (no extra scroll). -->
-<div class="scrub" #scrub [class.pinned]="pinned" [class.is-loop]="isLoop">
+<div class="scrub" #scrub [class.pinned]="pinned" [class.is-loop]="isLoop" [class.is-page]="animated">
   <div class="pin">
     <div class="card" appRevealOnScroll revealVariant="fade">
       <!-- Rounded gradient background (clipped). -->
@@ -27,7 +27,7 @@
 
       <!-- Phone (animated): white handset on black, composited via mix-blend: screen.
            Loop mode autoplays it; scrub mode drives currentTime from scroll.
-           Kept for later use — re-enable this and remove the <img> above to restore. -->
+           Kept for later use - re-enable this and remove the <img> above to restore. -->
       <!-- <video
         class="phone"
         #video
