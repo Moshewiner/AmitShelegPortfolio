@@ -6,6 +6,7 @@ import { ModalComponent } from '../../components/modal/modal.component';
 import { BasePageComponent } from '../base-page/base-page.component';
 import { CtaComponent } from '../../components/cta/cta.component';
 import { Project, getProject } from '../../data/projects';
+import { HOME_PROJECTS, homeProjectColumns } from '../../data/home-projects';
 
 @Component({
     selector: 'app-home',
@@ -61,90 +62,16 @@ export class NewHomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  public newProjects = [
-    { 
-      image: '/assets/cargo/preview.webp', 
-      name: 'EL AL CARGO',
-      title: `Redesigning and Refining [El Al] Cargo's Website & App`, 
-      link: '/elal-cargo',
-    },
-    { 
-      image: '/assets/routines/preview.webp', 
-      name: 'ROUTINES.AI',
-      title: `Leading the Design of an Orchestration & Scheduling Platform`, 
-      link: '/routines',
-      badge: 'new' as const,
-    },
-    { 
-      image: '/assets/shahaf-gov/shahaf-preview.webp', 
-      name: 'GOV.IL - SHAHAF',
-      title: 'Simplifying Freedom of Information (FOI) Requests Management', 
-      link: '/gov-shahaf',
-    },
-    { 
-      image: '/assets/globaly/preview.webp', 
-      name: 'EL AL GLOBALY',
-      title: `Smarter Tools for El Al's Airport Operations`, 
-      link: '/elal-globaly',
-    },
-    { 
-      image: '/assets/clalit/preview.webp', 
-      name: 'CLALIT',
-      title: `Enhancing Clalit's Workshop Registration Experience`, 
-      link: '/clalit',
-    },
-    { 
-      image: '/assets/applied-materials/preview.webp', 
-      name: 'APPLIED MATERIALS',
-      title: 'Design System Migration and Product Design', 
-      link: '',
-      badge: 'confidential' as const,
-    },
-    // { 
-      //   image: '/assets/new-home/h.png', 
-      //   name: 'RAM ADERET',
-      //   title: 'Ram Aderet Digital Platform', 
-    //   link: '/ram-aderet',
-    // },
-    // { 
-    //   image: '/assets/new-home/item.png', 
-    //   name: 'GOV.IL - ONBOARDING',
-    //   title: 'Government Services Digital Onboarding', 
-    //   link: '/gov-onboarding',
-    // },
-    // { 
-    //   image: '/assets/new-home/h.png', 
-    //   name: 'VONOTEAM',
-    //   title: 'VonoTeam Digital Platform', 
-    //   link: '/vonoteam',
-    // },
-    // { 
-    //   image: '/assets/new-home/h.png', 
-    //   name: 'ABRA',
-    //   title: 'Abra Digital Banking Platform', 
-    //   link: '/abra',
-    // },
-    // { 
-    //   image: '/assets/new-home/h.png', 
-    //   name: 'APPLIED MATERIALS',
-    //   title: 'Applied Materials Digital Platform', 
-    //   link: '/applied-materials',
-    // },
-    // { 
-    //   image: '/assets/new-home/h.png', 
-    //   name: 'CELLCOM POC',
-    //   title: 'Cellcom POC Digital Platform', 
-    //   link: '/cellcom-poc',
-    // },
-  ];
+  /** Source of truth lives in data/home-projects.ts so the prev/next nav can share it. */
+  public newProjects = HOME_PROJECTS;
 
   // Split projects into two columns
   get leftColumnProjects() {
-    return this.newProjects.filter((_, index) => index % 2 === 0);
+    return homeProjectColumns().left;
   }
 
   get rightColumnProjects() {
-    return this.newProjects.filter((_, index) => index % 2 === 1);
+    return homeProjectColumns().right;
   }
 
 
