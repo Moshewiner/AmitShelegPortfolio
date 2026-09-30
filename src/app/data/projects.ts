@@ -73,6 +73,15 @@ export const PROJECTS: Record<string, Project> = {
     content: {
       images: [
         '/assets/globaly/01FO.webp',
+        '/assets/globaly/02SM.webp',
+        '/assets/globaly/03FO-OG.webp',
+        '/assets/globaly/04DB.webp',
+        '/assets/globaly/05CA.webp',
+        '/assets/globaly/06AD.webp',
+        '/assets/globaly/07SSR-ER.webp',
+        '/assets/globaly/08CP.webp',
+        '/assets/globaly/09ST.webp',
+        '/assets/globaly/10OT.webp',
       ],
     },
   },
@@ -82,7 +91,7 @@ export const PROJECTS: Record<string, Project> = {
       'Transforming a complex enterprise platform through modern UX, continuous innovation, and AI-driven experiences.',
     heroImage: '/assets/routines/wide.png',
     client: 'Routines.ai',
-    duration: '1 Year (ongoing)',
+    duration: '1 Year+ (ongoing)',
     platform: 'Desktop SaaS',
     introduction: `Routines is an enterprise orchestration and scheduling platform that helps organizations automate processes, manage complex workflows, and coordinate operational activities from a single centralized system. The platform is actively used in production by leading organizations across Israel (Rafael, Harel Insurance, Soreq, and others).<br /><br />Since joining the team, I have played an active role in the ongoing evolution of the product by designing new features, modernizing existing workflows, and continuously improving usability, efficiency, and the overall user experience.<br /><br />Working closely with the development team, product stakeholders, and CEO, allows me to identify opportunities for improvement, align business and user needs, and drive the product forward through new features and enhanced user experiences.<br /><br />One of the most rewarding challenges throughout the project is making powerful automation and AI capabilities feel approachable, accessible, and easy to use, while maintaining the flexibility and depth required by enterprise users.`,
     content: {
